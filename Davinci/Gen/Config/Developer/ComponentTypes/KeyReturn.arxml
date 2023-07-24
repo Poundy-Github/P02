@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="E802D3A4-0F80-4733-93FE-6A585400BB80">
+          <SHORT-NAME>KeyReturn</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="9D26A787-21E5-4BC7-96D6-E4DA695F53C0">
+              <SHORT-NAME>KeyReturn_Server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/disanle</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/enable</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/register</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/remove</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/State</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/KeyReturn_Server</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="20B1AD3A-CE94-4D43-8771-545D03384EFE">
+              <SHORT-NAME>AdjVolDwnSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolDwnSwtSts/AdjVolDwnSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/AdjVolDwnSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="1B36A846-0E5C-40AC-B672-14DFD3762735">
+              <SHORT-NAME>AdjVolUpSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolUpSwtSts/AdjVolUpSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/AdjVolUpSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="DEBE881D-F081-4FC7-A0B7-E32E77E14A61">
+              <SHORT-NAME>CustomSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts/CustomSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/CustomSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="D71CD79C-C3CC-4D1F-986B-57551983A567">
+              <SHORT-NAME>CustomSwtSts_Mmed</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts_Mmed/CustomSwtSts_Mmed</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/CustomSwtSts_Mmed</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="7515C037-4E7D-4BFC-BF99-060456E35818">
+              <SHORT-NAME>EnterSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts/EnterSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/EnterSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="54641743-33F0-47AB-9D9F-7DA173A609C3">
+              <SHORT-NAME>EnterSwtSts_Mmed</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts_Mmed/EnterSwtSts_Mmed</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/EnterSwtSts_Mmed</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="2FF7732F-DCA7-4BF0-B591-15EDB5621D9E">
+              <SHORT-NAME>HomeSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/HomeSwtSts/HomeSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/HomeSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="83CE91D7-BBCD-4E6D-AF65-0B1341C097BA">
+              <SHORT-NAME>MenuReturnSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MenuReturnSwtSts/MenuReturnSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/MenuReturnSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="4AF05BFC-8885-4C1F-9050-CD7270D5A6F4">
+              <SHORT-NAME>MuteSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MuteSwtSts/MuteSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/MuteSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="F8BC0937-B015-4805-81A0-7220FA609069">
+              <SHORT-NAME>PageDwnSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageDwnSwtSts/PageDwnSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/PageDwnSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="979A4991-7781-43E7-ABA3-C09A2DE22F18">
+              <SHORT-NAME>PageLSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageLSwtSts/PageLSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/PageLSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="22A6D31F-BA87-4C0A-AD3E-0921C3B7C667">
+              <SHORT-NAME>PageRSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageRSwtSts/PageRSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/PageRSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="BAD682C3-A641-4EC3-BECC-7606DB63962E">
+              <SHORT-NAME>PageUpSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageUpSwtSts/PageUpSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/PageUpSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="C494B70B-4ABD-4D1E-99BC-9DDA757C1276">
+              <SHORT-NAME>SeekDwnSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekDwnSwtSts/SeekDwnSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SeekDwnSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="CB932593-FC7E-4809-A03F-3254CE0E7A06">
+              <SHORT-NAME>SeekUpSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekUpSwtSts/SeekUpSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SeekUpSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="29AC215D-041D-4A06-82C5-C98C5AEB0CD5">
+              <SHORT-NAME>VRSwtSts</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/VRSwtSts/VRSwtSts</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0.5</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/VRSwtSts</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="D7D16D41-D035-4555-AE9F-58ADB300577C">
+              <SHORT-NAME>KeyReturn_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <INIT-EVENT UUID="27E00076-73A3-4DF7-96F2-B8FA3485DA5A">
+                  <SHORT-NAME>KeyReturn_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="65774141-2354-4E34-9360-481DE73715F5">
+                  <SHORT-NAME>TMT_KeyReturn_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="08C0137E-B498-462A-BD26-7A13D5AB050A">
+                  <SHORT-NAME>OIT_Runnable_1_KeyReturn_Server_disanle</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Server_disanle</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/KeyReturn_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/disanle</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="EC1D9216-DD93-4AFC-97A8-AA79951DB5FA">
+                  <SHORT-NAME>OIT_Runnable_2_KeyReturn_Server_enable</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Server_enable</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/KeyReturn_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/enable</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="53AA124F-CADF-4326-B853-2C24E1F42AE6">
+                  <SHORT-NAME>OIT_Runnable_3_KeyReturn_Server_register</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Server_register</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/KeyReturn_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/register</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="86FC9B17-4AC5-4376-AFDB-2A8DCD4977E9">
+                  <SHORT-NAME>OIT_Runnable_4_KeyReturn_Server_remove</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Server_remove</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/KeyReturn_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/remove</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="36E9CF30-A0D8-41C5-9D6C-4AC1E5EA5500">
+                  <SHORT-NAME>OIT_Runnable_KeyReturn_Server_State</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior/KeyReturn_Server_State</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/KeyReturn_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/KeyReturn_Server/State</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="C9E628A8-726D-448A-8CEA-2472E55E3FF3">
+                  <SHORT-NAME>KeyReturn_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="49E533D7-D526-43F0-B8A5-AD35EA9CC3FE">
+                      <SHORT-NAME>REC_AdjVolDwnSwtSts_AdjVolDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/AdjVolDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolDwnSwtSts/AdjVolDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="57F9E37A-BD2A-4375-A9AE-CBA2E8EBF475">
+                      <SHORT-NAME>REC_AdjVolUpSwtSts_AdjVolUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/AdjVolUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolUpSwtSts/AdjVolUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="75E82C33-4435-4B26-85C8-1BB5A32D3EB3">
+                      <SHORT-NAME>REC_CustomSwtSts_CustomSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/CustomSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts/CustomSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="CAFA40BD-B6B0-445B-808F-803591ECB6FB">
+                      <SHORT-NAME>REC_CustomSwtSts_Mmed_CustomSwtSts_Mmed</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/CustomSwtSts_Mmed</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts_Mmed/CustomSwtSts_Mmed</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="42D8EACE-1E81-467E-B5AC-CCAC22F5D1A8">
+                      <SHORT-NAME>REC_EnterSwtSts_EnterSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/EnterSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts/EnterSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="7BC5FFB7-8CEB-4DDA-8E79-6D5FC095BC63">
+                      <SHORT-NAME>REC_EnterSwtSts_Mmed_EnterSwtSts_Mmed</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/EnterSwtSts_Mmed</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts_Mmed/EnterSwtSts_Mmed</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="68852F5F-53B6-48EB-8BB1-DD3AD328C2EC">
+                      <SHORT-NAME>REC_HomeSwtSts_HomeSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/HomeSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/HomeSwtSts/HomeSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="14F9FF80-154A-4C65-B270-CC6B88F40AB9">
+                      <SHORT-NAME>REC_MenuReturnSwtSts_MenuReturnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/MenuReturnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MenuReturnSwtSts/MenuReturnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="33FD155D-7707-4D54-BC9B-86303B17D896">
+                      <SHORT-NAME>REC_MuteSwtSts_MuteSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/MuteSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MuteSwtSts/MuteSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="029A2EC7-8B9D-40D5-8866-EBA85979F2F3">
+                      <SHORT-NAME>REC_PageDwnSwtSts_PageDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageDwnSwtSts/PageDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="55F6CA47-6705-467B-A725-D90A5092C7B1">
+                      <SHORT-NAME>REC_PageLSwtSts_PageLSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageLSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageLSwtSts/PageLSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="BB6093DC-E23F-43D7-98EB-B1139203F17E">
+                      <SHORT-NAME>REC_PageRSwtSts_PageRSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageRSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageRSwtSts/PageRSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="2A676EA2-552C-4914-9153-80E2DD80A892">
+                      <SHORT-NAME>REC_PageUpSwtSts_PageUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageUpSwtSts/PageUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="6EAF2C02-918B-4EAC-BC4A-1E0A36E28D7A">
+                      <SHORT-NAME>REC_SeekDwnSwtSts_SeekDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/SeekDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekDwnSwtSts/SeekDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="C43754E7-3DE4-4192-8FD2-68C95FC3E7C1">
+                      <SHORT-NAME>REC_SeekUpSwtSts_SeekUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/SeekUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekUpSwtSts/SeekUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="66CC95EA-6967-46B6-B282-5162A119CD14">
+                      <SHORT-NAME>REC_VRSwtSts_VRSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/VRSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/VRSwtSts/VRSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SYMBOL>KeyReturn_Init</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="0A8D5EC2-7CD5-4EDF-AB79-931EF9849269">
+                  <SHORT-NAME>KeyReturn_MainFunction</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="02CA252D-B9AD-4551-A7D3-C58914D3497A">
+                      <SHORT-NAME>REC_AdjVolDwnSwtSts_AdjVolDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/AdjVolDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolDwnSwtSts/AdjVolDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="B30865E2-25E6-4448-B63A-9EF38616B0E3">
+                      <SHORT-NAME>REC_AdjVolUpSwtSts_AdjVolUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/AdjVolUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/AdjVolUpSwtSts/AdjVolUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="8EA2165E-F3D5-4BAE-AD54-FC4F0FC801AE">
+                      <SHORT-NAME>REC_CustomSwtSts_CustomSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/CustomSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts/CustomSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="652CB1F1-1F94-4732-A204-563822AB53A2">
+                      <SHORT-NAME>REC_CustomSwtSts_Mmed_CustomSwtSts_Mmed</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/CustomSwtSts_Mmed</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/CustomSwtSts_Mmed/CustomSwtSts_Mmed</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="F2459129-3850-4F25-BD33-ED54458A0389">
+                      <SHORT-NAME>REC_EnterSwtSts_EnterSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/EnterSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts/EnterSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="E3196CBB-8485-4C10-9454-5A2332B0538A">
+                      <SHORT-NAME>REC_EnterSwtSts_Mmed_EnterSwtSts_Mmed</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/EnterSwtSts_Mmed</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EnterSwtSts_Mmed/EnterSwtSts_Mmed</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="46E77261-0F54-4AA1-9763-9C431CED0638">
+                      <SHORT-NAME>REC_HomeSwtSts_HomeSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/HomeSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/HomeSwtSts/HomeSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="CE018DE1-76D8-43B2-A5A3-F6FE29CBD248">
+                      <SHORT-NAME>REC_MenuReturnSwtSts_MenuReturnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/MenuReturnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MenuReturnSwtSts/MenuReturnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="3A0C311B-6AB6-4DCE-876E-FBA5F49FAC04">
+                      <SHORT-NAME>REC_MuteSwtSts_MuteSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/MuteSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/MuteSwtSts/MuteSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="36E07CE0-7020-4DA1-9AE4-8BE66B266ABE">
+                      <SHORT-NAME>REC_PageDwnSwtSts_PageDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageDwnSwtSts/PageDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="445132B6-C8E6-455C-A982-EDBEC0A49590">
+                      <SHORT-NAME>REC_PageLSwtSts_PageLSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageLSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageLSwtSts/PageLSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="E6CA2C26-CE64-4A7C-90F9-257E431EF92C">
+                      <SHORT-NAME>REC_PageRSwtSts_PageRSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageRSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageRSwtSts/PageRSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="D07C16AF-92B2-472C-8B5B-3F56D9B4C5EA">
+                      <SHORT-NAME>REC_PageUpSwtSts_PageUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/PageUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/PageUpSwtSts/PageUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="BFFFC790-5FB3-4C91-9290-75A3BFBFE792">
+                      <SHORT-NAME>REC_SeekDwnSwtSts_SeekDwnSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/SeekDwnSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekDwnSwtSts/SeekDwnSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="A4C9A18F-3CCB-4BE1-AD73-6593648E59A7">
+                      <SHORT-NAME>REC_SeekUpSwtSts_SeekUpSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/SeekUpSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekUpSwtSts/SeekUpSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="CAA29BCA-E00F-4EEF-AEAC-A38F1D160CC2">
+                      <SHORT-NAME>REC_VRSwtSts_VRSwtSts</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/KeyReturn/VRSwtSts</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/VRSwtSts/VRSwtSts</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SYMBOL>KeyReturn_MainFunction</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="26F1802E-C51F-42CF-960F-6772D43EAC5D">
+                  <SHORT-NAME>KeyReturn_Server_disanle</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>KeyReturn_Server_disanle</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="AED750EB-910B-49F7-9632-6934635E7EE1">
+                  <SHORT-NAME>KeyReturn_Server_enable</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>KeyReturn_Server_enable</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="4B242B60-D816-4F86-92CB-7AB9C1CFA07C">
+                  <SHORT-NAME>KeyReturn_Server_register</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>KeyReturn_Server_register</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="2E7A00A3-8886-4C35-86AC-8C81BB841400">
+                  <SHORT-NAME>KeyReturn_Server_remove</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>KeyReturn_Server_remove</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="B5DACB11-226C-44A5-A704-B9CF9E8A35B1">
+                  <SHORT-NAME>KeyReturn_Server_State</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>KeyReturn_Server_State</SYMBOL>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="6805996D-746D-4AC4-85BE-F52067975A32">
+          <SHORT-NAME>KeyReturn_Implementation</SHORT-NAME>
+          <CODE-DESCRIPTORS>
+            <CODE UUID="A165DBD4-B2FC-475E-8D67-31EAF8101021">
+              <SHORT-NAME>Default</SHORT-NAME>
+              <ARTIFACT-DESCRIPTORS>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+              </ARTIFACT-DESCRIPTORS>
+            </CODE>
+          </CODE-DESCRIPTORS>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/KeyReturn/KeyReturn_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

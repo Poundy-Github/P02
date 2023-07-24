@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="0b50664f-3929-4e3d-b994-88d9bcef71a5">
+          <SHORT-NAME>CanSM</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSAR/CanSM</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/MICROSAR/CanSM_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="d71a52c9-570d-4995-b32c-cb6ea7b91e64">
+              <SHORT-NAME>CanSMConfiguration</SHORT-NAME>
+              <ANNOTATIONS>
+                <ANNOTATION>
+                  <LABEL>
+                    <L-4 L="FOR-ALL">CHNL_346f2748</L-4>
+                  </LABEL>
+                  <ANNOTATION-ORIGIN>DV:RemovedDerivedContainer</ANNOTATION-ORIGIN>
+                </ANNOTATION>
+              </ANNOTATIONS>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanSM/CanSMConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMModeRequestRepetitionMax</DEFINITION-REF>
+                  <VALUE>10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMModeRequestRepetitionTime</DEFINITION-REF>
+                  <VALUE>0.1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="46ec7260-1b93-3dc0-a5a6-3b36362bc23b">
+                  <SHORT-NAME>CHNL_b4130143</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">CHNL</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMBorCounterL1ToL2</DEFINITION-REF>
+                      <VALUE>6</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMBorTimeL1</DEFINITION-REF>
+                      <VALUE>0.09</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMBorTimeL2</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMBorTimeTxEnsured</DEFINITION-REF>
+                      <VALUE>0.1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMBorTxConfirmationPolling</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMComMNetworkHandleRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/ComM/ComMConfigSet/CN_B30_for_SC_CAN_V3_2_c0d6c67b</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMTransceiverId</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/CanIf/CanIfTrcvDrvCfg/CanIfTrcvCfg_CAN3</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="f5eedf93-93d7-3c95-b96f-58406c641d31">
+                      <SHORT-NAME>CT_B30_for_SC_CAN_V3_2_51247d91</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">CT_B30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMController</DEFINITION-REF>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/CanSM/CanSMConfiguration/CanSMManagerNetwork/CanSMController/CanSMControllerId</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/CanIf/CanIfCtrlDrvCfg_7d254554/CT_B30_for_SC_CAN_V3_2_4a04dc9c</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="c228654b-e6ec-4d35-bb4b-7c14ce6ecbdc">
+              <SHORT-NAME>CanSMGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanSM/CanSMGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMMainFunctionTimePeriod</DEFINITION-REF>
+                  <VALUE>0.005</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMBorCheckLevel</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMSetBaudrateApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMBusOffBegin</DEFINITION-REF>
+                  <VALUE>CanServer_BusOffBegin</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMBusOffEnd</DEFINITION-REF>
+                  <VALUE>CanServer_BusOffEnd</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="f1a7d060-0c6c-4d25-a577-6a64ae80487d">
+                  <SHORT-NAME>CanSMGeneration</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMGeneration</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMGeneration/CanSMOutOfBoundsWriteSanitizer</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanSM/CanSMGeneral/CanSMGeneration/CanSMOutOfBoundsReadSanitizer</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

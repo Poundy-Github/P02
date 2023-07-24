@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-ABSTRACTION-SW-COMPONENT-TYPE UUID="061F4D2F-5684-4315-96D7-C46ACF1646E8">
+          <SHORT-NAME>IoHwAb</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="13E19B8B-3C6E-4F58-BAFE-4EE86D6C07EA">
+              <SHORT-NAME>IoHwAb_Interface</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetHsLsOutput</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPeriodAndDuty</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetDuty</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPin</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetPin</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetVoltage</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/IoHwAb_Interface</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="CB37A3D2-ABAF-493E-A6F9-EC93FA4C6319">
+              <SHORT-NAME>IoHwAb_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="DD762A68-C380-474F-8BC4-55DED1E432B4">
+                  <SHORT-NAME>ExclusiveArea_IoHwAb</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <EVENTS>
+                <TIMING-EVENT UUID="58568205-10BB-4E18-B72C-49F3235FE705">
+                  <SHORT-NAME>TMT_IoHwAb_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="3098594F-388E-4D0F-AC2E-9351A5EAE26D">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_SetHsLsOutput_IoHwAb_Interface_SetHsLsOutput</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_SetHsLsOutput</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetHsLsOutput</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="C0908A49-1494-409D-83FF-76A92F957004">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_SetPeriodAndDuty_IoHwAb_Interface_SetPeriodAndDuty</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_SetPeriodAndDuty</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPeriodAndDuty</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="5D7612D7-3FED-48E0-9101-386F8A4D3CEC">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_SetDuty_IoHwAb_Interface_SetDuty</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_SetDuty</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetDuty</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="2DA55A3B-4E45-447F-B9DE-04B5ABC73019">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_SetPin_IoHwAb_Interface_SetPin</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_SetPin</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPin</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="A1564F68-09F5-4563-B941-CA0870DDEAB3">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_GetPin_IoHwAb_Interface_GetPin</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_GetPin</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetPin</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="8E67FC75-B2E5-4095-8316-359BE25BEB4B">
+                  <SHORT-NAME>OIT_IoHwAb_Interface_GetVoltage_IoHwAb_Interface_GetVoltage</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_GetVoltage</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IoHwAb/IoHwAb_Interface</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetVoltage</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="40335753-E9E6-4742-A607-52EA001DA272">
+                  <SHORT-NAME>IoHwAb_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/ExclusiveArea_IoHwAb</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="998191DA-12D9-422F-A013-D2619C3F8F4C">
+                  <SHORT-NAME>IoHwAb_SetHsLsOutput</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="56B61170-2DD2-4921-A24F-3431E6CC3EB7">
+                  <SHORT-NAME>IoHwAb_SetPeriodAndDuty</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="61DEF8ED-F70D-4ABE-9A6F-3AC0BAC92D39">
+                  <SHORT-NAME>IoHwAb_SetDuty</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="8113F516-D78D-42DA-A383-9ED9161845D4">
+                  <SHORT-NAME>IoHwAb_SetPin</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="F1A892AB-57E1-4104-83B6-16566DBF1DB3">
+                  <SHORT-NAME>IoHwAb_GetPin</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="1BB81A79-11F4-43AA-8638-B6DD9705738F">
+                  <SHORT-NAME>IoHwAb_GetVoltage</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="A3B75DBB-9F13-4DB8-82D2-53437A0983FC">
+          <SHORT-NAME>IoHwAb_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

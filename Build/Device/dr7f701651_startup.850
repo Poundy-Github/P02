@@ -1,0 +1,141 @@
+-------------------------------------------------------------------------------
+-- Module      = dr7f701651_startup.850
+-- Version     = V1.40
+--               extracted from device file dr7f701651.dvf 
+--               by DeFiXRH850 1.0.2.6
+-------------------------------------------------------------------------------
+--                                  COPYRIGHT
+-------------------------------------------------------------------------------
+-- Copyright (c) 2018 by Renesas Electronics Europe GmbH,
+--               a company of the Renesas Electronics Corporation
+-------------------------------------------------------------------------------
+-- Purpose:      Startup Code
+--
+-------------------------------------------------------------------------------
+--
+-- Warranty Disclaimer
+--
+-- Because the Product(s) is licensed free of charge, there is no warranty
+-- of any kind whatsoever and expressly disclaimed and excluded by Renesas,
+-- either expressed or implied, including but not limited to those for
+-- non-infringement of intellectual property, merchantability and/or
+-- fitness for the particular purpose.
+-- Renesas shall not have any obligation to maintain, service or provide bug
+-- fixes for the supplied Product(s) and/or the Application.
+--
+-- Each User is solely responsible for determining the appropriateness of
+-- using the Product(s) and assumes all risks associated with its exercise
+-- of rights under this Agreement, including, but not limited to the risks
+-- and costs of program errors, compliance with applicable laws, damage to
+-- or loss of data, programs or equipment, and unavailability or
+-- interruption of operations.
+--
+-- Limitation of Liability
+--
+-- In no event shall Renesas be liable to the User for any incidental,
+-- consequential, indirect, or punitive damage (including but not limited
+-- to lost profits) regardless of whether such liability is based on breach
+-- of contract, tort, strict liability, breach of warranties, failure of
+-- essential purpose or otherwise and even if advised of the possibility of
+-- such damages. Renesas shall not be liable for any services or products
+-- provided by third party vendors, developers or consultants identified or
+-- referred to the User by Renesas in connection with the Product(s) and/or
+-- the Application.
+--
+-------------------------------------------------------------------------------
+-- Environment:
+--              Device:         R7F701651   
+--              IDE:            GHS Multi for V800  V6.xx or later
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-------------  Selection of external interrupt service handler
+-------------  User modifiable section
+-------------  Please uncomment the required interrupt service handler
+-------------------------------------------------------------------------------
+#define IRQ_TABLE_START                 0x00000200u
+  .global _RESET_CORE0
+-------------------------------------------------------------------------------
+-------------  Basic Initialisation of the controller
+-------------  User modifiable section
+-------------------------------------------------------------------------------
+  .weak	___lowinit
+  .weak	___ghs_rramstart
+  .set   EBV, 0x8000
+  .text
+_RESET_CORE0:
+  -- Initialization of the global pointer
+  mov     __gp, gp
+
+  -- Initialization of the text pointer
+  mov     __tp, r5
+
+  -- Initialization of the stack pointer
+  movhi	hi(___ghsend_stack),zero,sp
+  movea	lo(___ghsend_stack),sp,sp
+
+  -- 4-byte stack alignment
+  mov -4,r1
+  and r1,sp
+
+  -- Initialization of the interrupt base pointer
+  .extern _OS_EXCVEC_CORE0_CODE_START
+  .extern _OS_INTVEC_CORE0_CODE_START
+  mov _OS_INTVEC_CORE0_CODE_START,r1
+  ldsr r1,intbp,1
+
+  -- First set EBASE register address
+  mov _OS_EXCVEC_CORE0_CODE_START, r10
+  -- set 0x0 or 0x1 to EBASE.RINT for reduced interrupt 
+  -- ori  1, r10
+  ldsr r10, EBASE, 1
+  -- then set 1 to PSW.EBV -> RBASE!=EBASE
+  stsr PSW, r10, 0
+  mov  EBV, r11
+  or   r11, r10
+  ldsr r10, PSW, 0
+
+
+
+  -- Jump to the HW initialisation function
+  .global _Premain_c0
+--  jarl _Premain_c0, lp
+--  .global  _Preinitialize_CLKC_PLLInit
+--  jarl	_Preinitialize_CLKC_PLLInit, lp
+--  jarl	___lowinit, lp
+  jarl    _R_SYSTEM_ClearGlobalBRAM, lp
+  mov   ___ghs_ramstart, r6   -- start of local RAM
+  mov   ___ghs_rramstart, r7  -- start of retention RAM
+  cmp   r7, r6                -- is only retention RAM available?
+  be    5f                    -- skip initialization of RAM
+
+  mov   ___ghs_ramend, r7     -- load end of local RAM
+  mov   r0, r1
+1:
+  st.dw r0, 0[r6]
+  addi  8, r6, r6
+  cmp   r7, r6
+  bl    1b
+5:
+  -- Jump to the initialisation functions of the library
+  -- and from there to main()
+  jr __start
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-------------  Interrupt service routine of unused interrupts
+  .global  __unused_isr
+__unused_isr:
+  br	__unused_isr
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-------------  Add section ".intvect" to your linker command file
+-------------  at address 0x0000
+-------------
+-------------	i.e.	.intvect    0x0000:
+-------------------------------------------------------------------------------
+
+
+
+

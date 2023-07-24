@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="4879E4BB-AC29-4CF6-A90E-8579CABBF670">
+          <SHORT-NAME>Speedo</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="67DEAAE1-F024-4F10-A97E-D102B508C7F8">
+              <SHORT-NAME>Speedo_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <INIT-EVENT UUID="6264A30F-D5AD-441A-98A1-39AEBBBF684E">
+                  <SHORT-NAME>Speedo_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Speedo/Speedo_InternalBehavior/Speedo_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="294E22F4-5CC6-4F56-8429-F1421A7671CF">
+                  <SHORT-NAME>TMT_Speedo_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Speedo/Speedo_InternalBehavior/Speedo_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.02</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="59E934E6-3F74-49CB-8916-507899E60E02">
+                  <SHORT-NAME>Speedo_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="A25111C8-D4A0-475D-B4E8-38900664248E">
+                  <SHORT-NAME>Speedo_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="20242F99-A0A1-4044-9129-8609D554AF84">
+          <SHORT-NAME>Speedo_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Speedo/Speedo_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

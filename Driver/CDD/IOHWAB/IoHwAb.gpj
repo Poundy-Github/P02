@@ -1,0 +1,12 @@
+#!gbuild
+[Subproject]
+IoHwAb_HsLsDrv.c
+IoHwAb_HsLsDrv_Cfg.c
+IoHwAb.c
+IoHwAb_Adc.c
+IoHwAb_Dio.c
+IoHwAb_Filter.c
+IoHwAb_Adc_Cfg.c
+IoHwAb_Dio_Cfg.c
+IoHwAb_Pwm .c
+IoHwAb_Pwm_Cfg.c

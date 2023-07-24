@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="d4783d75-c13f-4611-a584-b07a98363a2d">
+          <SHORT-NAME>LinTrcv</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="b663ddaa-5f57-4d14-a450-ad3c39131662">
+              <SHORT-NAME>LinTrcvGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvGetVersionInfo</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvIndex</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvWaitCount</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvWakeUpSupport</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvGeneral/LinTrcvSafeBswChecks</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="3436dfa6-274a-4f88-9371-02de5bc7a487">
+              <SHORT-NAME>LinTrcvChannel</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvChannelId</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvChannelUsed</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvInitState</DEFINITION-REF>
+                  <VALUE>LINTRCV_TRCV_MODE_NORMAL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupByBusUsed</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupByPinUsed</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvSleepInitWorkaround</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="29e71bff-841b-4ee6-9cb9-38bccd76b0a7">
+                  <SHORT-NAME>LinTrcvAccess</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="30bdd155-a009-4b65-ac63-20fd8f28b8ac">
+                      <SHORT-NAME>LinTrcvDioAccess</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="a54ac779-6cd4-4040-a1c1-a01a7352f4c0">
+                          <SHORT-NAME>PinEN</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinEn</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort02/VIP_RLIN31_SLP</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="f0523f06-f02f-4444-bc62-5f361f204e22">
+                          <SHORT-NAME>PinRX</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinRx</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_RLIN31_RXD</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="06bef914-d309-44a2-9b71-ae83f496bebe">
+                          <SHORT-NAME>PinTX</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinTx</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_RLIN31_TXD</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="38fb1d8b-349c-43e4-9430-c05d53d5424a">
+                  <SHORT-NAME>LinTrcvWakeupSourceDetectionDefinition</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition/LinTrcvWakeUpByBusIdentification</DEFINITION-REF>
+                      <VALUE>TxHighRxLow</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition/LinTrcvWakeUpByPinIdentification</DEFINITION-REF>
+                      <VALUE>TxLowRxLow</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="c7816ea4-fa19-4ff6-9188-37eed38d070f">
+              <SHORT-NAME>LinTrcvChannel_001</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvChannelId</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvChannelUsed</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvInitState</DEFINITION-REF>
+                  <VALUE>LINTRCV_TRCV_MODE_NORMAL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupByBusUsed</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupByPinUsed</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvSleepInitWorkaround</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="c4cf8b09-baed-46f5-a7c1-0f0ec6e0a1a0">
+                  <SHORT-NAME>LinTrcvAccess</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="1055ccec-cf49-4433-8009-e9bbd938baaf">
+                      <SHORT-NAME>LinTrcvDioAccess</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="71580f1a-4b60-4e3d-a6ab-4a347584bde4">
+                          <SHORT-NAME>PinEN</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinEn</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort02/VIP_RLIN32_SLP</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="3bd5fe5b-fb60-48e3-8b37-57ce422dc71a">
+                          <SHORT-NAME>PinRX</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinRx</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_RLIN32_RXD</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="d58fa58d-53a2-43a0-b09f-7bf6186d3cee">
+                          <SHORT-NAME>PinTX</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvHardwareInterfaceName</DEFINITION-REF>
+                              <VALUE>DioPinTx</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <REFERENCE-VALUES>
+                            <ECUC-REFERENCE-VALUE>
+                              <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvAccess/LinTrcvDioAccess/LinTrcvDioChannelAccess/LinTrcvDioSymRefName</DEFINITION-REF>
+                              <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_RLIN32_TXD</VALUE-REF>
+                            </ECUC-REFERENCE-VALUE>
+                          </REFERENCE-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="c6bcc807-fe48-4456-bf95-155d6d48d654">
+                  <SHORT-NAME>LinTrcvWakeupSourceDetectionDefinition</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition/LinTrcvWakeUpByBusIdentification</DEFINITION-REF>
+                      <VALUE>TxHighRxLow</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/LinTrcv_30_Tle7259/LinTrcv/LinTrcvChannel/LinTrcvWakeupSourceDetectionDefinition/LinTrcvWakeUpByPinIdentification</DEFINITION-REF>
+                      <VALUE>TxLowRxLow</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

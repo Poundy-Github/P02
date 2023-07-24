@@ -1,0 +1,13 @@
+	-I${SWC_DIR}\Power
+	-I${SWC_DIR}\SOCManager\
+	-I${SWC_DIR}\SOC_Manage\
+	-I${SWC_DIR}\SWC_Manager\
+	-I${SWC_DIR}\SWC_Manager\CanServer\${PROJECT_TYPE}
+	-I${SWC_DIR}\SWC_Manager\CanServer\${PROJECT_TYPE}\DTC_Cfg
+	-I${SWC_DIR}\SWC_Manager\DcmServer
+	-I${SWC_DIR}\SWC_Manager\EOL
+	-I${SWC_DIR}\SWC_Manager\VConfig
+	-I${SWC_DIR}\SWC_Manager\CConfig
+	-I${SWC_DIR}\SWC_Manager\SecOcServer
+	-I${SWC_DIR}\DiagnosticServer
+    -I${SWC_DIR}\DiagnosticServer\${PROJECT_TYPE}

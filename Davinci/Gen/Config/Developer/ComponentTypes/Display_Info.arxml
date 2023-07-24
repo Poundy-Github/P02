@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="EC01E653-F9AD-48CC-A250-7C5B896715C0">
+          <SHORT-NAME>DisplayInfo</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="9BB657C2-64ED-453C-ADCC-F634E85CF728">
+              <SHORT-NAME>DisplayInfo_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <INIT-EVENT UUID="4D7F95E9-052D-4AE2-9B41-3B90547297D5">
+                  <SHORT-NAME>Display_Info_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DisplayInfo/DisplayInfo_InternalBehavior/DisplayInfo_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="CBD76415-E250-4F91-BA1A-27F21ED6A491">
+                  <SHORT-NAME>TMT_DisplayInfo_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DisplayInfo/DisplayInfo_InternalBehavior/DisplayInfo_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="615BB730-08CF-4D61-A5DE-E50A9C9BA484">
+                  <SHORT-NAME>DisplayInfo_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="099AADEB-AEFF-4BB9-875B-7B1CA93F1F92">
+                  <SHORT-NAME>DisplayInfo_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="9411A7CB-4BD1-4D04-889A-337A76B44E71">
+          <SHORT-NAME>DisplayInfo_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/DisplayInfo/DisplayInfo_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

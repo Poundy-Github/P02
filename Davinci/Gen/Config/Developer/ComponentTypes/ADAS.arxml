@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="21094F3A-DC72-4EBD-89D2-FE44ADDFCDE0">
+          <SHORT-NAME>ADAS</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="3D5F0D02-02B2-47F2-904E-489109D4DA14">
+              <SHORT-NAME>ADAS_InternalBehavior</SHORT-NAME>
+              <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ComponentTypes/DataTypeMappingSets/DataTypeMappings_DEV</DATA-TYPE-MAPPING-REF>
+              </DATA-TYPE-MAPPING-REFS>
+              <EVENTS>
+                <INIT-EVENT UUID="2BF4D8B7-7C86-403C-9C49-6FF0DD7AE838">
+                  <SHORT-NAME>ADAS_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAS/ADAS_InternalBehavior/ADAS_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="1FAE42F2-F57C-4366-915A-D13667FD3383">
+                  <SHORT-NAME>TMT_ADAS_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAS/ADAS_InternalBehavior/ADAS_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="3F45A46B-F366-4746-BEAC-CBD83B4669B1">
+                  <SHORT-NAME>ADAS_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="A0496FA6-5067-448D-B80A-F99DA5ACB7D2">
+                  <SHORT-NAME>ADAS_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="86F593F0-28FA-44A3-8E02-E45B58AF4870">
+          <SHORT-NAME>ADAS_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/ADAS/ADAS_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

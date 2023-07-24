@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="A50DAAC7-11C9-4E81-87A4-FD42BAC5A629">
+          <SHORT-NAME>TT</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="A7EE6084-1896-4E58-A501-574ABE427A02">
+              <SHORT-NAME>Os_Service</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Os_swc/Interfaces/Os_Service</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="D86CE317-C001-4AE4-BB81-0F7BB5BB82A0">
+              <SHORT-NAME>TT_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="804AC087-7C12-4BE0-B01C-C7593573DEA3">
+                  <SHORT-NAME>TMT_TT_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TT/TT_InternalBehavior/TT_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="7FA8872B-64E2-43D5-8E3F-7D839FC9AA27">
+                  <SHORT-NAME>TT_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TT/TT_InternalBehavior/TT_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="E18A32BD-16A7-4082-A71E-16B6F282414D">
+                  <SHORT-NAME>TT_MainFunction</SHORT-NAME>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="8DA3D80F-D545-48CB-9C53-35A28F3198E1">
+                      <SHORT-NAME>SC_Os_Service_GetCounterValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TT/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1ADCBA69-2B5D-4A2A-94BD-7ADCEB28CB2B">
+                      <SHORT-NAME>SC_Os_Service_GetElapsedValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TT/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="51485812-6EE9-44B7-8B10-C5E30254EBEE">
+                  <SHORT-NAME>TT_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="4FB2C623-255F-4AB7-9E20-1EDFF6370DA8">
+          <SHORT-NAME>TT_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/TT/TT_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

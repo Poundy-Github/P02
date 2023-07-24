@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="ac122923-8fb5-47c1-b860-52093755d12e">
+          <SHORT-NAME>Lin_Rh850</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-IMPLEMENTATION UUID="766f6148-df55-4023-b644-04b84dc79b3c">
+              <SHORT-NAME>Lin_Impl</SHORT-NAME>
+              <MC-SUPPORT/>
+              <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+              <SW-VERSION>15.00.00</SW-VERSION>
+              <USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+              <VENDOR-ID>30</VENDOR-ID>
+              <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+            </BSW-IMPLEMENTATION>
+          </ELEMENTS>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="0e48fd46-d889-4810-8bac-1ad561fe3aaa">
+              <SHORT-NAME>Lin_ib_bswmd</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE UUID="1adc6bd3-da93-4a45-afb2-b9983cc62ba0">
+                  <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+                  <ELEMENTS>
+                    <BSW-MODULE-DESCRIPTION UUID="a2f1f873-0afe-46b4-b42e-3d252d209dd5">
+                      <SHORT-NAME>Lin</SHORT-NAME>
+                      <INTERNAL-BEHAVIORS>
+                        <BSW-INTERNAL-BEHAVIOR UUID="c7e8ccca-e728-4885-b548-d262a75838b8">
+                          <SHORT-NAME>LinBehavior</SHORT-NAME>
+                        </BSW-INTERNAL-BEHAVIOR>
+                      </INTERNAL-BEHAVIORS>
+                    </BSW-MODULE-DESCRIPTION>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="d7ec6875-e8fb-4640-b8ec-a90f441578b6">
+          <SHORT-NAME>Lin_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="9b37583a-653f-4c1d-9f84-3e1d4040a9cd">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

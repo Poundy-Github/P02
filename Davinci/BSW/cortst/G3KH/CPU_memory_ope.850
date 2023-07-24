@@ -1,0 +1,419 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_memory_ope.850                                           --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Global RAM access                                                         --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_memory_1
+	.GLOBL		_CST_CPU_memory_2
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_memory_1
+--  Function ID     : CST_FN_030
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, (R25, R26, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_memory_1:
+	-- Covers: CST_DD_051
+	-- Covers: CST_DD_196
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x04, SP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Copy of Test Code
+	--------------------------------------------------
+	MOV		f_sub_CPU_memory_set_data, R28	--
+	MOV		CST_RAM_ADDRESS_L, R29		--
+	MOV		CPU_memory_set_data_001 + 2, LP	--
+
+    CPU_memory_1_001:
+	LD.DW		0x000000[R28], R6		--
+	ST.DW		R6, 0x000000[R29]		--
+
+	ADD		0x08, R28			--
+	ADD		0x08, R29			--
+	CMP		R28, LP				--
+	BP		CPU_memory_1_001		--
+
+	--------------------------------------------------
+	--	LRAM Access
+	--------------------------------------------------
+	MOV		0xA5A55A5A, R28			--
+	NOT		R28, R29			--
+
+	MOV		CST_RAM_ADDRESS_L, R6		--Build(CST_RAM_ADDRESS_L -> f_sub_CPU_memory_set_data)
+	JARL		[R6], LP			--
+
+
+	--------------------------------------------------
+	--	Bit Access
+	--------------------------------------------------
+	MOV		CST_RAM_ADDRESS_L, EP		--
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x1, 0x0000[EP]			--
+
+	LD.W		0x0000[EP], R7			--
+	CMP		0x03, R7			--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x2, 0x0000[EP]			--
+
+	LD.W		0x0000[EP], R7			--
+	CMP		0x05, R7			--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x4, 0x0000[EP]			--
+
+	MOV		0x11, R8			--
+	LD.W		0x0000[EP], R7			--
+	CMP		R8, R7				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Byte Access
+	--------------------------------------------------
+	MOV		0x00000055, R25			--
+	MOV	 	0x000000AA, R26  		--
+	MOV		R0, R7				--
+	MOV		R0, R8				--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0001[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0001[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0002[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0002[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0004[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0004[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0008[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0008[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0010[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0010[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0020[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0020[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0040[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0040[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0080[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0080[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0100[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0100[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x04, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_memory_2
+--  Function ID     : CST_FN_031
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R7, R8, R9, R10, (R25, R26, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_memory_2:
+	-- Covers: CST_DD_052
+	-- Covers: CST_DD_197
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	GRAM Access
+	--------------------------------------------------
+	MOV		0xA5A55A5A, R28			--
+	NOT		R28, R29			--
+
+	MOV		CST_RAM_ADDRESS_A, EP		--
+	JARL		f_sub_CPU_memory_set_data, LP	--
+
+	MOV		CST_RAM_ADDRESS_B, EP		--
+	JARL		f_sub_CPU_memory_set_data, LP	--
+
+	MOV		CST_RAM_ADDRESS_C, EP		--
+	JARL		f_sub_CPU_memory_set_data, LP	--
+
+
+	MOV		0x02, R9
+	MOV		CST_RAM_ADDRESS_A, EP		--
+
+   CPU_memory_2_001:
+	--------------------------------------------------
+	--	Bit Access
+	--------------------------------------------------
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x1, 0x0000[EP]			--
+
+	LD.W		0x0000[EP], R7			--
+	CMP		0x03, R7			--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x2, 0x0000[EP]			--
+
+	LD.W		0x0000[EP], R7			--
+	CMP		0x05, R7			--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.W		R0, 0x0000[EP]			--
+	SET1		0x0, 0x0000[EP]			--
+	SET1		0x4, 0x0000[EP]			--
+
+	MOV		0x11, R8			--
+	LD.W		0x0000[EP], R7			--
+	CMP		R8, R7				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Byte Access
+	--------------------------------------------------
+	MOV		0x00000055, R25			--
+	MOV	 	0x000000AA, R26  		--
+	MOV		R0, R7				--
+	MOV		R0, R8				--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0001[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0001[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0002[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0002[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0004[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0004[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	ST.B		R25, 0x0000[EP]			--
+	ST.B		R26, 0x0008[EP]			--
+
+	LD.B		0x0000[EP], R7			--
+	LD.B		0x0008[EP], R8			--
+	CMP		R7, R8				--
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	MOV		CST_RAM_ADDRESS_C, EP		--
+	LOOP		R9, CPU_memory_2_001		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_memory_set_data
+--  Function ID     : CST_FN_090
+--  Input           : R28 : Input Data Pattern 1
+--                  : R29 : Input Data Pattern 2
+--                  : EP : Write/Read Address
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		8
+
+f_sub_CPU_memory_set_data:
+	-- Covers: CST_DD_111
+	-- Covers: CST_DD_255
+	--------------------------------------------------
+	--	ST.W
+	--------------------------------------------------
+	ST.W		R0, 0x0000[EP]			--
+	ST.W		R0, 0x0004[EP]			--
+	ST.W		R0, 0x0008[EP]			--
+	ST.W		R0, 0x000C[EP]			--
+	ST.W		R28, 0x0000[EP]			--
+	ST.W		R29, 0x0004[EP]			--
+	ST.W		R28, 0x0008[EP]			--
+	ST.W		R29, 0x000C[EP]			--
+
+	--------------------------------------------------
+	--	LD.W
+	--------------------------------------------------
+	LD.W		0x0000[EP], R6			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x0004[EP], R7			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x0008[EP], R8			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x000C[EP], R9			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x0000[EP], R11			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x0004[EP], R12			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x0008[EP], R13			--cst_point: out=1	--cst_point_onram: out=1
+	LD.W		0x000C[EP], R14			--cst_point: out=1	--cst_point_onram: out=1
+
+	--------------------------------------------------
+	--	XOR
+	--------------------------------------------------
+	XOR		R6, R12				--
+	XOR		R7, R11				--
+	XOR		R8, R14				--
+	XOR		R9, R13				--
+
+	--------------------------------------------------
+	--	ADD
+	--------------------------------------------------
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+    CPU_memory_set_data_001:
+	JMP		[LP]				--
+	NOP						--dead_code
+	NOP						--dead_code
+	NOP						--dead_code
+	NOP						--dead_code
+	NOP						--dead_code
+	NOP						--dead_code
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_memory_ope.850            =====
+-- ============================================================================

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="d8032b5d-ab7f-4610-b181-09f1993eda3c">
+          <SHORT-NAME>Fee_30_SmallSector_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="531364cc-f5db-4b16-8ce1-42a4218b305a">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="b2eba2d3-6b6b-455e-acc2-8cdda1b9d4e7">
+                  <SHORT-NAME>Fee</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/Fee_30_SmallSector_ib_bswmd/BswModuleDescriptions/Fee_30_SmallSector_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="c6c25557-f70d-4099-a8cf-06d074c8c0d2">
+                      <SHORT-NAME>Fee_30_SmallSectorBehavior</SHORT-NAME>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="f2b17aeb-e06f-4b3a-b447-9734dbc31b11">
+                          <SHORT-NAME>Fee_30_SmallSector_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/Fee_30_SmallSector_ib_bswmd/BswModuleDescriptions/Fee_30_SmallSector_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="fa8684bd-a836-4181-90cb-e87c3f9ffd7e">
+                          <SHORT-NAME>Fee_30_SmallSector_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/Fee_30_SmallSector_ib_bswmd/BswModuleDescriptions/Fee/Fee_30_SmallSectorBehavior/Fee_30_SmallSector_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="748ad258-4e58-4021-84e1-7a28fffd2ad0">
+                  <SHORT-NAME>Fee_30_SmallSector_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,17 @@
+target_connection {
+     {
+        title = "F1KM_1651_E2"
+        type = "Renesas V850/V850E ICE (850eserv2)"
+        short_type = "850eserv"
+        args = "  -df=\"Scripts\\dr7f701651i.dvf\" -rh850 -e2lpd4=default -dclock=24000,0,swoff -noiop -fastflashload -id ffffffffffffffffffffffffffffffff -env IEPATH=.\\Device -quiet"
+        command = "850eserv2  -df=\"Scripts\\dr7f701651i.dvf\" -rh850 -e2lpd4=default -dclock=24000,0,swoff -noiop -fastflashload -id ffffffffffffffffffffffffffffffff -env IEPATH=.\\Device -quiet"
+        logfile = ""
+        mode = "download"
+        setup_script = ""
+        run_mode_partner = ""
+        run_mode_policy = ""
+        sane = "yes"
+        log = "no"
+        timestamp = "0"
+    }
+}

@@ -1,0 +1,288 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_cond_br_ope.850                                          --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Conditional Branch instructions                                           --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_cond_br_1
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_cond_br_1
+--  Function ID     : CST_FN_011
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R9, R10, R11
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_cond_br_1:
+	-- Covers: CST_DD_029
+	-- Covers: CST_DD_174
+	--------------------------------------------------
+	--	Push General Registers (None)
+	--------------------------------------------------
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		PSW_MASK_SATCYOVSZ, R9		--
+	STSR		PSW, R11, 0			--
+
+--<TEST1>------------------------------------------------------
+	--------------------------------------------------
+	--	BV disp9
+	--------------------------------------------------
+	--	OV = 0
+	AND		R9, R11				--
+	-- Covers: CST_UM_006
+	LDSR		R11, PSW, 0			--cst_point: flag=OV
+	BV		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	OV = 1
+	ADD		0x04, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=OV
+	BV		CPU_cond_br_1_001		--cst_point:PC=+2
+
+    CPU_cond_br_1_999:
+	--------------------------------------------------
+	--	Pop General Registers (None)
+	--------------------------------------------------
+	JMP		[LP]				--dead_code
+
+
+--<TEST3>------------------------------------------------------
+
+    CPU_cond_br_1_002:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BZ disp9
+	--------------------------------------------------
+	--	Z = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BZ		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	Z = 1
+	ADD		0x01, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BZ		CPU_cond_br_1_003		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST2>------------------------------------------------------
+
+    CPU_cond_br_1_001:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BC disp9
+	--------------------------------------------------
+	--	C = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=CY
+	BC		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	C = 1
+	ADD		0x08, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=CY
+	BC		CPU_cond_br_1_002		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST5>------------------------------------------------------
+
+    CPU_cond_br_1_004:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BN disp9
+	--------------------------------------------------
+	--	S = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=S
+	BN		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	S = 1
+	ADD		0x02, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=S
+	BN		CPU_cond_br_1_005		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST4>------------------------------------------------------
+
+    CPU_cond_br_1_003:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BNH disp9
+	--------------------------------------------------
+	--	C | Z = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BNH		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	C | Z = 1
+	ADD		0x01, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BNH		CPU_cond_br_1_004		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST7>------------------------------------------------------
+
+    CPU_cond_br_1_006:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BLT disp9
+	--------------------------------------------------
+	--	S XOR OV = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=S
+	BLT		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	S XOR OV = 1
+	ADD		0x02, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=S
+	BLT		CPU_cond_br_1_007		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST6>------------------------------------------------------
+
+    CPU_cond_br_1_005:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BSA disp9
+	--------------------------------------------------
+	--	SAT = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=SAT
+	BSA		CPU_cond_br_1_999		--cst_point:PC=+14
+
+	ADD		0x01, R10			--
+
+	--	SAT = 1
+	ADDI		0x0010, R11, R11		--
+	LDSR		R11, PSW, 0			--cst_point: flag=SAT
+	BSA		CPU_cond_br_1_006		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+
+--<TEST8>------------------------------------------------------
+
+    CPU_cond_br_1_007:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	BLE disp9
+	--------------------------------------------------
+	--	(S XOR OV) | Z = 0
+	AND		R9, R11				--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BLE		CPU_cond_br_1_999		--cst_point:PC=+12
+
+	ADD		0x01, R10			--
+
+	--	(S XOR OV) | Z = 1
+	ADD		0x01, R11			--
+	LDSR		R11, PSW, 0			--cst_point: flag=Z
+	BLE		CPU_cond_br_1_008		--cst_point:PC=+2
+
+	BR		CPU_cond_br_1_999		--dead_code
+
+--<TEST end>------------------------------------------------------
+
+    CPU_cond_br_1_008:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers (None)
+	--------------------------------------------------
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_cond_br_ope.850           =====
+-- ============================================================================

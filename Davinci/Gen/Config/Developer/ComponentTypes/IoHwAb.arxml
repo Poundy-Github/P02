@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-ABSTRACTION-SW-COMPONENT-TYPE UUID="EC737228-3A04-4CB4-A41E-578A23B719FF">
+          <SHORT-NAME>IoHwAb</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="772A0787-B65C-4F36-BF74-E8F79FB1E274">
+              <SHORT-NAME>IoHwAb_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="CFB30AA5-56E2-4EDA-95BD-DF9E35321DDD">
+                  <SHORT-NAME>TMT_IoHwAb_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="411365F6-A639-4C60-93FE-6E45E9C946C4">
+                  <SHORT-NAME>IoHwAb_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior/IoHwAb_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="8773571C-FB53-4C3D-A336-E9E434451FC4">
+                  <SHORT-NAME>IoHwAb_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="B3FE8C95-94E4-49F5-82FF-569E6F615415">
+                  <SHORT-NAME>IoHwAb_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="A58FDBC4-5EBE-4669-83D4-5232F8BCBEC7">
+          <SHORT-NAME>IoHwAb_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/IoHwAb/IoHwAb_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,1074 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_special_ope.850                                          --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Self Test of Special instructions                                         --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_special_1
+	.GLOBL		_CST_CPU_special_2
+	.GLOBL		_CST_CPU_special_3
+	.GLOBL		_CST_CPU_special_4
+	.GLOBL		_CST_CPU_special_5
+	.GLOBL		_CST_CPU_special_6
+	.GLOBL		_CST_CPU_special_7
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_CYOVSZ
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_1
+--  Function ID     : CST_FN_044
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, R12, R14, (R25, R26, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_1:
+	-- Covers: CST_DD_065
+	-- Covers: CST_DD_210
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x01, SP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+    CPU_special_1_001:
+	-- Covers: CST_UM_231
+	-- Covers: CST_UM_231_01
+	--------------------------------------------------
+	--	CAXI [reg1], reg2, reg3
+	--------------------------------------------------
+	-- PTN
+	MOV		0x11225632, R6			--
+	SST.W		R6, 0x00[EP]			--
+	MOV		0x58854499, R7			--
+	MOV		R0, R8				--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        --R8:0x11225632
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  --CY = 0, OV = 0, S = 0, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: memin=ep --R8:0x11225632
+	ADD		R8, R10				--
+
+	-- PTN
+	NOT		R0, R6				--
+	SST.W		R6, 0x00[EP]			--
+	MOV		0x03, R7			--
+	MOV		R0, R8				--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        --R8:0xFFFFFFFF
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  --CY = 1, OV = 0, S = 0, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: memin=ep --R8:0xFFFFFFFF
+	ADD		R8, R10				--
+
+	-- PTN
+	MOV		0x00000023, R6			--
+	SST.W		R6, 0x00[EP]			--
+	MOV		0xEEEEEEEE, R7			--
+	MOV		R0, R8				--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        --R8:0x00000023
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  --CY = 0, OV = 0, S = 1, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: memin=ep --R8:0x00000023
+	ADD		R8, R10				--
+
+	-- PTN
+	MOV		0x55555555, R6			--
+	SST.W		R6, 0x00[EP]			--
+	MOV		0x55555555, R7			--
+	MOV		0x445CC872, R8			--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        -- R8:0x55555555
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  -- CY = 0, OV = 0, S = 0, Z = 1
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: memin=ep --R8:0x445CC872
+	ADD		R8, R10				--
+
+	-- PTN
+	MOV		0x89ABCDEF, R6			--
+	SST.W		R6, 0x00[EP]			--
+	MOV		0x789ABCDE, R7			--
+	MOV		0x00, R8			--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        -- R8:0x00000000
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  -- CY = 1, OV = 1, S = 1, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: memin=ep --R8:0x89ABCDEF
+	ADD		R8, R10				--
+
+	MOV		CST_RAM_ADDRESS_A, EP		--
+	LOOP		R14, CPU_special_1_001		--
+
+	-- Covers: CST_UM_273
+	-- Covers: CST_UM_273_01
+	--------------------------------------------------
+	--	NOP
+	--------------------------------------------------
+	JARL		CPU_special_1_002, R14		--
+
+    CPU_special_1_002:
+	NOP						--
+	NOP						--
+	NOP						--
+	NOP						--
+	JARL		CPU_special_1_003, R12		--
+
+    CPU_special_1_003:
+	SUB		R14, R12			--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	CAXI [reg1], reg2, reg3
+	--------------------------------------------------
+	-- PTN
+	MOV		R25, R6				--
+	SST.W		R6, 0x00[EP]			--
+	MOV		R26, R7				--
+	MOV		R0, R8				--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        --R8:0x11225632
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  --CY = 0, OV = 0, S = 0, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: out=1 --R8:0x11225632
+	ADD		R8, R10				--
+
+	MOV		R26, R6				--
+	SST.W		R6, 0x00[EP]			--
+	MOV		R25, R7				--
+	MOV		R0, R8				--
+
+	CAXI		[EP], R7, R8			--cst_point: out=1        --R8:0x11225632
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ  --CY = 0, OV = 0, S = 0, Z = 0
+	ADD		R8, R10				--
+	SLD.W		0x00[EP], R8			--cst_point: out=1 --R8:0x11225632
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x01, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_2
+--  Function ID     : CST_FN_045
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R10, R11, R12, R13, R14, (R27, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_2:
+	-- Covers: CST_DD_066
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_211
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R27-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	-- Covers: CST_UM_006
+#if CST_INT_EN
+	STSR		PSW, R27, 0			--
+	MOV		0xFFFFFFDF, R28			--
+	OR		R27, R28			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R27, 0			--
+	AND		R28, R27			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R27, 0			--
+-- CST_INT_EN
+#endif
+	STSR		CTPC, EP, 0			--
+	STSR		CTPSW, R29, 0			--
+	STSR		CTBP, R28, 0			--
+
+	MOV		CPU_special_2_001, R11		--
+	-- Covers: CST_UM_011
+	LDSR		R11, CTBP, 0			--
+	MOV		CPU_special_2_006, R11		-- fail safe
+	-- Covers: CST_UM_009
+	LDSR		R11, CTPC, 0			--
+
+	MOV		CPU_special_2_002, R12		--
+	MOV		CPU_special_2_003, R13		--
+	MOV		CPU_special_2_004, R14		--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+	BR		CPU_special_2_005		--
+
+	--------------------------------------------------
+	--	Table of CALLT
+	--------------------------------------------------
+	.ALIGN	4
+    CPU_special_2_001:
+	.WORD		16				--
+	.WORD		20				--
+	.WORD		24				--
+	.WORD		0				--
+
+	JMP		[R12]				--cst_point:PC=+4
+	NOP						--dead_code
+
+	JMP		[R13]				--cst_point:PC=+4
+	NOP						--dead_code
+
+	JMP		[R14]				--cst_point:PC=-8
+	NOP						--dead_code
+
+	NOP						--dead_code
+	NOP						--dead_code
+
+	-- Covers: CST_UM_236
+	-- Covers: CST_UM_236_01
+	--------------------------------------------------
+	--	CTRET (Pattern1)
+	--------------------------------------------------
+    CPU_special_2_002:
+	ADD		0x01, R10			--
+	CTRET						--
+
+	-- Covers: CST_UM_230
+	--------------------------------------------------
+	--	CTRET (Pattern2)
+	--------------------------------------------------
+    CPU_special_2_003:
+	ADD		0x02, R10			--
+	CTRET						--
+
+	--------------------------------------------------
+	--	CTRET (Pattern3)
+	--------------------------------------------------
+    CPU_special_2_004:
+	ADD		0x04, R10			--
+	CTRET						--
+
+	-- Covers: CST_UM_230
+	--------------------------------------------------
+	--	CALLT imm6 (Pattern1)
+	--------------------------------------------------
+    CPU_special_2_005:
+	CALLT		0x00				--
+	NOP						--dead_code
+
+	-- Covers: CST_UM_230_01
+	--------------------------------------------------
+	--	CALLT imm6 (Pattern2)
+	--------------------------------------------------
+	CALLT		0x02				--
+	NOP						--dead_code
+
+	-- Covers: CST_UM_230_01
+	--------------------------------------------------
+	--	CALLT imm6 (Pattern3)
+	--------------------------------------------------
+	CALLT		0x04				--
+	NOP						--dead_code
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+    CPU_special_2_006:
+	LDSR		EP, CTPC, 0			--
+	LDSR		R29, CTPSW, 0			--
+	LDSR		R28, CTBP, 0			--
+
+	LDSR		R27, PSW, 0			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		CPU_special_2_012, R14		-- fail safe
+	MOV		R0, R13				-- fail safe
+	BR		CPU_special_2_008		--
+
+	-- Covers: CST_UM_315
+	-- Covers: CST_UM_315_01
+	--------------------------------------------------
+	--	SWITCH reg1
+	--------------------------------------------------
+	.ALIGN		4
+    CPU_special_2_007:
+	SWITCH		R13				--
+	NOP						--dead_code
+	.HWORD		5				--
+	.HWORD		6				--
+	.HWORD		7				--
+	NOP						--dead_code
+
+	JMP		[R14]				--
+	JMP		[R14]				--
+	JMP		[R14]				--
+
+	--------------------------------------------------
+	--	Set Test Data (Pattern1)
+	--------------------------------------------------
+    CPU_special_2_008:
+	MOV		CPU_special_2_007, R12		--
+	MOV		0x01, R13			--
+	MOV		CPU_special_2_009, R14		--
+	JMP		[R12]				--
+
+    CPU_special_2_009:
+	MOV		0x00010000, R11			--
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	Set Test Data (Pattern2)
+	--------------------------------------------------
+	MOV		0x02, R13			--
+	MOV		CPU_special_2_010, R14		--
+	JMP		[R12]				--
+
+    CPU_special_2_010:
+	MOV		0x00020000, R11			--
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	Set Test Data (Pattern3)
+	--------------------------------------------------
+	MOV		0x03, R13			--
+	MOV		CPU_special_2_011, R14		--
+	JMP		[R12]				--
+
+    CPU_special_2_011:
+	MOV		0x00040000, R11			--
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+    CPU_special_2_012:
+	DISPOSE		0x00, {R27-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_3
+--  Function ID     : CST_FN_046
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, R10, R11, R12, R13, R14, (R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_3:
+	-- Covers: CST_DD_067
+	-- Covers: CST_DD_212
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R28-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0xAAAA5555, R1			--
+	MOV		R1, R11				--
+	MOV		R1, R13				--
+	NOT		R1, R1				--
+	MOV		R1, R12				--
+	MOV		R1, R14				--
+
+	-- Covers: CST_UM_280
+	-- Covers: CST_UM_280_01
+	--------------------------------------------------
+	--	PUSHSP rh-rt
+	--------------------------------------------------
+	PUSHSP		R11-R14				--cst_point: memout=sp
+
+	-- Covers: CST_UM_278
+	-- Covers: CST_UM_278_01
+	--------------------------------------------------
+	--	POPSP rh-rt
+	--------------------------------------------------
+	POPSP		R28-LP				--cst_point: out=5
+
+	NOT		R28, R28			--
+	ADD		R28, R11			--
+	ADD		R11, R10			--
+
+	NOT		R29, R29			--
+	ADD		R29, R12			--
+	ADD		R12, R10			--
+
+	NOT		EP, EP				--
+	ADD		EP, R13				--
+	ADD		R13, R10			--
+
+	NOT		LP, LP				--
+	ADD		LP, R14				--
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R28-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_4
+--  Function ID     : CST_FN_047
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, (SP), R6, R7, R8, R10, R11, R12, R13, R14, (R20-R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_4:
+	-- Covers: CST_DD_068
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_213
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	-- Covers: CST_UM_006
+#if CST_INT_EN
+	STSR		PSW, R6, 0			--
+	MOV		0xFFFFFFDF, R7			--
+	OR		R6, R7				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R6, 0			--
+	AND		R7, R6				--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R6, 0			--
+-- CST_INT_EN
+#endif
+	ADDI		-0x0030, SP, SP			--
+	ST.W		LP, 0x002C[SP]			--
+	ST.W		EP, 0x0028[SP]			--
+	ST.W		R29, 0x0024[SP]			--
+	ST.W		R28, 0x0020[SP]			--
+	ST.W		R27, 0x001C[SP]			--
+	ST.W		R26, 0x0018[SP]			--
+	ST.W		R25, 0x0014[SP]			--
+	ST.W		R24, 0x0010[SP]			--
+	ST.W		R23, 0x000C[SP]			--
+	ST.W		R22, 0x0008[SP]			--
+	ST.W		R21, 0x0004[SP]			--
+	ST.W		R20, 0x0000[SP]			--
+	MOV		SP, R7				--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x00FF00FF, R20			--
+	MOV		R20, EP				--
+	MOV		0xAAAA5555, R1			--
+	MOV		R1, R21				--
+	MOV		R1, R23				--
+	MOV		R1, R26				--
+	MOV		R1, R28				--
+	NOT		R1, R1				--
+	MOV		R1, R22				--
+	MOV		R1, R24				--
+	MOV		R1, R25				--
+	MOV		R1, R27				--
+	NOT		R20, R29			--
+	MOV		R29, LP				--
+
+	ST.W		R0, -0x0004[R7]			-- stack area clear
+	ST.W		R0, -0x0008[R7]			--
+	ST.W		R0, -0x000C[R7]			--
+	ST.W		R0, -0x0010[R7]			--
+	ST.W		R0, -0x0014[R7]			--
+	ST.W		R0, -0x0018[R7]			--
+	ST.W		R0, -0x001C[R7]			--
+	ST.W		R0, -0x0020[R7]			--
+	ST.W		R0, -0x0024[R7]			--
+	ST.W		R0, -0x0028[R7]			--
+	ST.W		R0, -0x002C[R7]			--
+	ST.W		R0, -0x0030[R7]			--
+
+	-- Covers: CST_UM_279
+	-- Covers: CST_UM_279_01
+	--------------------------------------------------
+	--	PREPARE list12, imm5
+	--------------------------------------------------
+	PREPARE		{R20-LP}, 0x1F			--cst_point: memout=sp
+
+	ADDI		-0x00AC, R7, R8			-- imm5 * 4 + R20--LP = 172(0xAC)byte
+	XOR		SP, R8				--cst_point: in=1
+	ADD		R8, R10				--
+
+	LD.W		-0x0004[R7], R11		--
+	XOR		R11, R20			--
+	LD.W		-0x0008[R7], R12		--
+	XOR		R12, R21			--
+	LD.W		-0x000C[R7], R13		--
+	XOR		R13, R22			--
+	LD.W		-0x0010[R7], R14		--
+	XOR		R14, R23			--
+	LD.W		-0x0014[R7], R11		--
+	XOR		R11, R24			--
+	LD.W		-0x0018[R7], R12		--
+	XOR		R12, R25			--
+	LD.W		-0x001C[R7], R13		--
+	XOR		R13, R26			--
+	LD.W		-0x0020[R7], R14		--
+	XOR		R14, R27			--
+	LD.W		-0x0024[R7], R11		--
+	XOR		R11, R28			--
+	LD.W		-0x0028[R7], R12		--
+	XOR		R12, R29			--
+	LD.W		-0x002C[R7], R13		--
+	XOR		R13, EP				--
+	LD.W		-0x0030[R7], R14		--
+	XOR		R14, LP				--
+
+	ADD		R20, R21			--
+	ADD		R21, R10			--
+	ADD		R22, R23			--
+	ADD		R23, R10			--
+	ADD		R24, R25			--
+	ADD		R25, R10			--
+	ADD		R26, R27			--
+	ADD		R27, R10			--
+	ADD		R28, R29			--
+	ADD		R29, R10			--
+	ADD		EP, LP				--
+	ADD		LP, R10				--
+
+	MOV		R0, R20				-- register clear
+	MOV		R0, R21				--
+	MOV		R0, R22				--
+	MOV		R0, R23				--
+	MOV		R0, R24				--
+	MOV		R0, R25				--
+	MOV		R0, R26				--
+	MOV		R0, R27				--
+	MOV		R0, R28				--
+	MOV		R0, R29				--
+	MOV		R0, EP				--
+	MOV		R0, LP				--
+
+	-- Covers: CST_UM_238
+	-- Covers: CST_UM_238_01
+	--------------------------------------------------
+	--	DISPOSE imm5, list12
+	--------------------------------------------------
+	DISPOSE		0x1F, {R20-LP}			--cst_point: out=5
+
+	MOV		SP, R8				--
+	XOR		R7, R8				--
+	ADD		R8, R10				--
+
+	ADD		R20, R10			-- r20-r29 is PUSHSP input
+	ADD		R21, R10			--
+	ADD		R22, R10			--
+	ADD		R23, R10			--
+	ADD		R24, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+	ADD		R29, R10			--
+	ADD		EP, R10				--
+	ADD		LP, R10				--
+
+	ST.W		R0, -0x0004[R7]			-- stack area clear
+	ST.W		R0, -0x0008[R7]			--
+	ST.W		R0, -0x000C[R7]			--
+	ST.W		R0, -0x0010[R7]			--
+	ST.W		R0, -0x0014[R7]			--
+	ST.W		R0, -0x0018[R7]			--
+	ST.W		R0, -0x001C[R7]			--
+	ST.W		R0, -0x0020[R7]			--
+	ST.W		R0, -0x0024[R7]			--
+	ST.W		R0, -0x0028[R7]			--
+
+	-- Covers: CST_UM_280
+	-- Covers: CST_UM_280_01
+	--------------------------------------------------
+	--	PUSHSP rh-rt
+	--------------------------------------------------
+	PUSHSP		R20-R29				--cst_point: memout=sp
+
+	ADDI		-0x0028, R7, R8			-- R20--R29 = 40(0x28)byte
+	XOR		SP, R8				--cst_point: in=1
+	ADD		R8, R10				--
+
+	LD.W		-0x0004[R7], R11		--
+	XOR		R11, R20			--
+	LD.W		-0x0008[R7], R12		--
+	XOR		R12, R21			--
+	LD.W		-0x000C[R7], R13		--
+	XOR		R13, R22			--
+	LD.W		-0x0010[R7], R14		--
+	XOR		R14, R23			--
+	LD.W		-0x0014[R7], R11		--
+	XOR		R11, R24			--
+	LD.W		-0x0018[R7], R12		--
+	XOR		R12, R25			--
+	LD.W		-0x001C[R7], R13		--
+	XOR		R13, R26			--
+	LD.W		-0x0020[R7], R14		--
+	XOR		R14, R27			--
+	LD.W		-0x0024[R7], R11		--
+	XOR		R11, R28			--
+	LD.W		-0x0028[R7], R12		--
+	XOR		R12, R29			--
+
+	ADD		R21, R22			--
+	ADD		R22, R10			--
+	ADD		R23, R24			--
+	ADD		R24, R10			--
+	ADD		R25, R26			--
+	ADD		R26, R10			--
+	ADD		R27, R28			--
+	ADD		R28, R10			--
+	ADD		R20, R29			--
+	ADD		R29, R10			--
+
+	MOV		R0, R20				-- register clear
+	MOV		R0, R21				--
+	MOV		R0, R22				--
+	MOV		R0, R23				--
+	MOV		R0, R24				--
+	MOV		R0, R25				--
+	MOV		R0, R26				--
+	MOV		R0, R27				--
+	MOV		R0, R28				--
+	MOV		R0, R29				--
+
+	-- Covers: CST_UM_278
+	-- Covers: CST_UM_278_01
+	--------------------------------------------------
+	--	POPSP rh-rt
+	--------------------------------------------------
+	POPSP		R20-R29				--cst_point: out=5
+
+	MOV		SP, R8				--
+	XOR		R7, R8				--
+	ADD		R8, R10				--
+
+	ADD		R21, R22			--
+	ADD		R22, R10			--
+	ADD		R23, R24			--
+	ADD		R24, R10			--
+	ADD		R25, R26			--
+	ADD		R26, R10			--
+	ADD		R27, R28			--
+	ADD		R28, R10			--
+	ADD		R20, R29			--
+	ADD		R29, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	LD.W		0x0000[SP], R20			--
+	LD.W		0x0004[SP], R21			--
+	LD.W		0x0008[SP], R22			--
+	LD.W		0x000C[SP], R23			--
+	LD.W		0x0010[SP], R24			--
+	LD.W		0x0014[SP], R25			--
+	LD.W		0x0018[SP], R26			--
+	LD.W		0x001C[SP], R27			--
+	LD.W		0x0020[SP], R28			--
+	LD.W		0x0024[SP], R29			--
+	LD.W		0x0028[SP], EP			--
+	LD.W		0x002C[SP], LP			--
+	ADDI		0x0030, SP, SP			--
+
+	LDSR		R6, PSW, 0			--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_5
+--  Function ID     : CST_FN_048
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R14, (LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_5:
+	-- Covers: CST_DD_069
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_214
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Store Interrupt status
+	--------------------------------------------------
+	-- Covers: CST_UM_006
+	STSR		PSW, R14, 0			--
+	MOVEA		0x0020, R0, R6			--
+
+	-- Covers: CST_UM_237
+	-- Covers: CST_UM_237_01
+	--------------------------------------------------
+	--	DI      (PSW.ID <-- 1)
+	--------------------------------------------------
+	DI						--cst_point: flag=ID
+	NOP						--
+	STSR		PSW, R7, 0			--
+	AND		R6, R7				--
+	SETF		CC_NZ, R8			--
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_245
+	-- Covers: CST_UM_245_01
+	--------------------------------------------------
+	--	EI      (PSW.ID <-- 0)
+	--------------------------------------------------
+	EI						--cst_point: flag=ID
+	NOP						--
+	STSR		PSW, R8, 0			--
+	AND		R6, R8				--
+	SETF		CC_Z, R9			--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	DI      (PSW.ID <-- 1)
+	--------------------------------------------------
+	DI						--cst_point: flag=ID
+	NOP						--
+	STSR		PSW, R7, 0			--
+	AND		R6, R7				--
+	SETF		CC_NZ, R8			--
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Reload Interrupt status
+	--------------------------------------------------
+#if CST_INT_EN
+	AND		R14, R6				--
+	BNZ		CPU_special_5_001		--
+	EI						--
+    CPU_special_5_001:
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_6
+--  Function ID     : CST_FN_049
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R10, (R25, R26, R27, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_6:
+	-- Covers: CST_DD_070
+	-- Covers: CST_DD_215
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x01, R25			--
+	MOV		0x02, R28			--
+	MOV		0x03, LP			--
+
+	-- Covers: CST_UM_279
+	-- Covers: CST_UM_279_02
+	--------------------------------------------------
+	--	PREPARE list12, imm5, imm16
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00, 0x0010		--cst_point: out=4
+	ADD		EP, R10				--
+
+	MOV		-0x01, R25			--
+	MOV		-0x01, R28			--
+	MOV		-0x01, LP			--
+
+	-- Covers: CST_UM_238
+	-- Covers: CST_UM_238_02
+	--------------------------------------------------
+	--	DISPOSE imm5, list12, [reg1]
+	--------------------------------------------------
+	MOV		CPU_special_6_001, R6		--
+	DISPOSE		0x00, {R25-LP}, R6		--
+
+	ADD		0x01, R10			--
+    CPU_special_6_001:
+	ADD		0x01, R10			--cst_point:PC=-2
+
+	ADD		R25, R10			--
+	ADD		R28, R10			--
+	ADD		LP, R10				--
+
+	-- Covers: CST_UM_279
+	-- Covers: CST_UM_279_02
+	--------------------------------------------------
+	--	PREPARE list12, imm5, imm16<<16
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x00, 0x0010<<16	--cst_point: out=4
+	ADD		EP, R10				--
+
+	--------------------------------------------------
+	--	DISPOSE imm5, list12
+	--------------------------------------------------
+	DISPOSE		0x00, {EP-LP}			--
+
+	-- Covers: CST_UM_279
+	-- Covers: CST_UM_279_02
+	--------------------------------------------------
+	--	PREPARE list12, imm5, imm32
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x00, 0x12003400	--cst_point: out=4
+	ADD		EP, R10				--
+
+	--------------------------------------------------
+	--	DISPOSE imm5, list12
+	--------------------------------------------------
+	DISPOSE		0x00, {EP-LP}			--
+
+	-- Covers: CST_UM_279
+	-- Covers: CST_UM_279_02
+	--------------------------------------------------
+	--	PREPARE list12, imm5, SP
+	--------------------------------------------------
+	MOV		SP, LP				--
+	PREPARE		{EP-LP}, 0x01, SP		--cst_point: out=4
+	SUBR		LP, EP				--
+	ADD		EP, R10				--
+
+	--------------------------------------------------
+	--	DISPOSE imm5, list12
+	--------------------------------------------------
+	DISPOSE		0x01, {EP-LP}			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_special_7
+--  Function ID     : CST_FN_050
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R10, (R25, R26, R27, R28, R29, EP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_special_7:
+	-- Covers: CST_DD_071
+	-- Covers: CST_DD_216
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-EP}, 0x04, SP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	-- Covers: CST_UM_320
+	-- Covers: CST_UM_320_01
+	--------------------------------------------------
+	--	SYNCM
+	--------------------------------------------------
+	-- PTN
+	MOV		0x234998BB, R25			--
+	MOV		0xFFBDA865, R26			--
+	MOV		0x44568FFD, R27			--
+	MOV		0xDDAA8452, R28			--
+
+	ST.W		R25, 0x0000[EP]			--
+	ST.W		R26, 0x0004[EP]			--
+	ST.W		R27, 0x0008[EP]			--
+	ST.W		R28, 0x000C[EP]			--
+	MOV		0x8568FFD1, R29			--
+	XOR		R29, R10			--
+	SYNCM						--
+	MOV		0x876998EE, R29			--cst_point: out=1
+	XOR		R29, R10			--
+
+	-- Covers: CST_UM_319
+	-- Covers: CST_UM_319_01
+	-- Covers: CST_UM_321
+	-- Covers: CST_UM_321_01
+	--------------------------------------------------
+	--	SYNCP
+	--	SYNCI
+	--------------------------------------------------
+	-- PTN
+	MOV		0x234998BB, R26			--
+	MOV		0xFFBDA865, R27			--
+
+	ADD		0x01, R26			--
+	ADDI		0x0456, R27, R27		--
+	DIVH		R26, R27			--
+	MUL		0x004, R26, R27			--
+
+	MOV		0x6782DE48, R28			--
+	XOR		R28, R10			--
+	SYNCP						--
+	SYNCI						--
+	MOV		0x33D785CD, R28			--cst_point: out=1
+	XOR		R28, R10			--
+
+	-- Covers: CST_UM_318
+	-- Covers: CST_UM_318_01
+	--------------------------------------------------
+	--	SYNCE
+	--------------------------------------------------
+	-- PTN
+	MOV		0x8568FFD1, R27			--
+	XOR		R27, R10			--
+
+	SYNCE						--
+
+	MOV		0x876998EE, R27			--cst_point: out=1
+	XOR		R27, R10			--
+
+	-- Covers: CST_UM_319
+	-- Covers: CST_UM_319_01
+	--------------------------------------------------
+	--	SYNCI
+	--------------------------------------------------
+	-- PTN
+	MOV		0x8568FFD1, R27			--
+	XOR		R27, R10			--
+
+	SYNCI						--
+
+	MOV		0x876998EE, R27			--cst_point: out=1
+	XOR		R27, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x04, {R25-EP}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_special_ope.850           =====
+-- ============================================================================

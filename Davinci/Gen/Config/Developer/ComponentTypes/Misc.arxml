@@ -1,0 +1,2078 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="A5FC9A70-89C8-49B0-BAD8-A6199446FF31">
+          <SHORT-NAME>Misc</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="42A507DE-0616-4424-9806-1C29AE958C5D">
+              <SHORT-NAME>IoHwAb_Interface</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetHsLsOutput</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPeriodAndDuty</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetDuty</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPin</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetPin</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetVoltage</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/IoHwAb_Interface</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="07EA7F45-A87C-45EA-BB6E-2A731DC51214">
+              <SHORT-NAME>IVI_10MIN_Backup_flag</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IVI_10MIN_Backup_flag/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/IVI_10MIN_Backup_flag</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="01965250-D4B7-4E2F-BAB0-7086E1F56141">
+              <SHORT-NAME>Os_Service</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Os_swc/Interfaces/Os_Service</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="B1173970-3780-4358-B842-9D385BE95472">
+              <SHORT-NAME>EOL_0xFDD1</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDD1/EOL_ReadMICStatus</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDD1</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="ADF694FA-6C3C-4462-A45F-EA2ACC543BBA">
+              <SHORT-NAME>EOL_0xFDE0</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDE0</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="2EE39EFF-2243-42ED-9458-F86A4F23E8AA">
+              <SHORT-NAME>EOL_0xFDE1</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDE1/EOL_ReadWatchDogCnt</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDE1</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="1A668CBA-093D-4D9E-9380-E1D96E6A738D">
+              <SHORT-NAME>EOL_0xFDE2</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDE2/EOL_ReadResetInformation</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDE2</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="F1927FAD-7A04-45FC-AE62-9FD238C9B803">
+              <SHORT-NAME>EOL_0xFDE3</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDE3</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="93C5479B-B4BC-4912-B660-FDEC7CAB9A9D">
+              <SHORT-NAME>EOL_0xFDD9</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDD9/EOL_WriteValueForDispalyEnable</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFDD9</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="19936E0E-B8FE-4070-A06E-F68D15C1E60E">
+              <SHORT-NAME>EOL_0xFD16</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFD16/EOL_FactoryReset</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/EOL_0xFD16</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="0C0AF1BE-0F44-4A3A-985B-13FBC00EA059">
+              <SHORT-NAME>EOL_RadioAntennaStatus_0xFDD0</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_RadioAntennaStatus_0xFDD0/RadioAntennaStatus_0xFDD0</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <ARRAY-VALUE-SPECIFICATION>
+                      <ELEMENTS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </ELEMENTS>
+                    </ARRAY-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/EOL_RadioAntennaStatus_0xFDD0</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="1E666878-044C-4C23-BC5D-B64D408CC31A">
+              <SHORT-NAME>DiagnosticMonitor_Mic_1_open</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="5BEB6F11-8478-45F3-B5C4-01AA62DB1A2D">
+              <SHORT-NAME>DiagnosticMonitor_Mic_2_open</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="29E527C9-7E59-44DF-8C18-B339E7EB9DCC">
+              <SHORT-NAME>DiagnosticMonitor_Mic_1_short_to_GND</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="BCE5EBDA-0DC5-4D61-9043-F248F4EBA9A3">
+              <SHORT-NAME>DiagnosticMonitor_Mic_2_short_to_GND</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="9EDF15D2-A53D-4C4A-9E2E-5D993DA73E6E">
+              <SHORT-NAME>DiagnosticMonitor_Mic_1_short_to_BAT</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="233C1154-FECC-45D5-8F19-DA39B0745A8A">
+              <SHORT-NAME>DiagnosticMonitor_Mic_2_short_to_BAT</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="19482248-AA7E-4468-AAF4-98F928290FDB">
+              <SHORT-NAME>NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/RestoreBlockDefaults</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/InvalidateNvBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/EraseBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="2734C674-742E-455C-93F6-8CFDBF31E352">
+              <SHORT-NAME>Rc_ResetReason</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/ResetReason/ResetSource</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/ResetReason</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="FE2E4104-FBD8-4B05-BD8D-4BF0C303B3E1">
+              <SHORT-NAME>EOL_ReadGPSSatelliteCount</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_ReadGPSSatelliteCount/GPSSatelliteCount</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/EOL_ReadGPSSatelliteCount</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="2985B64E-BAD5-46FE-8864-6D8E89ED2F2A">
+              <SHORT-NAME>DiagnosticMonitor_FM1_ShortToGround</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="4FF77E75-8163-4B44-9A76-8D0BCD1A09EC">
+              <SHORT-NAME>DiagnosticMonitor_FM1_ShortToBattary</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="43502DE7-C7F2-45B0-8B13-62B703529FC9">
+              <SHORT-NAME>DiagnosticMonitor_FM1_OverCurrent</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="EDCE191A-5784-4C79-BA2E-CB6FF436867C">
+              <SHORT-NAME>DiagnosticMonitor_FM1_OpenCircuit</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="6B0D4EED-29C7-4452-B990-4C3F75A369AE">
+              <SHORT-NAME>DiagnosticMonitor_FM2_OpenCircuit</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="4202A7EB-3FDE-4108-B077-67A3254EC28E">
+              <SHORT-NAME>DiagnosticMonitor_FM2_OverCurrent</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="C50A4B51-6A57-4068-9F0B-E0CBB0EE54DF">
+              <SHORT-NAME>DiagnosticMonitor_FM2_ShortToBattary</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="D6147D2F-11A9-477A-9367-C28ED2B131A7">
+              <SHORT-NAME>DiagnosticMonitor_FM2_ShortToGround</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="F8CF390C-26E8-46BC-BB5B-A2FD9BFC03E5">
+              <SHORT-NAME>DiagnosticMonitor_RVC_CamerShortToBattery</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="265A6D1E-D8C2-49FA-A5B5-44F02432806E">
+              <SHORT-NAME>DiagnosticMonitor_RVC_CameraOpenCircuit</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="4BF22308-F9F3-4060-A5E7-21743BAA6E2A">
+              <SHORT-NAME>DiagnosticMonitor_RVC_CameraShortToGround</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="9D75B735-A08E-4C52-815D-D5DD78A90896">
+              <SHORT-NAME>WdgM_LocalStatusCallback_Power</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="0C96DD99-732C-4731-88DE-942AE1EB7B21">
+              <SHORT-NAME>WdgM_LocalStatusCallback_Gear</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="3BF56A0D-C2E0-4E4E-B933-95290F7552EE">
+              <SHORT-NAME>WdgM_LocalStatusCallback_TT</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="66C47D29-AF09-416B-B1C6-DCB0961C14D6">
+              <SHORT-NAME>WdgM_GlobalStatusCallback</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_GlobalStatusCallback/GlobalStatusCallback</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_GlobalStatusCallback</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="A497A20B-AC29-4319-A920-748574C55DF2">
+              <SHORT-NAME>rcCS_VConfig_GetKindConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/VConfig_GetKindConfig/Operation_VConfig_GetKindConfig</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/VConfig_GetKindConfig</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="AB97F0DB-C666-4AFE-BF78-CA7287327561">
+              <SHORT-NAME>rpSR_piDiagMonitorReInitFlag</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/piDiagMonitorReInitFlag/ChangeCounter</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/piDiagMonitorReInitFlag</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="0922A0E6-888D-4688-944C-E7AB7FE15807">
+              <SHORT-NAME>rpSR_Misc_DrvGearDisp</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_DrvGearDisp/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_DrvGearDisp</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="DB67AF06-67E3-4B0D-9CDB-B641524A8386">
+              <SHORT-NAME>rpSR_Misc_GearMsgMiss</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_GearMsgMiss/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_GearMsgMiss</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="7F140907-A843-429C-826D-2DF8D12D7311">
+              <SHORT-NAME>rpCS_Mics_ComEx</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/SendSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/GetRxE2EStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/ComEx</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="49B90C00-9C69-420F-A5B3-B7F9B99D663E">
+              <SHORT-NAME>tiSR_Power_Out</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_Power_Out/SystemStateOut</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <CONSTANT-REFERENCE>
+                      <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/Constants/PowerOutInit</CONSTANT-REF>
+                    </CONSTANT-REFERENCE>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_Power_Out</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="E9A4B754-C623-4FBD-9A50-211854F2930E">
+              <SHORT-NAME>DiagnosticMonitor_GNSS_OpenCircuit</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="0AFE8815-75FF-40F7-9983-D712E55417EB">
+              <SHORT-NAME>DiagnosticMonitor_GNSS_OverCurrent</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="00A31DCB-170F-4C72-A30C-9F2D46AF6187">
+              <SHORT-NAME>DiagnosticMonitor_GNSS_ShortToBattary</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="368F883A-8E41-4BEA-9459-5AF714967113">
+              <SHORT-NAME>DiagnosticMonitor_GNSS_ShortToGround</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventExtendedDataRecordEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFreezeFrameDataEx</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetFaultDetectionCounter</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetDTCOfEvent</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventTested</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventFailed</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/GetEventUdsStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventDebounceStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/ResetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="199905A4-ABD9-49CB-B4FE-631E03F23C1B">
+              <SHORT-NAME>Misc_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="CB028CD0-826D-4DE5-A39F-1D6BE2CE9A40">
+                  <SHORT-NAME>ExclusiveArea_Misc</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <AR-TYPED-PER-INSTANCE-MEMORYS>
+                <VARIABLE-DATA-PROTOTYPE UUID="80EE80E2-033D-4846-AEAC-E28DF910BBBC">
+                  <SHORT-NAME>NvBlockNeed_ResetInfomation_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NvmResetInformation_t</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </AR-TYPED-PER-INSTANCE-MEMORYS>
+              <EVENTS>
+                <TIMING-EVENT UUID="CDC8BE9E-8A29-435D-93F4-AD8C48A20F0D">
+                  <SHORT-NAME>TMT_Misc_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/Misc_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="83A8D43F-ED0C-4C52-9CEC-96CE1C27EDE9">
+                  <SHORT-NAME>Misc_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/Misc_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="2236F54A-1AFD-47CC-9019-306F8724F884">
+                  <SHORT-NAME>TMT_Misc_MainFunction_50ms</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/Misc_MainFunction_50ms</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="5D5CF3EE-6235-4CEA-920E-4148812EF7F5">
+                  <SHORT-NAME>OIT_EOL_0xFDE1_EOL_ReadWatchDogCnt_EOL_0xFDE1_EOL_ReadWatchDogCnt</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/EOL_0xFDE1_EOL_ReadWatchDogCnt</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_0xFDE1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDE1/EOL_ReadWatchDogCnt</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="ED810080-3386-459E-8EB0-A9FBC1FE8B1F">
+                  <SHORT-NAME>OIT_EOL_0xFDE2_EOL_ReadResetInformation_EOL_0xFDE2_EOL_ReadResetInformation</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/EOL_0xFDE2_EOL_ReadResetInformation</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_0xFDE2</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDE2/EOL_ReadResetInformation</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="4AD410CF-FFD6-4543-B7B4-3A70AF520786">
+                  <SHORT-NAME>OIT_EOL_0xFDD1_EOL_ReadMICStatus_EOL_0xFDD1_EOL_ReadMICStatus</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/EOL_0xFDD1_EOL_ReadMICStatus</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_0xFDD1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDD1/EOL_ReadMICStatus</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="5A31BA8E-D41A-460B-AE51-A27F9AA81FF1">
+                  <SHORT-NAME>OIT_EOL_0xFDD9_EOL_WriteValueForDispalyEnable_EOL_0xFDD9_EOL_WriteValueForDispalyEnable</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/EOL_0xFDD9_EOL_WriteValueForDispalyEnable</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_0xFDD9</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFDD9/EOL_WriteValueForDispalyEnable</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="3DA36FD6-220F-43C0-8617-496332B027C1">
+                  <SHORT-NAME>OIT_EOL_0xFD16_EOL_FactoryReset_EOL_0xFD16_EOL_FactoryReset</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/EOL_0xFD16_EOL_FactoryReset</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_0xFD16</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/EOL_0xFD16/EOL_FactoryReset</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <TIMING-EVENT UUID="74AE1FD5-6863-4707-A2B9-FD151A3ECFB4">
+                  <SHORT-NAME>TMT_Misc_MainFunction_100ms</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/Misc_MainFunction_100ms</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="B57ACC9E-8764-4A36-8465-27CB746846F5">
+                  <SHORT-NAME>TMT_Misc_MainFunction_500ms</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/Misc_MainFunction_500ms</START-ON-EVENT-REF>
+                  <PERIOD>0.5</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="E8333A22-EB6B-41B1-86A5-A6AD8AA993F0">
+                  <SHORT-NAME>TMT_NVM_Read_Speedup_Runnable</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/NVM_Read_Speedup_Runnable</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="4B70289B-0482-4134-A127-E27B10475774">
+                  <SHORT-NAME>OIT_WdgM_LocalStatusCallback_Power_LocalStatusCallback_WdgM_LocalStatusCallback_Power_LocalStatusCallback</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/WdgM_LocalStatusCallback_Power</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/WdgM_LocalStatusCallback_Power</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="8A2F3648-80B2-476C-9405-A5EE2EC325BE">
+                  <SHORT-NAME>OIT_WdgM_LocalStatusCallback_TT_LocalStatusCallback_WdgM_LocalStatusCallback_TT_LocalStatusCallback</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/WdgM_LocalStatusCallback_TT</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/WdgM_LocalStatusCallback_TT</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="AC5D1B66-1ED7-46D9-9E68-74F6F4560A49">
+                  <SHORT-NAME>OIT_WdgM_GlobalStatusCallback_GlobalStatusCallback_WdgM_GlobalStatusCallback_GlobalStatusCallback</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/WdgM_GlobalStatusCallback</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/WdgM_GlobalStatusCallback</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_GlobalStatusCallback/GlobalStatusCallback</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="73A11F37-40B0-4C1E-98A8-1EBFCB37D122">
+                  <SHORT-NAME>OIT_WdgM_LocalStatusCallback_Gear_LocalStatusCallback_WdgM_LocalStatusCallback_Gear_LocalStatusCallback</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Misc/Misc_InternalBehavior/WdgM_LocalStatusCallback_Gear</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/WdgM_LocalStatusCallback_Gear</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="05CF42D5-C40F-4490-8F4F-1B032413A384">
+                  <SHORT-NAME>Misc_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/Misc/Misc_InternalBehavior/ExclusiveArea_Misc</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="47DB2F95-334F-4EC8-88BC-655DD3F4B34A">
+                      <SHORT-NAME>REC_IVI_10MIN_Backup_flag_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/IVI_10MIN_Backup_flag</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IVI_10MIN_Backup_flag/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS UUID="135C35E8-78EB-4F42-8DBB-D75BBE3A1E27">
+                      <SHORT-NAME>SEND_EOL_RadioAntennaStatus_0xFDD0_RadioAntennaStatus_0xFDD0</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_RadioAntennaStatus_0xFDD0</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_RadioAntennaStatus_0xFDD0/RadioAntennaStatus_0xFDD0</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="AFFAEA0D-BC37-41B0-B455-8E711A6C502C">
+                      <SHORT-NAME>SEND_EOL_ReadGPSSatelliteCount_GPSSatelliteCount</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Misc/EOL_ReadGPSSatelliteCount</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_ReadGPSSatelliteCount/GPSSatelliteCount</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="09D2F56F-AE52-4AD8-A46C-1717C56E7479">
+                      <SHORT-NAME>SC_IoHwAb_Interface_GetVoltage</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/IoHwAb_Interface</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/GetVoltage</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="A14A0FE3-9C3C-49C7-BBC5-F27734760393">
+                      <SHORT-NAME>SC_Os_Service_GetCounterValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="D178D05B-66F8-41D3-931A-02E7F7220508">
+                      <SHORT-NAME>SC_Os_Service_GetElapsedValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="3A0BE195-5780-44FC-8B6E-9E23C11C993A">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_EraseBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/EraseBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="884F7C50-71E9-42F1-BE65-222BBD0C4212">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="FBABB09B-29A6-4D96-800A-9B7717131DB4">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_InvalidateNvBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/InvalidateNvBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="0CC1AC1B-6CC5-438C-926A-5656C036423B">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="30A7E340-AC16-450B-B59F-D8ECE681DE40">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_RestoreBlockDefaults</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/RestoreBlockDefaults</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="26769B14-1E8D-4B62-907B-D301151C13C7">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_ResetInfomation_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                  <SYMBOL>Misc_MainFunction</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="58A62729-3478-4CAE-98F3-03DF7D84D795">
+                  <SHORT-NAME>Misc_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>Misc_Init</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="CD4D10BB-D50A-477E-A6A1-C8AC05559A2B">
+                  <SHORT-NAME>Misc_MainFunction_50ms</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>Misc_MainFunction_50ms</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E5ABA619-9E49-48D8-830F-5F75F57BABCC">
+                  <SHORT-NAME>EOL_0xFDE1_EOL_ReadWatchDogCnt</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>EOL_0xFDE1_EOL_ReadWatchDogCnt</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="4B851F24-D195-419C-93BD-5686FB9540BB">
+                  <SHORT-NAME>EOL_0xFDE2_EOL_ReadResetInformation</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>EOL_0xFDE2_EOL_ReadResetInformation</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="42B9BB75-FA21-4AF7-B4C2-58436A7FDAE6">
+                  <SHORT-NAME>EOL_0xFDD1_EOL_ReadMICStatus</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>EOL_0xFDD1_EOL_ReadMICStatus</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="64468DF9-8FA0-42F4-ADD3-76B0748AF52B">
+                  <SHORT-NAME>EOL_0xFDD9_EOL_WriteValueForDispalyEnable</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <SYMBOL>EOL_0xFDD9_EOL_WriteValueForDispalyEnable</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E3133041-633B-4933-818B-7C92FD122561">
+                  <SHORT-NAME>EOL_0xFD16_EOL_FactoryReset</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="50A67816-788A-4437-AA06-CEDCD59D2299">
+                      <SHORT-NAME>REC_Rc_ResetReason_ResetSource</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/Rc_ResetReason</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/ResetReason/ResetSource</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SYMBOL>EOL_0xFD16_EOL_FactoryReset</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="C1A8CE37-8ABA-4469-ACB3-19ED85B29F7E">
+                  <SHORT-NAME>Misc_MainFunction_100ms</SHORT-NAME>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="7B93C9B9-BC73-42D6-BAA6-26C217EF5DE6">
+                      <SHORT-NAME>REC_rpSR_piDiagMonitorReInitFlag_ChangeCounter</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/rpSR_piDiagMonitorReInitFlag</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/piDiagMonitorReInitFlag/ChangeCounter</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="9B9DDCE8-5D7B-4394-B1FC-C220349236E6">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_1_open_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_1_open</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="12FB437B-3453-45F3-A8F4-8590EA9B8900">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_1_short_to_BAT_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_1_short_to_BAT</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="F571642E-E7A1-44BF-8A03-20C63ABBFF94">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_1_short_to_GND_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_1_short_to_GND</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="8204C3BE-8F13-413C-A908-27B0F2597CF7">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_2_open_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_2_open</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="DF08AFA8-06CB-48AF-B09C-3F6D6D496961">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_2_short_to_BAT_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_2_short_to_BAT</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="2C2A4867-8724-4AB8-B98E-8B0A2E549016">
+                      <SHORT-NAME>SC_DiagnosticMonitor_Mic_2_short_to_GND_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_Mic_2_short_to_GND</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="BFA36046-918D-40C4-A0DC-931DAE646B70">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM1_OpenCircuit_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM1_OpenCircuit</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="AD04818F-3EDF-4B8B-A251-A773C632A13C">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM1_OverCurrent_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM1_OverCurrent</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="6D5D7369-9E51-4C76-8635-7D06F91823B6">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM1_ShortToBattary_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM1_ShortToBattary</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="CB2B93C7-3A6C-41AA-BD09-9323A2CAB314">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM1_ShortToGround_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM1_ShortToGround</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1BAD885C-79BA-4172-AC82-D35124F258B1">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM2_OpenCircuit_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM2_OpenCircuit</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="CDC337B4-FBCE-4E27-ABAE-8BE5CC3A81CA">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM2_OverCurrent_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM2_OverCurrent</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="ECFF17ED-8310-4307-8BA4-31552BF715D2">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM2_ShortToBattary_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM2_ShortToBattary</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1A8FCCC2-12E6-44D1-BC9D-A55055FB328E">
+                      <SHORT-NAME>SC_DiagnosticMonitor_FM2_ShortToGround_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_FM2_ShortToGround</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="52156350-32D2-4912-8215-8BCD72C93B28">
+                      <SHORT-NAME>SC_DiagnosticMonitor_RVC_CameraOpenCircuit_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_RVC_CameraOpenCircuit</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="C4755654-B938-4379-AB5B-09CA2262F080">
+                      <SHORT-NAME>SC_DiagnosticMonitor_RVC_CameraShortToGround_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_RVC_CameraShortToGround</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="F158F51B-F61A-46A2-B6D3-1332D03C2D66">
+                      <SHORT-NAME>SC_DiagnosticMonitor_RVC_CamerShortToBattery_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_RVC_CamerShortToBattery</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="E9D5E081-9009-4059-A186-F16669C9B06B">
+                      <SHORT-NAME>SC_rcCS_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/rcCS_VConfig_GetKindConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/VConfig_GetKindConfig/Operation_VConfig_GetKindConfig</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="608C36AE-5A90-48AF-831A-3E69F5BC4842">
+                      <SHORT-NAME>SC_DiagnosticMonitor_GNSS_OpenCircuit_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_GNSS_OpenCircuit</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="A56DD204-F864-44FF-B55D-21F084154713">
+                      <SHORT-NAME>SC_DiagnosticMonitor_GNSS_OverCurrent_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_GNSS_OverCurrent</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="F8CA0476-13F3-4630-AF72-6F7215F95145">
+                      <SHORT-NAME>SC_DiagnosticMonitor_GNSS_ShortToBattary_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_GNSS_ShortToBattary</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="8CA2DE71-F09A-4558-BABB-AA7BEBF0C1A6">
+                      <SHORT-NAME>SC_DiagnosticMonitor_GNSS_ShortToGround_SetEventStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/DiagnosticMonitor_GNSS_ShortToGround</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dem_swc/Interfaces/DiagnosticMonitor/SetEventStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                  <SYMBOL>Misc_MainFunction_100ms</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="8AA26DF3-BE9A-43EF-807F-3510636D86F7">
+                  <SHORT-NAME>Misc_MainFunction_500ms</SHORT-NAME>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="D5D62584-AB13-41A8-8396-E8FB92D86048">
+                      <SHORT-NAME>REC_rpSR_Misc_DrvGearDisp_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/rpSR_Misc_DrvGearDisp</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_DrvGearDisp/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="27D876F5-D4A2-4D09-88B5-2A9F29A4134D">
+                      <SHORT-NAME>REC_rpSR_Misc_GearMsgMiss_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/rpSR_Misc_GearMsgMiss</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_GearMsgMiss/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="9E6F3788-763C-47FC-9E9E-C0938021BE56">
+                      <SHORT-NAME>REC_tiSR_Power_Out_SystemStateOut</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/tiSR_Power_Out</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_Power_Out/SystemStateOut</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="B9D61E5A-C949-44A6-B41C-5BECBF1DD631">
+                      <SHORT-NAME>SC_IoHwAb_Interface_SetPin</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/IoHwAb_Interface</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IoHwAb_Interface/SetPin</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="81206855-95E6-4645-8705-3B56FA734897">
+                      <SHORT-NAME>SC_rpCS_Mics_ComEx_ReceiveSignal</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/rpCS_Mics_ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                  <SYMBOL>Misc_MainFunction_500ms</SYMBOL>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="743B2222-A18F-4E38-930E-E5057586D8D3">
+                  <SHORT-NAME>NVM_Read_Speedup_Runnable</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="3C4F0820-7F71-4C31-8649-205673FF1E41">
+                  <SHORT-NAME>WdgM_LocalStatusCallback_Power</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E6B9616C-7A36-4931-A635-16EB2395FED7">
+                  <SHORT-NAME>WdgM_LocalStatusCallback_TT</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="0FFCFF70-EF1D-49B7-8168-6BE64A64D814">
+                  <SHORT-NAME>WdgM_GlobalStatusCallback</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E59D78C0-2272-41E8-BA41-AA1B49C8409D">
+                  <SHORT-NAME>WdgM_LocalStatusCallback_Gear</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS>
+                <SWC-SERVICE-DEPENDENCY UUID="BA8ED23A-D6B5-4BDA-9D98-671A562D9938">
+                  <SHORT-NAME>NvBlockNeed_ResetInfomation</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/Misc/Misc_InternalBehavior/NvBlockNeed_ResetInfomation_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/Misc/Misc_InternalBehavior/NvBlockNeed_ResetInfomation_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Misc/NvMService_AC3_Defs_NvBlockNeed_ResetInfomation</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC3_Defs</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="8C694F52-E3F8-40EC-815E-5082DC3CF66F">
+                      <SHORT-NAME>NvBlockNeed_ResetInfomation</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                      <RESTORE-AT-START>true</RESTORE-AT-START>
+                      <STORE-AT-SHUTDOWN>true</STORE-AT-SHUTDOWN>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+              </SERVICE-DEPENDENCYS>
+              <SHARED-PARAMETERS>
+                <PARAMETER-DATA-PROTOTYPE UUID="6811D5C0-65C7-4765-998D-737F930F3905">
+                  <SHORT-NAME>NvBlockNeed_ResetInfomation_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NvmResetInformation_t</TYPE-TREF>
+                </PARAMETER-DATA-PROTOTYPE>
+              </SHARED-PARAMETERS>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="FBA4DA5F-CB92-4EAD-8587-1EB9F096FCB4">
+          <SHORT-NAME>Misc_Implementation</SHORT-NAME>
+          <CODE-DESCRIPTORS>
+            <CODE UUID="9D53CBE5-262B-4B5D-B3E8-F8633B431186">
+              <SHORT-NAME>Default</SHORT-NAME>
+              <ARTIFACT-DESCRIPTORS>
+                <AUTOSAR-ENGINEERING-OBJECT>
+                  <CATEGORY>SWSRC</CATEGORY>
+                </AUTOSAR-ENGINEERING-OBJECT>
+              </ARTIFACT-DESCRIPTORS>
+            </CODE>
+          </CODE-DESCRIPTORS>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Misc/Misc_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

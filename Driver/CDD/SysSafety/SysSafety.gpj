@@ -1,0 +1,8 @@
+#!gbuild
+[Subproject]
+ECCTst\EccTst_Irq.asm
+#RamTst\RamTst_Monitor.c
+ECCTst\EccTst.c
+CorTst\CorTst_Monitor.c
+CLM\CLM.c
+SysSafety.c

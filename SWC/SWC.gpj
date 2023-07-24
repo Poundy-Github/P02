@@ -1,0 +1,6 @@
+#!gbuild
+[Subproject]
+Power\Power.gpj
+SOCManager\SOCManager.gpj
+SWC_Manager\SWC_Manager.gpj
+DiagnosticServer\DiagnosticServer.gpj

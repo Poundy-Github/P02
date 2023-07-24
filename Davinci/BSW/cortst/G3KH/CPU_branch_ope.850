@@ -1,0 +1,669 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_branch_ope.850                                           --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Conditional Branch instructions                                           --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_branch_1
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		CPU_branch_tbl_OVSZ
+	.EXTERN		CPU_branch_tbl_OVS
+	.EXTERN		CPU_branch_tbl_CYZ
+	.EXTERN		CPU_branch_tbl_CY
+	.EXTERN		CPU_branch_tbl_OV
+	.EXTERN		CPU_branch_tbl_Z
+	.EXTERN		CPU_branch_tbl_S
+	.EXTERN		CPU_branch_tbl_SAT
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_branch_1
+--  Function ID     : CST_FN_010
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, R11, R12, R14, (LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_branch_1:
+	-- Covers: CST_DD_028
+	-- Covers: CST_DD_173
+	-- Covers: CST_DD_299
+	-- Covers: CST_DD_300
+	-- Covers: CST_DD_301
+	-- Covers: CST_DD_302
+	-- Covers: CST_DD_303
+	-- Covers: CST_DD_304
+	-- Covers: CST_DD_305
+	-- Covers: CST_DD_306
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+	MOV		R0, R7				--
+	MOV		0x01, R11			--
+	MOV		CPU_branch_1_053, R12		-- fail safe
+
+	MOV		PSW_MASK_SATCYOVSZ, R6		--
+	BR		CPU_branch_1_003		--
+
+	--------------------------------------------------
+	--	Branch TEST result 1
+	--------------------------------------------------
+    CPU_branch_1_001:
+	OR		R11, R10			-- Set Result Value
+    CPU_branch_1_002:
+	JMP		[R12]				--
+
+	-- Covers: CST_UM_206
+	-- Covers: CST_UM_206_01
+	-- Covers: CST_UM_207
+	-- Covers: CST_UM_207_01
+	--------------------------------------------------
+	--	BGT	disp9	((OV xor S) or Z) = 0
+	--	BLE	disp9	((OV xor S) or Z) = 1
+	--------------------------------------------------
+    CPU_branch_1_003:
+	MOV		0x08, R14			--
+	MOV		CPU_branch_tbl_OVSZ, R8		--
+	MOV		CPU_branch_1_005, R12		--
+
+    CPU_branch_1_004:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BGT		CPU_branch_1_001		--cst_point:PC=-20
+	BLE		CPU_branch_1_002		--cst_point:PC=-24
+
+    CPU_branch_1_005:
+	LOOP		R14, CPU_branch_1_004		--
+
+
+	-- Covers: CST_UM_217
+	-- Covers: CST_UM_217_01
+	-- Covers: CST_UM_221
+	-- Covers: CST_UM_221_01
+	--------------------------------------------------
+	--	BP	disp9	S = 0
+	--	BN	disp9	S = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_S, R8		--
+	MOV		CPU_branch_1_007, R12		--
+
+    CPU_branch_1_006:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BP		CPU_branch_1_001		--cst_point:PC=-46
+	BN		CPU_branch_1_002		--cst_point:PC=-50
+
+    CPU_branch_1_007:
+	LOOP		R14, CPU_branch_1_006		--
+
+
+	-- Covers: CST_UM_213
+	-- Covers: CST_UM_213_01
+	-- Covers: CST_UM_214
+	-- Covers: CST_UM_214_01
+	--------------------------------------------------
+	--	BNE	disp9	Z = 0
+	--	BE	disp9	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_009, R12		--
+
+    CPU_branch_1_008:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNE		CPU_branch_1_026		--cst_point:PC=+230
+	BE		CPU_branch_1_027		--cst_point:PC=+226
+
+    CPU_branch_1_009:
+	LOOP		R14, CPU_branch_1_008		--
+
+
+	-- Covers: CST_UM_205
+	-- Covers: CST_UM_205_01
+	-- Covers: CST_UM_208
+	-- Covers: CST_UM_208_01
+	--------------------------------------------------
+	--	BGE	disp9	(OV xor S) = 0
+	--	BLT	disp9	(OV xor S) = 1
+	--------------------------------------------------
+	MOV		0x04, R14			--
+	MOV		CPU_branch_tbl_OVS, R8		--
+	MOV		CPU_branch_1_011, R12		--
+
+    CPU_branch_1_010:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BGE		CPU_branch_1_026		--cst_point:PC=+204
+	BLT		CPU_branch_1_027		--cst_point:PC=+200
+
+    CPU_branch_1_011:
+	LOOP		R14, CPU_branch_1_010		--
+
+
+	-- Covers: CST_UM_209
+	-- Covers: CST_UM_209_01
+	-- Covers: CST_UM_211
+	-- Covers: CST_UM_211_01
+	--------------------------------------------------
+	--	BH	disp9	(CY or Z) = 0
+	--	BNH	disp9	(CY or Z) = 1
+	--------------------------------------------------
+	MOV		0x04, R14			--
+	MOV		CPU_branch_tbl_CYZ, R8		--
+	MOV		CPU_branch_1_013, R12		--
+
+    CPU_branch_1_012:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BH		CPU_branch_1_026		--cst_point:PC=+178
+	BNH		CPU_branch_1_027		--cst_point:PC=+174
+
+    CPU_branch_1_013:
+	LOOP		R14, CPU_branch_1_012		--
+
+
+	-- Covers: CST_UM_210
+	-- Covers: CST_UM_210_01
+	-- Covers: CST_UM_212
+	-- Covers: CST_UM_212_01
+	--------------------------------------------------
+	--	BNL	disp9	CY = 0
+	--	BL	disp9	CY = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_CY, R8		--
+	MOV		CPU_branch_1_015, R12		--
+
+    CPU_branch_1_014:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BL		CPU_branch_1_026		--cst_point:PC=+150
+	BNL		CPU_branch_1_027		--cst_point:PC=+148
+
+    CPU_branch_1_015:
+	LOOP		R14, CPU_branch_1_014		--
+
+
+	-- Covers: CST_UM_219
+	-- Covers: CST_UM_219_01
+	-- Covers: CST_UM_225
+	-- Covers: CST_UM_225_01
+	--------------------------------------------------
+	--	BNV	disp9	OV = 0
+	--	BV	disp9	OV = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_OV, R8		--
+	MOV		CPU_branch_1_017, R12		--
+
+    CPU_branch_1_016:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BV		CPU_branch_1_026		--cst_point:PC=+124
+	BNV		CPU_branch_1_027		--cst_point:PC=+122
+
+    CPU_branch_1_017:
+	LOOP		R14, CPU_branch_1_016		--
+
+
+	-- Covers: CST_UM_215
+	-- Covers: CST_UM_215_01
+	-- Covers: CST_UM_218
+	-- Covers: CST_UM_218_01
+	--------------------------------------------------
+	--	BNC	disp9	CY = 0
+	--	BC	disp9	CY = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_CY, R8		--
+	MOV		CPU_branch_1_019, R12		--
+
+
+    CPU_branch_1_018:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BC		CPU_branch_1_026		--cst_point:PC=+98
+	BNC		CPU_branch_1_027		--cst_point:PC=+96
+
+    CPU_branch_1_019:
+	LOOP		R14, CPU_branch_1_018		--
+
+
+	-- Covers: CST_UM_216
+	-- Covers: CST_UM_216_01
+	-- Covers: CST_UM_224
+	-- Covers: CST_UM_224_01
+	--------------------------------------------------
+	--	BF	disp9	Z = 0
+	--	BT	disp9	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_021, R12		--
+
+    CPU_branch_1_020:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BT		CPU_branch_1_026		--cst_point:PC=+72
+	BF		CPU_branch_1_027		--cst_point:PC=+70
+
+    CPU_branch_1_021:
+	LOOP		R14, CPU_branch_1_020		--
+
+
+	-- Covers: CST_UM_220
+	-- Covers: CST_UM_220_01
+	-- Covers: CST_UM_226
+	-- Covers: CST_UM_226_01
+	--------------------------------------------------
+	--	BNZ	disp9	Z = 0
+	--	BZ	disp9	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_023, R12		--
+
+    CPU_branch_1_022:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BZ		CPU_branch_1_026		--cst_point:PC=+46
+	BNZ		CPU_branch_1_027		--cst_point:PC=+44
+
+    CPU_branch_1_023:
+	LOOP		R14, CPU_branch_1_022		--
+
+
+	-- Covers: CST_UM_222
+	-- Covers: CST_UM_222_01
+	-- Covers: CST_UM_223
+	-- Covers: CST_UM_223_01
+	--------------------------------------------------
+	--	BSA	disp9	SAT = 1
+	--	BR	disp9	none
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_SAT, R8		--
+	MOV		CPU_branch_1_025, R12		--
+
+    CPU_branch_1_024:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BSA		CPU_branch_1_026		--cst_point:PC=+20
+	BR		CPU_branch_1_027		--cst_point:PC=+18
+
+    CPU_branch_1_025:
+	LOOP		R14, CPU_branch_1_024		--
+
+	MOV		R10, R7				-- store disp9 result to R7
+	MOV		R0, R10				--
+	MOV		CPU_branch_1_053, R12		-- fail safe
+	BR		CPU_branch_1_028		--
+
+
+	--------------------------------------------------
+	--	Branch TEST result 2
+	--------------------------------------------------
+    CPU_branch_1_026:
+	OR		R11, R10			--
+    CPU_branch_1_027:
+	JMP		[R12]				--
+
+
+	-- Covers: CST_UM_206
+	-- Covers: CST_UM_206_02
+	-- Covers: CST_UM_207
+	-- Covers: CST_UM_207_02
+	--------------------------------------------------
+	--	BGT	disp17	((OV xor S) or Z) = 0
+	--	BLE	disp17	((OV xor S) or Z) = 1
+	--------------------------------------------------
+    CPU_branch_1_028:
+	MOV		0x08, R14			--
+	MOV		CPU_branch_tbl_OVSZ, R8		--
+	MOV		CPU_branch_1_030, R12		--
+
+    CPU_branch_1_029:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BLE		CPU_branch_1_051		--cst_point:PC=+310
+	BGT		CPU_branch_1_052		--cst_point:PC=+306
+
+    CPU_branch_1_030:
+	LOOP		R14, CPU_branch_1_029		--
+
+
+	-- Covers: CST_UM_217
+	-- Covers: CST_UM_217_02
+	-- Covers: CST_UM_221
+	-- Covers: CST_UM_221_02
+	--------------------------------------------------
+	--	BP	disp17	S = 0
+	--	BN	disp17	S = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_S, R8		--
+	MOV		CPU_branch_1_032, R12		--
+
+    CPU_branch_1_031:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BN		CPU_branch_1_051		--cst_point:PC=+280
+	BP		CPU_branch_1_052		--cst_point:PC=+276
+
+    CPU_branch_1_032:
+	LOOP		R14, CPU_branch_1_031		--
+
+
+	-- Covers: CST_UM_213
+	-- Covers: CST_UM_213_02
+	-- Covers: CST_UM_214
+	-- Covers: CST_UM_214_02
+	--------------------------------------------------
+	--	BNE	disp17	Z = 0
+	--	BE	disp17	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_034, R12		--
+
+    CPU_branch_1_033:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BE		CPU_branch_1_001		--cst_point:PC=-384
+	BNE		CPU_branch_1_002		--cst_point:PC=-388
+
+    CPU_branch_1_034:
+	LOOP		R14, CPU_branch_1_033		--
+
+
+	-- Covers: CST_UM_205
+	-- Covers: CST_UM_205_02
+	-- Covers: CST_UM_208
+	-- Covers: CST_UM_208_02
+	--------------------------------------------------
+	--	BGE	disp17	(OV xor S) = 0
+	--	BLT	disp17	(OV xor S) = 1
+	--------------------------------------------------
+	MOV		0x04, R14			--
+	MOV		CPU_branch_tbl_OVS, R8		--
+	MOV		CPU_branch_1_036, R12		--
+
+    CPU_branch_1_035:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BLT		CPU_branch_1_001		--cst_point:PC=-414
+	BGE		CPU_branch_1_002		--cst_point:PC=-418
+
+    CPU_branch_1_036:
+	LOOP		R14, CPU_branch_1_035		--
+
+
+	-- Covers: CST_UM_209
+	-- Covers: CST_UM_209_02
+	-- Covers: CST_UM_211
+	-- Covers: CST_UM_211_02
+	--------------------------------------------------
+	--	BH	disp17	(CY or Z) = 0
+	--	BNH	disp17	(CY or Z) = 1
+	--------------------------------------------------
+	MOV		0x04, R14			--
+	MOV		CPU_branch_tbl_CYZ, R8		--
+	MOV		CPU_branch_1_038, R12		--
+
+    CPU_branch_1_037:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNH		CPU_branch_1_001		--cst_point:PC=-444
+	BH		CPU_branch_1_002		--cst_point:PC=-448
+
+    CPU_branch_1_038:
+	LOOP		R14, CPU_branch_1_037		--
+
+
+	-- Covers: CST_UM_210
+	-- Covers: CST_UM_210_02
+	-- Covers: CST_UM_212
+	-- Covers: CST_UM_212_02
+	--------------------------------------------------
+	--	BNL	disp17	CY = 0
+	--	BL	disp17	CY = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_CY, R8		--
+	MOV		CPU_branch_1_040, R12		--
+
+    CPU_branch_1_039:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNL		CPU_branch_1_001		--cst_point:PC=-472
+	BL		CPU_branch_1_002		--cst_point:PC=-478
+
+    CPU_branch_1_040:
+	LOOP		R14, CPU_branch_1_039		--
+
+
+	-- Covers: CST_UM_219
+	-- Covers: CST_UM_219_02
+	-- Covers: CST_UM_225
+	-- Covers: CST_UM_225_02
+	--------------------------------------------------
+	--	BNV	disp17	OV = 0
+	--	BV	disp17	OV = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_OV, R8		--
+	MOV		CPU_branch_1_042, R12		--
+
+    CPU_branch_1_041:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNV		CPU_branch_1_001		--cst_point:PC=-502
+	BV		CPU_branch_1_002		--cst_point:PC=-508
+
+    CPU_branch_1_042:
+	LOOP		R14, CPU_branch_1_041		--
+
+
+	-- Covers: CST_UM_215
+	-- Covers: CST_UM_215_02
+	-- Covers: CST_UM_218
+	-- Covers: CST_UM_218_02
+	--------------------------------------------------
+	--	BNC	disp17	CY = 0
+	--	BC	disp17	CY = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_CY, R8		--
+	MOV		CPU_branch_1_044, R12		--
+
+    CPU_branch_1_043:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNC		CPU_branch_1_001		--cst_point:PC=-532
+	BC		CPU_branch_1_002		--cst_point:PC=-538
+
+    CPU_branch_1_044:
+	LOOP		R14, CPU_branch_1_043		--
+
+
+	-- Covers: CST_UM_216
+	-- Covers: CST_UM_216_02
+	-- Covers: CST_UM_224
+	-- Covers: CST_UM_224_02
+	--------------------------------------------------
+	--	BF	disp17	Z = 0
+	--	BT	disp17	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_046, R12		--
+
+    CPU_branch_1_045:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BF		CPU_branch_1_001		--cst_point:PC=-562
+	BT		CPU_branch_1_002		--cst_point:PC=-568
+
+    CPU_branch_1_046:
+	LOOP		R14, CPU_branch_1_045		--
+
+
+	-- Covers: CST_UM_220
+	-- Covers: CST_UM_220_02
+	-- Covers: CST_UM_226
+	-- Covers: CST_UM_226_02
+	--------------------------------------------------
+	--	BNZ	disp17	Z = 0
+	--	BZ	disp17	Z = 1
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_Z, R8		--
+	MOV		CPU_branch_1_048, R12		--
+
+    CPU_branch_1_047:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BNZ		CPU_branch_1_001		--cst_point:PC=-592
+	BZ		CPU_branch_1_002		--cst_point:PC=-598
+
+    CPU_branch_1_048:
+	LOOP		R14, CPU_branch_1_047		--
+
+
+	-- Covers: CST_UM_222
+	-- Covers: CST_UM_222_02
+	-- Covers: CST_UM_223
+	-- Covers: CST_UM_223_02
+	--------------------------------------------------
+	--	BSA	disp17	SAT = 1
+	--	(BR	disp17)	none
+	--------------------------------------------------
+	MOV		0x02, R14			--
+	MOV		CPU_branch_tbl_SAT, R8		--
+	MOV		CPU_branch_1_050, R12		--
+
+    CPU_branch_1_049:
+	JARL		f_sub_CPU_branch_set_data, LP	--
+
+	BSA		CPU_branch_1_002		--cst_point:PC=-624
+    CPU_branch_1_050:
+	LOOP		R14, CPU_branch_1_049		--
+
+	BR		CPU_branch_1_053		--
+
+
+	--------------------------------------------------
+	--	Branch TEST result 3
+	--------------------------------------------------
+    CPU_branch_1_051:
+	OR		R11, R10			--
+    CPU_branch_1_052:
+	JMP		[R12]				--
+
+
+	--------------------------------------------------
+	--	XOR disp9 result and disp17 result
+	--------------------------------------------------
+    CPU_branch_1_053:
+	XOR		R7, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_branch_set_data
+--  Function ID     : CST_FN_088
+--  Input           : R6 : Value of Flags mask
+--  Input/Output    : R8 : Addres of Flags pattern
+--                  : R10 : Result SUM
+--  Broken Register : R1, R6, R8, R9, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_branch_set_data:
+	-- Covers: CST_DD_104
+	-- Covers: CST_DD_248
+	LD.W		0x0000[R8], R9			--
+	ADD		0x04, R8			--
+	SHL		0x01, R10			--
+	-- Covers: CST_UM_006
+	STSR		PSW, R1, 0			--
+	AND		R6, R1				--
+	OR		R9, R1				--
+	LDSR		R1, PSW, 0			--
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_branch_ope.850            =====
+-- ============================================================================

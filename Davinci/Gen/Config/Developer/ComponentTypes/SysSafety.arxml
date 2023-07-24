@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="10BC3E52-321E-4B43-AB63-6A969B20DE60">
+          <SHORT-NAME>SysSafety</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="48C25ABB-913F-4EA6-AFB8-3667EAEA89D6">
+              <SHORT-NAME>SysSafety_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="92F5464B-B144-430D-AFBB-A197112B5BB7">
+                  <SHORT-NAME>ExclusiveArea_SysSafety</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <EVENTS>
+                <INIT-EVENT UUID="42A5E504-B025-4CA3-8357-C99F0BC8AF6A">
+                  <SHORT-NAME>SysSafety_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/SysSafety/SysSafety_InternalBehavior/SysSafety_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="DC3472BE-C5D4-4981-8ADD-D0539FB65FDE">
+                  <SHORT-NAME>TMT_SysSafety_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/SysSafety/SysSafety_InternalBehavior/SysSafety_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="EC97A079-97A3-4B4E-89EC-16701077CC52">
+                  <SHORT-NAME>SysSafety_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="D14EC637-65EB-45A1-BBCE-0D7A90680F87">
+                  <SHORT-NAME>SysSafety_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/SysSafety/SysSafety_InternalBehavior/ExclusiveArea_SysSafety</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="41C58D29-C738-4676-81AE-5950B98B9FC3">
+                  <SHORT-NAME>SysSafety_SelfTestStart</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="150D2713-5C25-4A05-A6C8-CF12C8758FC6">
+          <SHORT-NAME>SysSafety_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/SysSafety/SysSafety_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

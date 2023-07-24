@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="4971D398-E3F3-4689-9D30-AB1370D48C9B">
+          <SHORT-NAME>SOCManager</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="EC4392E0-20A3-498E-9473-EE6DC763D9CD">
+              <SHORT-NAME>ppSR_SocManager</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SocManager/SystemState</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_SocManager</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="3639D425-7438-46FA-9875-AD274B2E3E3B">
+              <SHORT-NAME>rpSR_Power_Out</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_Power_Out/SystemStateOut</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <CONSTANT-REFERENCE>
+                      <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/Constants/PowerOutInit</CONSTANT-REF>
+                    </CONSTANT-REFERENCE>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_Power_Out</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="50BE4F07-A82C-4FDE-87F1-61B107B4B159">
+              <SHORT-NAME>EOL_KeepDownload</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_KeepDownload/keepDownloadRID</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/EOL_KeepDownload</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="7991978A-8258-4C36-99EB-EDF8D58D5232">
+              <SHORT-NAME>ppSR_SocManager_SocFactoryResetState</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SocManager_SocFactoryResetState/SocFactoryResetReady</DATA-ELEMENT-REF>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SocManager_SocFactoryResetState</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="5322768A-CC48-4944-9004-AC75834B6C8C">
+              <SHORT-NAME>Rc_Upgrade_flag</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Upgrade_flag/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Upgrade_flag</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="9A1D4814-BCD4-4C15-93B6-04D4C751AC94">
+              <SHORT-NAME>rpSR_System_Recovery</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/if_System_Recovery/System_Recovery</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/if_System_Recovery</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="E2B5B7B6-718A-4268-B76A-276E7B52F42B">
+              <SHORT-NAME>rpSR_Upgrade_System_Recovery</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/if_Upgrade_System_Recovery/System_Recovery</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/if_Upgrade_System_Recovery</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="AFB3747F-42A3-46B2-B00A-CE4B8C567241">
+              <SHORT-NAME>rpSR_SOCManager_SpeedoInfo</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SpeedoInfo/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>OverSpdWrnFlg</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehRunSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>IndicateSpeed</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeed</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>IndicateSpeedMile</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeedMile</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeedBak</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>Msg_missingSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpdVld</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_SpeedoInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="C529D5B9-37CC-4B96-B6C0-2915DA1C0D62">
+              <SHORT-NAME>rpSR_SOCManager_TachoInfo</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_TachoInfo/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngRunSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngSpd</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>TimeOutFlag</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngSpdBak</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>Msg_missingSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_TachoInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="0EBBEE00-50DC-45A7-94F7-A932DEEF05C1">
+              <SHORT-NAME>rpSR_SOCManager_DrvGearDisp</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_DrvGearDisp/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_DrvGearDisp</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="08BEF0FA-DC34-40C5-9D8B-EE88D737BC50">
+              <SHORT-NAME>rpSR_SOCManager_GearMsgMiss</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_GearMsgMiss/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_GearMsgMiss</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="CB989DB2-3152-4CF5-9F47-A7DD6B9E551B">
+              <SHORT-NAME>ComEx</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/SendSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/GetRxE2EStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/ComEx</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="E1A19A6F-BB72-4C49-940A-BBEE48FF69E5">
+              <SHORT-NAME>NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/RestoreBlockDefaults</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/InvalidateNvBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/EraseBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="AB580543-7569-4579-8142-9E8E0EEF3BEA">
+              <SHORT-NAME>NvMNotifyJobFinished_NvBlockNeed_HealthSwitch</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="42C2C122-3310-415E-97B3-F530E4D36EC3">
+              <SHORT-NAME>SeekDwnAndPageLPress_Timeout</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekDwnAndPageLPress_Timeout/Element</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SeekDwnAndPageLPress_Timeout</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="BBB78AFA-4107-40D4-A3D9-06B4DC0D35D9">
+              <SHORT-NAME>SOCManager_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="7FE2F0E6-3E9D-49EF-8566-40D7CA0356F8">
+                  <SHORT-NAME>ExclusiveArea_SOCManager</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <AR-TYPED-PER-INSTANCE-MEMORYS>
+                <VARIABLE-DATA-PROTOTYPE UUID="C931C32F-0D4B-40D5-B83C-EFC0D6D4C0E8">
+                  <SHORT-NAME>NvBlockNeed_HealthSwitch_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </AR-TYPED-PER-INSTANCE-MEMORYS>
+              <EVENTS>
+                <INIT-EVENT UUID="63DBE26C-9194-4D18-BADE-452E24F83ACB">
+                  <SHORT-NAME>SOCManager_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/SOCManager_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="20BC9FC5-684C-493B-9484-E51C65D7BD11">
+                  <SHORT-NAME>TMT_SOCManager_ManFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/SOCManager_ManFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="96E1CE26-259E-421C-938A-00E9141D6C9D">
+                  <SHORT-NAME>OIT_NvBlockNeed_HealthSwitch_JobFinished_NvMNotifyJobFinished_NvBlockNeed_HealthSwitch_JobFinished</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/NvBlockNeed_HealthSwitch_JobFinished</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMNotifyJobFinished_NvBlockNeed_HealthSwitch</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="C3DC472F-14BF-42AB-92E4-CA04170C4DBE">
+                  <SHORT-NAME>SOCManager_ManFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/ExclusiveArea_SOCManager</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="718B1B49-CE09-4EA7-9A59-029FAD17EC74">
+                      <SHORT-NAME>REC_EOL_KeepDownload_keepDownloadRID</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/EOL_KeepDownload</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/EOL_KeepDownload/keepDownloadRID</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="03BE471D-37AD-4E74-B5E2-9A23D87DE5A0">
+                      <SHORT-NAME>REC_Rc_Upgrade_flag_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/Rc_Upgrade_flag</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Upgrade_flag/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="A84A944F-FF82-4EFA-AB5F-AEEB270156C0">
+                      <SHORT-NAME>REC_rpSR_System_Recovery_System_Recovery</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_System_Recovery</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/if_System_Recovery/System_Recovery</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="7BE9AD1F-5470-450D-B355-99891E0B544F">
+                      <SHORT-NAME>REC_rpSR_Upgrade_System_Recovery_System_Recovery</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_Upgrade_System_Recovery</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/if_Upgrade_System_Recovery/System_Recovery</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="D756EB3D-D0F6-4749-A1FE-1D0EAF8D506F">
+                      <SHORT-NAME>REC_rpSR_SOCManager_SpeedoInfo_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_SOCManager_SpeedoInfo</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SpeedoInfo/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="8443272F-E964-483A-8054-F7EBADDCED18">
+                      <SHORT-NAME>REC_rpSR_SOCManager_TachoInfo_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_SOCManager_TachoInfo</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_TachoInfo/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="08705C55-001E-49BA-A479-0852857BB52B">
+                      <SHORT-NAME>REC_rpSR_SOCManager_DrvGearDisp_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_SOCManager_DrvGearDisp</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_DrvGearDisp/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="48F18D30-28B2-483B-B252-9BE389A2569E">
+                      <SHORT-NAME>REC_rpSR_SOCManager_GearMsgMiss_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_SOCManager_GearMsgMiss</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_GearMsgMiss/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="40ADDED1-2BC7-4E1B-BAD7-1C9937F2794C">
+                      <SHORT-NAME>REC_rpSR_Power_Out_SystemStateOut</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_Power_Out</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_Power_Out/SystemStateOut</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS UUID="270B42D0-29FB-4331-9B01-487249B22FA2">
+                      <SHORT-NAME>SEND_ppSR_SocManager_SystemState</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ppSR_SocManager</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SocManager/SystemState</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="F707D105-E638-4E27-AD64-4F3B32E81BDE">
+                      <SHORT-NAME>SEND_ppSR_SocManager_SocFactoryResetState_SocFactoryResetReady</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ppSR_SocManager_SocFactoryResetState</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SocManager_SocFactoryResetState/SocFactoryResetReady</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="6CC9B344-5329-41A3-BAEB-F5DCE546456B">
+                      <SHORT-NAME>SEND_SeekDwnAndPageLPress_Timeout_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/SeekDwnAndPageLPress_Timeout</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SeekDwnAndPageLPress_Timeout/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="D9EB28FF-FB19-417C-AADB-C4DB0FDB8A3B">
+                      <SHORT-NAME>SC_ComEx_GetRxE2EStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/GetRxE2EStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="F35A8CE9-8A18-4575-943D-0F2FD21815E7">
+                      <SHORT-NAME>SC_ComEx_ReceiveSignal</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="690C4158-ACEB-4934-A53D-6220649F8183">
+                      <SHORT-NAME>SC_ComEx_SendSignal</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/SendSignal</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="C40D92EA-20D1-4C1A-A105-3ED8B4B03241">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_EraseBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/EraseBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="148043E9-ADEF-4A61-96C7-7CEF8D0EE947">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="DAD6CB8C-DDE6-4B3C-B97B-D0AA7C0FE880">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_InvalidateNvBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/InvalidateNvBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="38F3AE36-7504-4FD1-8DAB-53302E5BB170">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="02350932-0174-4FB3-9FF3-4C92144EB408">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_RestoreBlockDefaults</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/RestoreBlockDefaults</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1B26061B-AB50-4A5B-93EB-981846AFCD3C">
+                      <SHORT-NAME>SC_NvMService_AC3_Defs_NvBlockNeed_HealthSwitch_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_Defs/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="60C8E56A-2858-4552-A0A5-FC038DB2E4C1">
+                  <SHORT-NAME>SOCManager_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E507AF12-6A85-4794-B107-AD76C8392EA8">
+                  <SHORT-NAME>NvBlockNeed_HealthSwitch_JobFinished</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS>
+                <SWC-SERVICE-DEPENDENCY UUID="251811A6-F3F1-4217-9D26-DEBCFA43EBEA">
+                  <SHORT-NAME>NvBlockNeed_HealthSwitch</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/NvBlockNeed_HealthSwitch_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/SOCManager/SOCManager_InternalBehavior/NvBlockNeed_HealthSwitch_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMService_AC3_Defs_NvBlockNeed_HealthSwitch</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC3_Defs</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/NvMNotifyJobFinished_NvBlockNeed_HealthSwitch</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMNotifyJobFinished</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="58649D44-54BA-487B-8437-739AE257181F">
+                      <SHORT-NAME>NvBlockNeed_HealthSwitch</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+              </SERVICE-DEPENDENCYS>
+              <SHARED-PARAMETERS>
+                <PARAMETER-DATA-PROTOTYPE UUID="521E87A6-FC37-4734-B2AD-18D9E16B7217">
+                  <SHORT-NAME>NvBlockNeed_HealthSwitch_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>1</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </PARAMETER-DATA-PROTOTYPE>
+              </SHARED-PARAMETERS>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="54AB421D-4614-4835-91A6-6FAED55E327B">
+          <SHORT-NAME>SOCManager_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/SOCManager/SOCManager_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

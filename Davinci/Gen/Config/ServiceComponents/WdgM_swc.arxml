@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="c015c17a-3c48-43ee-b79d-d78e248ab67d">
+          <SHORT-NAME>WdgM_swc</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="3a3cafe1-6ee6-4dc6-ab86-b68475ea3812">
+              <SHORT-NAME>DataTypes</SHORT-NAME>
+              <ELEMENTS>
+                <IMPLEMENTATION-DATA-TYPE UUID="a1c014d0-05fd-46f2-81ea-e6ee3bfe84d3">
+                  <SHORT-NAME>WdgM_SupervisedEntityIdType</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="FOR-ALL">Identifier of a supervised entity</L-2>
+                  </DESC>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/WdgM_swc/DataTypes/DataConstrs/WdgM_SupervisedEntityIdType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+                <IMPLEMENTATION-DATA-TYPE UUID="66c947ee-d4ad-4122-a6df-79783330e39e">
+                  <SHORT-NAME>WdgM_CheckpointIdType</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="FOR-ALL">Identifier of a checkpoint</L-2>
+                  </DESC>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/WdgM_swc/DataTypes/DataConstrs/WdgM_CheckpointIdType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+                <IMPLEMENTATION-DATA-TYPE UUID="a18a2a48-0fcd-48f2-9198-0b9a4e875e21">
+                  <SHORT-NAME>WdgM_ModeType</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="FOR-ALL">Identifier of the Watchdog trigger mode</L-2>
+                  </DESC>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/WdgM_swc/DataTypes/DataConstrs/WdgM_ModeType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+                <IMPLEMENTATION-DATA-TYPE UUID="6c559a57-7749-48a9-9efd-7dbd6c78b433">
+                  <SHORT-NAME>WdgM_LocalStatusType</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="FOR-ALL">Local Monitoring Status of a supervised entity.</L-2>
+                  </DESC>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/MICROSAR/WdgM_swc/DataTypes/CompuMethods/WdgM_LocalStatusType</COMPU-METHOD-REF>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/WdgM_swc/DataTypes/DataConstrs/WdgM_LocalStatusType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+                <IMPLEMENTATION-DATA-TYPE UUID="d9ee1168-1d1a-4322-876a-ad64e61f1b05">
+                  <SHORT-NAME>WdgM_GlobalStatusType</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="FOR-ALL">Global Monitoring Status summarizes all local monitoring statuses of all supervised entities.</L-2>
+                  </DESC>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/MICROSAR/WdgM_swc/DataTypes/CompuMethods/WdgM_GlobalStatusType</COMPU-METHOD-REF>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/WdgM_swc/DataTypes/DataConstrs/WdgM_GlobalStatusType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+              </ELEMENTS>
+              <AR-PACKAGES>
+                <AR-PACKAGE UUID="589fd9f5-8782-4d52-985c-08b9ab1b9ec7">
+                  <SHORT-NAME>DataConstrs</SHORT-NAME>
+                  <ELEMENTS>
+                    <DATA-CONSTR UUID="d4c260c6-8c4b-4963-a131-511f12645c90">
+                      <SHORT-NAME>WdgM_SupervisedEntityIdType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="330d9171-bbde-4c52-99c7-312734aa851f">
+                      <SHORT-NAME>WdgM_CheckpointIdType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="f8b444c0-ce08-476d-85a5-a9d4e6017a9a">
+                      <SHORT-NAME>WdgM_ModeType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="b51e2bf1-72d7-41e2-9067-9ee553558948">
+                      <SHORT-NAME>WdgM_LocalStatusType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="fbd4eaa6-9d48-4aba-99d3-2f8b48289f55">
+                      <SHORT-NAME>WdgM_GlobalStatusType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE UUID="dff1f76f-1b1b-4373-a9a4-bbf501e4480d">
+                  <SHORT-NAME>CompuMethods</SHORT-NAME>
+                  <ELEMENTS>
+                    <COMPU-METHOD UUID="97da7cab-b550-4274-a52b-a07169e366c2">
+                      <SHORT-NAME>WdgM_LocalStatusType</SHORT-NAME>
+                      <CATEGORY>TEXTTABLE</CATEGORY>
+                      <COMPU-INTERNAL-TO-PHYS>
+                        <COMPU-SCALES>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_LOCAL_STATUS_OK</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_LOCAL_STATUS_OK</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_LOCAL_STATUS_FAILED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_LOCAL_STATUS_FAILED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_LOCAL_STATUS_EXPIRED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_LOCAL_STATUS_EXPIRED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_LOCAL_STATUS_DEACTIVATED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_LOCAL_STATUS_DEACTIVATED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                        </COMPU-SCALES>
+                      </COMPU-INTERNAL-TO-PHYS>
+                    </COMPU-METHOD>
+                    <COMPU-METHOD UUID="d69e8394-838d-4e3c-8190-ec77dcc440f3">
+                      <SHORT-NAME>WdgM_GlobalStatusType</SHORT-NAME>
+                      <CATEGORY>TEXTTABLE</CATEGORY>
+                      <COMPU-INTERNAL-TO-PHYS>
+                        <COMPU-SCALES>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_GLOBAL_STATUS_OK</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_GLOBAL_STATUS_OK</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_GLOBAL_STATUS_FAILED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_GLOBAL_STATUS_FAILED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_GLOBAL_STATUS_EXPIRED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_GLOBAL_STATUS_EXPIRED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_GLOBAL_STATUS_STOPPED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_GLOBAL_STATUS_STOPPED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>WDGM_GLOBAL_STATUS_DEACTIVATED</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>WDGM_GLOBAL_STATUS_DEACTIVATED</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                        </COMPU-SCALES>
+                      </COMPU-INTERNAL-TO-PHYS>
+                    </COMPU-METHOD>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="ba056baa-93c1-4a39-8d1c-e2dae6a39a82">
+              <SHORT-NAME>Interfaces</SHORT-NAME>
+              <ELEMENTS>
+                <CLIENT-SERVER-INTERFACE UUID="f11dc64b-e1a1-4bb8-8f6e-740290f8de46">
+                  <SHORT-NAME>WdgM_AliveSupervision</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>WATCH-DOG-MANAGER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="d1ab195e-06d8-4f6b-ad8b-d66755545e73">
+                      <SHORT-NAME>CheckpointReached</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Indicates to the Watchdog Manager that a Checkpoint within a Supervised Entity has been reached.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="3aae2e78-d675-455d-8bb9-61b6331aa5fc">
+                          <SHORT-NAME>CPID</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Identifier of the checkpoint within a supervised entity that has been reached.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_CheckpointIdType</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="87a477d9-313b-417c-889f-92fe8e03b7ee">
+                      <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                      <ERROR-CODE>1</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="1f7f5f0f-7b39-4e1e-938b-e3033784d692">
+                  <SHORT-NAME>WdgM_LocalStatus</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>WATCH-DOG-MANAGER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="a3142853-17e5-4c53-9809-8506ab22af14">
+                      <SHORT-NAME>GetLocalStatus</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Returns the supervision status of a supervised entity.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="e550e404-a02e-4e4d-96c9-eadd1ee03cb1">
+                          <SHORT-NAME>Status</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Supervision status of the given supervised entity.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_LocalStatusType</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="724c251c-e9bd-4ef4-8247-88a057649317">
+                      <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                      <ERROR-CODE>1</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="c1bafa4e-def2-42b6-8546-e789ed75c88e">
+                  <SHORT-NAME>WdgM_General</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>WATCH-DOG-MANAGER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="66e5cd6f-8cec-4172-9dd2-c321eab8b5e5">
+                      <SHORT-NAME>GetMode</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Returns the current mode of the Watchdog Manager.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="d813d4a3-d048-43eb-9ed7-4c494264ea30">
+                          <SHORT-NAME>Mode</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Current mode of the Watchdog Manager.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_ModeType</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="586d3410-d2d7-4a41-8e2e-12edc6507bd8">
+                      <SHORT-NAME>GetGlobalStatus</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Returns the global supervision status of the Watchdog Manager.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="bf678001-64a8-4224-948a-d87d9a4994f9">
+                          <SHORT-NAME>Status</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Global supervision status of the Watchdog Manager.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_GlobalStatusType</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="0918abca-c718-403d-a4f3-f15b12aa3313">
+                      <SHORT-NAME>GetLocalStatus</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Returns the supervision status of a supervised entity.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="1ee22452-4b48-4950-aee3-caf2bc90517d">
+                          <SHORT-NAME>SEID</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Identifier of the supervised entity whose supervision status shall be returned.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="ab941267-59c3-4292-b8b6-178349e7a5b5">
+                          <SHORT-NAME>Status</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Supervision status of the given supervised entity.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_LocalStatusType</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="ba45a78a-3a99-41cb-a702-e79d2817bbfc">
+                      <SHORT-NAME>PerformReset</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Instructs the Watchdog Manager to cause a watchdog reset.</L-2>
+                      </DESC>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="2bb0fd33-52e5-487f-b200-a86713532ecd">
+                      <SHORT-NAME>SetMode</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Requests a new trigger mode</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="9b999764-462d-4574-b51f-5cc02f8e9c8a">
+                          <SHORT-NAME>Mode</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Desired new trigger mode id.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_ModeType</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="85840e8a-73fe-475c-9f7f-1570b28e0eaa">
+                          <SHORT-NAME>CallerID</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Module ID of the calling module.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="59948c42-d844-4cbb-869e-95d5c17d06f1">
+                      <SHORT-NAME>GetFirstExpiredSEID</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Returns the id of that supervised entity which first reached the status WDGM_LOCAL_STATUS_EXPIRED.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="08623b62-c4ae-412a-8d78-99b5e4dc1bb2">
+                          <SHORT-NAME>SEID</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Pointer to a variable that stores the id of the supervised entity.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="51d2eecb-9530-40f3-916a-7f3983dcc345">
+                      <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                      <ERROR-CODE>1</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="cd6b0f16-c5b0-4407-9a93-188efcb1a54d">
+                  <SHORT-NAME>WdgM_LocalStatusCallback</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>WATCH-DOG-MANAGER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="0716d357-6aae-4257-a183-39ef8314474b">
+                      <SHORT-NAME>LocalStatusCallback</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Callback function that will be invoked if the local supervision status has changed.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="022a2287-b439-45e1-8938-2983354c41bd">
+                          <SHORT-NAME>Status</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Local supervision status after the local supervision status of the related supervised entity has changed.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_LocalStatusType</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                </CLIENT-SERVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="fde13f25-c08a-4bb3-a638-cdd8ecda2858">
+                  <SHORT-NAME>WdgM_GlobalStatusCallback</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>WATCH-DOG-MANAGER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="848f6259-7f61-453f-94dc-a988a86f356d">
+                      <SHORT-NAME>GlobalStatusCallback</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Callback function that will be invoked if the global supervision status has changed.</L-2>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="901824ea-cc9b-487c-8a4a-338e42a0fbee">
+                          <SHORT-NAME>Status</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Global supervision status after the global supervision status has changed.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_GlobalStatusType</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                </CLIENT-SERVER-INTERFACE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="cc5d0725-73b1-4f71-9d14-65294a5df93d">
+              <SHORT-NAME>ComponentTypes</SHORT-NAME>
+              <ELEMENTS>
+                <SERVICE-SW-COMPONENT-TYPE UUID="e97b7591-4f48-4e3d-9028-d0a52367ee3d">
+                  <SHORT-NAME>WdgM_SystemApplication_OsCore0</SHORT-NAME>
+                  <CATEGORY>SERVICE_COMPONENT</CATEGORY>
+                  <PORTS>
+                    <P-PORT-PROTOTYPE UUID="7ddd198b-5011-48c9-bbcc-72d134e83a28">
+                      <SHORT-NAME>general_Core0</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">General P-Port-Prototype for core 0 (SystemApplication_OsCore0)</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMConfigSet/WdgMMode</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_General</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="9dc27bda-ce81-4688-963d-eeeb3643180a">
+                      <SHORT-NAME>alive_WdgMSupervisedEntity_test</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Alive-P-Port Prototype for supervised entity 'WdgMSupervisedEntity_test' with Id '0' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_test</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="26c10fc0-38fe-4d35-ae53-dadc41b6bb42">
+                      <SHORT-NAME>localStatus_WdgMSupervisedEntity_test</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">P-Port Prototype for supervised entity 'WdgMSupervisedEntity_test' with Id '0' for Application 'SystemApplication_OsCore0' to request the local status.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_test</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="28815be8-4595-4cfa-a363-660daaa57a64">
+                      <SHORT-NAME>globalStateChangeCbk_Core0</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Global-Status-Callback-R-Port Prototype for core 0 ('SystemApplication_OsCore0')</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMConfigSet/WdgMMode</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_GlobalStatusCallback</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="8b9d384f-6a4d-46d5-bbb1-22e2ba67c210">
+                      <SHORT-NAME>localStateChangeCbk_WdgMSupervisedEntity_test</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Local-Status-Callback-R-Port Prototype for supervised entity 'WdgMSupervisedEntity_test' with Id '0' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_test</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="0bf5e4bf-4b53-4e7a-9bcf-9bfee4572bca">
+                      <SHORT-NAME>alive_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Alive-P-Port Prototype for supervised entity 'WdgMSupervisedEntity_GEAR' with Id '1' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_GEAR</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="8af6d1a6-fc72-4493-9511-119bf9933550">
+                      <SHORT-NAME>alive_WdgMSupervisedEntity_TT</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Alive-P-Port Prototype for supervised entity 'WdgMSupervisedEntity_TT' with Id '2' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_TT</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="0c4c2ff9-f5dd-44fa-b8b9-95298b035fbd">
+                      <SHORT-NAME>localStatus_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">P-Port Prototype for supervised entity 'WdgMSupervisedEntity_GEAR' with Id '1' for Application 'SystemApplication_OsCore0' to request the local status.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_GEAR</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="bf02622e-d51d-420d-a034-7cf2afb68838">
+                      <SHORT-NAME>localStatus_WdgMSupervisedEntity_TT</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">P-Port Prototype for supervised entity 'WdgMSupervisedEntity_TT' with Id '2' for Application 'SystemApplication_OsCore0' to request the local status.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_TT</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="c5e9bd6a-3079-4a51-8d77-d504fcabc01b">
+                      <SHORT-NAME>localStateChangeCbk_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Local-Status-Callback-R-Port Prototype for supervised entity 'WdgMSupervisedEntity_GEAR' with Id '1' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_GEAR</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="8bdb19e7-2f16-4e79-ad18-09ee1444d160">
+                      <SHORT-NAME>localStateChangeCbk_WdgMSupervisedEntity_TT</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL">Local-Status-Callback-R-Port Prototype for supervised entity 'WdgMSupervisedEntity_TT' with Id '2' for Application 'SystemApplication_OsCore0'.</L-2>
+                      </DESC>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV:DerivedFromReferrables">
+                            <SDG GID="DV:DerivedFromReferrablesVariant">
+                              <SD GID="DV:InvariantValuesView"/>
+                              <SDX-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/WdgM/WdgMGeneral/WdgMSupervisedEntity_TT</SDX-REF>
+                            </SDG>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                  </PORTS>
+                  <INTERNAL-BEHAVIORS>
+                    <SWC-INTERNAL-BEHAVIOR UUID="72016e83-cd1f-45a5-a86c-f2e9ced48018">
+                      <SHORT-NAME>WdgM_SystemApplication_OsCore0InternalBehavior</SHORT-NAME>
+                      <EVENTS>
+                        <TIMING-EVENT UUID="75a2061b-c0af-4573-85b7-496a6325c234">
+                          <SHORT-NAME>Timer_WdgM_MainFunction</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/WdgM_MainFunction</START-ON-EVENT-REF>
+                          <PERIOD>0.01</PERIOD>
+                        </TIMING-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="e99c23a5-63e9-4ff8-86eb-f1ff025691cf">
+                          <SHORT-NAME>OpEventGetMode_GetMode_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetMode</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/GetMode</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="86d4b979-efc2-4838-9e71-2fb0a89faa69">
+                          <SHORT-NAME>OpEventGetGlobalStatus_GetGlobalStatus_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetGlobalStatus</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/GetGlobalStatus</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="63e909f1-add3-47ee-9962-ef5f8bde74fb">
+                          <SHORT-NAME>OpEventGetLocalStatus_GetLocalStatus_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetLocalStatus</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/GetLocalStatus</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="b669b2f5-bb1d-4ce1-9de4-0a83f2280ba3">
+                          <SHORT-NAME>OpEventPerformReset_PerformReset_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/PerformReset</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/PerformReset</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="2bfd1671-1813-463a-834b-ba9b2b954cc5">
+                          <SHORT-NAME>OpEventSetMode_SetMode_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/SetMode</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/SetMode</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="72d3cf66-f1d0-4a89-8dd9-71d5ad06ade3">
+                          <SHORT-NAME>OpEventGetFirstExpiredSEID_GetFirstExpiredSEID_general_Core0</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetFirstExpiredSEID</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_General/GetFirstExpiredSEID</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="550d1939-d81f-4603-9abb-67a17f435556">
+                          <SHORT-NAME>OpEventCheckpointReached_CheckpointReached_alive_WdgMSupervisedEntity_test</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/CheckpointReached</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_test</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision/CheckpointReached</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="9873a5ec-f33b-4c0a-95b8-99171ff4953c">
+                          <SHORT-NAME>OpEventGetLocalStatus_GetLocalStatus_localStatus_WdgMSupervisedEntity_test</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetLocalStatus</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_test</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus/GetLocalStatus</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="d6bcf8c7-c27d-4258-9290-73c681b9d020">
+                          <SHORT-NAME>OpEventCheckpointReached_CheckpointReached_alive_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/CheckpointReached</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_GEAR</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision/CheckpointReached</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="bdca6ae4-c25e-4dea-9069-791947e9bbdd">
+                          <SHORT-NAME>OpEventCheckpointReached_CheckpointReached_alive_WdgMSupervisedEntity_TT</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/CheckpointReached</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_TT</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_AliveSupervision/CheckpointReached</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="3520b390-e09f-4d23-bbe5-4c725d94d442">
+                          <SHORT-NAME>OpEventGetLocalStatus_GetLocalStatus_localStatus_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetLocalStatus</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_GEAR</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus/GetLocalStatus</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="328da3bb-9c5c-4956-a1ed-90e57eadc343">
+                          <SHORT-NAME>OpEventGetLocalStatus_GetLocalStatus_localStatus_WdgMSupervisedEntity_TT</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior/GetLocalStatus</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_TT</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatus/GetLocalStatus</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                      </EVENTS>
+                      <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                      <PORT-API-OPTIONS>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <SHORT-LABEL>SEID</SHORT-LABEL>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_test</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_test</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/general_Core0</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/globalStateChangeCbk_Core0</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_test</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <SHORT-LABEL>SEID</SHORT-LABEL>
+                                  <VALUE>1</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_GEAR</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <SHORT-LABEL>SEID</SHORT-LABEL>
+                                  <VALUE>2</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/alive_WdgMSupervisedEntity_TT</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>1</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_GEAR</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>2</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/WdgM_swc/DataTypes/WdgM_SupervisedEntityIdType</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStatus_WdgMSupervisedEntity_TT</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_GEAR</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_TT</PORT-REF>
+                        </PORT-API-OPTION>
+                      </PORT-API-OPTIONS>
+                      <RUNNABLES>
+                        <RUNNABLE-ENTITY UUID="ec2cc70f-dbfb-4877-8515-6f2edc008417">
+                          <SHORT-NAME>WdgM_MainFunction</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SERVER-CALL-POINTS>
+                            <SYNCHRONOUS-SERVER-CALL-POINT UUID="8d12eca0-9d3e-4ce2-b322-bd7970cb4707">
+                              <SHORT-NAME>OpServerCallWdgM_MainFunction_GlobalStatusCallback_globalStateChangeCbk_Core0</SHORT-NAME>
+                              <OPERATION-IREF>
+                                <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/globalStateChangeCbk_Core0</CONTEXT-R-PORT-REF>
+                                <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_GlobalStatusCallback/GlobalStatusCallback</TARGET-REQUIRED-OPERATION-REF>
+                              </OPERATION-IREF>
+                              <TIMEOUT>0</TIMEOUT>
+                            </SYNCHRONOUS-SERVER-CALL-POINT>
+                            <SYNCHRONOUS-SERVER-CALL-POINT UUID="b52de055-1f7c-43b2-804e-837b9f06d65a">
+                              <SHORT-NAME>OpServerCallWdgM_MainFunction_LocalStatusCallback_localStateChangeCbk_WdgMSupervisedEntity_test</SHORT-NAME>
+                              <OPERATION-IREF>
+                                <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_test</CONTEXT-R-PORT-REF>
+                                <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-REQUIRED-OPERATION-REF>
+                              </OPERATION-IREF>
+                              <TIMEOUT>0</TIMEOUT>
+                            </SYNCHRONOUS-SERVER-CALL-POINT>
+                            <SYNCHRONOUS-SERVER-CALL-POINT UUID="20a3a2ea-53ec-4429-adf6-4479c014d279">
+                              <SHORT-NAME>OpServerCallWdgM_MainFunction_LocalStatusCallback_localStateChangeCbk_WdgMSupervisedEntity_GEAR</SHORT-NAME>
+                              <OPERATION-IREF>
+                                <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_GEAR</CONTEXT-R-PORT-REF>
+                                <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-REQUIRED-OPERATION-REF>
+                              </OPERATION-IREF>
+                              <TIMEOUT>0</TIMEOUT>
+                            </SYNCHRONOUS-SERVER-CALL-POINT>
+                            <SYNCHRONOUS-SERVER-CALL-POINT UUID="82daf941-1545-4bb0-8093-818d4e0e21b5">
+                              <SHORT-NAME>OpServerCallWdgM_MainFunction_LocalStatusCallback_localStateChangeCbk_WdgMSupervisedEntity_TT</SHORT-NAME>
+                              <OPERATION-IREF>
+                                <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/localStateChangeCbk_WdgMSupervisedEntity_TT</CONTEXT-R-PORT-REF>
+                                <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/WdgM_swc/Interfaces/WdgM_LocalStatusCallback/LocalStatusCallback</TARGET-REQUIRED-OPERATION-REF>
+                              </OPERATION-IREF>
+                              <TIMEOUT>0</TIMEOUT>
+                            </SYNCHRONOUS-SERVER-CALL-POINT>
+                          </SERVER-CALL-POINTS>
+                          <SYMBOL>WdgM_MainFunction</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="8b1c16f4-a20b-41c0-af0b-2a7fdd89d804">
+                          <SHORT-NAME>GetMode</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_GetMode</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="3e1b10b0-d224-49e6-97d7-ce0b2f3f1c17">
+                          <SHORT-NAME>GetGlobalStatus</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_GetGlobalStatus</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="d46a66ac-89e0-4fe2-8330-eef21edf549a">
+                          <SHORT-NAME>GetLocalStatus</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_GetLocalStatus</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="4ab247b6-2ca9-440d-9711-f1c821256796">
+                          <SHORT-NAME>PerformReset</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_PerformReset</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="0ffa1cd3-8f32-4a04-94f6-4f72470644b7">
+                          <SHORT-NAME>SetMode</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_SetMode</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="ea3864b1-5fc3-4cdc-a8c1-288db0f2ceb4">
+                          <SHORT-NAME>GetFirstExpiredSEID</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_GetFirstExpiredSEID</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="e3621e70-ebca-4474-9799-a555763787a8">
+                          <SHORT-NAME>CheckpointReached</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>WdgM_CheckpointReached</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                      </RUNNABLES>
+                      <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                    </SWC-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </SERVICE-SW-COMPONENT-TYPE>
+                <SWC-IMPLEMENTATION UUID="4ed04661-c560-484b-b817-ecdc7139bee7">
+                  <SHORT-NAME>WdgM_SystemApplication_OsCore0Implementation</SHORT-NAME>
+                  <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+                  <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/MICROSAR/WdgM_swc/ComponentTypes/WdgM_SystemApplication_OsCore0/WdgM_SystemApplication_OsCore0InternalBehavior</BEHAVIOR-REF>
+                </SWC-IMPLEMENTATION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

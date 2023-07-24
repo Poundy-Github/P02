@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="ab3e7337-ec24-453b-8851-4cdc12da0929">
+          <SHORT-NAME>CorTst_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="d2a28ed9-2b4a-44a4-ab03-ae12fce97bb7">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="337bf592-0dc9-4e33-b39a-579b9292d5e4">
+                  <SHORT-NAME>CorTst</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/CorTst_ib_bswmd/BswModuleDescriptions/CorTst_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="8042b435-a79a-458a-a532-7578e5cb2067">
+                      <SHORT-NAME>CorTstBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="cdff6b26-0684-4480-9379-7fbd1ecc6f5c">
+                          <SHORT-NAME>CORTST_TESTMODULE_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="a91aa27c-8347-43a7-ac3a-1e65adcf999e">
+                          <SHORT-NAME>CorTst_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/CorTst_ib_bswmd/BswModuleDescriptions/CorTst_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="e44851f6-61f5-4517-9a50-278a255641e9">
+                          <SHORT-NAME>CorTst_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Renesas/CorTst_ib_bswmd/BswModuleDescriptions/CorTst/CorTstBehavior/CorTst_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="e7baec1e-87b0-4a07-ad45-776c2ffb4a5c">
+                  <SHORT-NAME>CorTst_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

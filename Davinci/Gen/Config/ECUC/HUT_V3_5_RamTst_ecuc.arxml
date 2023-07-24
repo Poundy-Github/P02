@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="0acde0e4-0b6e-4910-9ad1-03e0d62cfb69">
+          <SHORT-NAME>RamTst</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_RamTst/RamTst</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_RamTst/RamTst_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="d7484794-4e8d-4e59-85c3-8b1e86017aba">
+              <SHORT-NAME>RamTstCommon</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstVersionCheckExternalModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAllowApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstChangeNumOfTestedCellsApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstEccCheck</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetAlgParamsApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetExecutionStatusApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetNumberOfTestedCellsApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetTestAlgorithmApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetTestResultApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetTestResultPerBlockApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstGetVersionInfoApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstResumeApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstRunFullTestApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstRunPartialTestApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstSelectAlgParamsApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstStopApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstSuspendApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="f2a02677-5639-43b0-ab1c-cdf7cac3eb13">
+                  <SHORT-NAME>RamTstAlgorithms</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstAbrahamTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstCheckerboardTestSelected</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstGalpatTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstMarchTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstMarchYTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstTranspGalpatTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstAlgorithms/RamTstWalkPathTestSelected</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="e13d7378-620a-4f95-9242-40418fb0a91d">
+                  <SHORT-NAME>RamTstConfigParams</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstDefaultAlgParamsId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstMinNumberOfTestedCells</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstNumberOfAlgParamSets</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstTestCompletedNotification</DEFINITION-REF>
+                      <VALUE>RamTst_CompletedNotification</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstTestErrorNotification</DEFINITION-REF>
+                      <VALUE>NULL_PTR</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="9a94189a-7672-4e2f-8472-489b77a97319">
+                      <SHORT-NAME>RamTstAlgParams_CHECKERBOARD</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstAlgorithm</DEFINITION-REF>
+                          <VALUE>RAMTST_CHECKERBOARD_TEST</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstAlgParamsId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstExtNumberOfTestedCells</DEFINITION-REF>
+                          <VALUE>262144</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstMaxNumberOfTestedCells</DEFINITION-REF>
+                          <VALUE>4100</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstNumberOfBlocks</DEFINITION-REF>
+                          <VALUE>40</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstNumberOfTestedCells</DEFINITION-REF>
+                          <VALUE>8</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="904c1a4b-a846-44fb-a53a-ea2c6989ee6a">
+                          <SHORT-NAME>RamTstBlockParams</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>1</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273737727</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273733632</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="4c1c4099-d7a4-4e3d-bf72-d71ec37eaf78">
+                          <SHORT-NAME>RamTstBlockParams_001</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>2</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273741823</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273737728</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="d5f20030-9db1-4833-a206-036e2d12fac2">
+                          <SHORT-NAME>RamTstBlockParams_002</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>3</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273745919</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273741824</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="3b20b5ce-7fad-4a2c-9005-8a6d94fc5cc3">
+                          <SHORT-NAME>RamTstBlockParams_003</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>4</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273750015</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273745920</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="8ebc2a62-491c-4dd8-8033-aef71b731c9b">
+                          <SHORT-NAME>RamTstBlockParams_004</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>5</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273754111</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273750016</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="b237e8bb-27b2-4403-bc9a-80960881963c">
+                          <SHORT-NAME>RamTstBlockParams_005</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>6</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273758207</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273754112</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="6ba31df9-956a-4442-8ad5-7e6a1ec4a1d4">
+                          <SHORT-NAME>RamTstBlockParams_006</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>7</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273762303</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273758208</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="3249bd4f-5a83-49dd-bd5c-b86ed72d3419">
+                          <SHORT-NAME>RamTstBlockParams_007</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>8</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273766399</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273762304</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="75ea48d0-69ed-4b96-a239-7dc6d638cc23">
+                          <SHORT-NAME>RamTstBlockParams_008</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>9</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273770495</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273766400</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="aadfef75-8bc9-4b51-abfe-6850c3c2e822">
+                          <SHORT-NAME>RamTstBlockParams_009</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>10</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273774591</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273770496</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="db270e8d-3202-404f-ae6b-537113bd899e">
+                          <SHORT-NAME>RamTstBlockParams_010</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>11</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273778687</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273774592</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="1e9bd553-dccf-4dd6-b3a0-a8cd7356cd1e">
+                          <SHORT-NAME>RamTstBlockParams_011</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>12</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273782783</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273778688</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="b564c4c9-d27a-48f8-ba9d-de7c50db87f1">
+                          <SHORT-NAME>RamTstBlockParams_012</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>13</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273786879</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273782784</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="9285b4a9-fc85-4faf-98a9-1a4d05ed8e94">
+                          <SHORT-NAME>RamTstBlockParams_013</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>14</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273790975</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273786880</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="929f1440-7619-4184-83bc-0059aca32254">
+                          <SHORT-NAME>RamTstBlockParams_014</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>15</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273795071</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273790976</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="5771f190-43d7-4b92-ba08-7ecc1c58a576">
+                          <SHORT-NAME>RamTstBlockParams_015</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>16</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273799167</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273795072</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="5b727a03-b0e0-49a8-ac4a-68edb31d6197">
+                          <SHORT-NAME>RamTstBlockParams_016</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>17</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273803263</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273799168</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="bf6f186c-89b2-427b-a04f-4f98ed0b734c">
+                          <SHORT-NAME>RamTstBlockParams_017</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>18</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273807359</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273803264</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="cc414f71-cc42-4a78-b3f7-d2ebfcc72add">
+                          <SHORT-NAME>RamTstBlockParams_018</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>19</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273811455</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273807360</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="60431b5b-30f2-4faa-86e4-930ede639dc1">
+                          <SHORT-NAME>RamTstBlockParams_019</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>20</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273815551</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273811456</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="e4b90f97-3175-41af-8ddc-6f5dce47e9d6">
+                          <SHORT-NAME>RamTstBlockParams_020</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>21</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273819647</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273815552</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="26beddac-4d41-48f3-991c-c7620c97766d">
+                          <SHORT-NAME>RamTstBlockParams_021</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>22</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273823743</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273819648</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="a5868e7d-234d-4012-b5d4-a3b3830c7df6">
+                          <SHORT-NAME>RamTstBlockParams_022</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>23</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273827839</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273823744</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="65358e87-b4ab-4239-b0f1-eaab0acc9232">
+                          <SHORT-NAME>RamTstBlockParams_023</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>24</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273831935</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273827840</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="63177aa4-732c-4bad-8413-f1f7a712fcea">
+                          <SHORT-NAME>RamTstBlockParams_024</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>25</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273836031</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273831936</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="06e43e76-3fe9-4a3b-ae1d-4cf76097b2cb">
+                          <SHORT-NAME>RamTstBlockParams_025</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>26</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273840127</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273836032</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="7712a680-4498-4eff-a07c-00ce78c13993">
+                          <SHORT-NAME>RamTstBlockParams_026</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>27</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273844223</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273840128</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="736128bf-4e9c-4028-9c83-8b2cdf069f10">
+                          <SHORT-NAME>RamTstBlockParams_027</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>28</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273848319</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273844224</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="88588192-da87-45bc-b9b6-0709a4774f84">
+                          <SHORT-NAME>RamTstBlockParams_028</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>29</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273852415</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273848320</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="679ac907-b685-4001-923c-e648ef7e2ac6">
+                          <SHORT-NAME>RamTstBlockParams_029</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>30</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273856511</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273852416</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="67437d7a-a3d1-4f2c-87fd-9ff3bd5db77b">
+                          <SHORT-NAME>RamTstBlockParams_030</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>31</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273860607</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273856512</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="d51c48f8-5a19-43fd-9541-af7d27220500">
+                          <SHORT-NAME>RamTstBlockParams_031</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>32</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273864703</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273860608</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="fd001661-86e8-4eb1-a744-53c034878e84">
+                          <SHORT-NAME>RamTstBlockParams_032</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>33</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273868799</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273864704</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="46c7ed08-850e-4282-a18e-f34c6276c13e">
+                          <SHORT-NAME>RamTstBlockParams_033</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>34</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273872895</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273868800</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="df45f34a-82a2-4883-bb04-6a118ec8ef6b">
+                          <SHORT-NAME>RamTstBlockParams_034</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>35</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273876991</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273872896</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="12300561-d7d2-4408-9e70-367e83458127">
+                          <SHORT-NAME>RamTstBlockParams_035</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>36</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273881087</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273876992</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="0f9ee39a-fa48-401d-83a7-8f30556a5554">
+                          <SHORT-NAME>RamTstBlockParams_036</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>37</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273885183</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273881088</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="8b2751f4-ae30-46e4-984d-126157a0e071">
+                          <SHORT-NAME>RamTstBlockParams_037</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>38</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273889279</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273885184</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="82b76ccb-69d0-41c1-8da2-634a7cbb8b56">
+                          <SHORT-NAME>RamTstBlockParams_038</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>39</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273893375</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273889280</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE UUID="025307bd-84ef-40ab-84ba-df0c73a74b56">
+                          <SHORT-NAME>RamTstBlockParams_039</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstBlockId</DEFINITION-REF>
+                              <VALUE>40</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstEndAddress</DEFINITION-REF>
+                              <VALUE>4273897471</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstFillPattern</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstStartAddress</DEFINITION-REF>
+                              <VALUE>4273893376</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstCommon/RamTstConfigParams/RamTstAlgParams/RamTstBlockParams/RamTstTestPolicy</DEFINITION-REF>
+                              <VALUE>RAMTST_NON_DESTRUCTIVE</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="18b158ba-813f-4676-b64e-0510ca161029">
+              <SHORT-NAME>RamTstPublishedInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstPublishedInformation</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstPublishedInformation/RamTstCellSize</DEFINITION-REF>
+                  <VALUE>32</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="664d06f8-f60d-47c1-8dd3-4ff757a5007f">
+              <SHORT-NAME>RamTstDemEventParameterRefs</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs/RAMTST_MAIN_RAM_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_RamtstDemEventParameterRefs_RAMTST_E_MIAN_RAM_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs/RAMTST_E_ECC_FAILED</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_RamtstDemEventParameterRefs_RAMTST_E_ECC_FAILED</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs/RAMTST_E_RAM_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_RamtstDemEventParameterRefs_RAMTST_E_RAM_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs/RAMTST_PART_RAM_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_RamtstDemEventParameterRefs_RAMTST_E_PART_RAM_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_RamTst/RamTst/RamTstDemEventParameterRefs/RAMTST_RUNFL_RAM_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_RamtstDemEventParameterRefs_RAMTST_E_RUNFL_RAM_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

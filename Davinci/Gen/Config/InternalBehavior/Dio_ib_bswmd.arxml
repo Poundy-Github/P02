@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="1cda11e2-8ac8-434a-90fe-d8e494d3ddee">
+          <SHORT-NAME>Dio_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="be4f7f57-1518-4844-b1f8-d797a449177a">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="6f6709d2-8ef4-4df5-b17f-b79990edb1b7">
+                  <SHORT-NAME>Dio</SHORT-NAME>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="84e177e7-24c9-4b95-9c8b-bc32d46b7a86">
+                      <SHORT-NAME>DioBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="3b81b3f6-8b3d-4ef1-a507-32a848f4b1cb">
+                          <SHORT-NAME>DIO_REGISTER_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

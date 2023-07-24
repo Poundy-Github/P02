@@ -1,0 +1,177 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_jump_ope.850                                             --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Jump instructions                                                         --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_jump_1
+
+------------------------------------------------------------------------------
+--	External Reference (None)
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_jump_1
+--  Function ID     : CST_FN_023
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R8, R10, (LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_jump_1:
+	-- Covers: CST_DD_042
+	-- Covers: CST_DD_187
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	-- Covers: CST_UM_252
+	-- Covers: CST_UM_252_01
+	--------------------------------------------------
+	--	JARL disp22,reg2
+	--------------------------------------------------
+	JARL22		f_sub_CPU_jump_set_data, LP	--cst_point:PC=+4
+
+	-- Covers: CST_UM_252_02
+	--------------------------------------------------
+	--	JARL disp32,reg1
+	--------------------------------------------------
+	JARL32		f_sub_CPU_jump_set_data, LP	--cst_point:PC=+6
+
+	-- Covers: CST_UM_252_03
+	--------------------------------------------------
+	--	JARL [reg1],reg3
+	--------------------------------------------------
+	MOV		f_sub_CPU_jump_set_data, R8	--
+	JARL		[R8], LP			--cst_point:PC=+4
+
+	-- Covers: CST_UM_253
+	-- Covers: CST_UM_253_01
+	--------------------------------------------------
+	--	JMP [reg1]
+	--------------------------------------------------
+	MOV		CPU_jump_1_001, R8		--
+	JMP		[R8]				--cst_point:PC=+2
+	ADD		0x01, R10			--dead_code
+
+    CPU_jump_1_001:
+	ADD		0x01, R10			--
+
+	-- Covers: CST_UM_253
+	-- Covers: CST_UM_253_02
+	--------------------------------------------------
+	--	JMP disp32[reg1]
+	--------------------------------------------------
+	MOV		CPU_jump_1_002 - 4, R8		--
+	JMP		0x00000004[R8]			--cst_point:PC=+6
+	ADD		0x01, R10			--dead_code
+
+    CPU_jump_1_002:
+	ADD		0x01, R10			--
+
+	-- Covers: CST_UM_254
+	-- Covers: CST_UM_254_01
+	--------------------------------------------------
+	--	JR disp22
+	--------------------------------------------------
+	JR22		CPU_jump_1_003			--cst_point:PC=+4
+	ADD		0x01, R10			--dead_code
+
+    CPU_jump_1_003:
+	ADD		0x01, R10			--
+
+	-- Covers: CST_UM_254_02
+	--------------------------------------------------
+	--	JR disp32
+	--------------------------------------------------
+	JR32		CPU_jump_1_004			--cst_point:PC=+6
+	ADD		0x01, R10			--dead_code
+
+    CPU_jump_1_004:
+	ADD		0x01, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_jump_set_data
+--  Function ID     : CST_FN_089
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R6, R8, R9, R10
+------------------------------------------------------------------------------
+f_sub_CPU_jump_set_data:
+	-- Covers: CST_DD_109
+	-- Covers: CST_DD_253
+	ADD		0x01, R10			--
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_jump_ope.850              =====
+-- ============================================================================

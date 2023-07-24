@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="03E486AF-2CF6-4D2F-8201-7B5ACE537E1C">
+          <SHORT-NAME>ADAU1978</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="B617DA41-865C-4493-A319-AB94835C0AA5">
+              <SHORT-NAME>ADAU_server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ADAU_server/StateToDeInit</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ADAU_server/StateToInit</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/ADAU_server</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="7F4CA232-48AE-4E62-8755-15C447DA0CFE">
+              <SHORT-NAME>ADAU1978_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <INIT-EVENT UUID="897C12F3-A483-464C-A0B4-6923E249FA1B">
+                  <SHORT-NAME>ADAU1978_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAU1978/ADAU1978_InternalBehavior/ADAU1978_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="C18B6C75-3CE2-459E-B77B-A83906CB8E95">
+                  <SHORT-NAME>TMT_ADAU1978_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAU1978/ADAU1978_InternalBehavior/ADAU1978_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="BF7D663D-9901-4446-BB09-811275037252">
+                  <SHORT-NAME>OIT_ADAU_server_StateToDeInit_ADAU_server_StateToDeInit</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAU1978/ADAU1978_InternalBehavior/ADAU_StateToDeInit</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/ADAU1978/ADAU_server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ADAU_server/StateToDeInit</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="BFDAE0E8-C829-4B99-8555-A2BDFBB17D67">
+                  <SHORT-NAME>OIT_ADAU_server_StateToInit_ADAU_server_StateToInit</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/ADAU1978/ADAU1978_InternalBehavior/ADAU_StateToInit</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/ADAU1978/ADAU_server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ADAU_server/StateToInit</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <PORT-API-OPTIONS>
+                <PORT-API-OPTION>
+                  <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                  <ERROR-HANDLING>NO-TRANSFORMER-ERROR-HANDLING</ERROR-HANDLING>
+                  <INDIRECT-API>false</INDIRECT-API>
+                  <PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/ADAU1978/ADAU_server</PORT-REF>
+                </PORT-API-OPTION>
+              </PORT-API-OPTIONS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="FD6672B0-22F1-4605-96E7-C91471ECA5C5">
+                  <SHORT-NAME>ADAU1978_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="6698E760-C043-4C23-A582-7E2969FB1B9A">
+                  <SHORT-NAME>ADAU1978_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="68C4342B-0E9B-45E7-87A2-B2945F5B6CA2">
+                  <SHORT-NAME>ADAU_StateToDeInit</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="FF011EB0-91B3-42E1-87AA-B993A4BC7EA6">
+                  <SHORT-NAME>ADAU_StateToInit</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="B2B200CB-A818-4A3C-8BF2-261DF3F6C058">
+          <SHORT-NAME>ADAU1978_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/ADAU1978/ADAU1978_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

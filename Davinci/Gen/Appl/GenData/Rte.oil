@@ -1,0 +1,1322 @@
+/**********************************************************************************************************************
+ *  COPYRIGHT
+ *  -------------------------------------------------------------------------------------------------------------------
+ *  \verbatim
+ *
+ *                This software is copyright protected and proprietary to Vector Informatik GmbH.
+ *                Vector Informatik GmbH grants to you only those rights as set out in the license conditions.
+ *                All other rights remain with Vector Informatik GmbH.
+ *  \endverbatim
+ *  -------------------------------------------------------------------------------------------------------------------
+ *  FILE DESCRIPTION
+ *  -------------------------------------------------------------------------------------------------------------------
+ *             File:  Rte.oil
+ *           Config:  HUT_V3_5.dpa
+ *      ECU-Project:  HUT_V3_5
+ *
+ *        Generator:  MICROSAR RTE Generator Version 4.22.0
+ *                    RTE Core Version 1.22.0
+ *          License:  CBD2000298
+ *
+ *      Description:  OIL-File containing project specific OS definitions for the MICROSAR RTE
+ *********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ *                                              P L E A S E   N O T E
+ *
+ * The attributes in this file must not be changed. Missing mandatory attributes must be set in the including file.
+ * They are presented as a comment in the corresponding object definition containing a list of all legal values.
+ *********************************************************************************************************************/
+
+   TASK BSW_COMM {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 8:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_2ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_5ms:"@RO@";
+      EVENT = Rte_Ev_Run_CConfig_CConfig_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CNA_SignalGroupSet:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CNA_SignalSet:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CNA_SignalSetNoTrigger:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CNA_SignalSet_U8N:"@RO@";
+      EVENT = Rte_Ev_Run_FvM_FvM_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_SecOc_Server_SecOc_Server_MainFunction:"@RO@";
+      EVENT = Rte_Ev_WP_BSW_COMM:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_BSW_COMM_0_10ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_BSW_COMM_0_2ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_2ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_BSW_COMM_0_5ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Cyclic2_BSW_COMM_0_5ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_CConfig_CConfig_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Run_CConfig_CConfig_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_FvM_FvM_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Run_FvM_FvM_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SecOc_Server_SecOc_Server_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_COMM;
+         EVENT = Rte_Ev_Run_SecOc_Server_SecOc_Server_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK BSW_DIAGNOSE {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 4:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_BSW_DIAGNOSE_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Run_DemSatellite_0_SetEventStatus:"@RO@";
+      EVENT = Rte_Ev_WP_BSW_DIAGNOSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_BSW_DIAGNOSE_0_10ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = BSW_DIAGNOSE;
+         EVENT = Rte_Ev_Cyclic2_BSW_DIAGNOSE_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK DRIVERS_SAFE {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 6:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_100ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_50ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_5ms:"@RO@";
+      EVENT = Rte_Ev_Run_AMP_AMP_Event_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_ComEx_ComEx_GetRxE2EStatus:"@RO@";
+      EVENT = Rte_Ev_Run_ComEx_ComEx_SendSignal:"@RO@";
+      EVENT = Rte_Ev_Run_Gyro_Gyro_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_IIC_IIC0_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_IIC_IIC1_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_RTC_GetUTCTimeInMillis:"@RO@";
+      EVENT = Rte_Ev_Run_RTC_UTC2PerpetualCalendar:"@RO@";
+      EVENT = Rte_Ev_WP_DRIVERS_SAFE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_DRIVERS_SAFE_0_100ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = DRIVERS_SAFE;
+         EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_100ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_DRIVERS_SAFE_0_50ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = DRIVERS_SAFE;
+         EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_50ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_DRIVERS_SAFE_0_5ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = DRIVERS_SAFE;
+         EVENT = Rte_Ev_Cyclic_DRIVERS_SAFE_0_5ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Gyro_Gyro_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = DRIVERS_SAFE;
+         EVENT = Rte_Ev_Run_Gyro_Gyro_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK Default_BSW {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 7:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_Default_BSW_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_Default_BSW_0_5ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic2_Default_BSW_1_5ms:"@RO@";
+      EVENT = Rte_Ev_Run_BswM_BswM_Read_PowerModeShutdownReq:"@RO@";
+      EVENT = Rte_Ev_Run_BswM_BswM_Read_PowerModeShutdownReq_EmergencySleep:"@RO@";
+      EVENT = Rte_Ev_Run_DCM_Server_DCM_Server_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_HSM_HsmGetAes128Key:"@RO@";
+      EVENT = Rte_Ev_Run_HSM_HsmSetAes128Key:"@RO@";
+      EVENT = Rte_Ev_Run_HSM_HsmTrngGenerate:"@RO@";
+      EVENT = Rte_Ev_Run_HSM_Hsm_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Misc_NVM_Read_Speedup_Runnable:"@RO@";
+      EVENT = Rte_Ev_Run_NvM_WriteBlock:"@RO@";
+      EVENT = Rte_Ev_Run_Os_OsCore0_swc_GetCounterValue:"@RO@";
+      EVENT = Rte_Ev_Run_Os_OsCore0_swc_GetElapsedValue:"@RO@";
+      EVENT = Rte_Ev_WP_Default_BSW:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_Default_BSW_0_10ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Cyclic2_Default_BSW_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_Default_BSW_0_5ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Cyclic2_Default_BSW_0_5ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE2_Default_BSW_1_5ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Cyclic2_Default_BSW_1_5ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_DCM_Server_DCM_Server_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Run_DCM_Server_DCM_Server_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_HSM_Hsm_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Run_HSM_Hsm_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Misc_NVM_Read_Speedup_Runnable {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = Default_BSW;
+         EVENT = Rte_Ev_Run_Misc_NVM_Read_Speedup_Runnable;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK FUEL_TC_ODO {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 5:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction_:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction_:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_A:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_B:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_5msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_EOL_ReadDID0xFDD8_EOL_GetReadHardInputForCluster:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Normal_Fuel_Api_ParamentGetCsPort_Operation:"@RO@";
+      EVENT = Rte_Ev_WP_FUEL_TC_ODO:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_100msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_100msMainFunction_ {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction_;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_10msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_10msMainFunction_ {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction_;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_ {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_A {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_A;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_B {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_B;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Normal_Common_Normal_5msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = FUEL_TC_ODO;
+         EVENT = Rte_Ev_Run_Common_Normal_Common_Normal_5msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   TASK GateWay {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 5:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Run_Common_GateWay_Common_GateWay_10msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_GateWay_Common_GateWay_5msMainFunction:"@RO@";
+      EVENT = Rte_Ev_WP_GateWay:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_GateWay_Common_GateWay_10msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = GateWay;
+         EVENT = Rte_Ev_Run_Common_GateWay_Common_GateWay_10msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_GateWay_Common_GateWay_5msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = GateWay;
+         EVENT = Rte_Ev_Run_Common_GateWay_Common_GateWay_5msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_Trust_OsCore0;
+   }:"@RO@@NR@";
+
+   TASK IPC {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 6:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Run_IPC_IPC_DataSend_If_Operation:"@RO@";
+      EVENT = Rte_Ev_Run_IPC_IPC_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_IPC_IPC_STB_MainFunction:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_IPC_IPC_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = IPC;
+         EVENT = Rte_Ev_Run_IPC_IPC_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_IPC_IPC_STB_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = IPC;
+         EVENT = Rte_Ev_Run_IPC_IPC_STB_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK SWC_LOW {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 3:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic_SWC_LOW_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Run_DidDataProcess_E2ESwitchStatusRead:"@RO@";
+      EVENT = Rte_Ev_Run_DidDataProcess_E2ESwitchStatusWrite:"@RO@";
+      EVENT = Rte_Ev_Run_DidDataProcess_SecOcSwitchStatusRead:"@RO@";
+      EVENT = Rte_Ev_Run_DidDataProcess_SecOcSwitchStatusWrite:"@RO@";
+      EVENT = Rte_Ev_Run_EOL_EOL_MainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_SocDtcProcess_PpCS_AppClearDTCInfo_AppClearDTCInfo:"@RO@";
+      EVENT = Rte_Ev_WP_SWC_LOW:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_EOL_EOL_MainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SWC_LOW;
+         EVENT = Rte_Ev_Run_EOL_EOL_MainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SWC_LOW_0_10ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SWC_LOW;
+         EVENT = Rte_Ev_Cyclic_SWC_LOW_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK SYS {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 7:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Cyclic_SYS_0_100ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic_SYS_0_10ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic_SYS_0_50ms:"@RO@";
+      EVENT = Rte_Ev_Cyclic_SYS_0_5ms:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ABS3_Counter:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ECM2_Counter:"@RO@";
+      EVENT = Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ESP_FD2_Counter:"@RO@";
+      EVENT = Rte_Ev_Run_IoHwAb_IoHwAb_GetPin:"@RO@";
+      EVENT = Rte_Ev_Run_IoHwAb_IoHwAb_GetVoltage:"@RO@";
+      EVENT = Rte_Ev_Run_Misc_Misc_MainFunction_500ms:"@RO@";
+      EVENT = Rte_Ev_Run_Vconfig_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig:"@RO@";
+      EVENT = Rte_Ev_Run_Vconfig_VConfig_GetUpdateTick_OperationVConfig_GetUpdateTick:"@RO@";
+      EVENT = Rte_Ev_WP_SYS:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Misc_Misc_MainFunction_500ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SYS;
+         EVENT = Rte_Ev_Run_Misc_Misc_MainFunction_500ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SYS_0_100ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SYS;
+         EVENT = Rte_Ev_Cyclic_SYS_0_100ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SYS_0_10ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SYS;
+         EVENT = Rte_Ev_Cyclic_SYS_0_10ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SYS_0_50ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SYS;
+         EVENT = Rte_Ev_Cyclic_SYS_0_50ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_SYS_0_5ms {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = SYS;
+         EVENT = Rte_Ev_Cyclic_SYS_0_5ms;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   TASK TT_GEAR {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 6:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Safety_Common_Safety_10msMainFunction:"@RO@";
+      EVENT = Rte_Ev_Run_Common_Safety_Common_Safety_50msMainFunction:"@RO@";
+      EVENT = Rte_Ev_WP_TT_GEAR:"@RO@";
+      ACCESSING_APPLICATION = OsApplication_NonTrust_OsCore0;
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Safety_Common_Safety_10msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = TT_GEAR;
+         EVENT = Rte_Ev_Run_Common_Safety_Common_Safety_10msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_Common_Safety_Common_Safety_50msMainFunction {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = TT_GEAR;
+         EVENT = Rte_Ev_Run_Common_Safety_Common_Safety_50msMainFunction;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_BSW_COMM_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_BSW_COMM_0_2ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_BSW_COMM_0_5ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_BSW_DIAGNOSE_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_Default_BSW_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_Default_BSW_0_5ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic2_Default_BSW_1_5ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_DRIVERS_SAFE_0_100ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_DRIVERS_SAFE_0_50ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_DRIVERS_SAFE_0_5ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_SWC_LOW_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_SYS_0_100ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_SYS_0_10ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_SYS_0_50ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Cyclic_SYS_0_5ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_AMP_AMP_Event_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_BswM_BswM_Read_PowerModeShutdownReq {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_BswM_BswM_Read_PowerModeShutdownReq_EmergencySleep {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_CConfig_CConfig_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CNA_SignalGroupSet {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CNA_SignalSet {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CNA_SignalSetNoTrigger {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CNA_SignalSet_U8N {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ABS3_Counter {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ECM2_Counter {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Can_Server_CanFrameCounter_Can_ESP_FD2_Counter {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_ComEx_ComEx_GetRxE2EStatus {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_ComEx_ComEx_SendSignal {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_GateWay_Common_GateWay_10msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_GateWay_Common_GateWay_5msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_100msMainFunction_ {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_10msMainFunction_ {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_ {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_A {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_20msMainFunction_B {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Common_Normal_5msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_EOL_ReadDID0xFDD8_EOL_GetReadHardInputForCluster {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Normal_Fuel_Api_ParamentGetCsPort_Operation {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Safety_Common_Safety_10msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Common_Safety_Common_Safety_50msMainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DCM_Server_DCM_Server_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DemSatellite_0_SetEventStatus {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DidDataProcess_E2ESwitchStatusRead {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DidDataProcess_E2ESwitchStatusWrite {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DidDataProcess_SecOcSwitchStatusRead {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_DidDataProcess_SecOcSwitchStatusWrite {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_EOL_EOL_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_FvM_FvM_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Gyro_Gyro_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_HSM_HsmGetAes128Key {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_HSM_HsmSetAes128Key {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_HSM_HsmTrngGenerate {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_HSM_Hsm_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IIC_IIC0_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IIC_IIC1_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IPC_IPC_DataSend_If_Operation {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IPC_IPC_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IPC_IPC_STB_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IoHwAb_IoHwAb_GetPin {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_IoHwAb_IoHwAb_GetVoltage {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Misc_Misc_MainFunction_500ms {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Misc_NVM_Read_Speedup_Runnable {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_NvM_WriteBlock {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Os_OsCore0_swc_GetCounterValue {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Os_OsCore0_swc_GetElapsedValue {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_RTC_GetUTCTimeInMillis {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_RTC_UTC2PerpetualCalendar {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_SecOc_Server_SecOc_Server_MainFunction {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_SocDtcProcess_PpCS_AppClearDTCInfo_AppClearDTCInfo {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Vconfig_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_Run_Vconfig_VConfig_GetUpdateTick_OperationVConfig_GetUpdateTick {
+      MASK = AUTO;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_BSW_COMM {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_BSW_DIAGNOSE {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_DRIVERS_SAFE {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_Default_BSW {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_FUEL_TC_ODO {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_GateWay {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_SWC_LOW {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_SYS {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+   EVENT Rte_Ev_WP_TT_GEAR {
+      MASK = 0x02;
+   }:"@ROC@@NR@";
+
+
+   APPLICATION OsApplication_NonTrust_OsCore0 {
+      TRUSTED = FALSE;
+// Add the following four attributes according to your needs.
+// Note: They do not have a default value and are therefore necessary in the configuration.
+//      STARTUPHOOK = FALSE;
+//      SHUTDOWNHOOK = FALSE;
+//      ERRORHOOK = FALSE;
+//      HAS_RESTARTTASK = FALSE;
+      TASK = FUEL_TC_ODO;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_100msMainFunction;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_100msMainFunction_;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_10msMainFunction;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_10msMainFunction_;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_A;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_20msMainFunction_B;
+      ALARM = Rte_Al_TE_Common_Normal_Common_Normal_5msMainFunction;
+      TASK = GateWay;
+      ALARM = Rte_Al_TE_Common_GateWay_Common_GateWay_10msMainFunction;
+      ALARM = Rte_Al_TE_Common_GateWay_Common_GateWay_5msMainFunction;
+  };
+
+   APPLICATION OsApplication_Trust_OsCore0 {
+      TRUSTED = TRUE
+      {
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_CNA_SignalGroupSet_Operation";
+            Params = "const EventSignalInfo_Type *event_signal_info";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_CNA_SignalSet_Operation";
+            Params = "uint16 signalId, uint32 *value";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_IPC_DataSend_If_Operation";
+            Params = "uint8 *p_msg, uint16 len, uint8 priority";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_NvMService_AC3_Defs_NvBlockNeed_Block_IPC_CAN_Data_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_NvMService_AC3_Defs_NvBlockNeed_Block_IPC_Config_Data_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig";
+            Params = "uint16 kindId, uint8 *kindConfig";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_AppClearDTCInfo_AppClearDTCInfo";
+            Params = "uint8 OpStatus, uint8 *Result";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_CNA_SignalSetNoTrigger_Operation";
+            Params = "uint16 signalId, uint8 *value";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_CNA_SignalSet_U8N_Operation";
+            Params = "uint16 signalId, EventSignalType *value";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_ComEx_GetRxE2EStatus";
+            Params = "ComEx_SignalGroupIdType GroupId, uint32 *E2eStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_ComEx_SendSignal";
+            Params = "ComEx_SignalIdType SignalId, ComEx_ConstSignalDataType SignalDataPtr, uint8 Length";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_E2ESwitchStatusRead_Operation";
+            Params = "uint8 Length, uint8 *Data, uint8 *Status";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_E2ESwitchStatusWrite_Operation";
+            Params = "uint8 Length, uint8 *Data, uint8 *Status";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_SecOcSwitchStatusRead_Operation";
+            Params = "uint8 Length, uint8 *Data, uint8 *Status";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateWay_SecOcSwitchStatusWrite_Operation";
+            Params = "uint8 Length, uint8 *Data, uint8 *Status";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_GateWay_rpCS_SWCGateway_UTCTime_UTC2PerpetualCalendar";
+            Params = "sint64 utc, DateTimeType_t *date";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_CanFrameCounter_Can_ABS3_Counter";
+            Params = "CanFrameCounterType *counter";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_CanFrameCounter_Can_ECM2_Counter";
+            Params = "CanFrameCounterType *counter";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_CanFrameCounter_Can_ESP_FD2_Counter";
+            Params = "CanFrameCounterType *counter";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_DiagnosticMonitor_Fuel_Sensor1_ShortToBAT_SetEventStatus";
+            Params = "Dem_EventStatusType EventStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_DiagnosticMonitor_Fuel_Sensor1_ShortToGND_SetEventStatus";
+            Params = "Dem_EventStatusType EventStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_DiagnosticMonitor_Fuel_Sensor2_ShortToBAT_SetEventStatus";
+            Params = "Dem_EventStatusType EventStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_DiagnosticMonitor_Fuel_Sensor2_ShortToGND_SetEventStatus";
+            Params = "Dem_EventStatusType EventStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_HsmKeyM_GetAes128Key";
+            Params = "A_17Bytes *IV, A_16Bytes *KEY, uint32 *key_len";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_HsmKeyM_SetAes128Key";
+            Params = "const A_16Bytes *IV, const A_16Bytes *KEY, uint32 key_len";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_Hsm_Port_TrngGenerate";
+            Params = "A_16Bytes *Trng, uint32 *len";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_IRTC_Service_GetUTCTimeInMillis";
+            Params = "uint64 *arg";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_IRTC_Service_UTC2PerpetualCalendar";
+            Params = "sint64 utc, DateTimeType_t *date";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_IoHwAb_Interface_GetPin";
+            Params = "uint8 Id, boolean *Pin";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_IoHwAb_Interface_GetVoltage";
+            Params = "uint8 Id, uint32 *Voltage";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_MaintainOdo_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_ODO_1_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_ODO_2_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_ODO_3_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_ODO_4_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_ODO_5_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_Trip_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_NvMService_AC3_SRBS_NvBlockNeed_Menu_WriteBlock";
+            Params = "dtRef_const_VOID SrcPtr";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_Os_Service_GetCounterValue";
+            Params = "TimeInMicrosecondsType *Value";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_Os_Service_GetElapsedValue";
+            Params = "TimeInMicrosecondsType *Value, TimeInMicrosecondsType *ElapsedValue";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig";
+            Params = "uint16 kindId, uint8 *kindConfig";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_VConfig_GetUpdateTick_OperationVConfig_GetUpdateTick";
+            Params = "TimeInMicrosecondsType *updateTick";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_rpCS_SWCNormal_ComEx_GetRxE2EStatus";
+            Params = "ComEx_SignalGroupIdType GroupId, uint32 *E2eStatus";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCall_Common_Normal_rpCS_SWCNormal_ComEx_SendSignal";
+            Params = "ComEx_SignalIdType SignalId, ComEx_ConstSignalDataType SignalDataPtr, uint8 Length";
+            ReturnType = "Std_ReturnType";
+         };
+         TRUSTED_FUNCTION = TRUE
+         {
+            NAME = "Rte_TrustedCom_SendSignal";
+            Params = "Com_SignalIdType SignalId, const void *SignalDataPtr";
+            ReturnType = "uint8";
+         };
+         GenerateStub = TRUE;
+      };
+// Add the following four attributes according to your needs.
+// Note: They do not have a default value and are therefore necessary in the configuration.
+//      STARTUPHOOK = FALSE;
+//      SHUTDOWNHOOK = FALSE;
+//      ERRORHOOK = FALSE;
+//      HAS_RESTARTTASK = FALSE;
+      TASK = BSW_COMM;
+      ALARM = Rte_Al_TE2_BSW_COMM_0_10ms;
+      ALARM = Rte_Al_TE2_BSW_COMM_0_2ms;
+      ALARM = Rte_Al_TE2_BSW_COMM_0_5ms;
+      ALARM = Rte_Al_TE_CConfig_CConfig_MainFunction;
+      ALARM = Rte_Al_TE_FvM_FvM_MainFunction;
+      ALARM = Rte_Al_TE_SecOc_Server_SecOc_Server_MainFunction;
+      TASK = BSW_DIAGNOSE;
+      ALARM = Rte_Al_TE2_BSW_DIAGNOSE_0_10ms;
+      TASK = DRIVERS_SAFE;
+      ALARM = Rte_Al_TE_DRIVERS_SAFE_0_100ms;
+      ALARM = Rte_Al_TE_DRIVERS_SAFE_0_50ms;
+      ALARM = Rte_Al_TE_DRIVERS_SAFE_0_5ms;
+      ALARM = Rte_Al_TE_Gyro_Gyro_MainFunction;
+      TASK = Default_BSW;
+      ALARM = Rte_Al_TE2_Default_BSW_0_10ms;
+      ALARM = Rte_Al_TE2_Default_BSW_0_5ms;
+      ALARM = Rte_Al_TE2_Default_BSW_1_5ms;
+      ALARM = Rte_Al_TE_DCM_Server_DCM_Server_MainFunction;
+      ALARM = Rte_Al_TE_HSM_Hsm_MainFunction;
+      ALARM = Rte_Al_TE_Misc_NVM_Read_Speedup_Runnable;
+      TASK = IPC;
+      ALARM = Rte_Al_TE_IPC_IPC_MainFunction;
+      ALARM = Rte_Al_TE_IPC_IPC_STB_MainFunction;
+      TASK = SWC_LOW;
+      ALARM = Rte_Al_TE_EOL_EOL_MainFunction;
+      ALARM = Rte_Al_TE_SWC_LOW_0_10ms;
+      TASK = SYS;
+      ALARM = Rte_Al_TE_Misc_Misc_MainFunction_500ms;
+      ALARM = Rte_Al_TE_SYS_0_100ms;
+      ALARM = Rte_Al_TE_SYS_0_10ms;
+      ALARM = Rte_Al_TE_SYS_0_50ms;
+      ALARM = Rte_Al_TE_SYS_0_5ms;
+      TASK = TT_GEAR;
+      ALARM = Rte_Al_TE_Common_Safety_Common_Safety_10msMainFunction;
+      ALARM = Rte_Al_TE_Common_Safety_Common_Safety_50msMainFunction;
+  };
+
+  IOCCOMMUNICATION Rte_Common_Normal_Rc_Cluster_Shutdown_Status_Element {
+     DATA_PROPERTIES = DATA_PROPERTIES{
+        INDEX = 0;
+        INIT_VALUE = "Rte_IocInitValue_Common_Normal_Rc_Cluster_Shutdown_Status_Element";
+        DataType = "uint8";
+      };
+
+     RECEIVER_PROPERTIES = RECEIVER_PROPERTIES{
+        APPLICATION = OsApplication_NonTrust_OsCore0;
+     };
+
+     SENDER_PROPERTIES = SENDER_PROPERTIES{
+        ID = 0;
+        APPLICATION = OsApplication_NonTrust_OsCore0;
+     };
+
+     SENDER_PROPERTIES = SENDER_PROPERTIES{
+        ID = 1;
+        APPLICATION = OsApplication_Trust_OsCore0;
+     };
+  };
+
+  IOCCOMMUNICATION Rte_Power_Rc_Cluster_Shutdown_Status_Element {
+     DATA_PROPERTIES = DATA_PROPERTIES{
+        INDEX = 0;
+        INIT_VALUE = "Rte_IocInitValue_Power_Rc_Cluster_Shutdown_Status_Element";
+        DataType = "uint8";
+      };
+
+     RECEIVER_PROPERTIES = RECEIVER_PROPERTIES{
+        APPLICATION = OsApplication_Trust_OsCore0;
+     };
+
+     SENDER_PROPERTIES = SENDER_PROPERTIES{
+        ID = 0;
+        APPLICATION = OsApplication_NonTrust_OsCore0;
+     };
+
+     SENDER_PROPERTIES = SENDER_PROPERTIES{
+        ID = 1;
+        APPLICATION = OsApplication_Trust_OsCore0;
+     };
+  };

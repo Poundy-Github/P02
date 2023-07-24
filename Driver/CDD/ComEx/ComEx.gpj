@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+ComEx.c
+${PROJECT_TYPE}\GenCode.gpj

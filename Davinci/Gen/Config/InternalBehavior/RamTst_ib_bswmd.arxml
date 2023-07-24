@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="1e92d78a-6d0b-4ee7-8788-2c43ccf711b0">
+          <SHORT-NAME>RamTst_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="6c86413d-fd51-4be3-a187-96218d55c95d">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="771acd14-2499-47a7-80bc-fcff5a90490c">
+                  <SHORT-NAME>RamTst</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/RamTst_ib_bswmd/BswModuleDescriptions/RamTst_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="ba7ff053-daa2-450a-bc79-f16cda893226">
+                      <SHORT-NAME>RamTstBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="da4402db-91ee-4094-ac32-711003426a89">
+                          <SHORT-NAME>RAMTST_RAM_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="beda7b15-8de1-4a77-9105-af1f1b9c749b">
+                          <SHORT-NAME>RamTst_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/RamTst_ib_bswmd/BswModuleDescriptions/RamTst_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="19a5a8ea-2fbe-400e-be92-0123dc301e02">
+                          <SHORT-NAME>RamTst_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Renesas/RamTst_ib_bswmd/BswModuleDescriptions/RamTst/RamTstBehavior/RamTst_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="c4fce0dc-240b-477f-b658-869be83730ae">
+                  <SHORT-NAME>RamTst_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

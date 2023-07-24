@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="4441933E-C3F2-4126-A88A-5170B4918EDB">
+          <SHORT-NAME>DCM_Server</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="63945A86-A610-4E2E-A962-D84210017DD9">
+              <SHORT-NAME>SecurityAccess_UnlockedL1</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/CompareKey</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/GetSeed</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/SetSecurityAttemptCounter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/GetSecurityAttemptCounter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="E4693EA8-51A9-4AF2-AF53-F1F732AE3E88">
+              <SHORT-NAME>SecurityAccess_Level_EOL_Unlocked</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/CompareKey</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/GetSeed</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/SetSecurityAttemptCounter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/GetSecurityAttemptCounter</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="17FB9EF4-0E63-4598-9F24-2AC5ABBC829B">
+              <SHORT-NAME>Power_Voltage</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/Power_Voltage/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>state</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>value</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/Power_Voltage</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="943EF060-007A-4BAE-88AF-2A172830D00D">
+              <SHORT-NAME>NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/SetRamBlockStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="8F32A090-4F0E-4433-B867-3FCFA50932FE">
+              <SHORT-NAME>NvMService_AC2_SRBS_EOL_UnlockCnt</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/SetRamBlockStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="9DE2AE02-4413-4B1E-A296-2877A7A4CFAE">
+              <SHORT-NAME>PiDcmUserCondition</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <MODE-SWITCH-SENDER-COM-SPEC>
+                  <MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/PortInterfaces/PiDcmUserCondition/Mode</MODE-GROUP-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </MODE-SWITCH-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="MODE-SWITCH-INTERFACE">/PortInterfaces/PiDcmUserCondition</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="8153136F-38E4-4221-A457-ACFD2E4C745E">
+              <SHORT-NAME>DcmRpSR_SG_ABS3</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ABS3/SG_ABS3</DATA-ELEMENT-REF>
+                  <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                  <ALIVE-TIMEOUT>0.2</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <HANDLE-NEVER-RECEIVED>true</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ABSActv_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ABSFailSts_0x265</SHORT-LABEL>
+                          <VALUE>1</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>CheckSum_ABS3_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>dummy_ABS3_0</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>dummy_ABS3_1</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>dummy_ABS3_2</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>dummy_ABS3_3</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EBDActv_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EBDFailSts_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RollingCounter_ABS3_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehOdoInfo_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehOdoInfoSts_0x265</SHORT-LABEL>
+                          <VALUE>1</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpd_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpdVld_0x265</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SG_ABS3</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="0FC47BA8-E048-43DC-839B-4DC1C65C6E07">
+              <SHORT-NAME>ServiceRequestNotificationGwm</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/ServiceRequestNotification/Confirmation</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/ServiceRequestNotification/Indication</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Dcm_swc/Interfaces/ServiceRequestNotification</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="7C44EADC-8CE1-4883-8F5A-8E3060FDCA19">
+              <SHORT-NAME>rpCS_ComEx</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/SendSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/GetRxE2EStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/ComEx</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="D96CA34E-4CBD-4797-B6BF-5E6DD6DC37FD">
+              <SHORT-NAME>ppSR_DCMServer_TachoInfo</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_TachoInfo/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngRunSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngSpd</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>TimeOutFlag</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EngSpdBak</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>Msg_missingSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_TachoInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="70CAED15-3D09-4FBA-A67D-2C2C19304A60">
+              <SHORT-NAME>ppSR_DCMServer_SpeedoInfo</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SpeedoInfo/Element</DATA-ELEMENT-REF>
+                  <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                  <FILTER>
+                    <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                  </FILTER>
+                  <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>OverSpdWrnFlg</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehRunSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>IndicateSpeed</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeed</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>IndicateSpeedMile</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeedMile</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RealSpeedBak</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>Msg_missingSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpdVld</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/tiSR_SpeedoInfo</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="807D806E-DFA6-4233-AC3E-2F91734EA12B">
+              <SHORT-NAME>VConfig_GetKindConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/VConfig_GetKindConfig/Operation_VConfig_GetKindConfig</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/VConfig_GetKindConfig</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="340496EC-0525-4544-86F1-9A332186BDA4">
+              <SHORT-NAME>DCM_Server_InternalBehavior</SHORT-NAME>
+              <AR-TYPED-PER-INSTANCE-MEMORYS>
+                <VARIABLE-DATA-PROTOTYPE UUID="7A7ABFAC-4410-4525-A482-AEE1EBF7DC6A">
+                  <SHORT-NAME>NvBlockNeedSecAttmptCount_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_1Bytes</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+                <VARIABLE-DATA-PROTOTYPE UUID="EE28C3E1-1719-4B4F-A278-558118A6939A">
+                  <SHORT-NAME>NvBlockNeed_Dcm_ECUlevelNetworkConfigurationDataIdentifier_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_200Bytes</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+                <VARIABLE-DATA-PROTOTYPE UUID="F25C4DB3-DDAB-4240-A111-2AE55DA6BA50">
+                  <SHORT-NAME>NvBlockNeed_Dcm_VIN_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_17Bytes</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+                <VARIABLE-DATA-PROTOTYPE UUID="E67894E9-9D53-40E5-ADA1-B22D85403DF3">
+                  <SHORT-NAME>NvBlockNeedSecAttemptCount_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_1Bytes</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+                <VARIABLE-DATA-PROTOTYPE UUID="AB613F17-7837-4B19-9789-C35E31A037A3">
+                  <SHORT-NAME>NvBlockNeed_EOLUnlockCnt_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_1Bytes</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </AR-TYPED-PER-INSTANCE-MEMORYS>
+              <EVENTS>
+                <TIMING-EVENT UUID="4252B19C-D8A5-41D9-8D53-656794133E22">
+                  <SHORT-NAME>TMT_Runnable</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/DCM_Server_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="E53CAE0F-B812-4E1A-B906-5BF7399D2FC0">
+                  <SHORT-NAME>OIT_SecurityAccess_Level_EOL_Unlocked_CompareKey_SecurityAccess_Level_EOL_Unlocked_CompareKey</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_Level_EOL_Unlocked_CompareKey</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_Level_EOL_Unlocked</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/CompareKey</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="91D4DF84-129D-4A01-9154-907B0401202C">
+                  <SHORT-NAME>OIT_SecurityAccess_Level_EOL_Unlocked_GetSeed_SecurityAccess_Level_EOL_Unlocked_GetSeed</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_Level_EOL_Unlocked_GetSeed</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_Level_EOL_Unlocked</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/GetSeed</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="37C1DD7D-D8AD-4A14-92DF-43B11A38546B">
+                  <SHORT-NAME>OIT_SecurityAccess_UnlockedL1_CompareKey_SecurityAccess_UnlockedL1_CompareKey</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_UnlockedL1_CompareKey</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_UnlockedL1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/CompareKey</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="7A4BFE6C-9193-4C61-8502-5976A9F1C0D2">
+                  <SHORT-NAME>OIT_SecurityAccess_UnlockedL1_GetSeed_SecurityAccess_UnlockedL1_GetSeed</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_UnlockedL1_GetSeed</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_UnlockedL1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/GetSeed</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <INIT-EVENT UUID="79587335-3D35-43D7-970F-5AE4028B7A55">
+                  <SHORT-NAME>DCM_Server_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/DCM_Server_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="21E8E86F-7EBF-45A6-BF88-229CBA726F9F">
+                  <SHORT-NAME>OIT_SecurityAccess_UnlockedL1_SetSecurityAttemptCounter_SecurityAccess_UnlockedL1_SetSecurityAttemptCounter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_UnlockedL1_SetSecurityAttemptCounter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_UnlockedL1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/SetSecurityAttemptCounter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="8BB7471A-ED62-47B6-B814-4A9E64BCDA86">
+                  <SHORT-NAME>OIT_SecurityAccess_UnlockedL1_GetSecurityAttemptCounter_SecurityAccess_UnlockedL1_GetSecurityAttemptCounter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_UnlockedL1_GetSecurityAttemptCounter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_UnlockedL1</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_UnlockedL1/GetSecurityAttemptCounter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="D6F42714-09EA-4F67-936C-8476167D2F5C">
+                  <SHORT-NAME>OIT_SecurityAccess_Level_EOL_Unlocked_SetSecurityAttemptCounter_SecurityAccess_Level_EOL_Unlocked_SetSecurityAttemptCounter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_Level_EOL_Unlocked_SetSecurityAttemptCounter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_Level_EOL_Unlocked</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/SetSecurityAttemptCounter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="92B6E371-123B-4A45-9B42-C80C6FE12EFA">
+                  <SHORT-NAME>OIT_SecurityAccess_Level_EOL_Unlocked_GetSecurityAttemptCounter_SecurityAccess_Level_EOL_Unlocked_GetSecurityAttemptCounter</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/SecurityAccess_Level_EOL_Unlocked_GetSecurityAttemptCounter</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/SecurityAccess_Level_EOL_Unlocked</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/SecurityAccess_Level_EOL_Unlocked/GetSecurityAttemptCounter</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="6CC675A3-812D-4F3C-AEF8-40390D095339">
+                  <SHORT-NAME>OIT_ServiceRequestNotificationGwm_Confirmation_ServiceRequestNotificationGwm_Confirmation</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/ServiceRequestNotificationGwm_Confirmation</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/ServiceRequestNotificationGwm</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/ServiceRequestNotification/Confirmation</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="131FFBF0-B84C-4FE4-B5F0-BA0F9966754D">
+                  <SHORT-NAME>OIT_ServiceRequestNotificationGwm_Indication_ServiceRequestNotificationGwm_Indication</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/ServiceRequestNotificationGwm_Indication</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/ServiceRequestNotificationGwm</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Dcm_swc/Interfaces/ServiceRequestNotification/Indication</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <PORT-API-OPTIONS>
+                <PORT-API-OPTION>
+                  <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                  <ERROR-HANDLING>NO-TRANSFORMER-ERROR-HANDLING</ERROR-HANDLING>
+                  <INDIRECT-API>false</INDIRECT-API>
+                  <PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/ServiceRequestNotificationGwm</PORT-REF>
+                </PORT-API-OPTION>
+              </PORT-API-OPTIONS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="8FCD9CAF-23A2-43CC-9709-A9DDDB0D931A">
+                  <SHORT-NAME>DCM_Server_MainFunction</SHORT-NAME>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="811D3437-CA93-4298-A1C3-AA97AD3D4E92">
+                      <SHORT-NAME>REC_DcmRpSR_SG_ABS3_SG_ABS3</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/DcmRpSR_SG_ABS3</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ABS3/SG_ABS3</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="E0C34BCA-E95A-447F-8550-D90D209B75C9">
+                      <SHORT-NAME>REC_ppSR_DCMServer_SpeedoInfo_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/ppSR_DCMServer_SpeedoInfo</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_SpeedoInfo/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="5EDDC68E-D56E-4472-8762-DB7BB04C0331">
+                      <SHORT-NAME>REC_ppSR_DCMServer_TachoInfo_Element</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/ppSR_DCMServer_TachoInfo</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/tiSR_TachoInfo/Element</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <MODE-SWITCH-POINTS>
+                    <MODE-SWITCH-POINT UUID="E663EDC2-D415-4AAB-BF46-7D82DADD28CF">
+                      <SHORT-NAME>SWITCH_PiDcmUserCondition_Mode</SHORT-NAME>
+                      <MODE-GROUP-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/PiDcmUserCondition</CONTEXT-P-PORT-REF>
+                        <TARGET-MODE-GROUP-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/PortInterfaces/PiDcmUserCondition/Mode</TARGET-MODE-GROUP-REF>
+                      </MODE-GROUP-IREF>
+                    </MODE-SWITCH-POINT>
+                  </MODE-SWITCH-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="565F9F14-8943-44DF-AA2F-8DCFD5C80F50">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="63A5A55D-DFAC-45D2-9A37-5C75C4323D0E">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="F0079A5C-4A11-4E34-BF0D-3391491818D1">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_EOL_UnlockCnt_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_EOL_UnlockCnt</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="A3B9075F-A90D-4746-957F-F89D34E7E44E">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_EOL_UnlockCnt_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_EOL_UnlockCnt</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="7AB4E411-2FCA-40B4-B283-0277B11A47D3">
+                      <SHORT-NAME>SC_rpCS_ComEx_ReceiveSignal</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/rpCS_ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/ReceiveSignal</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="E798C252-1D11-4BFA-8A06-2BD1E65ABCB6">
+                      <SHORT-NAME>SC_rpCS_ComEx_GetRxE2EStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/rpCS_ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/GetRxE2EStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="78C2B397-B4DF-4199-A34F-3708BB00E052">
+                      <SHORT-NAME>SC_rpCS_ComEx_SendSignal</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/rpCS_ComEx</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/ComEx/SendSignal</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="7D86E758-91B5-4B83-BDD1-702516B67572">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_EOL_UnlockCnt_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_EOL_UnlockCnt</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="D6D6291B-3596-4E76-895F-3C9568B77690">
+                      <SHORT-NAME>SC_NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC2_SRBS/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="6EEE0491-D5ED-45FA-B07D-6AFB5F01258F">
+                      <SHORT-NAME>SC_VConfig_GetKindConfig_Operation_VConfig_GetKindConfig</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/VConfig_GetKindConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/VConfig_GetKindConfig/Operation_VConfig_GetKindConfig</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="ADFAF240-FF4E-4243-BA75-5EDD6D006460">
+                  <SHORT-NAME>SecurityAccess_Level_EOL_Unlocked_CompareKey</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="97138360-6D59-47B1-9B60-DA0810CFA4B2">
+                  <SHORT-NAME>SecurityAccess_Level_EOL_Unlocked_GetSeed</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="2BC1AA29-62D0-4B0C-876E-77288940C500">
+                  <SHORT-NAME>SecurityAccess_UnlockedL1_CompareKey</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="5559164F-5191-4B45-85B9-5D007DDF5308">
+                  <SHORT-NAME>SecurityAccess_UnlockedL1_GetSeed</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="A9D94E3A-27FD-4BFB-895F-5C0463D346EC">
+                  <SHORT-NAME>DCM_Server_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="06A9567A-A417-45E6-A34F-66AA90D7730F">
+                  <SHORT-NAME>SecurityAccess_UnlockedL1_SetSecurityAttemptCounter</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="77742D61-D9AB-44C3-B99B-05C097A9FA3D">
+                  <SHORT-NAME>SecurityAccess_UnlockedL1_GetSecurityAttemptCounter</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="C49C038D-4A47-412D-AFD3-AE85ADEF362B">
+                  <SHORT-NAME>SecurityAccess_Level_EOL_Unlocked_SetSecurityAttemptCounter</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="9BEFF4A1-E555-49C1-A2C9-E11B7DB7DCE8">
+                  <SHORT-NAME>SecurityAccess_Level_EOL_Unlocked_GetSecurityAttemptCounter</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="D3A756BE-EA18-44FA-B2D3-FB1D26A91F78">
+                  <SHORT-NAME>ServiceRequestNotificationGwm_Confirmation</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="4C198D51-8066-41E9-B585-977FB54760B6">
+                  <SHORT-NAME>ServiceRequestNotificationGwm_Indication</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS>
+                <SWC-SERVICE-DEPENDENCY UUID="F547A5B9-3D13-4279-962E-999A36BF52E6">
+                  <SHORT-NAME>NvBlockNeedSecAttemptCount</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/NvBlockNeedSecAttemptCount_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/NvBlockNeedSecAttemptCount_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_NvBlockNeedSecAttemptCount</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC2_SRBS</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="A057634D-5ADC-43DA-BDE2-1A5F0C9EC193">
+                      <SHORT-NAME>NvBlockNeedSecAttemptCount</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                      <RESTORE-AT-START>true</RESTORE-AT-START>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+                <SWC-SERVICE-DEPENDENCY UUID="512DB1FA-4C82-49C4-82E5-AED16B48CA7A">
+                  <SHORT-NAME>NvBlockNeed_EOLUnlockCnt</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/NvBlockNeed_EOLUnlockCnt_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior/NvBlockNeed_EOLUnlockCnt_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/NvMService_AC2_SRBS_EOL_UnlockCnt</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC2_SRBS</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="75944EC5-D90F-4F3D-A288-38E91B4968B0">
+                      <SHORT-NAME>NvBlockNeed_EOLUnlockCnt</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                      <RESTORE-AT-START>true</RESTORE-AT-START>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+              </SERVICE-DEPENDENCYS>
+              <SHARED-PARAMETERS>
+                <PARAMETER-DATA-PROTOTYPE UUID="6E5D34CF-F01A-48B2-9E00-9FADF38A441E">
+                  <SHORT-NAME>NvBlockNeed_EOLUnlockCnt_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_1Bytes</TYPE-TREF>
+                  <INIT-VALUE>
+                    <ARRAY-VALUE-SPECIFICATION>
+                      <ELEMENTS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </ELEMENTS>
+                    </ARRAY-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </PARAMETER-DATA-PROTOTYPE>
+                <PARAMETER-DATA-PROTOTYPE UUID="8148F016-2985-4408-B3AD-9971D671F749">
+                  <SHORT-NAME>NvBlockNeedSecAttemptCount_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/A_1Bytes</TYPE-TREF>
+                  <INIT-VALUE>
+                    <ARRAY-VALUE-SPECIFICATION>
+                      <ELEMENTS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </ELEMENTS>
+                    </ARRAY-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </PARAMETER-DATA-PROTOTYPE>
+              </SHARED-PARAMETERS>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="FF376ECB-C94E-4D31-ABED-EDAD62769225">
+          <SHORT-NAME>DCM_Server_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/DCM_Server/DCM_Server_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

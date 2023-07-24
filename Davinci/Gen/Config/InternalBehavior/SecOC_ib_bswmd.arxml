@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="9298111d-a5c4-4301-a109-8f7d6c5651df">
+          <SHORT-NAME>SecOC_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="7d42e549-d780-432c-8c66-18d132659215">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="760487ab-2dca-4575-bdfa-521ded26076e">
+                  <SHORT-NAME>SecOC</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC_MainFunctionRx</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC_MainFunctionTx</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="ba084c51-1cf4-4818-b9d6-423ce307c542">
+                      <SHORT-NAME>SecOCBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="8dd4677b-80ca-47f8-93fb-8ebe416f83b7">
+                          <SHORT-NAME>SECOC_EXCLUSIVE_AREA_RXSTATE</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="838ec47d-f828-44e7-ad5d-71c047654cc9">
+                          <SHORT-NAME>SECOC_EXCLUSIVE_AREA_TXSTATE</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="fd1a4083-d529-4d20-adc0-2671d264c883">
+                          <SHORT-NAME>SecOC_MainFunctionRx</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC_MainFunctionRx</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                        <BSW-SCHEDULABLE-ENTITY UUID="13245be6-e134-4f61-8d00-e5bc76b17070">
+                          <SHORT-NAME>SecOC_MainFunctionTx</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC_MainFunctionTx</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="e9a341fe-9c61-4c9c-ac6e-7dd4f56bbcc3">
+                          <SHORT-NAME>SecOC_MainFunctionRxTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC/SecOCBehavior/SecOC_MainFunctionRx</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.002</PERIOD>
+                        </BSW-TIMING-EVENT>
+                        <BSW-TIMING-EVENT UUID="72b4b2df-432b-4605-b79c-a60a893c4961">
+                          <SHORT-NAME>SecOC_MainFunctionTxTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/SecOC_ib_bswmd/BswModuleDescriptions/SecOC/SecOCBehavior/SecOC_MainFunctionTx</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.002</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="74f6f75a-d7e9-4ce1-bacc-9416b1bfdaf6">
+                  <SHORT-NAME>SecOC_MainFunctionRx</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+                <BSW-MODULE-ENTRY UUID="027f39d1-d8e1-479b-b842-24978687ee50">
+                  <SHORT-NAME>SecOC_MainFunctionTx</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

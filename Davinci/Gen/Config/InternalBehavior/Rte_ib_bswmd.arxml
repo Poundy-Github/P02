@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="db28d6f7-4974-4420-9b61-fc198a5c6199">
+          <SHORT-NAME>Rte_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="faf57394-4386-4408-b449-98de2c3a63b3">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="bf9fbfa0-bcac-47d1-9796-4377f91bb1ff">
+                  <SHORT-NAME>Rte</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/Rte_ib_bswmd/BswModuleDescriptions/Rte_ComSendSignalProxyPeriodic</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="aaf85d98-b2ac-41a2-ab29-4c761c23fe1b">
+                      <SHORT-NAME>RteBehavior</SHORT-NAME>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="fbfceb91-1d50-4b13-91e7-5237f46e64d6">
+                          <SHORT-NAME>Rte_ComSendSignalProxyPeriodic</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/Rte_ib_bswmd/BswModuleDescriptions/Rte_ComSendSignalProxyPeriodic</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="1a9b0c02-a917-458c-a7da-7b15e1799545">
+                          <SHORT-NAME>Rte_ComSendSignalProxyPeriodicTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/Rte_ib_bswmd/BswModuleDescriptions/Rte/RteBehavior/Rte_ComSendSignalProxyPeriodic</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="2f40f2df-b530-4564-92bd-b4fa6d7f866e">
+                  <SHORT-NAME>Rte_ComSendSignalProxyPeriodic</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

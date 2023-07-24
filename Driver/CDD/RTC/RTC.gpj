@@ -1,0 +1,5 @@
+#!gbuild
+[Subproject]
+RTC.c
+RTC_cfg.c
+RTC_Driver.c

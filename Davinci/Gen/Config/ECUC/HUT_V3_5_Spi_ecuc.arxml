@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="8952ebb0-e8b3-4c84-a230-454b85d3f85e">
+          <SHORT-NAME>Spi</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_Spi/Spi</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_Spi/Spi_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="5624bead-9811-4232-b18d-e4910604279c">
+              <SHORT-NAME>SpiDemEventParameterRefs0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDemEventParameterRefs</DEFINITION-REF>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="e6f1488c-7c20-4efd-8437-a577e4041856">
+              <SHORT-NAME>SpiDriver0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMaxChannel</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMaxJob</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMaxSequence</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiClockFrequencyRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCsi</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="90a4d70c-f773-42cc-9df9-10721a1050aa">
+                  <SHORT-NAME>CSIH3</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiChannelId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiChannelType</DEFINITION-REF>
+                      <VALUE>EB</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiDataWidth</DEFINITION-REF>
+                      <VALUE>8</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiEbMaxLength</DEFINITION-REF>
+                      <VALUE>256</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiIbNBuffers</DEFINITION-REF>
+                      <VALUE>256</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiTransferStart</DEFINITION-REF>
+                      <VALUE>MSB</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiChannel/SpiDefaultData</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="3dc71f4b-3006-4dc4-8638-66ea2071313d">
+                  <SHORT-NAME>SpiExternalDevice</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiBaudrate</DEFINITION-REF>
+                      <VALUE>5000000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsIdentifier</DEFINITION-REF>
+                      <VALUE>NULL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsPolarity</DEFINITION-REF>
+                      <VALUE>LOW</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiDataShiftEdge</DEFINITION-REF>
+                      <VALUE>LEADING</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiEnableCs</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiHwUnit</DEFINITION-REF>
+                      <VALUE>CSIH3</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiShiftClockIdleLevel</DEFINITION-REF>
+                      <VALUE>HIGH</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiTimeClk2Cs</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiParitySelection</DEFINITION-REF>
+                      <VALUE>NO_PARITY</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsHoldTiming</DEFINITION-REF>
+                      <VALUE>HOLD_TIME_0_POINT_5</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsIdleEnforcement</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsIdleTiming</DEFINITION-REF>
+                      <VALUE>IDLE_TIME_1_POINT_5</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsInactiveAfterLastData</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsInterDataDelay</DEFINITION-REF>
+                      <VALUE>INTER_DATA_TIME_0_POINT_5</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsSelection</DEFINITION-REF>
+                      <VALUE>CS_VIA_PERIPHERAL_ENGINE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiCsSetupTime</DEFINITION-REF>
+                      <VALUE>SETUP_TIME_0_POINT_5</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiBaudrateConfiguration</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiEnableHandshake</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiInputClockSelect</DEFINITION-REF>
+                      <VALUE>PCLK_DIVBY_4</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiMasterMode</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiBaudrateConfigurationLowPower</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiExternalDevice/SpiBaudrateRegisterSelect</DEFINITION-REF>
+                      <VALUE>CSIH_BAUDRATE_REGISTER_0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="b8c47af2-55d2-4665-9e3d-376db5ea5470">
+                  <SHORT-NAME>SpiJob1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiJobEndNotification</DEFINITION-REF>
+                      <VALUE>SpiJob0Notification</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiJobId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiJobPriority</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiHwUnitSynchronous</DEFINITION-REF>
+                      <VALUE>ASYNCHRONOUS</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiPortPinSelect</DEFINITION-REF>
+                      <VALUE>CSS0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiDeviceAssignment</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Spi/SpiDriver0/SpiExternalDevice</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="7b960494-83e9-41eb-b89c-0b67e4caa0e4">
+                      <SHORT-NAME>SpiChannelList</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiChannelList</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelIndex</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiJob/SpiChannelList/SpiChannelAssignment</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Spi/SpiDriver0/CSIH3</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="3f72af72-ed86-4ac5-b070-30c6099811c5">
+                  <SHORT-NAME>SpiSequence</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence/SpiInterruptibleSequence</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence/SpiSeqEndNotification</DEFINITION-REF>
+                      <VALUE>SpiSequenceEndNotification</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence/SpiSequenceId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence/SpiSeqStartNotification</DEFINITION-REF>
+                      <VALUE>SpiWVErrorNotificationFunc</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiSequence/SpiJobAssignment</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Spi/SpiDriver0/SpiJob1</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="ce8101e4-c1b2-4c1f-8544-de83184c0789">
+                  <SHORT-NAME>SpiDma</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiDma</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiDma/SpiDmaHwUnit</DEFINITION-REF>
+                      <VALUE>CSIH3_TXID_41_RXID_42</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiDma/SpiRxDmaChannel</DEFINITION-REF>
+                      <VALUE>DMA3</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiDma/SpiTxDmaChannel</DEFINITION-REF>
+                      <VALUE>DMA4</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="e2571d43-eb40-4c91-ad0c-245a9151654d">
+                  <SHORT-NAME>SpiMemoryMode</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMemoryMode</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMemoryMode/SpiHwUnitSelection</DEFINITION-REF>
+                      <VALUE>CSIH3</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiDriver/SpiMemoryMode/SpiMemoryModeSelection</DEFINITION-REF>
+                      <VALUE>FIFO_MODE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="dcd75469-9b51-4d5c-8a28-096518cd8ca8">
+              <SHORT-NAME>SpiGeneral0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiCancelApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiChannelBuffersAllowed</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiHwStatusApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiInterruptibleSeqAllowed</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiLevelDelivered</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiMainFunctionPeriod</DEFINITION-REF>
+                  <VALUE>0.01</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiSupportConcurrentSyncTransmit</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiAlreadyInitDetCheck</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiDmaMode</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiDMARamMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiDMAWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiECCSelfTest</DEFINITION-REF>
+                  <VALUE>ECC_NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiUseWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiVersionCheckExternalModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>NULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableClkImmediateValue</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiTimeOutWaitingTime</DEFINITION-REF>
+                  <VALUE>10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiLoopBackSelfTest</DEFINITION-REF>
+                  <VALUE>LOOPBACK_NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiAutosarVersion</DEFINITION-REF>
+                  <VALUE>R4_2_2</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiCSIXRamMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiCSIXWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableClockMode</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableDataConsistencyCheck</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableExtendedDataLength</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnablePersistentHwConfiguration</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableSeqStartNotification</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiEnableSyncSeqEndNotification</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiForceCancelApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiErrorBufferSize</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiInterruptConsistencyCheck</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiIsrCategory</DEFINITION-REF>
+                  <VALUE>CAT2</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiSupportConcurrentAsyncTransmit</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiGeneral/SpiUserCallbackHeaderFile</DEFINITION-REF>
+                  <VALUE>Spi_Test.h</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="388e09bb-25fd-44cb-afda-9b0e35ee39ab">
+              <SHORT-NAME>SpiPublishedInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Spi/Spi/SpiPublishedInformation</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Spi/Spi/SpiPublishedInformation/SpiMaxHwUnit</DEFINITION-REF>
+                  <VALUE>8</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

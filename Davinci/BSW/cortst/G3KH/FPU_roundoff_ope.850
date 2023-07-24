@@ -1,0 +1,929 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = FPU_roundoff_ope.850                                         --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of Floating Point Arithmetic Instructions (Round-off)                --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_FPU_roundoff_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.GLOBL		_CST_FPU_roundoff_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+#if CST_ROUNDF_SINGLE_SUPPORT
+	.GLOBL		_CST_FPU_roundoff_3
+-- CST_ROUNDF_SINGLE_SUPPORT
+#endif 
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_SRU_fpu_set
+	.EXTERN		f_sub_SRU_fpu_restore
+	.EXTERN		f_sub_FPU_fpst_load_VI
+
+	.EXTERN		FPU_roundoff_tbl_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.EXTERN		FPU_roundoff_tbl_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_roundoff_1
+--  Function ID     : CST_FN_073
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R9, R10, R13, R14, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_roundoff_1:
+	-- Covers: CST_DD_089
+	-- Covers: CST_DD_234
+	-- Covers: CST_DD_317
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_roundoff_tbl_1, EP		--
+	MOV		0x08, R13			--
+
+    FPU_roundoff_1_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+
+	-- Covers: CST_UM_340
+	-- Covers: CST_UM_340_01
+	--------------------------------------------------
+	--	CEILF.SL reg2, reg3
+	--------------------------------------------------
+	CEILF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_343
+	-- Covers: CST_UM_343_01
+	--------------------------------------------------
+	--	CEILF.SW reg2, reg3
+	--------------------------------------------------
+	CEILF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_341
+	-- Covers: CST_UM_341_01
+	--------------------------------------------------
+	--	CEILF.SUL reg2, reg3
+	--------------------------------------------------
+	CEILF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_342
+	-- Covers: CST_UM_342_01
+	--------------------------------------------------
+	--	CEILF.SUW reg2, reg3
+	--------------------------------------------------
+	CEILF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_374
+	-- Covers: CST_UM_374_01
+	--------------------------------------------------
+	--	FLOORF.SL reg2, reg3
+	--------------------------------------------------
+	FLOORF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_377
+	-- Covers: CST_UM_377_01
+	--------------------------------------------------
+	--	FLOORF.SW reg2, reg3
+	--------------------------------------------------
+	FLOORF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_375
+	-- Covers: CST_UM_375_01
+	--------------------------------------------------
+	--	FLOORF.SUL reg2, reg3
+	--------------------------------------------------
+	FLOORF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_376
+	-- Covers: CST_UM_376_01
+	--------------------------------------------------
+	--	FLOORF.SUW reg2, reg3
+	--------------------------------------------------
+	FLOORF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_403
+	-- Covers: CST_UM_403_01
+	--------------------------------------------------
+	--	TRNCF.SL reg2, reg3
+	--------------------------------------------------
+	TRNCF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_406
+	-- Covers: CST_UM_406_01
+	--------------------------------------------------
+	--	TRNCF.SW reg2, reg3
+	--------------------------------------------------
+	TRNCF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_404
+	-- Covers: CST_UM_404_01
+	--------------------------------------------------
+	--	TRNCF.SUL reg2, reg3
+	--------------------------------------------------
+	TRNCF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_405
+	-- Covers: CST_UM_405_01
+	--------------------------------------------------
+	--	TRNCF.SUW reg2, reg3
+	--------------------------------------------------
+	TRNCF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x04, EP			--
+	LOOP		R13, FPU_roundoff_1_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+
+	--------------------------------------------------
+	--	CEILF.SL reg2, reg3
+	--------------------------------------------------
+	CEILF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	CEILF.SL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	CEILF.SW reg2, reg3
+	--------------------------------------------------
+	CEILF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	CEILF.SW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	CEILF.SUL reg2, reg3
+	--------------------------------------------------
+	CEILF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	CEILF.SUL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	CEILF.SUW reg2, reg3
+	--------------------------------------------------
+	CEILF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	CEILF.SUW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	FLOORF.SL reg2, reg3
+	--------------------------------------------------
+	FLOORF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	FLOORF.SL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	FLOORF.SW reg2, reg3
+	--------------------------------------------------
+	FLOORF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	FLOORF.SW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+
+	--------------------------------------------------
+	--	FLOORF.SUL reg2, reg3
+	--------------------------------------------------
+	FLOORF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	FLOORF.SUL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	FLOORF.SUW reg2, reg3
+	--------------------------------------------------
+	FLOORF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	FLOORF.SUW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	TRNCF.SL reg2, reg3
+	--------------------------------------------------
+	TRNCF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	TRNCF.SL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	TRNCF.SW reg2, reg3
+	--------------------------------------------------
+	TRNCF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	TRNCF.SW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	TRNCF.SUL reg2, reg3
+	--------------------------------------------------
+	TRNCF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	TRNCF.SUL	R7, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	TRNCF.SUW reg2, reg3
+	--------------------------------------------------
+	TRNCF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	TRNCF.SUW	R7, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+#if CST_FPU_SUPPORT_DOUBLE
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_roundoff_2
+--  Function ID     : CST_FN_074
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R12, R13, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_roundoff_2:
+	-- Covers: CST_DD_AP_506
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_roundoff_tbl_2, EP		--
+	MOV		0x08, R13			--
+
+    FPU_roundoff_2_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+
+	-- Covers: CST_UM_336
+	-- Covers: CST_UM_336_01
+	--------------------------------------------------
+	--	CEILF.DL reg2, reg3
+	--------------------------------------------------
+	CEILF.DL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_339
+	-- Covers: CST_UM_339_01
+	--------------------------------------------------
+	--	CEILF.DW reg2, reg3
+	--------------------------------------------------
+	CEILF.DW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_337
+	-- Covers: CST_UM_337_01
+	--------------------------------------------------
+	--	CEILF.DUL reg2, reg3
+	--------------------------------------------------
+	CEILF.DUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_338
+	-- Covers: CST_UM_338_01
+	--------------------------------------------------
+	--	CEILF.DUW reg2, reg3
+	--------------------------------------------------
+	CEILF.DUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_370
+	-- Covers: CST_UM_370_01
+	--------------------------------------------------
+	--	FLOORF.DL reg2, reg3
+	--------------------------------------------------
+	FLOORF.DL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_373
+	-- Covers: CST_UM_373_01
+	--------------------------------------------------
+	--	FLOORF.DW reg2, reg3
+	--------------------------------------------------
+	FLOORF.DW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_371
+	-- Covers: CST_UM_371_01
+	--------------------------------------------------
+	--	FLOORF.DUL reg2, reg3
+	--------------------------------------------------
+	FLOORF.DUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_372
+	-- Covers: CST_UM_372_01
+	--------------------------------------------------
+	--	FLOORF.DUW reg2, reg3
+	--------------------------------------------------
+	FLOORF.DUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_399
+	-- Covers: CST_UM_399_01
+	--------------------------------------------------
+	--	TRNCF.DL reg2, reg3
+	--------------------------------------------------
+	TRNCF.DL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_402
+	-- Covers: CST_UM_402_01
+	--------------------------------------------------
+	--	TRNCF.DW reg2, reg3
+	--------------------------------------------------
+	TRNCF.DW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_400
+	-- Covers: CST_UM_400_01
+	--------------------------------------------------
+	--	TRNCF.DUL reg2, reg3
+	--------------------------------------------------
+	TRNCF.DUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_401
+	-- Covers: CST_UM_401_01
+	--------------------------------------------------
+	--	TRNCF.DUW reg2, reg3
+	--------------------------------------------------
+	TRNCF.DUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x08, EP			--
+	LOOP		R13, FPU_roundoff_2_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+	MOV		0xA55A3CC3, R8			--
+	MOV		0x5AA5C33C, R9			--
+
+	--------------------------------------------------
+	--	CEILF.DL reg2, reg3
+	--------------------------------------------------
+	CEILF.DL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	CEILF.DL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	CEILF.DW reg2, reg3
+	--------------------------------------------------
+	CEILF.DW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	CEILF.DW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	CEILF.DUL reg2, reg3
+	--------------------------------------------------
+	CEILF.DUL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	CEILF.DUL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	CEILF.DUW reg2, reg3
+	--------------------------------------------------
+	CEILF.DUW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	CEILF.DUW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	FLOORF.DL reg2, reg3
+	--------------------------------------------------
+	FLOORF.DL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	FLOORF.DL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	FLOORF.DW reg2, reg3
+	--------------------------------------------------
+	FLOORF.DW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	FLOORF.DW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+
+	--------------------------------------------------
+	--	FLOORF.DUL reg2, reg3
+	--------------------------------------------------
+	FLOORF.DUL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	FLOORF.DUL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	FLOORF.DUW reg2, reg3
+	--------------------------------------------------
+	FLOORF.DUW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	FLOORF.DUW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	TRNCF.DL reg2, reg3
+	--------------------------------------------------
+	TRNCF.DL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	TRNCF.DL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	TRNCF.DW reg2, reg3
+	--------------------------------------------------
+	TRNCF.DW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	TRNCF.DW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	TRNCF.DUL reg2, reg3
+	--------------------------------------------------
+	TRNCF.DUL	R6, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	TRNCF.DUL	R8, R12				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	TRNCF.DUW reg2, reg3
+	--------------------------------------------------
+	TRNCF.DUW	R6, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	TRNCF.DUW	R8, R12				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+#if CST_ROUNDF_SINGLE_SUPPORT
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_roundoff_3
+--  Function ID     : CST_FN_143
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R9, R10, R13, (R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_roundoff_3:
+	-- Covers: CST_DD_317
+	-- Covers: CST_DD_332
+	-- Covers: CST_DD_335
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_roundoff_tbl_1, EP		--
+	MOV		0x08, R13			--
+
+    FPU_roundoff_3_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+
+	-- Covers: CST_UM_407
+	-- Covers: CST_UM_407_01
+	--------------------------------------------------
+	--	ROUNDF.SL reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_408
+	-- Covers: CST_UM_408_01
+	--------------------------------------------------
+	--	ROUNDF.SW reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_409
+	-- Covers: CST_UM_409_01
+	--------------------------------------------------
+	--	ROUNDF.SUL reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_410
+	-- Covers: CST_UM_410_01
+	--------------------------------------------------
+	--	ROUNDF.SUW reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x04, EP			--
+	LOOP		R13, FPU_roundoff_3_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R13			--
+
+	--------------------------------------------------
+	--	ROUNDF.SL reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	ROUNDF.SL	R13, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	ROUNDF.SW reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	ROUNDF.SW	R13, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	ROUNDF.SUL reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SUL	R6, R8				--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	ROUNDF.SUW reg2, reg3
+	--------------------------------------------------
+	ROUNDF.SUW	R6, R8				--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VI, LP	--cst_point: fexp=VI
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+-- CST_ROUNDF_SINGLE_SUPPORT
+#endif 
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   FPU_roundoff_ope.850          =====
+-- ============================================================================

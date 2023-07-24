@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="60e5f00a-9f03-4363-81a2-bd71d1e1fe9b">
+          <SHORT-NAME>CanTrcv</SHORT-NAME>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/MICROSAR/CanTrcv_Tja1040/CanTrcv_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="8c07b959-cb07-4f1e-9283-ebfe10570a32">
+              <SHORT-NAME>CanTrcvConfigSet</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="a7907da4-1b70-4931-8583-dc45dc9ab686">
+                  <SHORT-NAME>CanTrcvChannel_CAN0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvInitState</DEFINITION-REF>
+                      <VALUE>CANTRCV_OP_MODE_NORMAL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelUsed</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvControlsPowerSupply</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvHwPnSupport</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvMaxBaudrate</DEFINITION-REF>
+                      <VALUE>1000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupByBusUsed</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="e48e9b2d-40ef-4a7f-96e8-195df8ec714a">
+                      <SHORT-NAME>CanTrcvAccess</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="c5f2bcbb-1594-4167-836e-d7f39cd4383d">
+                          <SHORT-NAME>CanTrcvDioAccess</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE UUID="7194415f-8089-48bd-ba25-85ade97c78dc">
+                              <SHORT-NAME>PinSTB</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinSTB</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort08/VIP_CAN0_STB</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE UUID="a94c8fb0-e263-4842-a187-5f21670490c6">
+                              <SHORT-NAME>PinRXD</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinRXD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_CAN0_RXD</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="d20121b5-edf3-4a58-8c68-19df1af6ceab">
+                  <SHORT-NAME>CanTrcvChannel_CAN1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvInitState</DEFINITION-REF>
+                      <VALUE>CANTRCV_OP_MODE_NORMAL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelUsed</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvControlsPowerSupply</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvHwPnSupport</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvMaxBaudrate</DEFINITION-REF>
+                      <VALUE>1000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupByBusUsed</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="48acdf04-f6f4-4a0b-85fa-8f7d965eeea7">
+                      <SHORT-NAME>CanTrcvAccess</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="0a986a18-acca-4185-841a-e2d1f3736c21">
+                          <SHORT-NAME>CanTrcvDioAccess</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE UUID="468aef0f-aa20-4f60-9062-4a1042f90afa">
+                              <SHORT-NAME>PinSTB</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinSTB</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort01_8To15/VIP_CAN1_STB</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE UUID="c9cf559f-76e5-470d-a24a-2f4f84c0f427">
+                              <SHORT-NAME>PinRXD</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinRXD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_CAN1_RXD</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="c39d4ac5-4cd4-40f5-a03f-1d764735419e">
+                  <SHORT-NAME>CanTrcvChannel_CAN3</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvInitState</DEFINITION-REF>
+                      <VALUE>CANTRCV_OP_MODE_NORMAL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelId</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvChannelUsed</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvControlsPowerSupply</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvHwPnSupport</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvMaxBaudrate</DEFINITION-REF>
+                      <VALUE>1000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupByBusUsed</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvWakeupSourceRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuM/EcuMConfiguration/EcuMCommonConfiguration/CN_B30_for_SC_CAN_V3_2_c0d6c67b</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="8eebf157-74c5-44e4-a6d8-7717cc98a67c">
+                      <SHORT-NAME>CanTrcvAccess</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess</DEFINITION-REF>
+                      <SUB-CONTAINERS>
+                        <ECUC-CONTAINER-VALUE UUID="33dd7708-0dc0-4b7e-afef-2f140ae80105">
+                          <SHORT-NAME>CanTrcvDioAccess</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE UUID="7097569d-b49e-4630-9d67-ee4f544c4ab1">
+                              <SHORT-NAME>PinSTB</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinSTB</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_CAN3_STB</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE UUID="91ab7a05-56c5-4ca3-9e19-c91f8c4e46f7">
+                              <SHORT-NAME>PinRXD</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvHardwareInterfaceName</DEFINITION-REF>
+                                  <VALUE>PinRXD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <REFERENCE-VALUES>
+                                <ECUC-REFERENCE-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvConfigSet/CanTrcvChannel/CanTrcvAccess/CanTrcvDioAccess/CanTrcvDioChannelAccess/CanTrcvDioSymNameRef</DEFINITION-REF>
+                                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dio/DioConfig0/DioPort00/VIP_CAN3_RXD</VALUE-REF>
+                                </ECUC-REFERENCE-VALUE>
+                              </REFERENCE-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                      </SUB-CONTAINERS>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="28a0c8a6-1646-4f23-9599-a4211b27fbe0">
+              <SHORT-NAME>CanTrcvGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvGetVersionInfo</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvWakeUpSupport</DEFINITION-REF>
+                  <VALUE>CANTRCV_WAKEUP_BY_POLLING</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvIndex</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvMainFunctionPeriod</DEFINITION-REF>
+                  <VALUE>0.01</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/CanTrcv_Tja1040/CanTrcv/CanTrcvGeneral/CanTrcvSafeBswChecks</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

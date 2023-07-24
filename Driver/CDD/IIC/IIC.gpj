@@ -1,0 +1,9 @@
+#!gbuild
+[Subproject]
+IIC_Hardware.c
+IIC1_Hardware.c
+IIC.c
+IIC_irq.c
+IIC_cfg.c
+IIC_queue.c
+hal_iic.c

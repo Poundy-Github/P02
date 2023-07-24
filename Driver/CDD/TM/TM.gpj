@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+TM_Cfg.c
+TM.c

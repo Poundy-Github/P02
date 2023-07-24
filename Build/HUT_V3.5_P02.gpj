@@ -1,0 +1,23 @@
+#!gbuild
+
+macro PROJECT_TYPE=P02
+
+macro BUILD_DIR=${WORLSPECE_DIR}\Build
+macro DAVINCI_DIR=${WORLSPECE_DIR}\Davinci
+macro DRIVER_DIR=${WORLSPECE_DIR}\Driver
+macro OUTPUT_DIR=${%expand_path(.)}\output\${CFG_NAME}
+macro SWC_DIR=${WORLSPECE_DIR}\SWC
+macro APP_DIR=${WORLSPECE_DIR}\SWC_app
+macro SWC_APP_DIR=${WORLSPECE_DIR}\SWC_CLUSTER
+macro IPC_COMMON_DIR=${WORLSPECE_DIR}\IPC_Common
+macro WORLSPECE_DIR=${%expand_path(./..)}
+
+primaryTarget=v800_standalone.tgt
+#component top_level_project
+
+[Project]
+
+	:optionsFile=_ghs\sourceDir.opt
+
+_ghs\v3.5_project_A.gpj
+_ghs\v3.5_project_B.gpj

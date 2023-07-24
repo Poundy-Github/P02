@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <COMPOSITION-SW-COMPONENT-TYPE UUID="F9446AB6-8362-4A39-A16D-ACD4214764EC">
+          <SHORT-NAME>Manager_Swc</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="8C887F33-7C0B-4487-801C-D39013598791">
+              <SHORT-NAME>SyncRequestMessageId</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SyncRequestMessageId/SyncRequestMessageId</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <VALUE>17</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SyncRequestMessageId</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="A36489D4-FCB7-419B-9668-C183CBCBB0F2">
+              <SHORT-NAME>SyncRequstReseverData1</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <NONQUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SyncRequstReseverData1/SyncRequstReseverData1</DATA-ELEMENT-REF>
+                  <INIT-VALUE>
+                    <ARRAY-VALUE-SPECIFICATION>
+                      <ELEMENTS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </ELEMENTS>
+                    </ARRAY-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SyncRequstReseverData1</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="726B47A4-4E1A-4BBC-AEED-8E652581CDD6">
+              <SHORT-NAME>HsmKeyM</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/HsmKeyM/SetCmacKey</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/HsmKeyM/SetAes128Key</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/HsmKeyM/GetCmacKeyState</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/HsmKeyM/GetCmacKey</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/HsmKeyM/GetAes128Key</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/HsmKeyM</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE UUID="E659EB29-18FE-4100-9F1C-2D020C0DCA62">
+              <SHORT-NAME>EOL</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/EOL</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="5BD3A410-5B4C-4A02-8A7D-18CFA3173992">
+              <SHORT-NAME>Power</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Power</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="65E814FB-3CC0-4A75-8979-0DB25CCB709A">
+              <SHORT-NAME>Upgrade</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Upgrade</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="F4EF56F4-BCE7-4790-8A91-FC868384339A">
+              <SHORT-NAME>Vconfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Vconfig</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="0B7DEEB0-81EA-49A7-8CAF-9CA020C2A4BC">
+              <SHORT-NAME>SOCManager</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/SOCManager</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="E41FCAEA-CA97-4DEF-B1C8-4CB27FDE99CC">
+              <SHORT-NAME>DCM_Server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/DCM_Server</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="03A8B493-3412-4939-971D-B5499D8B8EDD">
+              <SHORT-NAME>Can_Server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/Can_Server</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="98962EEE-6895-4DAB-8397-0270B70B06DC">
+              <SHORT-NAME>DidDataProcess</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/DidDataProcess</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="80467AEF-A6BD-4F2A-B459-3BE0530B5B3E">
+              <SHORT-NAME>SocDtcProcess</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/SocDtcProcess</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="CCD7A007-6E29-47D7-B2F3-1A28122925C5">
+              <SHORT-NAME>CConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/CConfig</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE UUID="EE866091-B528-4A4E-9496-9AF78FF9FEB4">
+              <SHORT-NAME>SecOc_Server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/ComponentTypes/SecOc_Server</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <ASSEMBLY-SW-CONNECTOR UUID="28B10AC5-DBDA-41B8-BBED-E0CA3E4BC338">
+              <SHORT-NAME>Power_Power_Voltage_DCM_Server_Power_Voltage</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Power</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Power/Power_Voltage</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DCM_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DCM_Server/Power_Voltage</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="68BE6D09-8E88-4554-A56D-FC5BA28E9738">
+              <SHORT-NAME>Vconfig_VConfig_GetKindConfig_EOL_VConfig_GetKindConfig</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Vconfig/VConfig_GetKindConfig</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/EOL</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/EOL/VConfig_GetKindConfig</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="FA078286-C813-41C5-80D9-B0028EFB9E76">
+              <SHORT-NAME>Vconfig_VConfig_GetKindConfig_Can_Server_VConfig_GetKindConfig</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Vconfig/VConfig_GetKindConfig</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Can_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Can_Server/VConfig_GetKindConfig</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="DB4C2ECB-FA29-4703-A475-8A49410A8607">
+              <SHORT-NAME>DidDataProcess_ECUlevelNetworkConfigurationDataIdentifier_Vconfig_ECUlevelNetworkConfigurationDataIdentifier</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/ECUlevelNetworkConfigurationDataIdentifier</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Vconfig/ECUlevelNetworkConfigurationDataIdentifier</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="3EC56779-4BB3-4797-924B-DDC695296F9E">
+              <SHORT-NAME>Vconfig_VconfigResponseFlag_DidDataProcess_VconfigResponseFlag</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Vconfig/VconfigResponseFlag</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/VconfigResponseFlag</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="BBD9AA81-8DEF-46D3-A588-8918E440D11C">
+              <SHORT-NAME>SOCManager_ppSR_SocManager_Power_rpSR_SocManager</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SOCManager</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SOCManager/ppSR_SocManager</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Power</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Power/rpSR_SocManager</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="0FB79DCC-A38F-45FB-A55E-E1CD2D620E80">
+              <SHORT-NAME>Power_ppSR_Power_Out_SOCManager_rpSR_Power_Out</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Power</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Power/ppSR_Power_Out</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SOCManager</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_Power_Out</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="AD49588A-CA15-4335-BA34-3F235BBCA4BC">
+              <SHORT-NAME>SocDtcProcess_IPCSocReportDtcStatus_DidDataProcess_IPCSocReportDtcStatus</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SocDtcProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SocDtcProcess/IPCSocReportDtcStatus</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/IPCSocReportDtcStatus</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="FF246AB5-3C4B-415B-8F25-A5FD42DA1E67">
+              <SHORT-NAME>Vconfig_Vconfig_KindBuffers_DCM_Server_Vconfig_KindBuffers</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DCM_Server</CONTEXT-COMPONENT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="E9D8F6BC-8E3D-422B-8F5F-ED19D81EC1FE">
+              <SHORT-NAME>Power_ppSR_Power_Out_Can_Server_tiSR_Power_Out</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Power</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Power/ppSR_Power_Out</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Can_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Can_Server/tiSR_Power_Out</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="E5165C2A-DCC1-487F-B201-F9DACF261936">
+              <SHORT-NAME>Power_ppSR_WakeupReason_Can_Server_rpSR_WakeupReason</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Power</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Power/ppSR_WakeupReason</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Can_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Can_Server/rpSR_WakeupReason</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <DELEGATION-SW-CONNECTOR UUID="ACE570C4-EA81-44F4-8F4F-43838ED543E9">
+              <SHORT-NAME>SecOc_Server_SyncRequestMessageId_SyncRequestMessageId</SHORT-NAME>
+              <INNER-PORT-IREF>
+                <P-PORT-IN-COMPOSITION-INSTANCE-REF>
+                  <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SecOc_Server</CONTEXT-COMPONENT-REF>
+                  <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SecOc_Server/SyncRequestMessageId</TARGET-P-PORT-REF>
+                </P-PORT-IN-COMPOSITION-INSTANCE-REF>
+              </INNER-PORT-IREF>
+              <OUTER-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Manager_Swc/SyncRequestMessageId</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+            <DELEGATION-SW-CONNECTOR UUID="B53E29B0-701B-40F0-94F4-1BAC9F531917">
+              <SHORT-NAME>SecOc_Server_SyncRequstReseverData1_SyncRequstReseverData1</SHORT-NAME>
+              <INNER-PORT-IREF>
+                <P-PORT-IN-COMPOSITION-INSTANCE-REF>
+                  <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SecOc_Server</CONTEXT-COMPONENT-REF>
+                  <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SecOc_Server/SyncRequstReseverData1</TARGET-P-PORT-REF>
+                </P-PORT-IN-COMPOSITION-INSTANCE-REF>
+              </INNER-PORT-IREF>
+              <OUTER-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Manager_Swc/SyncRequstReseverData1</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+            <DELEGATION-SW-CONNECTOR UUID="2132D51D-BFB6-4746-B95D-6A0EE4FAE67E">
+              <SHORT-NAME>HsmKeyM_SecOc_Server_HsmKeyM</SHORT-NAME>
+              <INNER-PORT-IREF>
+                <R-PORT-IN-COMPOSITION-INSTANCE-REF>
+                  <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SecOc_Server</CONTEXT-COMPONENT-REF>
+                  <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SecOc_Server/HsmKeyM</TARGET-R-PORT-REF>
+                </R-PORT-IN-COMPOSITION-INSTANCE-REF>
+              </INNER-PORT-IREF>
+              <OUTER-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Manager_Swc/HsmKeyM</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="684E147A-561B-4459-B100-47602125DC6B">
+              <SHORT-NAME>DidDataProcess_tiSR_VIN_SecOc_Server_tiSR_VIN</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/tiSR_VIN</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SecOc_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SecOc_Server/tiSR_VIN</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="FD4F2DD4-AD33-4F85-921C-DD43BE6FB4AD">
+              <SHORT-NAME>Upgrade_ppSR_Upgrade_System_Recovery_SOCManager_rpSR_Upgrade_System_Recovery</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Upgrade</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/Upgrade/ppSR_Upgrade_System_Recovery</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SOCManager</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SOCManager/rpSR_Upgrade_System_Recovery</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="3C901855-0BB2-41FA-B2BD-7C517A9ABC73">
+              <SHORT-NAME>DidDataProcess_VconfigRequestUpdateFlag_Vconfig_VconfigRequestUpdateFlag</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/VconfigRequestUpdateFlag</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Vconfig</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Vconfig/VconfigRequestUpdateFlag</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="7FE84B99-5F6B-4E82-8A98-4C816CD0140E">
+              <SHORT-NAME>DidDataProcess_CconfigRequestUpdateFlag_CConfig_CconfigRequestUpdateFlag</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/DidDataProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/DidDataProcess/CconfigRequestUpdateFlag</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/CConfig</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/CConfig/CconfigRequestUpdateFlag</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="00BE16DB-1644-4436-BE57-843D16710C7F">
+              <SHORT-NAME>SocDtcProcess_pPSR_DiagMonitorReInitFlag_SecOc_Server_piDiagMonitorReInitFlag</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SocDtcProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SocDtcProcess/pPSR_DiagMonitorReInitFlag</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SecOc_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/SecOc_Server/piDiagMonitorReInitFlag</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR UUID="2A96BB96-C1FE-4350-BD1D-ED94B849DD52">
+              <SHORT-NAME>SocDtcProcess_pPSR_DiagMonitorReInitFlag_Can_Server_Can_Server_piDiagMonitorReInitFlag</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/SocDtcProcess</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/SocDtcProcess/pPSR_DiagMonitorReInitFlag</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ComponentTypes/Manager_Swc/Can_Server</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Can_Server/Can_Server_piDiagMonitorReInitFlag</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

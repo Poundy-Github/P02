@@ -1,0 +1,1005 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = FPU_calc_ope.850                                             --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of Floating Point Arithmetic Instructions (Calculate)                --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_FPU_calc_1
+	.GLOBL		_CST_FPU_calc_2
+#if CST_FPU_SUPPORT_DOUBLE
+	.GLOBL		_CST_FPU_calc_3
+	.GLOBL		_CST_FPU_calc_4
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+	.GLOBL		_CST_FPU_calc_5
+#if CST_FPU_SUPPORT_DOUBLE
+	.GLOBL		_CST_FPU_calc_6
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_SRU_fpu_set
+	.EXTERN		f_sub_SRU_fpu_restore
+	.EXTERN		f_sub_FPU_fpst_load_VOUI
+
+	.EXTERN		FPU_calc_tbl_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.EXTERN		FPU_calc_tbl_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+	.EXTERN		FPU_calc_tbl_5
+#if CST_FPU_SUPPORT_DOUBLE
+	.EXTERN		FPU_calc_tbl_6
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_1
+--  Function ID     : CST_FN_056
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R10, R11, R12, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_1:
+	-- Covers: CST_DD_077
+	-- Covers: CST_DD_308
+	-- Covers: CST_DD_222
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_1, EP		--
+	MOV		0x0D, R11			--
+
+    FPU_calc_1_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R8			--
+
+	-- Covers: CST_UM_335
+	-- Covers: CST_UM_335_01
+	--------------------------------------------------
+	--	ADDF.S reg1, reg2, reg3
+	--------------------------------------------------
+	ADDF.S		R6, R8, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x07, R11			--
+	BNZ		FPU_calc_1_002			--
+
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+    FPU_calc_1_002:
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x08, EP			--
+	LOOP		R11, FPU_calc_1_001		--
+
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R8			--
+
+	--------------------------------------------------
+	--	ADDF.S reg1, reg2, reg3
+	--------------------------------------------------
+	ADDF.S		R6, R8, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	ADDF.S		R8, R6, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_2
+--  Function ID     : CST_FN_057
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R10, R11, R12, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_2:
+	-- Covers: CST_DD_078
+	-- Covers: CST_DD_308
+	-- Covers: CST_DD_223
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_1, EP		--
+	MOV		0x0D, R11			--
+
+    FPU_calc_2_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R8			--
+
+	-- Covers: CST_UM_387
+	-- Covers: CST_UM_387_01
+	--------------------------------------------------
+	--	MULF.S reg1, reg2, reg3
+	--------------------------------------------------
+	MULF.S		R6, R8, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x07, R11			--
+	BNZ		FPU_calc_2_002			--
+
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+    FPU_calc_2_002:
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x08, EP			--
+	LOOP		R11, FPU_calc_2_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R8			--
+
+	--------------------------------------------------
+	--	MULF.S reg1, reg2, reg3
+	--------------------------------------------------
+	MULF.S		R6, R8, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	MULF.S		R8, R6, R12			--cst_point: out=1
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+#if CST_FPU_SUPPORT_DOUBLE
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_3
+--  Function ID     : CST_FN_058
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_3:
+	-- Covers: CST_DD_AP_501
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_2, EP		--
+	MOV		0x0D, R11			--
+
+    FPU_calc_3_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	SLD.W		0x0C[EP], R9			--
+
+	-- Covers: CST_UM_334
+	-- Covers: CST_UM_334_01
+	--------------------------------------------------
+	--	ADDF.D reg1, reg2, reg3
+	--------------------------------------------------
+	ADDF.D		R6, R8, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x07, R11			--
+	BNZ		FPU_calc_3_002			--
+
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+    FPU_calc_3_002:
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADDI		0x0010, EP, EP			--
+	LOOP		R11, FPU_calc_3_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+	MOV		0xA55A3CC3, R8			--
+	MOV		0x5AA5C33C, R9			--
+
+	--------------------------------------------------
+	--	ADDF.D reg1, reg2, reg3
+	--------------------------------------------------
+	ADDF.D		R6, R8, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	ADDF.D		R8, R6, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_4
+--  Function ID     : CST_FN_059
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_4:
+	-- Covers: CST_DD_AP_502
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_2, EP		--
+	MOV		0x0D, R11			--
+
+    FPU_calc_4_001:
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	SLD.W		0x0C[EP], R9			--
+
+	-- Covers: CST_UM_386
+	-- Covers: CST_UM_386_01
+	--------------------------------------------------
+	--	MULF.D reg1, reg2, reg3
+	--------------------------------------------------
+	MULF.D		R6, R8, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x07, R11			--
+	BNZ		FPU_calc_4_002			--
+
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+    FPU_calc_4_002:
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADDI		0x0010, EP, EP			--
+	LOOP		R11, FPU_calc_4_001		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+	MOV		0xA55A3CC3, R8			--
+	MOV		0x5AA5C33C, R9			--
+
+	--------------------------------------------------
+	--	MULF.D reg1, reg2, reg3
+	--------------------------------------------------
+	MULF.D		R6, R8, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	MULF.D		R8, R6, R12			--cst_point: out=3
+	JARL		f_sub_FPU_fpst_load_VOUI, LP	--cst_point: fexp=VOUI
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_5
+--  Function ID     : CST_FN_060
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R10, R12, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_5:
+	-- Covers: CST_DD_079
+	-- Covers: CST_DD_309
+	-- Covers: CST_DD_224
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_5, EP		--
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R8			--
+
+	-- Covers: CST_UM_333
+	-- Covers: CST_UM_333_01
+	--------------------------------------------------
+	--	ABSF.S reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	ABSF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--	(-NORMAL)
+	ABSF.S		R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_369
+	-- Covers: CST_UM_369_01
+	--------------------------------------------------
+	--	DIVF.S reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	DIVF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_383
+	-- Covers: CST_UM_383_01
+	--------------------------------------------------
+	--	MAXF.S reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	MAXF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_385
+	-- Covers: CST_UM_385_01
+	--------------------------------------------------
+	--	MINF.S reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	MINF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_389
+	-- Covers: CST_UM_389_01
+	--------------------------------------------------
+	--	NEGF.S reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	NEGF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--	(-NORMAL)
+	NEGF.S		R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_391
+	-- Covers: CST_UM_391_01
+	--------------------------------------------------
+	--	RECIPF.S reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	RECIPF.S	R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_393
+	-- Covers: CST_UM_393_01
+	--------------------------------------------------
+	--	RSQRTF.S reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	RSQRTF.S	R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_395
+	-- Covers: CST_UM_395_01
+	--------------------------------------------------
+	--	SQRTF.S reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	SQRTF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_397
+	-- Covers: CST_UM_397_01
+	--------------------------------------------------
+	--	SUBF.S reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	SUBF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R8			--
+
+	--------------------------------------------------
+	--	ABSF.S reg2, reg3
+	--------------------------------------------------
+	ABSF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	ABSF.S		R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	DIVF.S reg1, reg2, reg3
+	--------------------------------------------------
+	DIVF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+	DIVF.S		R8, R6, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	MAXF.S reg1, reg2, reg3
+	--------------------------------------------------
+	MAXF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+	MAXF.S		R8, R6, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	MINF.S reg1, reg2, reg3
+	--------------------------------------------------
+	MINF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+	MINF.S		R8, R6, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	NEGF.S reg2, reg3
+	--------------------------------------------------
+	NEGF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	NEGF.S		R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	RECIPF.S reg2, reg3
+	--------------------------------------------------
+	RECIPF.S	R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+	RECIPF.S	R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	RSQRTF.S reg2, reg3
+	--------------------------------------------------
+	RSQRTF.S	R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+	RSQRTF.S	R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	SQRTF.S reg2, reg3
+	--------------------------------------------------
+	SQRTF.S		R6, R12				--cst_point: out=1
+	ADD		R12, R10			--
+	SQRTF.S		R8, R12				--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	SUBF.S reg1, reg2, reg3
+	--------------------------------------------------
+	SUBF.S		R6, R8, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	SUBF.S		R8, R6, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+#if CST_FPU_SUPPORT_DOUBLE
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_calc_6
+--  Function ID     : CST_FN_061
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R12, R13, R14, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_calc_6:
+	-- Covers: CST_DD_AP_503
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		FPU_calc_tbl_6, EP		--
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	SLD.W		0x0C[EP], R9			--
+
+	-- Covers: CST_UM_332
+	-- Covers: CST_UM_332_01
+	--------------------------------------------------
+	--	ABSF.D reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	ABSF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--	(-NORMAL)
+	ABSF.D		R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_368
+	-- Covers: CST_UM_368_01
+	--------------------------------------------------
+	--	DIVF.D reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	DIVF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_382
+	-- Covers: CST_UM_382_01
+	--------------------------------------------------
+	--	MAXF.D reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	MAXF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_384
+	-- Covers: CST_UM_384_01
+	--------------------------------------------------
+	--	MINF.D reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	MINF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_388
+	-- Covers: CST_UM_388_01
+	--------------------------------------------------
+	--	NEGF.D reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	NEGF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--	(-NORMAL)
+	NEGF.D		R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_390
+	-- Covers: CST_UM_390_01
+	--------------------------------------------------
+	--	RECIPF.D reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	RECIPF.D	R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_392
+	-- Covers: CST_UM_392_01
+	--------------------------------------------------
+	--	RSQRTF.D reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	RSQRTF.D	R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_394
+	-- Covers: CST_UM_394_01
+	--------------------------------------------------
+	--	SQRTF.D reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL)
+	SQRTF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_396
+	-- Covers: CST_UM_396_01
+	--------------------------------------------------
+	--	SUBF.D reg1, reg2, reg3
+	--------------------------------------------------
+	--	(+NORMAL,-NORMAL)
+	SUBF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+	MOV		0xA55A3CC3, R8			--
+	MOV		0x5AA5C33C, R9			--
+
+	--------------------------------------------------
+	--	ABSF.D reg2, reg3
+	--------------------------------------------------
+	ABSF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	ABSF.D		R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	DIVF.D reg1, reg2, reg3
+	--------------------------------------------------
+	DIVF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	DIVF.D		R8, R6, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	MAXF.D reg1, reg2, reg3
+	--------------------------------------------------
+	MAXF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	MAXF.D		R8, R6, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	MINF.D reg1, reg2, reg3
+	--------------------------------------------------
+	MINF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	MINF.D		R8, R6, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	NEGF.D reg2, reg3
+	--------------------------------------------------
+	NEGF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	NEGF.D		R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+
+
+	--------------------------------------------------
+	--	RECIPF.D reg2, reg3
+	--------------------------------------------------
+	RECIPF.D	R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	RECIPF.D	R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	RSQRTF.D reg2, reg3
+	--------------------------------------------------
+	RSQRTF.D	R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	RSQRTF.D	R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	SQRTF.D reg2, reg3
+	--------------------------------------------------
+	SQRTF.D		R6, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	SQRTF.D		R8, R12				--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	SUBF.D reg1, reg2, reg3
+	--------------------------------------------------
+	SUBF.D		R6, R8, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	SUBF.D		R8, R6, R12			--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   FPU_calc_ope.850              =====
+-- ============================================================================

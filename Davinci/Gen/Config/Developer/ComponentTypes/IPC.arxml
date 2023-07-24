@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <SWC-IMPLEMENTATION UUID="68898132-CC7F-487E-9DD4-E231C5EB5EB0">
+          <SHORT-NAME>IPC_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/IPC/IPC_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="F143D4F1-28D3-4A6D-8DB5-2760BB1FCADE">
+          <SHORT-NAME>IPC</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="2C0CAD4E-DE8D-4381-B8CD-2FBF542CA3BD">
+              <SHORT-NAME>Cl_IPC_Gyro_Req</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_Gyro_Req/Operation</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/IPC_Gyro_Req</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="645E02AA-06EC-4214-9134-3E662C9DB396">
+              <SHORT-NAME>IPC_Init_Server</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_Init_Server/Operation</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/IPC_Init_Server</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="B3912D7A-AE0E-4C70-88F0-21C16A379C70">
+              <SHORT-NAME>IPC_DataSend_If</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_DataSend_If/Operation</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/PortInterfaces/IPC_DataSend_If</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="688E476D-BCA7-4D0C-A660-951F69C98180">
+              <SHORT-NAME>IPC_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="D80AF8B8-C6F9-47EE-99BA-66E075005948">
+                  <SHORT-NAME>ExclusiveArea_IPC</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+                <EXCLUSIVE-AREA UUID="C9AE7DD8-D3C1-49EB-8742-3A8FC9EE5664">
+                  <SHORT-NAME>ExclusiveArea_IPC_STB</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <EVENTS>
+                <TIMING-EVENT UUID="981D4EEE-66BB-40ED-A355-6E6E0C056BB5">
+                  <SHORT-NAME>TMT_IPC_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IPC/IPC_InternalBehavior/IPC_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="B9339B29-9120-4BE1-96B9-CC58A0247E01">
+                  <SHORT-NAME>OIT_IPC_Init_Server_Operation_IPC_Init_Server_Operation</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IPC/IPC_InternalBehavior/IPC_Init</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IPC/IPC_Init_Server</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_Init_Server/Operation</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="9CDE4BD6-8386-4961-8BBC-B3722F082393">
+                  <SHORT-NAME>OIT_IPC_DataSend_If_Operation_IPC_DataSend_If_Operation</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IPC/IPC_InternalBehavior/IPC_DataSend_If_Operation</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IPC/IPC_DataSend_If</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_DataSend_If/Operation</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <TIMING-EVENT UUID="A81ECBE2-A696-47A3-B466-6BCCDC337CDE">
+                  <SHORT-NAME>TMT_IPC_STB_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IPC/IPC_InternalBehavior/IPC_STB_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <PORT-API-OPTIONS>
+                <PORT-API-OPTION>
+                  <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                  <ERROR-HANDLING>NO-TRANSFORMER-ERROR-HANDLING</ERROR-HANDLING>
+                  <INDIRECT-API>false</INDIRECT-API>
+                  <PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IPC/IPC_Init_Server</PORT-REF>
+                </PORT-API-OPTION>
+              </PORT-API-OPTIONS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="CC8C2590-F553-4DA3-A4E5-FC5351B59A0B">
+                  <SHORT-NAME>IPC_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/IPC/IPC_InternalBehavior/ExclusiveArea_IPC</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="8B1A91F8-EC9E-49E1-A50F-31E454D6763B">
+                      <SHORT-NAME>SC_Cl_IPC_Gyro_Req_Operation</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IPC/Cl_IPC_Gyro_Req</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/PortInterfaces/IPC_Gyro_Req/Operation</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="FF0C0082-31B5-4465-90A9-8D1673C13403">
+                  <SHORT-NAME>IPC_Init</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="F6CAF6B5-6C02-4145-8A00-8D7B6439DA1E">
+                  <SHORT-NAME>IPC_DataSend_If_Operation</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="E1507033-F1F2-4B27-B373-2E280E4DED83">
+                  <SHORT-NAME>IPC_STB_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/IPC/IPC_InternalBehavior/ExclusiveArea_IPC_STB</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

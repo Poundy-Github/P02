@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <SWC-IMPLEMENTATION UUID="B825E732-771F-4909-85E5-F12F723AA090">
+          <SHORT-NAME>Log_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Log/Log_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="EA4F56B0-9033-47A3-BAB4-36E71D8FDD83">
+          <SHORT-NAME>Log</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="499C61C3-FB85-46CB-9685-7D740CF5716A">
+              <SHORT-NAME>Log_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="7B597182-536A-4683-B45E-0466210E3553">
+                  <SHORT-NAME>ExclusiveArea_Log</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <EVENTS>
+                <INIT-EVENT UUID="16377046-5DD0-4C32-BEAB-017BD1653137">
+                  <SHORT-NAME>Log_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Log/Log_InternalBehavior/Logger_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="FDCACF75-539B-48F3-B8E7-3886AF4E5923">
+                  <SHORT-NAME>TMT_Log_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Log/Log_InternalBehavior/Logger_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="0D26759A-DA1E-411A-AB30-6C6FEC8983E1">
+                  <SHORT-NAME>Logger_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="B9CB15F5-814B-4351-B226-A6ECAE3BE0BB">
+                  <SHORT-NAME>Logger_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/Log/Log_InternalBehavior/ExclusiveArea_Log</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

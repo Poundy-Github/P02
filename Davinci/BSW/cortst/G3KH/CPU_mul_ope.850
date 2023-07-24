@@ -1,0 +1,511 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_mul_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Multiply instructions                                                     --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_mul_1
+	.GLOBL		_CST_CPU_mul_2
+	.GLOBL		_CST_CPU_mul_3
+	.GLOBL		_CST_CPU_mul_4
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_mul_1
+--  Function ID     : CST_FN_032
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_mul_1:
+	-- Covers: CST_DD_053
+	-- Covers: CST_DD_198
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x55555555, EP			--
+	NOT		EP, LP				--
+	MOV		-0x01, R14			--
+
+	-- Covers: CST_UM_269
+	-- Covers: CST_UM_269_01
+	--------------------------------------------------
+	--	MUL reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R0, R7				--
+	MUL		R14, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	MOV		R14, R9				--
+	MUL		R0, R9, R11			--cst_point: out=2
+	ADD		R9, R10				--
+	ADD		R11, R10			--
+
+	MOV		EP, R11				--
+	MUL		R14, R11, R12			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	MOV		R14, R12			--
+	MUL		EP, R12, R13			--cst_point: out=2
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	MOV		LP, R6				--
+	MUL		R14, R6, R7			--cst_point: out=2
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	MOV		R14, R8				--
+	MUL		LP, R8, R9			--cst_point: out=2
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	MOV		R14, R11			--
+	MUL		R14, R11, R12			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	-- PTN : max result
+	MOV		0x7FFFFFFF, R6			--
+	MOV		R6, R7				--
+	MUL		R6, R7, R8			--cst_point: out=2
+	ADD		R7, R10				-- R7:0x00000001
+	ADD		R8, R10				-- R8:0x3FFFFFFF
+
+	-- PTN : min result
+	NOT		R6, R7				--
+	MUL		R6, R7, R8			--cst_point: out=2
+	ADD		R7, R10				-- R7:0x80000000
+	ADD		R8, R10				-- R8:0xC0000000
+
+	-- PTN : reg2 = reg3
+	MOV		LP, R7				--
+	MUL		EP, R7, R7			--cst_point: out=2
+	ADD		R7, R10				-- R7:0xE38E38E3
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	MUL reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R26, R7				--
+	MUL		R25, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+	MOV		R25, R7				--
+	MUL		R26, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_mul_2
+--  Function ID     : CST_FN_033
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_mul_2:
+	-- Covers: CST_DD_054
+	-- Covers: CST_DD_199
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-R26}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		-0x01, R14			--
+
+	-- Covers: CST_UM_269
+	-- Covers: CST_UM_269_02
+	--------------------------------------------------
+	--	MUL imm9, reg2, reg3
+	--------------------------------------------------
+	MOV		R14, R6				--
+	MUL		-0x001, R6, R7			--cst_point: out=2
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+
+	MOV		R0, R8				--
+	MUL		-0x001, R8, R9			--cst_point: out=2
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- PTN : cover immediate1
+	MOV		0x7FFFFFFF, R6			--
+	MUL		0x0AA, R6, R7			--cst_point: out=2
+	ADD		R6, R10				-- R6:0xFFFFFF56
+	ADD		R7, R10				-- R7:0x00000054
+
+	-- PTN : cover immediate2
+	MOV		0x7FFFFFFF, R6			--
+	MUL		-0x0AB, R6, R7			--cst_point: out=2
+	ADD		R6, R10				-- R6:0x800000AB
+	ADD		R7, R10				-- R7:0xFFFFFFAA
+
+	-- Covers: CST_UM_270
+	-- Covers: CST_UM_270_01
+	--------------------------------------------------
+	--	MULH reg1, reg2
+	--------------------------------------------------
+	MOV		R14, R11			--
+	MULH		R14, R11			--cst_point: out=1
+	ADD		R11, R10			--
+
+	MOV		R0, R12				--
+	MULH		R14, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_270
+	-- Covers: CST_UM_270_02
+	--------------------------------------------------
+	--	MULH imm5, reg2
+	--------------------------------------------------
+	MOV		R14, R12			--
+	MULH		-0x01, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	MOV		R0, R13				--
+	MULH		-0x01, R13			--cst_point: out=1
+	ADD		R13, R10			--
+
+	-- PTN : cover immediate1
+	MOV		0x5555AAAA, R6			--
+	MULH		0x0A, R6			--cst_point: out=1
+	ADD		R6, R10				-- R6:0xFFFCAAA4
+
+	-- PTN : cover immediate2
+	MOV		0xAAAA5555, R6			--
+	MULH		-0x0B, R6			--cst_point: out=1
+	ADD		R6, R10				-- R6:0xFFFC5559
+
+	-- Covers: CST_UM_271
+	-- Covers: CST_UM_271_01
+	--------------------------------------------------
+	--	MULHI imm16, reg1, reg2
+	--------------------------------------------------
+	MULHI		-0x0001, R14, R7		--cst_point: out=1
+	ADD		R7, R10				--
+
+	MULHI		-0x0001, R0, R8			--cst_point: out=1
+	ADD		R8, R10				--
+
+	-- PTN : cover immediate1
+	MOV		0xAAAA5555, R6			--
+	MULHI		0x5555, R6, R7			--cst_point: out=1
+	ADD		R7, R10				-- R7:0x1C718E39
+
+	-- PTN : cover immediate2
+	MULHI		-0x5556, R6, R7			--cst_point: out=1
+	ADD		R7, R10				-- R7:0xE38E1C72
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	MUL imm9, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R6				--
+	MUL		-0x055, R6, R7			--cst_point: out=2
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+
+	MOV		R26, R6				--
+	MUL		-0x0AA, R6, R7			--cst_point: out=2
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	MULH reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R11			--
+	MULH		R25, R11			--cst_point: out=1
+	ADD		R11, R10			--
+
+	MOV		R25, R11			--
+	MULH		R26, R11			--cst_point: out=1
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	MULH imm5, reg2
+	--------------------------------------------------
+	MOV		R25, R12			--
+	MULH		-0x05, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	MOV		R26, R12			--
+	MULH		-0x0A, R12			--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	MULHI imm16, reg1, reg2
+	--------------------------------------------------
+	MULHI		-0x0555, R25, R7		--cst_point: out=1
+	ADD		R7, R10				--
+
+	MULHI		-0x0AAA, R26, R7		--cst_point: out=1
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-R26}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_mul_3
+--  Function ID     : CST_FN_034
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_mul_3:
+	-- Covers: CST_DD_055
+	-- Covers: CST_DD_200
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x55555555, EP			--
+	NOT		EP, LP				--
+	MOV		-0x01, R14			--
+
+	-- Covers: CST_UM_272
+	-- Covers: CST_UM_272_01
+	--------------------------------------------------
+	--	MULU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R0, R7				--
+	MULU		R14, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	MOV		R14, R9				--
+	MULU		R0, R9, R11			--cst_point: out=2
+	ADD		R9, R10				--
+	ADD		R11, R10			--
+
+	MOV		EP, R11				--
+	MULU		R14, R11, R12			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	MOV		R14, R12			--
+	MULU		EP, R12, R13			--cst_point: out=2
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	MOV		LP, R6				--
+	MULU		R14, R6, R7			--cst_point: out=2
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	MOV		R14, R7				--
+	MULU		LP, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+	MOV		R14, R8				--
+	MULU		R14, R8, R9			--cst_point: out=2
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- PTN : reg2 = reg3
+	MOV		LP, R7				--
+	MULU		EP, R7, R7			--cst_point: out=2
+	ADD		R7, R10				-- R7:0x38E38E38
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	MULU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R26, R7				--
+	MULU		R25, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+	MOV		R25, R7				--
+	MULU		R26, R7, R8			--cst_point: out=2
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_mul_4
+--  Function ID     : CST_FN_035
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, R11, R12, R13, R14, (R25, R26)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_mul_4:
+	-- Covers: CST_DD_056
+	-- Covers: CST_DD_201
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-R26}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		-0x01, R6			--
+
+	-- Covers: CST_UM_272
+	-- Covers: CST_UM_272_02
+	--------------------------------------------------
+	--	MULU imm9, reg2, reg3
+	--------------------------------------------------
+	MOV		R6, R11				--
+	MULU		0x1FF, R11, R12			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		R6, R13				--
+	MULU		0x000, R13, R14			--cst_point: out=2
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	MULU imm9, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R11			--
+	MULU		0x055, R11, R12			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		R26, R13			--
+	MULU		0x0AA, R13, R14			--cst_point: out=2
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-R26}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_mul_ope.850               =====
+-- ============================================================================

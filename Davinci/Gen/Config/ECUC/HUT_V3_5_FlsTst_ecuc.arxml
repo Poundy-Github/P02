@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="d833ed15-f48c-40b0-abc2-6a2e275395a8">
+          <SHORT-NAME>FlsTst</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_FlsTst/FlsTst</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_FlsTst/FlsTst_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="4089fe35-6ddd-4c1d-924f-c0923227ab71">
+              <SHORT-NAME>FlsTstGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstAlreadyInitDetCheck</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstCFECCTestStartAddress</DEFINITION-REF>
+                  <VALUE>16982016</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstCrcBgndDcranUnit</DEFINITION-REF>
+                  <VALUE>FLSTST_DCRA0</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstCrcFgndDcranUnit</DEFINITION-REF>
+                  <VALUE>FLSTST_DCRA1</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstNumberOfTestedCellsAtomic</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstRAMMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstTestCompletedNotificationSupported</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstTestIntervalIdEndValue</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstTestResultSignature</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstUseWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstVerCheckExtrModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstGeneral/FlsTstWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="ffdd8647-b5eb-4f2b-b9eb-bc3a96f69442">
+              <SHORT-NAME>FlsTstConfigSet</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigSet</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigSet/FlsTstBlockNumberBgnd</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigSet/FlsTstBlockNumberFgnd</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigSet/FlsTstTestCompletedNotification</DEFINITION-REF>
+                  <VALUE>NULL_PTR</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="3c1ee720-f0c6-49b9-a98e-d3da8de96bf2">
+              <SHORT-NAME>FlsTstConfigurationOfOptApiServices</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetCurrentStateApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetErrorDetailsApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestResultBgndApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestResultFgndApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestSignatureBgndApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstGetTestSignatureFgndApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstStartFgndApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstSuspendResumeApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstTestEccApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstConfigurationOfOptApiServices/FlsTstVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="6eddb32f-49fa-450c-a2c9-2c10d0c0f357">
+              <SHORT-NAME>FlsTstDemEventParameterRefs</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstDemEventParameterRefs</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstDemEventParameterRefs/FLSTST_E_ECC_FAILED</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_FlststDemEventParameterRefs_FLSTST_E_ECC_FAILED</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstDemEventParameterRefs/FLSTST_E_FLSTST_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_FlststDemEventParameterRefs_FLSTST_E_FLSTEST_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_FlsTst/FlsTst/FlsTstDemEventParameterRefs/FLSTST_E_REG_WRITE_VERIFY</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_FlststDemEventParameterRefs_FLSTST_E_REG_WRITE_VERIFY</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="3d541dc6-2e31-460b-9865-30091d143998">
+          <SHORT-NAME>Gpt</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_Gpt/Gpt</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_Gpt/Gpt_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="2b62f647-5266-4cdf-abbe-ce984490dcee">
+              <SHORT-NAME>GptDriverConfiguration0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptPredefTimer100us32bitEnable</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptPredefTimer1usEnablingGrade</DEFINITION-REF>
+                  <VALUE>GPT_PREDEF_TIMER_1US_DISABLED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptPredefTimerHarwareUnitSelection</DEFINITION-REF>
+                  <VALUE>OSTM0</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptReportWakeupSource</DEFINITION-REF>
+                  <ANNOTATIONS>
+                    <ANNOTATION>
+                      <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                    </ANNOTATION>
+                  </ANNOTATIONS>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClearPendingInterrupts</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptVersionCheckExternalModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptAlreadyInitDetCheck</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTimerOutputEnable</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptOSTMWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTAUDBWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTAUJWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptWUFWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptOSTMRamMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTAUDBRamMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTAUJRamMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptUseWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptWakeUpFactorClearIsr</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>NULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptEnableClkImmediateValue</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/CpuClkFreqRefImmediateValue</DEFINITION-REF>
+                  <VALUE>24000000</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptTimeOutWaitingTime</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptOSTMClkRefPoint</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint_OSTM</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="3fa85388-8915-4139-9fa6-3559af0c49df">
+                  <SHORT-NAME>GptClockReferencePoint_TAUB</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint/GptClockReference</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint_TAUB</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint/CpuClockFrequencyRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="6d3b6e51-524b-4095-b984-79f9bf5d3212">
+                  <SHORT-NAME>GptClockReferencePoint_TAUJ</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint/GptClockReference</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint_TAUJ_0_2</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint/CpuClockFrequencyRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="87ad3a1c-82da-439b-af90-5ceda73edcf7">
+              <SHORT-NAME>GptConfigurationOfOptApiServices</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptDeinitApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptEnableDisableNotificationApi</DEFINITION-REF>
+                  <ANNOTATIONS>
+                    <ANNOTATION>
+                      <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                    </ANNOTATION>
+                  </ANNOTATIONS>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptTimeElapsedApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptTimeRemainingApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptConfigurationOfOptApiServices/GptWakeupFunctionalityApi</DEFINITION-REF>
+                  <ANNOTATIONS>
+                    <ANNOTATION>
+                      <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                    </ANNOTATION>
+                  </ANNOTATIONS>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="1270c4b3-a497-42d5-99d5-db1c4ca08a8e">
+              <SHORT-NAME>GptChannelConfigSet0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="bde5571a-f370-4a15-aca6-d219d7add823">
+                  <SHORT-NAME>GptTaUnit_TAUJ0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptPrescalerCk0</DEFINITION-REF>
+                      <VALUE>PCLK_DIVBY_2_POWOF_01</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptPrescalerCk1</DEFINITION-REF>
+                      <VALUE>PCLK_DIVBY_2_POWOF_06</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptPrescalerCk2</DEFINITION-REF>
+                      <VALUE>PCLK_DIVBY_2_POWOF_15</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptPrescalerCk3BaudRate</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptPrescalerCk3Pre</DEFINITION-REF>
+                      <VALUE>PCLK_DIVBY_2_POWOF_15</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptTaUnitSelection</DEFINITION-REF>
+                      <VALUE>TAUJ0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptTaUnit/GptTauUnitClkRefPoint</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="9f6e309a-9a1c-4094-bcbc-aba1f5bd8f05">
+                  <SHORT-NAME>GptChannelConfiguration_tick</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelMode</DEFINITION-REF>
+                      <VALUE>GPT_CH_MODE_CONTINUOUS</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickFrequency</DEFINITION-REF>
+                      <VALUE>10000000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickValueMax</DEFINITION-REF>
+                      <VALUE>4294967295</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptEnableWakeup</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelClk</DEFINITION-REF>
+                      <VALUE>CK0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptTimerInputSelection</DEFINITION-REF>
+                      <VALUE>TAUJ0I0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelClkSrcRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Gpt/GptDriverConfiguration0/GptClockReferencePoint_TAUJ</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="22e49b2d-5b92-465b-baf8-1fca96433245">
+                  <SHORT-NAME>GptChannelConfiguration_1ms_tick</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelMode</DEFINITION-REF>
+                      <VALUE>GPT_CH_MODE_CONTINUOUS</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickFrequency</DEFINITION-REF>
+                      <VALUE>625000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelTickValueMax</DEFINITION-REF>
+                      <VALUE>4294967295</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptEnableWakeup</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelClk</DEFINITION-REF>
+                      <VALUE>CK1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptTimerInputSelection</DEFINITION-REF>
+                      <VALUE>TAUJ0I1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptNotification</DEFINITION-REF>
+                      <VALUE>GptIsr_1ms_tick</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptChannelConfigSet/GptChannelConfiguration/GptChannelClkSrcRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Gpt/GptDriverConfiguration0/GptClockReferencePoint_TAUJ</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="949b5b91-a1c8-47fb-b7f5-acabda293944">
+              <SHORT-NAME>GptDemEventParameterRefs</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDemEventParameterRefs</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDemEventParameterRefs/GPT_E_TIMEOUT_FAILURE</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_GptDemEventParameterRefs_GPT_E_TIMEOUT_FAILURE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Gpt/Gpt/GptDemEventParameterRefs/GPT_E_REG_WRITE_VERIFY</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_GptDemEventParameterRefs_GPT_E_REG_WRITE_VERIFY</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

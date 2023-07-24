@@ -1,0 +1,7 @@
+#!gbuild
+[Subproject]
+CDD_Test.c
+FreeRTOS_CLI.c
+CLI_Commands.c
+GPS_Test.c
+DSP_Test.c

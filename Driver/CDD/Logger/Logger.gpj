@@ -1,0 +1,11 @@
+#!gbuild
+[Subproject]
+CDD\Port2\Port2_Cfg.c
+CDD\Port2\Port2.c
+CDD\RingBuffer\RingBuffer_Cfg.c
+CDD\RingBuffer\RingBuffer.c
+CDD\Uart\uart.c
+CDD\Uart\uart_cfg.c
+Log.c
+logger_cfg.c
+logger_IPC.c

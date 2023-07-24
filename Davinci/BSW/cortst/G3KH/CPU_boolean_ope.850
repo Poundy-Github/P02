@@ -1,0 +1,325 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_boolean_ope.850                                          --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Boolean instructions                                                      --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_boolean_1
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_OVSZ
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_boolean_1
+--  Function ID     : CST_FN_009
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_boolean_1:
+	-- Covers: CST_DD_027
+	-- Covers: CST_DD_172
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		-0x01, R28			--
+	MOV		0xAAAAAAAA, R29			--
+	NOT		R29, EP				--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_203
+	-- Covers: CST_UM_203_01
+	--------------------------------------------------
+	--	AND reg1, reg2
+	--------------------------------------------------
+	MOV		EP, R11				--
+	AND		R0, R11				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		R29, R12			--
+	AND		R0, R12				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R12, R10			--
+
+	MOV		EP, R13				--cst_point: out=1
+	AND		R28, R13			--cst_point: flag=OVSZ
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--
+	ADD		R13, R10			--
+
+	MOV		R29, R14			--cst_point: out=1
+	AND		R28, R14			--cst_point: flag=OVSZ
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--
+	ADD		R14, R10			--
+
+	-- Covers: CST_UM_204
+	-- Covers: CST_UM_204_01
+	--------------------------------------------------
+	--	ANDI imm16, reg1, reg2
+	--------------------------------------------------
+	ANDI		0xFFFF, EP, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_274
+	-- Covers: CST_UM_274_01
+	--------------------------------------------------
+	--	NOT reg1, reg2
+	--------------------------------------------------
+	NOT		EP, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+
+	NOT		R29, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_276
+	-- Covers: CST_UM_276_01
+	--------------------------------------------------
+	--	OR reg1, reg2
+	--------------------------------------------------
+	MOV		EP, R11				--
+	OR		R0, R11				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		R29, R12			--
+	OR		R0, R12				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R12, R10			--
+
+	MOV		EP, R13				--
+	OR		R28, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+
+	MOV		R29, R14			--
+	OR		R28, R14			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R14, R10			--
+
+	-- Covers: CST_UM_277
+	-- Covers: CST_UM_277_01
+	--------------------------------------------------
+	--	ORI imm16, reg1, reg2
+	--------------------------------------------------
+	ORI		0xFFFF, EP, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_324
+	-- Covers: CST_UM_324_01
+	--------------------------------------------------
+	--	TST reg1, reg2
+	--------------------------------------------------
+	TST		EP, R29				--
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R29, R10			--
+
+	-- Covers: CST_UM_326
+	-- Covers: CST_UM_326_01
+	--------------------------------------------------
+	--	XOR reg1, reg2
+	--------------------------------------------------
+	MOV		EP, R11				--
+	XOR		R29, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		EP, R12				--
+	XOR		R28, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R12, R10			--
+
+	MOV		R29, R13			--
+	XOR		R28, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+
+	-- Covers: CST_UM_327
+	-- Covers: CST_UM_327_01
+	--------------------------------------------------
+	--	XORI imm16, reg1, reg2
+	--------------------------------------------------
+	XORI		0xFFFF, EP, R14			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	AND reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R11			--
+	AND		R25, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		R25, R11			--
+	AND		R26, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	ANDI imm16, reg1, reg2
+	--------------------------------------------------
+	ANDI		0x5555, R25, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+
+	ANDI		0xAAAA, R26, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	NOT reg1, reg2
+	--------------------------------------------------
+	NOT		R25, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+
+	NOT		R26, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	OR reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R11			--
+	OR		R25, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		R25, R11			--
+	OR		R26, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	ORI imm16, reg1, reg2
+	--------------------------------------------------
+	ORI		0x5555, R25, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+
+	ORI		0xAAAA, R26, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+
+	--------------------------------------------------
+	--	TST reg1, reg2
+	--------------------------------------------------
+	TST		R25, R26			--
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+
+	TST		R26, R25			--
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+
+	--------------------------------------------------
+	--	XOR reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R11			--
+	XOR		R25, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	MOV		R25, R11			--
+	XOR		R26, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	XORI imm16, reg1, reg2
+	--------------------------------------------------
+	XORI		0x5555, R25, R14		--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R14, R10			--
+
+	XORI		0xAAAA, R26, R14		--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_boolean_ope.850           =====
+-- ============================================================================

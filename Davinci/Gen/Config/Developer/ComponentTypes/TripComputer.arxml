@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="09FFB1F2-4B13-4638-8F6B-7A72419587ED">
+          <SHORT-NAME>TripComputer</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="63241837-E884-41BF-9507-EBB8B3ED9FEC">
+              <SHORT-NAME>NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="3B52CBCA-693F-4CCD-846E-FB24B7420FFD">
+              <SHORT-NAME>NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/SetRamBlockStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/RestoreBlockDefaults</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/InvalidateNvBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/EraseBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="D7AEC72D-F65C-438E-B130-22F57D2D57B2">
+              <SHORT-NAME>NvMNotifyJobFinished_NvBlockNeed_Block_TC</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <SERVER-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</OPERATION-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </SERVER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="83D028FD-A5A5-4960-A23A-CA50B352A41C">
+              <SHORT-NAME>NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/WriteBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/SetRamBlockStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/RestoreBlockDefaults</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/ReadBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/InvalidateNvBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/GetErrorStatus</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/EraseBlock</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="AA0EF1E2-8538-41C6-9692-E4C326E64446">
+              <SHORT-NAME>TripComputer_InternalBehavior</SHORT-NAME>
+              <AR-TYPED-PER-INSTANCE-MEMORYS>
+                <VARIABLE-DATA-PROTOTYPE UUID="EA4D399C-7927-4163-A076-5C886B0F26F4">
+                  <SHORT-NAME>NvBlockNeed_Block_TCConfig_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NVMBlockTCConfig_Type</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+                <VARIABLE-DATA-PROTOTYPE UUID="46AE1B4C-FCF7-40E7-A7AE-26ED7E7EE3E5">
+                  <SHORT-NAME>NvBlockNeed_Block_TC_MirrorBlock</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NVMBlockTC_Type</TYPE-TREF>
+                </VARIABLE-DATA-PROTOTYPE>
+              </AR-TYPED-PER-INSTANCE-MEMORYS>
+              <EVENTS>
+                <INIT-EVENT UUID="1DD6332C-4BC6-453A-9859-7DDC9BBE1103">
+                  <SHORT-NAME>TripComputer_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/TripComputer_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="14DD7BDF-6986-4A24-845B-C06ED1C72ADD">
+                  <SHORT-NAME>TMT_TripComputer_Mainfunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/TripComputer_Mainfunction</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="C13ABA03-97A2-4933-BE0E-4C6A56060D25">
+                  <SHORT-NAME>OIT_NvMNotifyJobFinished_NvBlockNeed_Block_TC_JobFinished_NvMNotifyJobFinished_NvBlockNeed_Block_TC_JobFinished</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvMNotifyJobFinished_NvBlockNeed_Block_TC_JobFinished</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMNotifyJobFinished_NvBlockNeed_Block_TC</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT UUID="C36DC182-FCD6-4F41-B353-1C0528C4F1D4">
+                  <SHORT-NAME>OIT_NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig_JobFinished_NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig_JobFinished</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig_JobFinished</START-ON-EVENT-REF>
+                  <OPERATION-IREF>
+                    <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig</CONTEXT-P-PORT-REF>
+                    <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/NvM_swc/Interfaces/NvMNotifyJobFinished/JobFinished</TARGET-PROVIDED-OPERATION-REF>
+                  </OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="2D73303E-5CFF-49CB-A739-1141E73F4F33">
+                  <SHORT-NAME>TripComputer_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="032A2C97-292C-49E3-AA47-30BE1D00EA54">
+                  <SHORT-NAME>TripComputer_Mainfunction</SHORT-NAME>
+                  <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="426E39E8-9F30-41CB-9750-0EB7B1B48862">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_EraseBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/EraseBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="79537A2E-1872-4E8E-9868-F18FCFB112AB">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="77B775F7-C16F-4A7B-909A-831DA57AFC61">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_InvalidateNvBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/InvalidateNvBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="014A4D70-292B-45B2-82D6-152E7694F61C">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="2E412310-DA41-446B-8540-15575C8E3DD6">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_RestoreBlockDefaults</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/RestoreBlockDefaults</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="07612FA4-2A39-4AF6-9957-9FD3D3565E1F">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_SetRamBlockStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/SetRamBlockStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1E29B474-343E-4791-AAFF-CC34AB6BA1A2">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="ECE873E3-71F3-41AD-89AA-D3D156ABF6C0">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_EraseBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/EraseBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="D19318D9-282E-40DF-975B-77F9F31033C1">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_GetErrorStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/GetErrorStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="12DF32C0-0D29-4DCF-8670-0A6A548FB49E">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_InvalidateNvBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/InvalidateNvBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="6842C467-8520-4571-8B97-31E43890BDB4">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_ReadBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/ReadBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="D02785D2-90BB-4D1C-89A9-53F7AEB6E095">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_RestoreBlockDefaults</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/RestoreBlockDefaults</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="00E32B65-A342-4C62-AE5A-0CDCA127B034">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_SetRamBlockStatus</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/SetRamBlockStatus</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1340A179-F0F7-433F-A84F-21B3275E5AC8">
+                      <SHORT-NAME>SC_NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig_WriteBlock</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/Predefined_DEV/PortInterfaces/NvMService_AC3_SRBS_Defs/WriteBlock</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="61D8EB9D-B115-4751-BC7C-BC492F8466C6">
+                  <SHORT-NAME>NvMNotifyJobFinished_NvBlockNeed_Block_TC_JobFinished</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="94BC3A96-A758-4999-8BD2-70F0317F04F1">
+                  <SHORT-NAME>NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig_JobFinished</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS>
+                <SWC-SERVICE-DEPENDENCY UUID="97CD18D5-12A9-42CE-81E0-3DDBC50E4B00">
+                  <SHORT-NAME>NvBlockNeed_Block_TC</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvBlockNeed_Block_TC_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvBlockNeed_Block_TC_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMNotifyJobFinished_NvBlockNeed_Block_TC</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMNotifyJobFinished</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TC</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC3_SRBS_Defs</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="441FB94F-BBCB-49FC-B417-9BF2CA1A3BAA">
+                      <SHORT-NAME>NvBlockNeed_Block_TC</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                      <RESTORE-AT-START>true</RESTORE-AT-START>
+                      <STORE-AT-SHUTDOWN>true</STORE-AT-SHUTDOWN>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+                <SWC-SERVICE-DEPENDENCY UUID="7FACE0AF-CBB8-4203-8FF5-17BF053FD5BF">
+                  <SHORT-NAME>NvBlockNeed_Block_TCConfig</SHORT-NAME>
+                  <ASSIGNED-DATAS>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>ramBlock</ROLE>
+                      <USED-DATA-ELEMENT>
+                        <LOCAL-VARIABLE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvBlockNeed_Block_TCConfig_MirrorBlock</LOCAL-VARIABLE-REF>
+                      </USED-DATA-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                    <ROLE-BASED-DATA-ASSIGNMENT>
+                      <ROLE>defaultValue</ROLE>
+                      <USED-PARAMETER-ELEMENT>
+                        <LOCAL-PARAMETER-REF DEST="PARAMETER-DATA-PROTOTYPE">/ComponentTypes/TripComputer/TripComputer_InternalBehavior/NvBlockNeed_Block_TCConfig_DefaultValue</LOCAL-PARAMETER-REF>
+                      </USED-PARAMETER-ELEMENT>
+                    </ROLE-BASED-DATA-ASSIGNMENT>
+                  </ASSIGNED-DATAS>
+                  <ASSIGNED-PORTS>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMNotifyJobFinished_NvBlockNeed_Block_TCConfig</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMNotifyJobFinished</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                    <ROLE-BASED-PORT-ASSIGNMENT>
+                      <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/TripComputer/NvMService_AC3_SRBS_Defs_NvBlockNeed_Block_TCConfig</PORT-PROTOTYPE-REF>
+                      <ROLE>NvMService_AC3_SRBS_Defs</ROLE>
+                    </ROLE-BASED-PORT-ASSIGNMENT>
+                  </ASSIGNED-PORTS>
+                  <SERVICE-NEEDS>
+                    <NV-BLOCK-NEEDS UUID="C4449714-6E76-4363-AA4C-283FF888B93F">
+                      <SHORT-NAME>NvBlockNeed_Block_TCConfig</SHORT-NAME>
+                      <ADMIN-DATA>
+                        <SDGS>
+                          <SDG GID="DV_SDG">
+                            <SD GID="AutoServiceNeedNameHdlg">1</SD>
+                          </SDG>
+                        </SDGS>
+                      </ADMIN-DATA>
+                      <N-DATA-SETS>0</N-DATA-SETS>
+                      <RAM-BLOCK-STATUS-CONTROL>API</RAM-BLOCK-STATUS-CONTROL>
+                      <RELIABILITY>NO-PROTECTION</RELIABILITY>
+                      <RESTORE-AT-START>true</RESTORE-AT-START>
+                      <STORE-AT-SHUTDOWN>true</STORE-AT-SHUTDOWN>
+                    </NV-BLOCK-NEEDS>
+                  </SERVICE-NEEDS>
+                </SWC-SERVICE-DEPENDENCY>
+              </SERVICE-DEPENDENCYS>
+              <SHARED-PARAMETERS>
+                <PARAMETER-DATA-PROTOTYPE UUID="234FE804-4744-4E2E-A683-2E82D0340C0A">
+                  <SHORT-NAME>NvBlockNeed_Block_TCConfig_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NVMBlockTCConfig_Type</TYPE-TREF>
+                  <INIT-VALUE>
+                    <CONSTANT-REFERENCE>
+                      <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/Constants/NVMBlockTCConfigInit</CONSTANT-REF>
+                    </CONSTANT-REFERENCE>
+                  </INIT-VALUE>
+                </PARAMETER-DATA-PROTOTYPE>
+                <PARAMETER-DATA-PROTOTYPE UUID="556EDC9A-0C87-40E0-AB30-DD426E280A36">
+                  <SHORT-NAME>NvBlockNeed_Block_TC_DefaultValue</SHORT-NAME>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <SW-CALIBRATION-ACCESS>READ-WRITE</SW-CALIBRATION-ACCESS>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                  <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/NVMBlockTC_Type</TYPE-TREF>
+                  <INIT-VALUE>
+                    <CONSTANT-REFERENCE>
+                      <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/Constants/NVMBlockTCInit</CONSTANT-REF>
+                    </CONSTANT-REFERENCE>
+                  </INIT-VALUE>
+                </PARAMETER-DATA-PROTOTYPE>
+              </SHARED-PARAMETERS>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="86A52230-0079-4813-9C6B-05352BB32107">
+          <SHORT-NAME>TripComputer_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/TripComputer/TripComputer_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

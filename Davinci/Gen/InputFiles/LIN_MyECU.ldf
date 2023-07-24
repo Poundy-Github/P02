@@ -1,0 +1,146 @@
+
+
+LIN_description_file;
+LIN_protocol_version = "2.0";
+LIN_language_version = "2.0";
+LIN_speed = 19.2 kbps;
+
+Nodes {
+  Master: HUT, 1 ms, 0 ms ;
+  Slaves: RearECU, Slave3 ;
+}
+
+Signals {
+  Sig_ErrBit_RearECU: 1, 0, RearECU, HUT ;
+  Sig_ErrBit_Slave3: 1, 0, Slave3, HUT ;
+  Sig_StartAppl_LinData_Tx: 8, 0, HUT, RearECU ;
+  Sig_StartAppl_LinData_Rx: 8, 0, RearECU, HUT ;
+  Sig_LinTr_HUT2_0: 6, 0, HUT, Slave3 ;
+  Sig_LinTr_HUT2_1: 14, 0, HUT, Slave3 ;
+  Sig_LinTr_Slave3_0: 4, 0, Slave3, HUT ;
+  Sig_LinTr_Slave3_1: 12, 0, Slave3, HUT ;
+}
+
+Diagnostic_signals {
+  MasterReqB0: 8, 0 ;
+  MasterReqB1: 8, 0 ;
+  MasterReqB2: 8, 0 ;
+  MasterReqB3: 8, 0 ;
+  MasterReqB4: 8, 0 ;
+  MasterReqB5: 8, 0 ;
+  MasterReqB6: 8, 0 ;
+  MasterReqB7: 8, 0 ;
+  SlaveRespB0: 8, 0 ;
+  SlaveRespB1: 8, 0 ;
+  SlaveRespB2: 8, 0 ;
+  SlaveRespB3: 8, 0 ;
+  SlaveRespB4: 8, 0 ;
+  SlaveRespB5: 8, 0 ;
+  SlaveRespB6: 8, 0 ;
+  SlaveRespB7: 8, 0 ;
+}
+
+
+Frames {
+  Frame_LinTr_HUT: 17, HUT, 1 {
+    Sig_StartAppl_LinData_Tx, 0 ;
+  }
+  Frame_LinTr_RearECU: 18, RearECU, 1 {
+    Sig_StartAppl_LinData_Rx, 0 ;
+  }
+  Frame_LinTr_HUT2: 19, HUT, 3 {
+    Sig_LinTr_HUT2_0, 0 ;
+    Sig_LinTr_HUT2_1, 6 ;
+  }
+  Frame_LinTr_Slave3: 21, Slave3, 3 {
+    Sig_LinTr_Slave3_0, 0 ;
+    Sig_LinTr_Slave3_1, 4 ;
+    Sig_ErrBit_Slave3, 16 ;
+  }
+}
+
+
+
+Diagnostic_frames {
+  MasterReq: 0x3c {
+    MasterReqB0, 0 ;
+    MasterReqB1, 8 ;
+    MasterReqB2, 16 ;
+    MasterReqB3, 24 ;
+    MasterReqB4, 32 ;
+    MasterReqB5, 40 ;
+    MasterReqB6, 48 ;
+    MasterReqB7, 56 ;
+  }
+  SlaveResp: 0x3d {
+    SlaveRespB0, 0 ;
+    SlaveRespB1, 8 ;
+    SlaveRespB2, 16 ;
+    SlaveRespB3, 24 ;
+    SlaveRespB4, 32 ;
+    SlaveRespB5, 40 ;
+    SlaveRespB6, 48 ;
+    SlaveRespB7, 56 ;
+  }
+}
+
+Node_attributes {
+  RearECU{
+    LIN_protocol = "2.0" ;
+    configured_NAD = 0x1 ;
+    product_id = 0x30, 0x3, 1 ;
+    P2_min = 0 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+      Frame_LinTr_RearECU = 0x0 ;
+      Frame_LinTr_HUT = 0x0 ;
+    }
+  }
+  Slave3{
+    LIN_protocol = "2.0" ;
+    configured_NAD = 0x3 ;
+    product_id = 0x30, 0x2, 1 ;
+    P2_min = 0 ms ;
+    ST_min = 0 ms ;
+    configurable_frames {
+      Frame_LinTr_Slave3 = 0x0 ;
+      Frame_LinTr_HUT2 = 0x0 ;
+    }
+  }
+}
+
+Schedule_tables {
+ Diagnose {
+    MasterReq delay 80 ms ;
+    SlaveResp delay 80 ms ;
+  }
+ Normal {
+    Frame_LinTr_HUT delay 5 ms ;
+    Frame_LinTr_RearECU delay 5 ms ;
+    Frame_LinTr_HUT2 delay 10 ms ;
+    Frame_LinTr_Slave3 delay 10 ms ;
+  }
+}
+
+
+Signal_encoding_types {
+  Enc_Sig_ErrBit_RearECU {
+    physical_value, 0, 1, 1, 0 ;
+  }
+  Enc_Sig_ErrBit_Slave3 {
+    physical_value, 0, 1, 1, 0 ;
+  }
+  Enc_Sig_LinTr_HUT {
+    physical_value, 0, 255, 1, 0 ;
+  }
+  Enc_Sig_LinTr_RearECU {
+    physical_value, 0, 127, 1, 0 ;
+  }
+}
+
+Signal_representation {
+  Enc_Sig_ErrBit_RearECU: Sig_ErrBit_RearECU ;
+  Enc_Sig_ErrBit_Slave3: Sig_ErrBit_Slave3 ;
+  Enc_Sig_LinTr_HUT: Sig_StartAppl_LinData_Tx ;
+  Enc_Sig_LinTr_RearECU: Sig_StartAppl_LinData_Rx ;
+}

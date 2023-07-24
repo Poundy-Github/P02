@@ -1,0 +1,6 @@
+#!gbuild
+[Subproject]
+Cconfig.c
+CConfig.h
+CConfig_Cfg.c
+CConfig_Cfg.h

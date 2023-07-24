@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="4cd6a036-9bc1-4174-b747-2a4f935551a6">
+          <SHORT-NAME>BswM_Impl</SHORT-NAME>
+          <MC-SUPPORT/>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>13.00.00</SW-VERSION>
+          <USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+          <VENDOR-ID>30</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+        </BSW-IMPLEMENTATION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="f9821cc0-8466-4a49-9472-08d1c6311bbb">
+          <SHORT-NAME>BswM_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="559f1425-3441-4146-b31c-7d2acdee6208">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="9bf35dd4-ab08-4c1b-8bd8-f723aa28cdee">
+                  <SHORT-NAME>BswM</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="5e9ae403-9af1-45f6-bf98-3ad34c2e1b3f">
+                      <SHORT-NAME>BswMBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="ce822731-d962-4d0a-8f06-0099a0a654cb">
+                          <SHORT-NAME>BSWM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="9c903b7b-b9c2-460a-8aa8-18b994132490">
+                          <SHORT-NAME>BswM_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="cf775035-e2de-4ea0-80ec-fb533d1a60ed">
+                          <SHORT-NAME>BswM_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/BswM_ib_bswmd/BswModuleDescriptions/BswM/BswMBehavior/BswM_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.01</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="14a6be26-7b14-44f0-a877-fbce20773a40">
+                  <SHORT-NAME>BswM_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="cacce124-18d6-4c4e-b492-0df5d8bb12ab">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

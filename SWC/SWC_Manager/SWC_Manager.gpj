@@ -1,0 +1,7 @@
+#!gbuild
+[Subproject]
+DcmServer\DcmServer.gpj
+CanServer\CanServer.gpj
+VConfig\VConfig.gpj
+CConfig\CConfig.gpj
+SecOcServer\SecOcServer.gpj

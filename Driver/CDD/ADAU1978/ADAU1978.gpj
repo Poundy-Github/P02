@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+ADAU1978_iic.c
+ADAU1978.c

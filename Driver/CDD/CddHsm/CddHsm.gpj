@@ -1,0 +1,6 @@
+#!gbuild
+[Subproject]
+Cdd_HsmLog.c
+Cdd_Hsm.c
+HSM.c
+# HsmUnitTest.c

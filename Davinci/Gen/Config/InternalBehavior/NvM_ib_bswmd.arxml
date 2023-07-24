@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="8cbb61b5-1e82-4754-827d-46a0b8b7e599">
+          <SHORT-NAME>NvM_Impl</SHORT-NAME>
+          <MC-SUPPORT/>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>6.02.03</SW-VERSION>
+          <USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+          <VENDOR-ID>30</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+        </BSW-IMPLEMENTATION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="4bdb91e7-e867-4d77-9dc9-5114f0d7df96">
+          <SHORT-NAME>NvM_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="fe47bdb8-e5b1-41fa-8673-8547256a9502">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="6bd16afa-013e-4fce-bedf-416ff93431f3">
+                  <SHORT-NAME>NvM</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/NvM_ib_bswmd/BswModuleDescriptions/NvM_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="32f9d3f7-ffdc-42f7-921b-d398ccaf20ba">
+                      <SHORT-NAME>NvMBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="6313bbe0-e7b8-4098-b52b-6c269367c00a">
+                          <SHORT-NAME>NVM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="409607ab-d393-45bf-ae95-2ce55a07b87d">
+                          <SHORT-NAME>NvM_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/NvM_ib_bswmd/BswModuleDescriptions/NvM_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="021411f2-d661-4496-abb2-866e75822052">
+                          <SHORT-NAME>NvM_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/NvM_ib_bswmd/BswModuleDescriptions/NvM/NvMBehavior/NvM_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="524b5f22-aa96-4fd5-ace8-b8ae544adac9">
+                  <SHORT-NAME>NvM_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="0141ab3f-dbb0-41a7-b88c-99f260a1f52b">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

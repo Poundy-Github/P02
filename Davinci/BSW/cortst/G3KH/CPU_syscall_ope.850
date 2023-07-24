@@ -1,0 +1,382 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_syscall_ope.850                                          --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Self Test of Special instructions (Syscall)                               --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_syscall_1
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_check_int
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_syscall_1
+--  Function ID     : CST_FN_053
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, R8, R9, R10, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_syscall_1:
+	-- Covers: CST_DD_074
+	-- Covers: CST_DD_219
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_syscall_push, LP	--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x01, R1			--
+	-- Covers: CST_UM_022
+	LDSR		R1, SCCFG, 1			--
+	SYNCP						--
+
+	MOV		CPU_syscall_tbl_1, R1		--
+	-- Covers: CST_UM_023
+	LDSR		R1, SCBP, 1			--
+
+	-- Covers: CST_UM_322
+	-- Covers: CST_UM_322_01
+	--------------------------------------------------
+	--	SYSCALL vector8 (Pattern1)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_006
+	STSR		PSW, R8, 0			--
+	MOV		CPU_syscall_1_001, R9		--
+
+	SYSCALL		0x00				--
+
+    CPU_syscall_1_001:
+	JARL		f_sub_CST_check_int, LP		--
+
+	-- Covers: CST_UM_322_01
+	--------------------------------------------------
+	--	SYSCALL vector8 (Pattern2)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	STSR		PSW, R8, 0			--
+	MOV		CPU_syscall_1_002, R9		--
+
+	SYSCALL		0x01				--
+
+    CPU_syscall_1_002:
+	JARL		f_sub_CST_check_int, LP		--
+
+	-- Covers: CST_UM_322_01
+	--------------------------------------------------
+	--	SYSCALL vector8 (Out of range)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	STSR		PSW, R8, 0			--
+	MOV		CPU_syscall_1_003, R9		--
+
+	SYSCALL		0x02				--
+
+    CPU_syscall_1_003:
+	JARL		f_sub_CST_check_int, LP		--
+
+	-- DI pediod is Max 480 cycle
+	JARL		f_sub_CPU_syscall_pop, LP	--
+	NOP						--
+	JARL		f_sub_CPU_syscall_push, LP	--cst_point: popreg
+
+	--------------------------------------------------
+	--	Set Test Data
+	--------------------------------------------------
+	LDSR		R0, SCCFG, 1			--
+	SYNCP						--
+
+	MOV		CPU_syscall_tbl_2, R1		--
+	LDSR		R1, SCBP, 1			--
+
+	-- Covers: CST_UM_322_01
+	--------------------------------------------------
+	--	SYSCALL vector8 (Overflow SCBP + Load-memory)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	STSR		PSW, R8, 0			--
+	MOV		CPU_syscall_1_004, R9		--
+
+	SYSCALL		0x00				--
+
+    CPU_syscall_1_004:
+	JARL		f_sub_CST_check_int, LP		--
+
+	-- Covers: CST_UM_322_01
+	--------------------------------------------------
+	--	SYSCALL vector8 (Out of range)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	STSR		PSW, R8, 0			--
+	MOV		CPU_syscall_1_005, R9		--
+
+	SYSCALL		0x01				--
+
+    CPU_syscall_1_005:
+	JARL		f_sub_CST_check_int, LP		--
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_syscall_pop, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_syscall_push
+--  Function ID     : CST_FN_094
+--  Input           : EP : Store address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_syscall_push:
+	-- Covers: CST_DD_115
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_259
+#if CST_INT_EN
+	STSR		PSW, R8, 0			--
+	MOV		0xFFFFFFDF, R6			--
+	OR		R8, R6				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R8, 0			--
+	AND		R6, R8				--
+	SST.W		R8, 0x18[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R8, 0			--
+	SST.W		R8, 0x18[EP]			--
+-- CST_INT_EN
+#endif
+
+	STSR		EIPC, R6, 0			--
+	STSR		EIPSW, R7, 0			--
+	STSR		EIIC, R8, 0			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+	SST.W		R8, 0x08[EP]			--
+
+	STSR		SCCFG, R6, 1			--
+	STSR		SCBP, R7, 1			--
+	SST.W		R6, 0x10[EP]			--
+	SST.W		R7, 0x14[EP]			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_syscall_pop
+--  Function ID     : CST_FN_093
+--  Input           : EP : Load address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_syscall_pop:
+	-- Covers: CST_DD_114
+	-- Covers: CST_DD_258
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	LDSR		R6, EIPC, 0			--
+	LDSR		R7, EIPSW, 0			--
+	LDSR		R8, EIIC, 0			--
+
+	SLD.W		0x10[EP], R6			--
+	SLD.W		0x14[EP], R7			--
+	SLD.W		0x18[EP], R8			--
+	LDSR		R6, SCCFG, 1			--
+	LDSR		R7, SCBP, 1			--
+	LDSR		R8, PSW, 0			--
+
+	JMP		[LP]				--
+
+-------------------------------------------------------------------------------
+-- Name             : CPU_syscall_tbl_1
+-- Description      : Vector Table of SYSCALL
+-------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4 
+
+CPU_syscall_tbl_1:
+	.WORD		(f_v0_CPU_syscall_vect_000 - CPU_syscall_tbl_1)	--
+	.WORD		(f_v0_CPU_syscall_vect_001 - CPU_syscall_tbl_1)	--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_v0_CPU_syscall_vect_000
+--  Function ID     : CST_FN_134
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R12, R13)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4 
+
+f_v0_CPU_syscall_vect_000:
+	-- Covers: CST_DD_152
+	-- Covers: CST_DD_296
+	PUSHSP		R12-R13				--
+	PUSHSP		EP-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- Covers: CST_UM_002
+	STSR		EIPC, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xE8[EP]			--
+
+	-- Covers: CST_UM_003
+	STSR		EIPSW, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xEC[EP]			--
+
+	MOV		0x10000000, R13			--
+	-- Covers: CST_UM_007
+	STSR		EIIC, R12, 0			--cst_point: out=1
+	ADD		R12, R13			--
+	SST.W		R13, 0xF0[EP]			--
+
+	POPSP		EP-EP				--
+	POPSP		R12-R13				--
+	-- Covers: CST_UM_246
+	-- Covers: CST_UM_246_01
+	EIRET						--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_v0_CPU_syscall_vect_001
+--  Function ID     : CST_FN_135
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R12, R13)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4 
+
+f_v0_CPU_syscall_vect_001:
+	-- Covers: CST_DD_153
+	-- Covers: CST_DD_297
+	PUSHSP		R12-R13				--
+	PUSHSP		EP-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- Covers: CST_UM_002
+	STSR		EIPC, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xE8[EP]			--
+
+	-- Covers: CST_UM_003
+	STSR		EIPSW, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xEC[EP]			--
+
+	STSR		PSW, R12, 0			--
+	MOV		0x40080060, R13			--
+	AND		R12, R13			--
+
+	-- Covers: CST_UM_007
+	STSR		EIIC, R12, 0			--cst_point: out=1
+	ADD		R12, R13			--
+	SST.W		R13, 0xF0[EP]			--
+
+	POPSP		EP-EP				--
+	POPSP		R12-R13				--
+	-- Covers: CST_UM_246
+	EIRET						--
+
+
+-------------------------------------------------------------------------------
+-- Name             : CPU_syscall_tbl_2
+-- Description      : Vector Table of SYSCALL
+-------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4 
+
+CPU_syscall_tbl_2:
+	.WORD		(f_v0_CPU_syscall_vect_000 - CPU_syscall_tbl_2)	--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_syscall_ope.850           =====
+-- ============================================================================

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="d7909596-11a8-4fbf-b4ad-68a74448baef">
+          <SHORT-NAME>Icu_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="06abe957-25cd-49d1-8d80-761357a25e72">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="e9df5b14-c9c7-4bd6-8158-57d6bc897464">
+                  <SHORT-NAME>Icu</SHORT-NAME>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="55be1343-8d70-4d28-a054-1b233c2e2e93">
+                      <SHORT-NAME>IcuBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="b16559f6-0906-4245-b9de-56779764f991">
+                          <SHORT-NAME>ICU_CHANNEL_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="54042d27-a542-407a-9a69-18380f6cfe6a">
+                          <SHORT-NAME>ICU_TIMESTAMP_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="b9b79432-a68b-45fd-bc6b-67004a886263">
+                          <SHORT-NAME>ICU_SIGNALMEASURE_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="47cca8c6-08ea-4b60-a79d-0ba633efa4fb">
+                          <SHORT-NAME>ICU_EDGECOUNT_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

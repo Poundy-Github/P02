@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="456feeac-ab43-4561-acee-1d8e241ac125">
+          <SHORT-NAME>CanTrcv_Tja1040</SHORT-NAME>
+          <ELEMENTS>
+            <BSW-IMPLEMENTATION UUID="d47a5edd-cf56-42c2-8ee2-c5d5d373bc7e">
+              <SHORT-NAME>CanTrcv_Impl</SHORT-NAME>
+              <MC-SUPPORT/>
+              <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+              <SW-VERSION>4.03.00</SW-VERSION>
+              <USED-CODE-GENERATOR>DaVinci Configurator5</USED-CODE-GENERATOR>
+              <VENDOR-ID>30</VENDOR-ID>
+              <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+              <VENDOR-API-INFIX>Tja1040</VENDOR-API-INFIX>
+            </BSW-IMPLEMENTATION>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="f381de5a-2135-45be-b214-4570db309576">
+          <SHORT-NAME>CanTrcv_Tja1040_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="6aa39991-d5de-4e4b-a3b1-5b107557a9fc">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="3dad6535-092a-49ea-948d-9b14f2fe4ee3">
+                  <SHORT-NAME>CanTrcv</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanTrcv_Tja1040_ib_bswmd/BswModuleDescriptions/CanTrcv_30_Tja1040_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="f97eea69-ede2-4142-968f-8e4a7872759d">
+                      <SHORT-NAME>CanTrcv_Tja1040_Behavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="f237be44-c50d-419e-bd5d-53db5c3cb586">
+                          <SHORT-NAME>CANTRCV_30_TJA1040_EXCLUSIVE_AREA_0</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="3c4a9849-73b2-4dd2-bf0a-3be38e848646">
+                          <SHORT-NAME>CanTrcv_30_Tja1040_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanTrcv_Tja1040_ib_bswmd/BswModuleDescriptions/CanTrcv_30_Tja1040_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="90591ef4-f785-42b4-b9b3-dfb39ca26fc2">
+                          <SHORT-NAME>CanTrcv_30_Tja1040_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/CanTrcv_Tja1040_ib_bswmd/BswModuleDescriptions/CanTrcv/CanTrcv_Tja1040_Behavior/CanTrcv_30_Tja1040_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.01</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="120022d2-1889-4b6b-8864-40929b1cb442">
+                  <SHORT-NAME>CanTrcv_30_Tja1040_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="d516abe0-01a5-44ff-9dc6-a15f4d9f37b7">
+          <SHORT-NAME>CanTrcv_30_Tja1040_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="6ee587e4-3d60-4a9e-86c0-f168c917e9bf">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="126CBE6F-15CB-4383-8968-6192B5A53F2F">
+          <SHORT-NAME>Commom_Safety</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="707899CF-9D81-4818-B7DC-1C797E889212">
+              <SHORT-NAME>Rc_SG_ABS3</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ABS3/SG_ABS3</DATA-ELEMENT-REF>
+                  <USES-END-TO-END-PROTECTION>true</USES-END-TO-END-PROTECTION>
+                  <ALIVE-TIMEOUT>0.2</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ABSFailSts</SHORT-LABEL>
+                          <VALUE>1</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>CheckSum_ABS3</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>EBDFailSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RollingCounter_ABS3</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehOdoInfo</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehOdoInfoSts</SHORT-LABEL>
+                          <VALUE>1</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpd</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>VehSpdVld</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SG_ABS3</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="9F6EC3CB-7111-4805-BA5F-14FFDCB3FC7C">
+              <SHORT-NAME>Rc_SG_ESP1</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ESP1/SG_ESP1</DATA-ELEMENT-REF>
+                  <USES-END-TO-END-PROTECTION>true</USES-END-TO-END-PROTECTION>
+                  <ALIVE-TIMEOUT>0.2</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>CheckSum_ESP1</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPActvInfoLmp</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPFailSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPFuncOffSts</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RollingCounter_ESP1</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SG_ESP1</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="0D3E93D6-5312-42CA-B4BE-D40CF284C446">
+              <SHORT-NAME>SG_ESP1_ESP_FD2</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <NONQUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ESP1_ESP_FD2/SG_ESP1_ESP_FD2</DATA-ELEMENT-REF>
+                  <USES-END-TO-END-PROTECTION>true</USES-END-TO-END-PROTECTION>
+                  <ALIVE-TIMEOUT>0.2</ALIVE-TIMEOUT>
+                  <ENABLE-UPDATE>true</ENABLE-UPDATE>
+                  <INIT-VALUE>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>CheckSum_ESP1_FD</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPActvInfoLmp_FD</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPFailSts_FD</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>ESPFuncOffSts_FD</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>RollingCounter_ESP1_FD</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </INIT-VALUE>
+                </NONQUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SG_ESP1_ESP_FD2</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="87566ED4-94BB-48C4-92FC-EFC9FF801E37">
+              <SHORT-NAME>Commom_Safety_InternalBehavior</SHORT-NAME>
+              <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/ComponentTypes/DataTypeMappingSets/DataTypeMappings_DEV</DATA-TYPE-MAPPING-REF>
+              </DATA-TYPE-MAPPING-REFS>
+              <EVENTS>
+                <TIMING-EVENT UUID="BA32A732-DAD0-4B70-9A30-557A7E9B879C">
+                  <SHORT-NAME>TMT_Runnable</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Safety/Commom_Safety_InternalBehavior/Commom_Safety_MainFunction_10</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="E0E916A7-ACD7-413E-A7AE-B0839CA278D7">
+                  <SHORT-NAME>Common_Safety_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Safety/Commom_Safety_InternalBehavior/Commom_Safety_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="2EC9AF13-83E7-45ED-BC1C-9EE9B1885585">
+                  <SHORT-NAME>TMT_Commom_Safety_MainFunction_5</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Safety/Commom_Safety_InternalBehavior/Commom_Safety_MainFunction_5</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="6C028B24-0009-41CD-9E41-38054B96D36F">
+                  <SHORT-NAME>TMT_Commom_Safety_MainFunction_20</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Safety/Commom_Safety_InternalBehavior/Commom_Safety_MainFunction_20</START-ON-EVENT-REF>
+                  <PERIOD>0.02</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="654C76FC-2B3E-4B68-A569-061100DD45B1">
+                  <SHORT-NAME>Commom_Safety_MainFunction_10</SHORT-NAME>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="7CCFBC46-DEDF-4ED2-B7EA-3E7089EDB243">
+                      <SHORT-NAME>REC_Rc_SG_ABS3_SG_ABS3</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Commom_Safety/Rc_SG_ABS3</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ABS3/SG_ABS3</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="CF934AC6-CFD9-4E38-A473-B1E7928E0BF2">
+                      <SHORT-NAME>REC_SG_ESP1_SG_ESP1</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Commom_Safety/Rc_SG_ESP1</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ESP1/SG_ESP1</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS UUID="418595D2-EEC8-41FF-BD95-4419163B9221">
+                      <SHORT-NAME>REC_SG_ESP1_ESP_FD2_SG_ESP1_ESP_FD2</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/Commom_Safety/SG_ESP1_ESP_FD2</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_ESP1_ESP_FD2/SG_ESP1_ESP_FD2</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="00D2AA33-2FB4-4B6B-9DE6-124E728EFC19">
+                  <SHORT-NAME>Commom_Safety_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="80241050-7477-4DED-90F4-0DC69BDD9322">
+                  <SHORT-NAME>Commom_Safety_MainFunction_5</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="C3F0360C-4D82-47B2-B788-71CAD53AB309">
+                  <SHORT-NAME>Commom_Safety_MainFunction_20</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="3E7CE155-DB54-4445-97B2-B464199D89EF">
+          <SHORT-NAME>Commom_Safety_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Commom_Safety/Commom_Safety_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

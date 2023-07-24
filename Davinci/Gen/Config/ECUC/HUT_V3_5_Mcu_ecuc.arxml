@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="f89e2d8d-1ca1-4c2e-9575-6824b633c37e">
+          <SHORT-NAME>Mcu</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_Mcu/Mcu</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_Mcu/Mcu_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="8ab0e83b-84cd-4615-813b-3f93dc8c56bc">
+              <SHORT-NAME>McuModuleConfiguration</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSrcFailureNotification</DEFINITION-REF>
+                  <VALUE>DISABLED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuCyclicRunModeBaseAddress</DEFINITION-REF>
+                  <VALUE>4273963008</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuLviDetectionLevel</DEFINITION-REF>
+                  <VALUE>DETECTION_LEVEL_0</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuLviResetMask</DEFINITION-REF>
+                  <VALUE>RESET_REQUEST</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuNumberOfMcuModes</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuRamSectors</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuRetentionRamAddress</DEFINITION-REF>
+                  <VALUE>4273963008</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2256d7d2-6eef-4c84-a4b8-b8b047184ed8">
+                  <SHORT-NAME>McuModeSettingConf_normal</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMainOscOperation</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMode</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuModeTransitionReq</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuModeType</DEFINITION-REF>
+                      <VALUE>DEEPSTOP_MODE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor0</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor1</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor2</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactorIso0</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="e326a535-8103-449f-9180-355e4644a6c2">
+                      <SHORT-NAME>McuWakeUpFactor0Details</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor0Details</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor0Details/McuWakeUpFactor0Name</DEFINITION-REF>
+                          <VALUE>INTP3_WUF0_9</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="1c3979bd-d2ec-4a17-9d0e-05b20ebfeced">
+                  <SHORT-NAME>McuDemEventParameterRefs</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs</DEFINITION-REF>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CLOCK_FAILURE</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_CLOCK_FAILURE</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_CVM_SETTING_FAILURE</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_CVM_SETTING_FAILURE</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_INCONCISTENCY_RESF_FAILURE</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_INCONCISTENCY_RESF_FAILURE</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_WRITE_TIMEOUT_FAILURE</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_WRITE_TIMEOUT_FAILURE</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_REG_WRITE_VERIFY</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_REG_WRITE_VERIFY</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuDemEventParameterRefs/MCU_E_LVI_FAILURE</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Dem/DemConfigSet/AutoCreatedDemEvent_McuDemEventParameterRefs_MCU_E_LVI_FAILURE</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="f928fcf1-207d-49d4-90c3-b9c030b11d9e">
+                  <SHORT-NAME>McuClockSettingConfig</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/Mcu8MhzRingStopRequestMask</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkModeSelect</DEFINITION-REF>
+                      <VALUE>MCU_CPLL0CLK_ID_0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockSettingId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuCpuClockDivider</DEFINITION-REF>
+                      <VALUE>DIVBY_1_ID_1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuCpuMainSysClk</DEFINITION-REF>
+                      <VALUE>240000000</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuOPBT0</DEFINITION-REF>
+                      <VALUE>3123183567</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuUnitName</DEFINITION-REF>
+                      <VALUE>CPUCLK</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="55255293-a638-44e0-9347-a7e2dbc1f115">
+                      <SHORT-NAME>McuClockReferencePoint_OSC</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>24000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="7740f5a9-e2f9-46e4-9709-bfcfc9bac3bf">
+                      <SHORT-NAME>McuClockReferencePoint_LIN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="2c988073-3e43-4ca4-babc-d7b40cfc8177">
+                      <SHORT-NAME>McuAwoWdta</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoWdta</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoWdta/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_128_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoWdta/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>1875</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoWdta/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoWdta/McuUnitName</DEFINITION-REF>
+                          <VALUE>WDTA</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e68f0422-63d7-4ab5-8eec-27fbb8af5eb8">
+                      <SHORT-NAME>McuAwoRtca</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>24000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>FX_ID_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoRtca/McuUnitName</DEFINITION-REF>
+                          <VALUE>RTCA</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="56d191f0-d981-428b-acf6-162d84a94cf7">
+                      <SHORT-NAME>McuAwoTauj</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_4</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoTauj/McuUnitName</DEFINITION-REF>
+                          <VALUE>TAUJ</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="624311e6-10ad-47bd-8df3-1fcaf4174616">
+                      <SHORT-NAME>McuIsoCan</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCan</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCan/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCan/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_1_ID_3</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCan/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCan/McuUnitName</DEFINITION-REF>
+                          <VALUE>CAN</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="3f96a000-c4a9-4b5c-8fd0-b59b4fa291e2">
+                      <SHORT-NAME>McuIsoCanosc</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCanosc</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCanosc/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCanosc/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>24000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCanosc/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCanosc/McuUnitName</DEFINITION-REF>
+                          <VALUE>CANOSC</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e906b93a-241f-47cb-adf0-8c300086402b">
+                      <SHORT-NAME>McuIsoCsi</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCsi</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCsi/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCsi/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_1_ID_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoCsi/McuUnitName</DEFINITION-REF>
+                          <VALUE>CSI</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="0edfc9f4-bb1c-4b77-aebd-522bd67425e0">
+                      <SHORT-NAME>McuIsoEth</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoEth</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoEth/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>60000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoEth/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>CPUCLK_DIVBY_4</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoEth/McuUnitName</DEFINITION-REF>
+                          <VALUE>ETH</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="df502031-fbc2-49f4-a620-431aaf6ff26e">
+                      <SHORT-NAME>McuIsoIics</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoIics</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoIics/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoIics/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoIics/McuUnitName</DEFINITION-REF>
+                          <VALUE>IICS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="aad24cc7-e827-4e27-af21-34fa3b8b1712">
+                      <SHORT-NAME>McuIsoLin</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin/McuUnitName</DEFINITION-REF>
+                          <VALUE>LIN</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e2369ade-ea29-44e5-9a8a-0c754712186e">
+                      <SHORT-NAME>McuIsoLin3</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin3</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin3/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin3/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLin3/McuUnitName</DEFINITION-REF>
+                          <VALUE>LIN3</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="123c5afd-2f0e-4bea-9966-86723c6c071f">
+                      <SHORT-NAME>McuIsoLrosc</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLrosc</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoLrosc/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>240000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="1599c5ba-cec6-4d3f-8b87-ed4eadda68cc">
+                      <SHORT-NAME>McuIsoPeri1</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri1</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri1/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri1/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_1_ID_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri1/McuUnitName</DEFINITION-REF>
+                          <VALUE>PERI1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="6aba6a7a-af6c-43fe-9f18-9b4b47ba2b5f">
+                      <SHORT-NAME>McuIsoPeri2</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri2</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri2/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri2/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoPeri2/McuUnitName</DEFINITION-REF>
+                          <VALUE>PERI2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="be7ed00d-f22b-498f-ba93-8f31445d20c4">
+                      <SHORT-NAME>McuMainOscSetting</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuMainOscSetting</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuMainOscSetting/McuMainOscAmplificationGain</DEFINITION-REF>
+                          <VALUE>HIGH_ID_0</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuMainOscSetting/McuMainOsciFrequency</DEFINITION-REF>
+                          <VALUE>24000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuMainOscSetting/McuMainOscStabTimeSetting</DEFINITION-REF>
+                          <VALUE>131071</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuMainOscSetting/McuMainOscStopRequestMask</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="a56f67b5-25c2-48a5-bfe6-b9aaa3fdf016">
+                      <SHORT-NAME>McuPll0Setting</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuCpll0Clk</DEFINITION-REF>
+                          <VALUE>240000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuCpllDivider</DEFINITION-REF>
+                          <VALUE>P_VALUE_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPll0Divider</DEFINITION-REF>
+                          <VALUE>DIV_BY_6</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPll0InputClockSelection</DEFINITION-REF>
+                          <VALUE>MCU_SELECT_MOSC</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPll0MrValue</DEFINITION-REF>
+                          <VALUE>3</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPll0NrValue</DEFINITION-REF>
+                          <VALUE>NR_VAL_60</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPll0Out</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPllFreqModCycleSetting</DEFINITION-REF>
+                          <VALUE>10</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPll0Setting/McuPllFreqModRange</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="eea8f85a-1547-4591-92e4-9331118481cf">
+                      <SHORT-NAME>McuPllSetting</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuCpllClk</DEFINITION-REF>
+                          <VALUE>120000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuCpllDivider</DEFINITION-REF>
+                          <VALUE>P_VALUE_2</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPllInputClockSelection</DEFINITION-REF>
+                          <VALUE>MCU_SELECT_MOSC</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPllMrValue</DEFINITION-REF>
+                          <VALUE>3</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPllNrValue</DEFINITION-REF>
+                          <VALUE>NR_VAL_60</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPpllClk</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPpllDivider</DEFINITION-REF>
+                          <VALUE>DIV_BY_6</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPpllOut</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPllSetting/McuPpllSrcClock</DEFINITION-REF>
+                          <VALUE>MCU_PPLLOUT_ID_3</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="1d5b1b00-efff-48d3-aded-7d311c886835">
+                      <SHORT-NAME>McuSubOscSetting</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSubOscSetting</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSubOscSetting/McuSubOscFrequency</DEFINITION-REF>
+                          <VALUE>32768</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSubOscSetting/McuSubOscStabTimeSetting</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="23c37249-ad14-40d1-974d-8c5e03758945">
+                      <SHORT-NAME>McuClockReferencePoint_CAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="bd392998-f712-412d-9668-6a55f18469be">
+                      <SHORT-NAME>McuClockReferencePoint_TAUB</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="7266afcd-bda0-4e11-9dc2-b4129693af5f">
+                      <SHORT-NAME>McuClockReferencePoint_TAUJ_0_2</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="af42a8e0-8739-451e-bf20-6ec33a03d2b0">
+                      <SHORT-NAME>McuClockReferencePoint_TAUD0</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="33edb6da-0123-4e47-a399-4129d0a16406">
+                      <SHORT-NAME>McuClockReferencePoint_TAUJ_1_3</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>80000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="fadfadbd-bef0-4469-b909-75ffb8ee3c39">
+                      <SHORT-NAME>McuClockReferencePoint_OSTM</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockReferencePointFrequency</DEFINITION-REF>
+                          <VALUE>60000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="df3ad0b0-07ba-424a-ad85-e2d67ebea8e7">
+                      <SHORT-NAME>McuAwoAdca0</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_3</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0/McuStopRequestMask</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuAwoAdca0/McuUnitName</DEFINITION-REF>
+                          <VALUE>ADCA</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="da151b59-2678-489b-90a2-9105e213eedc">
+                      <SHORT-NAME>McuIsoAdca1</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoAdca1</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoAdca1/McuDivClockSel</DEFINITION-REF>
+                          <VALUE>DIVBY_1_ID_1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoAdca1/McuPeripheralClock</DEFINITION-REF>
+                          <VALUE>40000000</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoAdca1/McuSrcClockSel</DEFINITION-REF>
+                          <VALUE>PPLLCLK_DIVBY_2_ID_3</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuIsoAdca1/McuUnitName</DEFINITION-REF>
+                          <VALUE>ADCA</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="a5db6048-efb9-4bdc-bc2f-16a99b1d7428">
+                  <SHORT-NAME>McuModeSettingConf_lvi</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMainOscOperation</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMode</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuModeTransitionReq</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuModeType</DEFINITION-REF>
+                      <VALUE>DEEPSTOP_MODE</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor0</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor1</DEFINITION-REF>
+                      <VALUE>true</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor2</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactorIso0</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="1f1e6d15-1058-43db-82a5-a14f512aa8dc">
+                      <SHORT-NAME>McuWakeUpFactor1Details</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor1Details</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration/McuModeSettingConf/McuWakeUpFactor1Details/McuWakeUpFactor1Name</DEFINITION-REF>
+                          <VALUE>INTP21_WUF1_5</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="a94b6598-034e-4e23-be2d-db4d8a2f8e82">
+              <SHORT-NAME>McuGeneralConfiguration</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm0MonitoringClockAccuracy</DEFINITION-REF>
+                  <VALUE>9</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm0Operation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm0SamplingClockAccuracy</DEFINITION-REF>
+                  <VALUE>9</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm1MonitoringClockAccuracy</DEFINITION-REF>
+                  <VALUE>5</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm1Operation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm1SamplingClockAccuracy</DEFINITION-REF>
+                  <VALUE>8</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm2MonitoringClockAccuracy</DEFINITION-REF>
+                  <VALUE>14</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm2Operation</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm2SamplingClockAccuracy</DEFINITION-REF>
+                  <VALUE>14</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm3MonitoringClockAccuracy</DEFINITION-REF>
+                  <VALUE>14</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm3Operation</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuClm3SamplingClockAccuracy</DEFINITION-REF>
+                  <VALUE>14</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuCopyToSection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuCvmHighVoltageDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuCvmLowVoltageDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuGetRamStateApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuInitClock</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuLoopCount</DEFINITION-REF>
+                  <VALUE>5</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuLowPowerSequencerOperation</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuNoPll</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuPerformResetApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuPortGroupStatusBackUp</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuRAMMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuResetReasonMultipleResets</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuRetentionRamSourceAddress</DEFINITION-REF>
+                  <VALUE>65536</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuSwResetCallApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuUseWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuVersionCheckExternalModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuWakeUpFactorClearIsr</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuWakeUpFactorsClearCentralised</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuGeneralConfiguration/McuWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>NULL_PTR</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="25cb60fc-5522-4d85-baa7-8dc3d0ba4c2b">
+              <SHORT-NAME>McuPublishedInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="a61bbe5f-2667-4081-b318-3c5ce032d029">
+                  <SHORT-NAME>McuRstRsnConfClm3</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm3</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm3/McuResetReason</DEFINITION-REF>
+                      <VALUE>15</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="a2d03532-f416-41f8-9b38-e049c45c7215">
+                  <SHORT-NAME>McuRstRsnConfResf13</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf13</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf13/McuResetReason</DEFINITION-REF>
+                      <VALUE>14</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="f44214bb-24f7-46af-a8ae-c1bdbe4532d3">
+                  <SHORT-NAME>McuRstRsnConfLvi</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfLvi</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfLvi/McuResetReason</DEFINITION-REF>
+                      <VALUE>7</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="3ba8329f-c600-47e9-913b-3e8c98a8fdf2">
+                  <SHORT-NAME>McuRstRsnConfSwRst</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfSwRst</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfSwRst/McuResetReason</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="d42fa447-5eb8-44b8-8900-cf561afb58cb">
+                  <SHORT-NAME>McuRstRsnConfTer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfTer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfTer/McuResetReason</DEFINITION-REF>
+                      <VALUE>9</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="65491963-408d-49f9-aaf2-b4f152867090">
+                  <SHORT-NAME>McuRstRsnConfMultipleResets</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfMultipleResets</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfMultipleResets/McuResetReason</DEFINITION-REF>
+                      <VALUE>17</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="9f52438c-dd05-48e1-8f85-7828d60dfba7">
+                  <SHORT-NAME>McuRstRsnConfUnknown</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfUnknown</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfUnknown/McuResetReason</DEFINITION-REF>
+                      <VALUE>18</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="2323871d-fa9e-488c-b22d-687d1330013c">
+                  <SHORT-NAME>McuRstRsnConfIso</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfIso</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfIso/McuResetReason</DEFINITION-REF>
+                      <VALUE>11</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="999d703f-3a67-45ef-9208-f2ef48865260">
+                  <SHORT-NAME>McuRstRsnConfClm0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm0</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm0/McuResetReason</DEFINITION-REF>
+                      <VALUE>4</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="02a1191e-1aa4-423c-9ad0-bcbe656ef6b5">
+                  <SHORT-NAME>McuRstRsnConfClm1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm1</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm1/McuResetReason</DEFINITION-REF>
+                      <VALUE>5</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="98b895e9-dcfd-4a8b-8ab0-fbf28c1c2ac3">
+                  <SHORT-NAME>McuRstRsnConfResf11</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf11</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf11/McuResetReason</DEFINITION-REF>
+                      <VALUE>12</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="2dd7a7a1-9d78-4292-abfc-c78e03571ef4">
+                  <SHORT-NAME>McuRstRsnConfWdta1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfWdta1</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfWdta1/McuResetReason</DEFINITION-REF>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="9e22fa4a-06d7-4e88-b984-39ee3868af63">
+                  <SHORT-NAME>McuRstRsnConfUndef</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfUndef</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfUndef/McuResetReason</DEFINITION-REF>
+                      <VALUE>16</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="195c1503-1658-4dc2-8935-db629e8e225c">
+                  <SHORT-NAME>McuRstRsnConfWdta0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfWdta0</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfWdta0/McuResetReason</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="0f33d9d0-f49a-4361-9a15-d8442dbae3b0">
+                  <SHORT-NAME>McuRstRsnConfCvm</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfCvm</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfCvm/McuResetReason</DEFINITION-REF>
+                      <VALUE>8</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="bdcffeaf-f9b4-4858-ab0c-b39e4b5dac6b">
+                  <SHORT-NAME>McuRstRsnConfPOR</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfPOR</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfPOR/McuResetReason</DEFINITION-REF>
+                      <VALUE>10</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="ff1d5c2b-d4d9-40d7-9f4b-e9f15d186ff0">
+                  <SHORT-NAME>McuRstRsnConfResf12</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf12</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfResf12/McuResetReason</DEFINITION-REF>
+                      <VALUE>13</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="0a5dfb17-d0c7-431c-a8d3-b82e1cafd6e3">
+                  <SHORT-NAME>McuResetReasonConfSwRst</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="7df9bb56-d8fd-4a95-8801-bc282a52150e">
+                  <SHORT-NAME>McuRstRsnConfClm2</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm2</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuRstRsnConfClm2/McuResetReason</DEFINITION-REF>
+                      <VALUE>6</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="6b5962de-46f9-42c0-91ac-4bf85fdd538d">
+                  <SHORT-NAME>McuResetReasonConfWdta0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="935d5f27-456e-447c-9656-5614151b85d9">
+                  <SHORT-NAME>McuResetReasonConfWdta1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>3</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="2c100ec9-3395-4954-a582-3a9876e3b4f1">
+                  <SHORT-NAME>McuResetReasonConfWakeup</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>11</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="95939a53-40f3-45f5-8766-a6628db4a76a">
+                  <SHORT-NAME>McuResetReasonConfLvi</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>7</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="69bc63a0-d01f-4444-8216-2c978d7aec3f">
+                  <SHORT-NAME>McuResetReasonConfPOR</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
+                      <ANNOTATIONS>
+                        <ANNOTATION>
+                          <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                        </ANNOTATION>
+                      </ANNOTATIONS>
+                      <VALUE>10</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="b6d31bb8-3efe-40c4-b603-b91b9b080a0f">
+              <SHORT-NAME>McuRamInitConfiguration</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration/McuRamInitBaseAddress</DEFINITION-REF>
+                  <VALUE>4273733632</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration/McuRamInitSize</DEFINITION-REF>
+                  <VALUE>256</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration/McuRamInitValue</DEFINITION-REF>
+                  <VALUE>255</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration/McuRamTypeSelection</DEFINITION-REF>
+                  <VALUE>CPU_LOCAL_RAM</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Mcu/Mcu/McuRamInitConfiguration/McuRamWriteSizeSel</DEFINITION-REF>
+                  <VALUE>BIT_8</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,13 @@
+#!gbuild
+[Subproject]
+Power.c
+Power_Volt_Monitor.c
+Power_Temp_Monitor.c
+SystemState_SP_Condition.c
+SystemState_IVI_Condition.c
+SystemState_Cluster_Condition.c
+SystemState_HUD_Condition.c
+SystemState_Console_Condition.c
+SystemState_Conditon_Element.c
+SystemState_InitCfg.c
+Power_OutMgr.c

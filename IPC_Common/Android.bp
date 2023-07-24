@@ -1,0 +1,4 @@
+filegroup {
+    name: "IPC_Audio.c",
+    srcs: ["SOC/IPC_Audio.c"],
+}

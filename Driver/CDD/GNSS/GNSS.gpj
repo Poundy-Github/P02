@@ -1,0 +1,5 @@
+#!gbuild
+[Subproject]
+GNSS.c
+GNSS_Alg.c
+GNSS_Com.c

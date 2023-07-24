@@ -1,0 +1,38 @@
+#!gbuild
+[Subproject]
+{ streq(PROJECT_TYPE, B03) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, B03) } SecOc_Server.c
+{ streq(PROJECT_TYPE, B02) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, B02) } SecOc_Server.c
+{ streq(PROJECT_TYPE, P05) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, P05) } SecOc_Server.c
+{ streq(PROJECT_TYPE, P03) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, P03) } SecOc_Server.c
+{ streq(PROJECT_TYPE, P02) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, P02) } SecOc_Server.c
+{ streq(PROJECT_TYPE, P09) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, P09) } SecOc_Server.c
+{ streq(PROJECT_TYPE, P01) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, P01) } SecOc_Server.c
+
+{ streq(PROJECT_TYPE, D01) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, D01) } SecOc_Server.c
+{ streq(PROJECT_TYPE, D02) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, D02) } SecOc_Server.c
+{ streq(PROJECT_TYPE, D03) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, D03) } SecOc_Server.c
+{ streq(PROJECT_TYPE, B16) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, B16) } SecOc_Server.c
+
+{ streq(PROJECT_TYPE, A07) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, A07) } SecOc_Server.c
+{ streq(PROJECT_TYPE, A08) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, A08) } SecOc_Server.c
+{ streq(PROJECT_TYPE, ES13) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, EC24) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, ES13) } SecOc_Server.c
+{ streq(PROJECT_TYPE, EC24) } SecOc_Server.c
+{ streq(PROJECT_TYPE, ES24) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, ES24) } SecOc_Server.c
+{ streq(PROJECT_TYPE, EC31) } Secoc_PrivateServer.c
+{ streq(PROJECT_TYPE, EC31) } SecOc_Server.c

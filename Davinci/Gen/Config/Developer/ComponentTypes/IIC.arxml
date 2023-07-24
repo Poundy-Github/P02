@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <SWC-IMPLEMENTATION UUID="948F1291-E8AE-4920-A39C-1D2A2F090353">
+          <SHORT-NAME>IIC_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/IIC/IIC_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="2F206AA7-5FDF-4122-B715-D0741ECF0310">
+          <SHORT-NAME>IIC</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="1FCFDDEE-3643-407D-868D-D5AC16B6B539">
+              <SHORT-NAME>Rc_IIC0_Notify_Message</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <QUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</DATA-ELEMENT-REF>
+                  <QUEUE-LENGTH>10</QUEUE-LENGTH>
+                </QUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/IIC_Notify_Message</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="5E104728-01CA-4E49-BEBD-B925DDBE504D">
+              <SHORT-NAME>Sd_IIC0_Notify_Message</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <QUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</DATA-ELEMENT-REF>
+                </QUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/IIC_Notify_Message</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="777090F8-6CCB-498E-9A50-0F94FB5FB839">
+              <SHORT-NAME>Rc_IIC1_Notify_Message</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <QUEUED-RECEIVER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</DATA-ELEMENT-REF>
+                  <QUEUE-LENGTH>10</QUEUE-LENGTH>
+                </QUEUED-RECEIVER-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/IIC_Notify_Message</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE UUID="0B0C972C-41C4-4347-A34C-9AA0E9A96570">
+              <SHORT-NAME>Sd_IIC1_Notify_Message</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <PROVIDED-COM-SPECS>
+                <QUEUED-SENDER-COM-SPEC>
+                  <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</DATA-ELEMENT-REF>
+                </QUEUED-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/IIC_Notify_Message</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE UUID="E3650E59-EFB4-43A1-98D1-661B5CD84AC7">
+              <SHORT-NAME>Os_Service</SHORT-NAME>
+              <ADMIN-DATA>
+                <SDGS>
+                  <SDG GID="DV:DEV">
+                    <SD GID="DV:ImportModePreset">Keep</SD>
+                  </SDG>
+                </SDGS>
+              </ADMIN-DATA>
+              <REQUIRED-COM-SPECS>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+                <CLIENT-COM-SPEC>
+                  <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</OPERATION-REF>
+                </CLIENT-COM-SPEC>
+              </REQUIRED-COM-SPECS>
+              <REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Os_swc/Interfaces/Os_Service</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="92CF271C-AE3F-4B5B-A361-284AFEE434F6">
+              <SHORT-NAME>IIC_InternalBehavior</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA UUID="A37647DC-AA3A-4F56-9B21-4C2E1CF7B11B">
+                  <SHORT-NAME>ExclusiveArea_IIC</SHORT-NAME>
+                </EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <EVENTS>
+                <TIMING-EVENT UUID="4076ACEE-C238-44E5-AFDE-192B3ECEB4FC">
+                  <SHORT-NAME>TMT_IIC0_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IIC/IIC_InternalBehavior/IIC0_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="768C6053-45BA-4507-9D5A-3A00190B757A">
+                  <SHORT-NAME>TMT_IIC1_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IIC/IIC_InternalBehavior/IIC1_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <DATA-RECEIVED-EVENT UUID="E5562664-1D2E-49C9-AD79-DBD63116449C">
+                  <SHORT-NAME>DRT_IIC0_MainFunction_Rc_IIC0_Notify_Message_Message</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IIC/IIC_InternalBehavior/IIC0_MainFunction</START-ON-EVENT-REF>
+                  <DATA-IREF>
+                    <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Rc_IIC0_Notify_Message</CONTEXT-R-PORT-REF>
+                    <TARGET-DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-ELEMENT-REF>
+                  </DATA-IREF>
+                </DATA-RECEIVED-EVENT>
+                <DATA-RECEIVED-EVENT UUID="16218271-DF4F-4C03-B764-E22B2818DC31">
+                  <SHORT-NAME>DRT_IIC1_MainFunction_Rc_IIC1_Notify_Message_Message</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/IIC/IIC_InternalBehavior/IIC1_MainFunction</START-ON-EVENT-REF>
+                  <DATA-IREF>
+                    <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Rc_IIC1_Notify_Message</CONTEXT-R-PORT-REF>
+                    <TARGET-DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-ELEMENT-REF>
+                  </DATA-IREF>
+                </DATA-RECEIVED-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="86021BFF-026C-4BFA-98D7-C8658A1DE378">
+                  <SHORT-NAME>IIC0_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/IIC/IIC_InternalBehavior/ExclusiveArea_IIC</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="84C564C0-D09E-4338-B721-5134E16C2BDD">
+                      <SHORT-NAME>REC_Rc_IIC0_Notify_Message_Message</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Rc_IIC0_Notify_Message</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS UUID="39DED438-AD10-428A-BF29-C30959C6E592">
+                      <SHORT-NAME>SEND_Sd_IIC_Notify_Message_Message</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IIC/Sd_IIC0_Notify_Message</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="93B607CE-AE47-40B5-B5DD-6CB62649C40B">
+                      <SHORT-NAME>SC_Os_Service_GetCounterValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="1BCBC31A-243B-4DA7-BD5F-3AF4FB902787">
+                      <SHORT-NAME>SC_Os_Service_GetElapsedValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="A376FA34-724C-4C5E-A5F0-35D425B5ECC9">
+                  <SHORT-NAME>IIC1_MainFunction</SHORT-NAME>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                    <CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/ComponentTypes/IIC/IIC_InternalBehavior/ExclusiveArea_IIC</CAN-ENTER-EXCLUSIVE-AREA-REF>
+                  </CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS UUID="4A5AC447-00DE-4201-ABE2-9ABB5B24292C">
+                      <SHORT-NAME>REC_Rc_IIC1_Notify_Message_Message</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Rc_IIC1_Notify_Message</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS UUID="24561022-361A-4BC8-9509-C7CF79A3D03C">
+                      <SHORT-NAME>SEND_Sd_IIC1_Notify_Message_Message</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/IIC/Sd_IIC1_Notify_Message</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/IIC_Notify_Message/Message</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="38F510CD-C738-4366-A873-D97BC0251605">
+                      <SHORT-NAME>SC_Os_Service_GetCounterValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetCounterValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT UUID="E47BE30D-4C74-4FF8-9A93-271490C8BA0B">
+                      <SHORT-NAME>SC_Os_Service_GetElapsedValue</SHORT-NAME>
+                      <OPERATION-IREF>
+                        <CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/IIC/Os_Service</CONTEXT-R-PORT-REF>
+                        <TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Os_swc/Interfaces/Os_Service/GetElapsedValue</TARGET-REQUIRED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

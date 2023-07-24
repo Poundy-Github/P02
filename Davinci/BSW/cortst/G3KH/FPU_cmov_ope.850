@@ -1,0 +1,644 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = FPU_cmov_ope.850                                             --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of Floating Point Arithmetic Instructions (Conditional Move)         --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+-------------------------------------------------------------------------------
+--	Defined Symbol
+-------------------------------------------------------------------------------
+	.GLOBL		_CST_FPU_cmov_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.GLOBL		_CST_FPU_cmov_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+-------------------------------------------------------------------------------
+--	External Reference
+-------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_Z
+
+	.EXTERN		f_sub_SRU_fpu_set
+	.EXTERN		f_sub_SRU_fpu_restore
+	.EXTERN		f_sub_FPU_fpcc_set_0
+	.EXTERN		f_sub_FPU_fpcc_set_1
+	.EXTERN		f_sub_FPU_fpcc_set_2
+	.EXTERN		f_sub_FPU_fpcc_set_3
+	.EXTERN		f_sub_FPU_fpcc_set_4
+	.EXTERN		f_sub_FPU_fpcc_set_5
+	.EXTERN		f_sub_FPU_fpcc_set_6
+	.EXTERN		f_sub_FPU_fpcc_set_7
+
+	.EXTERN		FPU_cmov_tbl_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.EXTERN		FPU_cmov_tbl_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_cmov_1
+--  Function ID     : CST_FN_062
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R10, R12, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_cmov_1:
+	-- Covers: CST_DD_080
+	-- Covers: CST_DD_310
+	-- Covers: CST_DD_225
+	-- Covers: CST_UM_345
+	-- Covers: CST_UM_398
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	MOV		FPU_cmov_tbl_1, EP		--
+
+	--------------------------------------------------
+	--	Set FCbit #0
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_0, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	-- Covers: CST_UM_398_02
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--	TRFSR
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R8			--
+
+	CMOVF.S		FCC0, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC1				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC0				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	-- Check other type of TRFSR
+	TRFSR						--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Set FCbit #1
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_1, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	-- Covers: CST_UM_398_02
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--	TRFSR
+	--------------------------------------------------
+	SLD.W		0x08[EP], R6			--
+	SLD.W		0x0C[EP], R8			--
+
+	CMOVF.S		FCC0, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC1				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC0				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	-- Check other type of TRFSR
+	TRFSR						--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Set FCbit #2
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_2, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x10[EP], R6			--
+	SLD.W		0x14[EP], R8			--
+
+	CMOVF.S		FCC2, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC3				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC2				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #3
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_3, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x18[EP], R6			--
+	SLD.W		0x1C[EP], R8			--
+
+	CMOVF.S		FCC2, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC3				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC2				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+
+	--------------------------------------------------
+	--	Set FCbit #4
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_4, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x20[EP], R6			--
+	SLD.W		0x24[EP], R8			--
+
+	CMOVF.S		FCC5, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC4				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC5				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #5
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_5, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x28[EP], R6			--
+	SLD.W		0x2C[EP], R8			--
+
+	CMOVF.S		FCC5, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC4				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC5				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #6
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_6, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x30[EP], R6			--
+	SLD.W		0x34[EP], R8			--
+
+	CMOVF.S		FCC7, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC6				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC7				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #7
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_7, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_345_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x38[EP], R6			--
+	SLD.W		0x3C[EP], R8			--
+
+	CMOVF.S		FCC7, R6, R8, R12		--cst_point: out=1
+	TRFSR		FCC6				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	TRFSR		FCC7				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R8			--
+
+	--------------------------------------------------
+	--	CMOVF.S fcbit, reg1, reg2, reg3
+	--------------------------------------------------
+	CMOVF.S		FCC0, R6, R8, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC0, R8, R6, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC2, R6, R8, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC2, R8, R6, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC5, R6, R8, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC5, R8, R6, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC7, R6, R8, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	CMOVF.S		FCC7, R8, R6, R12		--cst_point: out=1
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+
+
+#if CST_FPU_SUPPORT_DOUBLE
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_FPU_cmov_2
+--  Function ID     : CST_FN_063
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R12, R13, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_FPU_cmov_2:
+	-- Covers: CST_DD_AP_504
+	-- Covers: CST_UM_344
+	-- Covers: CST_UM_398
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R29-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	MOV		FPU_cmov_tbl_2, EP		--
+ 
+	--------------------------------------------------
+	--	Set FCbit #0
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_0, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	-- Covers: CST_UM_398_02
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--	TRFSR
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	SLD.W		0x0C[EP], R9			--
+
+	CMOVF.D		FCC1, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC0				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	-- Check other type of TRFSR
+	TRFSR						--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Set FCbit #1
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_1, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	-- Covers: CST_UM_398_02
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--	TRFSR
+	--------------------------------------------------
+	SLD.W		0x10[EP], R6			--
+	SLD.W		0x14[EP], R7			--
+	SLD.W		0x18[EP], R8			--
+	SLD.W		0x1C[EP], R9			--
+
+	CMOVF.D		FCC1, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC0				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	-- Check other type of TRFSR
+	TRFSR						--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+
+	--------------------------------------------------
+	--	Set FCbit #2
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_2, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x20[EP], R6			--
+	SLD.W		0x24[EP], R7			--
+	SLD.W		0x28[EP], R8			--
+	SLD.W		0x2C[EP], R9			--
+
+	CMOVF.D		FCC3, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC2				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #3
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_3, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x30[EP], R6			--
+	SLD.W		0x34[EP], R7			--
+	SLD.W		0x38[EP], R8			--
+	SLD.W		0x3C[EP], R9			--
+
+	CMOVF.D		FCC3, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC2				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	MOV		EP, R6				--
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+	MOV		R6, EP				--
+
+	--------------------------------------------------
+	--	Set FCbit #4
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_4, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x40[EP], R6			--
+	SLD.W		0x44[EP], R7			--
+	SLD.W		0x48[EP], R8			--
+	SLD.W		0x4C[EP], R9			--
+
+	CMOVF.D		FCC4, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC5				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #5
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_5, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x50[EP], R6			--
+	SLD.W		0x54[EP], R7			--
+	SLD.W		0x58[EP], R8			--
+	SLD.W		0x5C[EP], R9			--
+
+	CMOVF.D		FCC4, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC5				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #6
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_6, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x60[EP], R6			--
+	SLD.W		0x64[EP], R7			--
+	SLD.W		0x68[EP], R8			--
+	SLD.W		0x6C[EP], R9			--
+
+	CMOVF.D		FCC6, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC7				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Set FCbit #7
+	--------------------------------------------------
+	JARL		f_sub_FPU_fpcc_set_7, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_344_01
+	-- Covers: CST_UM_398_01
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--	TRFSR	fcbit
+	--------------------------------------------------
+	SLD.W		0x70[EP], R6			--
+	SLD.W		0x74[EP], R7			--
+	SLD.W		0x78[EP], R8			--
+	SLD.W		0x7C[EP], R9			--
+
+	CMOVF.D		FCC6, R6, R8, R12		--cst_point: out=3
+	TRFSR		FCC7				--cst_point: flag=Z
+	JARL		f_sub_CST_psw_load_Z, LP	--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R6			--
+	MOV		0xA55A3CC3, R7			--
+	MOV		0xA55A3CC3, R8			--
+	MOV		0x5AA5C33C, R9			--
+
+	--------------------------------------------------
+	--	CMOVF.D fcbit, reg1, reg2, reg3
+	--------------------------------------------------
+	CMOVF.D		FCC1, R6, R8, R12		--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	CMOVF.D		FCC3, R6, R8, R12		--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	CMOVF.D		FCC4, R6, R8, R12		--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	CMOVF.D		FCC6, R6, R8, R12		--cst_point: out=3
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	MOV		SP, EP				--
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R29-LP}, [LP]		--
+-- CST_FPU_SUPPORT_DOUBLE
+#endif 
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   FPU_cmov_ope.850              =====
+-- ============================================================================

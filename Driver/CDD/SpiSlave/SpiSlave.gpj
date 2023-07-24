@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+hal_spi.c
+csih_spi.c

@@ -1,0 +1,493 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_trap_ope.850                                             --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Self Test of Special instructions (Trap)                                  --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_trap_1
+	.GLOBL		_CST_CPU_trap_2
+
+	.GLOBL		_CST_CPU_trap0_signature
+	.GLOBL		_CST_CPU_trap1_signature
+	.GLOBL		_CST_CPU_fetrap_signature
+
+	.GLOBL		_CST_CPU_trap0_inst
+	.GLOBL		_CST_CPU_trap1_inst
+	.GLOBL		_CST_CPU_fetrap_inst
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_check_int
+	.EXTERN		f_sub_CST_check_feint
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_trap_1
+--  Function ID     : CST_FN_054
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R9, R10, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_trap_1:
+	-- Covers: CST_DD_075
+	-- Covers: CST_DD_220
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_320
+	-- Covers: CST_DD_321
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x06, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_trap_push, LP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	-- Covers: CST_UM_323
+	-- Covers: CST_UM_323_01
+	--------------------------------------------------
+	--	TRAP vector5 (EI level trap0)
+	--------------------------------------------------
+	-- Covers: CST_UM_006
+#if CST_EXECUTE_TRAP0_TEST
+	STSR		PSW, R8, 0			--
+	MOV		CPU_trap_1_001, R9		--
+
+    _CST_CPU_trap0_inst:
+	-- Covers: CST_UM_246
+	-- Covers: CST_UM_246_01
+	-- The EIRET instruction is used to return from EI level exception handling.
+	TRAP		0x00				--
+
+    CPU_trap_1_001:
+	JARL		f_sub_CST_check_int, LP		--
+#else
+	MOV		0x000100A0, R8			--
+	ADD		R8, R10				--
+#endif
+
+	-- Covers: CST_UM_323
+	-- Covers: CST_UM_323_01
+	--------------------------------------------------
+	--	TRAP vector5 (EI level trap1)
+	--------------------------------------------------
+#if CST_EXECUTE_TRAP1_TEST
+	STSR		PSW, R8, 0			--
+	MOV		CPU_trap_1_002, R9		--
+
+    _CST_CPU_trap1_inst:
+	-- Covers: CST_UM_246
+	-- Covers: CST_UM_246_01
+	-- The EIRET instruction is used to return from EI level exception handling.
+	TRAP		0x10				--
+
+    CPU_trap_1_002:
+	JARL		f_sub_CST_check_int, LP		--
+#else
+	MOV		0x000200B0, R8			--
+	ADD		R8, R10				--
+#endif
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_trap_pop, LP		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x06, {EP-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_trap_2
+--  Function ID     : CST_FN_055
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R9, R10, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_trap_2:
+	-- Covers: CST_DD_076
+	-- Covers: CST_DD_221
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_322
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x06, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_trap_fepush, LP	--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	-- Covers: CST_UM_248
+	-- Covers: CST_UM_248_01
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	FETRAP vector4 (FE level trap)
+	--------------------------------------------------
+#if CST_EXECUTE_FETRAP_TEST
+	STSR		PSW, R8, 0			--
+	MOV		CPU_trap_2_001, R9		--
+
+    _CST_CPU_fetrap_inst:
+	-- Covers: CST_UM_247
+	-- Covers: CST_UM_247_01
+	-- FERET instruction is used to return from FE level exception handling.
+	FETRAP		0x1				--
+
+    CPU_trap_2_001:
+	JARL		f_sub_CST_check_feint, LP	--
+#else
+	MOV		0x000400F1, R8			--
+	ADD		R8, R10				--
+#endif
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	JARL		f_sub_CPU_trap_fepop, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x06, {EP-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_trap0_signature
+--  Function ID     : CST_FN_139
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R12, R13)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_trap0_signature:
+	-- Covers: CST_DD_101
+	-- Covers: CST_DD_245
+	PUSHSP		R12-R13				--
+	PUSHSP		EP-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- Covers: CST_UM_002
+	STSR		EIPC, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xE8[EP]			--
+
+	-- Covers: CST_UM_003
+	STSR		EIPSW, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xEC[EP]			--
+
+	STSR		PSW, R12, 0			--
+	MOV		0x40080060, R13			--
+	AND		R12, R13			--
+
+	-- Covers: CST_UM_007
+	STSR		EIIC, R12, 0			--cst_point: out=1
+	ADD		R12, R13			--
+
+	MOV		0x00010000, R12			--
+	ADD		R12, R13			--
+	SST.W		R13, 0xF0[EP]			--
+
+	POPSP		EP-EP				--
+	POPSP		R12-R13				--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_trap1_signature
+--  Function ID     : CST_FN_140
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R12, R13)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+_CST_CPU_trap1_signature:
+	-- Covers: CST_DD_102
+	-- Covers: CST_DD_246
+	PUSHSP		R12-R13				--
+	PUSHSP		EP-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	STSR		EIPC, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xE8[EP]			--
+
+	STSR		EIPSW, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xEC[EP]			--
+
+	STSR		PSW, R12, 0			--
+	MOV		0x40080060, R13			--
+	AND		R12, R13			--
+
+	STSR		EIIC, R12, 0			--cst_point: out=1
+	ADD		R12, R13			--
+
+	MOV		0x00020000, R12			--
+	ADD		R12, R13			--
+	SST.W		R13, 0xF0[EP]			--
+
+	POPSP		EP-EP				--
+	POPSP		R12-R13				--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_fetrap_signature
+--  Function ID     : CST_FN_138
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R12, R13)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+_CST_CPU_fetrap_signature:
+	-- Covers: CST_DD_100
+	-- Covers: CST_DD_244
+	PUSHSP		R12-R13				--
+	PUSHSP		EP-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- Covers: CST_UM_004
+	STSR		FEPC, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xE8[EP]			--
+
+	-- Covers: CST_UM_005
+	STSR		FEPSW, R12, 0			--cst_point: out=1
+	SST.W		R12, 0xEC[EP]			--
+
+	STSR		PSW, R12, 0			--
+	MOV		0x400800C0, R13			--
+	AND		R12, R13			--
+
+	-- Covers: CST_UM_008
+	STSR		FEIC, R12, 0			--cst_point: out=1
+	ADD		R12, R13			--
+
+	MOV		0x00040000, R12			--
+	ADD		R12, R13			--
+	SST.W		R13, 0xF0[EP]			--
+
+	POPSP		EP-EP				--
+	POPSP		R12-R13				--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_trap_push
+--  Function ID     : CST_FN_098
+--  Input           : EP : Store address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_CPU_trap_push:
+	-- Covers: CST_DD_119
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_263
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R7, 0			--
+	MOV		0xFFFFFFDF, R6			--
+	OR		R7, R6				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R7, 0			--
+	AND		R6, R7				--
+	SST.W		R7, 0x14[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R7, 0			--
+	SST.W		R7, 0x14[EP]			--
+-- CST_INT_EN
+#endif
+
+	STSR		EIPC, R6, 0			--
+	STSR		EIPSW, R7, 0			--
+	STSR		EIIC, R8, 0			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+	SST.W		R8, 0x08[EP]			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_trap_pop
+--  Function ID     : CST_FN_097
+--  Input           : EP : Load address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_CPU_trap_pop:
+	-- Covers: CST_DD_118
+	-- Covers: CST_DD_262
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	LDSR		R6, EIPC, 0			--
+	LDSR		R7, EIPSW, 0			--
+	LDSR		R8, EIIC, 0			--
+
+	SLD.W		0x14[EP], R7			--
+	LDSR		R7, PSW, 0			--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_trap_fepush
+--  Function ID     : CST_FN_096
+--  Input           : EP : Store address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_CPU_trap_fepush:
+	-- Covers: CST_DD_117
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_261
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R7, 0			--
+	MOV		0xFFFFFFDF, R6			--
+	OR		R7, R6				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R7, 0			--
+	AND		R6, R7				--
+	SST.W		R7, 0x14[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R7, 0			--
+	SST.W		R7, 0x14[EP]			--
+-- CST_INT_EN
+#endif
+
+	STSR		FEPC, R6, 0			--
+	STSR		FEPSW, R7, 0			--
+	STSR		FEIC, R8, 0			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+	SST.W		R8, 0x08[EP]			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_trap_fepop
+--  Function ID     : CST_FN_095
+--  Input           : EP : Load address(Stack area)
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_CPU_trap_fepop:
+	-- Covers: CST_DD_116
+	-- Covers: CST_DD_260
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	LDSR		R6, FEPC, 0			--
+	LDSR		R7, FEPSW, 0			--
+	LDSR		R8, FEIC, 0			--
+
+	SLD.W		0x14[EP], R7			--
+	LDSR		R7, PSW, 0			--
+
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_trap_ope.850              =====
+-- ============================================================================

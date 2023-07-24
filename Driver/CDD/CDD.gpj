@@ -1,0 +1,64 @@
+#!gbuild
+[Subproject]
+AMP\AMP.gpj
+Bootloader\Bootloader.gpj
+CDD_Test\CDD_Test.gpj
+Dma\Dma.gpj
+EOL_Diag\${PROJECT_TYPE}\EOL_Diag.gpj
+Ext\Ext.gpj
+Gyro\Gyro.gpj
+IIC\IIC.gpj
+IOHWAB\IoHwAb.gpj
+IPC\IPC.gpj
+LIB_FCL\LIB_FCL.gpj
+Logger\Logger.gpj
+Misc\Misc.gpj
+MagicNum\MagicNum.gpj
+RTC\RTC.gpj
+SRV_OSAL\SRV_OSAL.gpj
+SRV_Wdg\SRV_Wdg.gpj
+SpiSlave\SpiSlave.gpj
+StateMachine.gpj
+TM\TM.gpj
+# Upgrade\Upgrade.gpj
+UpgradeV1.0\Upgrade.gpj
+GNSS\GNSS.gpj
+Version\Version.gpj
+CddHsm\CddHsm.gpj
+ADAU1978\ADAU1978.gpj
+SysSafety\SysSafety.gpj
+MPQ2022\MPQ2022.gpj
+{streq(PROJECT_TYPE, B16)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, B02)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, P05)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, P03)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, P02)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, P09)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, P01)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, A07)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, A08)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, D01)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, D02)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, D03)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, ES13)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, EC24)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, ES24)}ComEx\ComEx.gpj
+{streq(PROJECT_TYPE, EC31)}ComEx\ComEx.gpj
+
+{streq(PROJECT_TYPE, B16)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, B03)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, B02)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, P03)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, P02)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, P09)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, P01)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, P05)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, A07)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, A08)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, D01)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, D02)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, D03)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, ES13)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, EC24)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, ES24)} KeyReturn\KeyReturn.gpj
+{streq(PROJECT_TYPE, EC31)} KeyReturn\KeyReturn.gpj

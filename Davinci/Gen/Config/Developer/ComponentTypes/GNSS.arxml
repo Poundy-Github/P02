@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE UUID="62A8FC3F-FD98-4F6C-ACE1-10428F7BD65B">
+          <SHORT-NAME>GNSS</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="DAAF22A6-1CA3-4704-BDF9-2B2D8F388FAA">
+              <SHORT-NAME>GNSS_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <INIT-EVENT UUID="CAE4C13D-9F58-41F4-BDC5-0F525E34F66F">
+                  <SHORT-NAME>GNSS_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/GNSS/GNSS_InternalBehavior/GNSS_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="BCB910C4-3854-43F0-87C1-BAFF4901376F">
+                  <SHORT-NAME>TMT_GNSS_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/GNSS/GNSS_InternalBehavior/GNSS_MainFunction</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="3DA80318-94FD-4791-87BA-C89A1339F4D6">
+                  <SHORT-NAME>GNSS_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="02FD9D12-D8F5-4A45-AAF6-96590ACDF6D3">
+                  <SHORT-NAME>GNSS_MainFunction</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="0A4367F4-964D-47ED-BCBA-583D012FE466">
+          <SHORT-NAME>GNSS_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/GNSS/GNSS_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

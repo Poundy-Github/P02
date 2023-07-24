@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="785C8335-A0D0-4D28-8936-9D9EB0AD3C3C">
+          <SHORT-NAME>Commom_Gateway</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="5252D4EF-CB53-470B-BC1A-D4CBF89BF25E">
+              <SHORT-NAME>Commom_Gateway_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="74AAEAD1-2A56-4F22-9BF6-3AEB95A537B4">
+                  <SHORT-NAME>TMT_Common_Gateway_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Gateway/Commom_Gateway_InternalBehavior/Commom_Gateway_MainFunction_5</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="2D7140FC-8A10-4A97-A001-63DD32950783">
+                  <SHORT-NAME>Common_Gateway_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Gateway/Commom_Gateway_InternalBehavior/Commom_Gateway_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="0DF39BE1-DFCB-4E37-8EBC-678C8BA28519">
+                  <SHORT-NAME>TMT_Commom_Gateway_MainFunction_10</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Gateway/Commom_Gateway_InternalBehavior/Commom_Gateway_MainFunction_10</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="FE479D70-4203-4FFA-9A31-E406778F99F9">
+                  <SHORT-NAME>TMT_Commom_Gateway_MainFunction_20</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Gateway/Commom_Gateway_InternalBehavior/Commom_Gateway_MainFunction_20</START-ON-EVENT-REF>
+                  <PERIOD>0.02</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="7C6294EC-3E17-4DF5-B593-66E3AA3CB74D">
+                  <SHORT-NAME>Commom_Gateway_MainFunction_5</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="5B8F5BCF-80A9-4784-88D5-AF78F77D1CBC">
+                  <SHORT-NAME>Commom_Gateway_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="7FF2DFE7-B26A-4224-8E3D-FA4459C1F2F3">
+                  <SHORT-NAME>Commom_Gateway_MainFunction_10</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="8B5D1DD9-AA52-4F41-A063-699396BFBFC7">
+                  <SHORT-NAME>Commom_Gateway_MainFunction_20</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="9939535B-6E7B-430F-A87B-3D513EF0A16A">
+          <SHORT-NAME>Commom_Gateway_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Commom_Gateway/Commom_Gateway_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

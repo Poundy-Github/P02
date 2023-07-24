@@ -1,0 +1,6 @@
+#!gbuild
+[Subproject]
+VConfig.c
+VConfig.h
+VConfig_Cfg.c
+VConfig_Cfg.h

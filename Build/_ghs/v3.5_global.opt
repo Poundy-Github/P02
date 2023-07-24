@@ -1,0 +1,43 @@
+	-bsp generic
+	-cpu=rh850g3kh
+	-G
+	-object_dir=objs
+	:sourceDir=.
+	-time64
+	-map
+	-gsize
+	-preprocess_assembly_files
+	-e _RESET_CORE0
+	-Mx
+	-callgraph
+	--no_additional_output
+	-dwarf2
+#	{optgroup=GhsCompilerOptions} -cpu=rh850g3kh
+	-fhard
+	-nothreshold
+	-Ogeneral
+	-g
+	-passsource
+	-sda=never
+	--preprocess_linker_directive_full
+	-delete
+#	-dual_debug
+	--diag_error 193
+	--diag_suppress 1514,177
+	-no_callt
+#    -ignore_callt_state_in_interrupts
+	-inline_prologue
+#    -large_sda
+	--no_commons
+#    -nofloatio
+#    -prepare_dispose
+	--prototype_errors
+#    -reserve_r2
+	--short_enum
+#    -shorten_loads
+#    -shorten_moves
+#    -Wshadow
+#    -Wundef
+#	-fsoft
+	-fsingle
+	--misra_adv=warn

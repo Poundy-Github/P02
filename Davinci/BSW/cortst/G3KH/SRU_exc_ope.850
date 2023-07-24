@@ -1,0 +1,309 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = SRU_exc_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of System Register (Execute MAE Exception)                           --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_SRU_exc_1
+
+	.GLOBL		_CST_SRU_mae_signature
+
+	.GLOBL		_CST_SRU_mae_inst
+
+	-- Test Data
+	.SET		FEIC_EXPECTATION	0x000000C0
+	.SET		MEI_EXPECTATION		0x00060604
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_exc_1
+--  Function ID     : CST_FN_075
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_exc_1:
+	-- Covers: CST_DD_090
+	-- Covers: CST_DD_235
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_323
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+	JARL		f_sub_SRU_exc_push, LP		--
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	-- Covers: CST_UM_006
+#if CST_EXECUTE_MAE_TEST
+	-- 
+	STSR		PSW, R6, 0			--
+	MOV		PSW_EXCEPTION_BIT, R7		--
+	OR		R7, R6				--
+	LDSR		R6, PSW, 0			--
+
+	-- 
+	STSR		MCTL, R6, 1			--
+	MOV		~MCTL_MA_BIT, R7		--
+	AND		R7, R6				--
+	LDSR		R6, MCTL, 1			--
+	NOP						--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- 
+	MOVEA		0x0001, SP, R8			--
+
+	STSR		PSW, R9, 0			--
+
+    _CST_SRU_mae_inst:
+	-- Covers: CST_UM_247
+	-- Covers: CST_UM_247_01
+	-- FERET instruction is used to return from FE level exception handling.
+	LD.DW		0x000000[R8], R6		--
+
+
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- FEPC
+	SLD.W		0xE8[EP], R6			--
+	MOV		_CST_SRU_mae_inst, R7		--
+	CMP		R6, R7				--
+	ADF		CC_Z, R10, R0, R10		--
+
+	-- FEPSW
+	SLD.W		0xEC[EP], R6			--
+
+	CMP		R6, R9				--
+	ADF		CC_Z, R10, R0, R10		--
+
+	-- FEIC
+	SLD.W		0xF0[EP], R6			--
+	MOV		FEIC_EXPECTATION, R7		--
+	CMP		R6, R7				--
+	ADF		CC_Z, R10, R0, R10		--
+
+	-- MEA
+	SLD.W		0xF8[EP], R6			--
+
+	CMP		R6, R8				--
+	ADF		CC_Z, R10, R0, R10		--
+
+	-- MEI
+	SLD.W		0xFC[EP], R6			--
+	MOV		MEI_EXPECTATION, R7		--
+	CMP		R6, R7				--
+	ADF		CC_Z, R10, R0, R10		--
+
+#else
+	ADD		0x05, R10			--
+#endif
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	JARL		f_sub_SRU_exc_pop, LP		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {EP-LP}, [LP]		--
+
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_exc_push
+--  Function ID     : CST_FN_124
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_SRU_exc_push:
+	-- Covers: CST_DD_144
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_288
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+#if CST_INT_EN
+	STSR		PSW, R6, 0			--
+	MOV		0xFFFFFFDF, R7			--
+	OR		R6, R7				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R6, 0			--
+	AND		R7, R6				--
+	SST.W		R6, 0x1C[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R6, 0			--
+	SST.W		R6, 0x1C[EP]			--
+-- CST_INT_EN
+#endif
+
+	STSR		FEPC, R6, 0			--
+	STSR		FEPSW, R7, 0			--
+	STSR		FEIC, R8, 0			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+	SST.W		R8, 0x08[EP]			--
+
+	STSR		MEA, R6, 2			--
+	STSR		MEI, R7, 2			--
+	-- Covers: CST_UM_025
+	STSR		MCTL, R8, 1			--
+	SST.W		R6, 0x10[EP]			--
+	SST.W		R7, 0x14[EP]			--
+	SST.W		R8, 0x18[EP]			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_exc_pop
+--  Function ID     : CST_FN_123
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_SRU_exc_pop:
+	-- Covers: CST_DD_143
+	-- Covers: CST_DD_287
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	SLD.W		0x00[EP], R6			--
+	SLD.W		0x04[EP], R7			--
+	SLD.W		0x08[EP], R8			--
+	LDSR		R6, FEPC, 0			--
+	LDSR		R7, FEPSW, 0			--
+	LDSR		R8, FEIC, 0			--
+
+	SLD.W		0x10[EP], R6			--
+	SLD.W		0x14[EP], R7			--
+	SLD.W		0x18[EP], R8			--
+	LDSR		R6, MEA, 2			--
+	LDSR		R7, MEI, 2			--
+	LDSR		R8, MCTL, 1			--
+
+	SLD.W		0x1C[EP], R6			--
+	LDSR		R6, PSW, 0			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_mae_signature
+--  Function ID     : CST_FN_141
+--  Input           : none
+--  Output          : none
+--  Broken Register : (R28, R29, EP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_mae_signature:
+	-- Covers: CST_DD_103
+	-- Covers: CST_DD_247
+	PUSHSP		R28-EP				--
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	-- Covers: CST_UM_004
+	STSR		FEPC, R28, 0			--cst_point: out=1
+	SST.W		R28, 0xE8[EP]			--
+
+	-- Covers: CST_UM_005
+	STSR		FEPSW, R28, 0			--cst_point: out=1
+	SST.W		R28, 0xEC[EP]			--
+
+	-- Covers: CST_UM_008
+	STSR		FEIC, R28, 0			--cst_point: out=1
+	SST.W		R28, 0xF0[EP]			--
+
+	-- Covers: CST_UM_016
+	STSR		MEA, R28, 2			--cst_point: out=1
+	SST.W		R28, 0xF8[EP]			--
+
+	-- Covers: CST_UM_017
+	STSR		MEI, R28, 2			--cst_point: out=1
+	SST.W		R28, 0xFC[EP]			--
+
+	POPSP		R28-EP				--
+
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   SRU_exc_ope.850            =====
+-- ============================================================================

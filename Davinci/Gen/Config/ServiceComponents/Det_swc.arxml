@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="a86f6070-a9c3-4f3c-8504-b7defc1798f7">
+          <SHORT-NAME>Det_swc</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="9626e2bb-1b67-4536-b99e-5b0673600cad">
+              <SHORT-NAME>Interfaces</SHORT-NAME>
+              <ELEMENTS>
+                <CLIENT-SERVER-INTERFACE UUID="5b9b50d4-230f-4640-935b-0c0eabbd9426">
+                  <SHORT-NAME>DETServiceLegacy</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>DEVELOPMENT-ERROR-TRACER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="039fb027-89fb-4c6e-910c-4a28a6dbbd43">
+                      <SHORT-NAME>ReportError</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL"/>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="8680dc3d-9416-499d-91eb-fc023f690a4f">
+                          <SHORT-NAME>InstanceId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="96f0adee-4648-44be-955e-09b34ea74d5c">
+                          <SHORT-NAME>ApiId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="349ce57e-ea31-4c50-a935-a03123ecd1d1">
+                          <SHORT-NAME>ErrorId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/Det_swc/Interfaces/DETServiceLegacy/E_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="23d210d3-d75e-4b87-a9d5-bc363f176cab">
+                      <SHORT-NAME>E_OK</SHORT-NAME>
+                      <ERROR-CODE>0</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="c6df8c49-93ac-4afd-af15-4f7c7324214e">
+                  <SHORT-NAME>DETService</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>DEVELOPMENT-ERROR-TRACER</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="6bff950c-c96e-45ab-81cc-9e830d881406">
+                      <SHORT-NAME>ReportError</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL"/>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="858434fb-63af-4fc7-abfb-6cfea6e3a8a3">
+                          <SHORT-NAME>ApiId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="cc7a9f03-4add-4d1b-bcd5-90ae51d0b994">
+                          <SHORT-NAME>ErrorId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/Det_swc/Interfaces/DETService/E_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="f65a4738-71eb-4429-b344-8f0e28fce732">
+                      <SHORT-NAME>ReportRuntimeError</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL"/>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="c1979e9c-8d4b-41d3-8e87-8cf1e05ad333">
+                          <SHORT-NAME>ApiId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="35df057c-0f2d-4488-9a7e-679646745c11">
+                          <SHORT-NAME>ErrorId</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL"/>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/Det_swc/Interfaces/DETService/E_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="ded74aab-f499-4f9d-9fe9-9b2ea676feb3">
+                      <SHORT-NAME>E_OK</SHORT-NAME>
+                      <ERROR-CODE>0</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="76d16b06-0008-468d-a511-1f9e6410d99f">
+              <SHORT-NAME>ComponentTypes</SHORT-NAME>
+              <ELEMENTS>
+                <SERVICE-SW-COMPONENT-TYPE UUID="7e46225e-23d0-47bd-8096-3f05128d1a6e">
+                  <SHORT-NAME>Det</SHORT-NAME>
+                  <CATEGORY>SERVICE_COMPONENT</CATEGORY>
+                  <PORTS>
+                    <P-PORT-PROTOTYPE UUID="0896cfb1-d59c-4100-864a-94094779e390">
+                      <SHORT-NAME>DetModule_DetModuleInstance</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/Det_swc/Interfaces/DETService</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                  </PORTS>
+                  <INTERNAL-BEHAVIORS>
+                    <SWC-INTERNAL-BEHAVIOR UUID="abc4cfe0-def8-4854-96a5-8d4c20201739">
+                      <SHORT-NAME>DetInternalBehavior</SHORT-NAME>
+                      <EVENTS>
+                        <OPERATION-INVOKED-EVENT UUID="4df613cc-12fd-47c2-8912-85fa0b999c40">
+                          <SHORT-NAME>OpEventReportError_ReportError_DetModule_DetModuleInstance</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/Det_swc/ComponentTypes/Det/DetInternalBehavior/ReportError</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/Det_swc/ComponentTypes/Det/DetModule_DetModuleInstance</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Det_swc/Interfaces/DETService/ReportError</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="c9fe7b32-c62d-4c4b-adab-c3f0127ce039">
+                          <SHORT-NAME>OpEventReportRuntimeError_ReportRuntimeError_DetModule_DetModuleInstance</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/Det_swc/ComponentTypes/Det/DetInternalBehavior/ReportRuntimeError</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/Det_swc/ComponentTypes/Det/DetModule_DetModuleInstance</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/Det_swc/Interfaces/DETService/ReportRuntimeError</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                      </EVENTS>
+                      <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                      <PORT-API-OPTIONS>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-ARG-VALUES>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>4096</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                            <PORT-DEFINED-ARGUMENT-VALUE>
+                              <VALUE>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </VALUE>
+                              <VALUE-TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</VALUE-TYPE-TREF>
+                            </PORT-DEFINED-ARGUMENT-VALUE>
+                          </PORT-ARG-VALUES>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/Det_swc/ComponentTypes/Det/DetModule_DetModuleInstance</PORT-REF>
+                        </PORT-API-OPTION>
+                      </PORT-API-OPTIONS>
+                      <RUNNABLES>
+                        <RUNNABLE-ENTITY UUID="ab7ce4b6-9d76-4e17-b14c-2257ce1bba0a">
+                          <SHORT-NAME>ReportError</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>Det_ReportError</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="57ee7031-779f-465f-b77e-c925c1fe51c7">
+                          <SHORT-NAME>ReportRuntimeError</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>Det_ReportRuntimeError</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                      </RUNNABLES>
+                      <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                    </SWC-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </SERVICE-SW-COMPONENT-TYPE>
+                <SWC-IMPLEMENTATION UUID="bbd789d3-659b-4e5a-875e-52975b5c76ca">
+                  <SHORT-NAME>DetImplementation</SHORT-NAME>
+                  <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+                  <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/MICROSAR/Det_swc/ComponentTypes/Det/DetInternalBehavior</BEHAVIOR-REF>
+                </SWC-IMPLEMENTATION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

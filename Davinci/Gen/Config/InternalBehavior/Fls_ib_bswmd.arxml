@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="a832d4c3-13b5-44a7-b8e3-980dc7388662">
+          <SHORT-NAME>Fls_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="146321a2-7b86-4499-aa27-cdc5a9f72342">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="8f2975e7-dd88-498a-b9d7-ca1f38d0b8af">
+                  <SHORT-NAME>Fls</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/Fls_ib_bswmd/BswModuleDescriptions/Fls_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="2d3f7d28-0035-47db-a075-9515c3d7447e">
+                      <SHORT-NAME>FlsBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="ac31464f-062d-42e6-ad21-46c43ae22161">
+                          <SHORT-NAME>FLS_DRIVERSTATE_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="285be226-3946-4fc7-923b-333fd93c42e7">
+                          <SHORT-NAME>FLS_REGISTER_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="477f24a2-c365-49dc-b4da-7a7275699b2d">
+                          <SHORT-NAME>Fls_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/Fls_ib_bswmd/BswModuleDescriptions/Fls_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="70d6d655-51ac-4481-ab6a-97983b5365fa">
+                          <SHORT-NAME>Fls_MainFunctionTimingEvent0</SHORT-NAME>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <LABEL>
+                                <L-4 L="FOR-ALL">Edited</L-4>
+                              </LABEL>
+                              <ANNOTATION-ORIGIN>DV:IB_ED</ANNOTATION-ORIGIN>
+                              <ANNOTATION-TEXT>
+                                <P>
+                                  <L-1 L="FOR-ALL">PLAIN_TEXT</L-1>
+                                </P>
+                                <P>
+                                  <L-1 L="FOR-ALL">period</L-1>
+                                </P>
+                              </ANNOTATION-TEXT>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Renesas/Fls_ib_bswmd/BswModuleDescriptions/Fls/FlsBehavior/Fls_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="2a66133d-0801-4089-a110-5756a0c16e72">
+                  <SHORT-NAME>Fls_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

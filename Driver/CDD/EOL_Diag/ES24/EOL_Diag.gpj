@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+EOL.c
+EOL_Diag.c

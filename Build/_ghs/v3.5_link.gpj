@@ -1,0 +1,35 @@
+#!gbuild
+macro OUTPUT=${OUTPUT_DIR}
+[Program]
+
+    -L${SWC_APP_DIR}\SWC_Base
+    -L${APP_DIR}
+    -lSWC_TM_BASE.a
+    -lSWC_SM_BASE.a
+    -lSWC_CL_BASE.a
+    -lSWC_TC_BASE.a
+    -lSWC_FUEL_SINGLE_BASE.a
+    -lSWC_FUEL_MUTI_BASE.a
+    -lSWC_FUEL_DUAL_BASE.a
+   
+    -lSWC_ODO_BASE.a
+    -lSWC_System.a
+
+    {optgroup=GhsCommonOptions} -o ${OUTPUT}\f1km_sk_v3_ghs.out
+    -object_dir=${OUTPUT}\objs
+    
+	:postexec='gmemfile ${OUTPUT}/f1km_sk_v3_ghs.out -o ${OUTPUT}/f1km_sk_v3_ghs.bin'
+	:postexec='gsrec  -e 0 -hex386 ${OUTPUT}/f1km_sk_v3_ghs.out -o ${OUTPUT}/f1km_sk_v3_ghs.hex'
+	:postexec='gsrec  -e 0 -noS5 ${OUTPUT}/f1km_sk_v3_ghs.out -o ${OUTPUT}/f1km_sk_v3_ghs.s'
+
+
+IPC.gpj
+Davinci.gpj
+Drivers.gpj
+SWC.gpj
+Device.gpj
+
+${OUTPUT_DIR}\f1km_sk_v3_ghs.map
+${BUILD_DIR}\Device\HUT_V3_5.ld
+
+

@@ -1,0 +1,782 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = SRU_mpu_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test for System Registers of Memory Protection Unit                       --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+-------------------------------------------------------------------------------
+--	Defined Symbol
+-------------------------------------------------------------------------------
+	.GLOBL		_CST_SRU_mpu_1
+
+-------------------------------------------------------------------------------
+--	External Reference
+-------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_mpu_1
+--  Function ID     : CST_FN_087
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+_CST_SRU_mpu_1:
+	-- Covers: CST_DD_098
+	-- Covers: CST_DD_243
+	--------------------------------------------------
+	--	PUSH General registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	PUSH MPU System Registers(n=0-7)
+	--------------------------------------------------
+	JARL		f_sub_SRU_mpu_push1, LP		--
+
+	--------------------------------------------------
+	--	RAM Clear(n=0-7)
+	--------------------------------------------------
+	MOV		(CST_RAM_ADDRESS_L + 0x100), R9	--
+	MOVEA		0x0008, R0, R7			--
+	MOV		R9, EP				--
+
+    SRU_mpu_1_001:
+	SST.W		R7, 0x00[EP]			--
+	ADD		0x04, EP			--
+	LOOP		R7, SRU_mpu_1_001		--
+
+	--------------------------------------------------
+	--	Set MPM/MPRC(n=0-7)
+	--------------------------------------------------
+	MOV		0x00, R6			--
+	-- Covers: CST_UM_037
+	LDSR		R6, MPM, 5			--
+	SYNCI						--
+	STSR		MPRC, R6, 5			--
+	ANDI		0xFF00, R6, R6			--
+	-- Covers: CST_UM_038
+	LDSR		R6, MPRC, 5			--
+
+	--------------------------------------------------
+	--	Set MPUAn/MPLAn/MPATn(n=0-7)
+	--------------------------------------------------
+	MOV		R9, R13				--
+	MOVEA		0x00FF, R0, R11			--
+
+	-- Covers: CST_UM_046
+	LDSR		R13, MPUA0, 6			--
+	-- Covers: CST_UM_045
+	LDSR		R13, MPLA0, 6			--
+	-- Covers: CST_UM_047
+	LDSR		R11, MPAT0, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_049
+	LDSR		R13, MPUA1, 6			--
+	-- Covers: CST_UM_048
+	LDSR		R13, MPLA1, 6			--
+	-- Covers: CST_UM_050
+	LDSR		R11, MPAT1, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_052
+	LDSR		R13, MPUA2, 6			--
+	-- Covers: CST_UM_051
+	LDSR		R13, MPLA2, 6			--
+	-- Covers: CST_UM_053
+	LDSR		R11, MPAT2, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_055
+	LDSR		R13, MPUA3, 6			--
+	-- Covers: CST_UM_054
+	LDSR		R13, MPLA3, 6			--
+	-- Covers: CST_UM_056
+	LDSR		R11, MPAT3, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_058
+	LDSR		R13, MPUA4, 6			--
+	-- Covers: CST_UM_057
+	LDSR		R13, MPLA4, 6			--
+	-- Covers: CST_UM_059
+	LDSR		R11, MPAT4, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_061
+	LDSR		R13, MPUA5, 6			--
+	-- Covers: CST_UM_060
+	LDSR		R13, MPLA5, 6			--
+	-- Covers: CST_UM_062
+	LDSR		R11, MPAT5, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_064
+	LDSR		R13, MPUA6, 6			--
+	-- Covers: CST_UM_063
+	LDSR		R13, MPLA6, 6			--
+	-- Covers: CST_UM_065
+	LDSR		R11, MPAT6, 6			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_067
+	LDSR		R13, MPUA7, 6			--
+	-- Covers: CST_UM_066
+	LDSR		R13, MPLA7, 6			--
+	-- Covers: CST_UM_068
+	LDSR		R11, MPAT7, 6			--
+
+	--------------------------------------------------
+	--	Area check(n=0-7)
+	--------------------------------------------------
+	MOV		R9, R11				--
+	MOV		0x02, R7			--
+	MOVEA		0x0008, R0, R8			--
+	ADD		0x02, R11			--
+
+    SRU_mpu_1_002:
+	-- Covers: CST_UM_041
+	LDSR		R11, MCA, 5			--
+	-- Covers: CST_UM_042
+	LDSR		R7, MCS, 5			--
+	-- Covers: CST_UM_043
+	LDSR		R0, MCC, 5			--
+	-- Covers: CST_UM_044
+	STSR		MCR, R12, 5			--cst_point: out=1
+
+	ADD		0x04, R11			--
+	ADD		R12, R10			--
+	LOOP		R8, SRU_mpu_1_002		--
+
+	--------------------------------------------------
+	--	POP MPU System Registers(n=0-7)
+	--------------------------------------------------
+	JARL		f_sub_SRU_mpu_pop1, LP		--
+
+	--------------------------------------------------
+	--	PUSH MPU System Registers(n=8-15or11)
+	--------------------------------------------------
+	JARL		f_sub_SRU_mpu_push2, LP		--cst_point: popreg
+
+	--------------------------------------------------
+	--	RAM Clear(n=8-15or11)
+	--------------------------------------------------
+	MOV		(CST_RAM_ADDRESS_L + 0x100), R9	--
+	MOVEA		0x0008, R0, R7			--
+	MOV		R9, EP				--
+
+    SRU_mpu_1_003:
+	SST.W		R0, 0x00[EP]			--
+	ADD		0x04, EP			--
+	LOOP		R7, SRU_mpu_1_003		--
+
+	--------------------------------------------------
+	--	Set MPM/MPRC(n=8-15or11)
+	--------------------------------------------------
+	MOV		0x00, R6			--
+	LDSR		R6, MPM, 5			--
+	SYNCI						--
+	STSR		MPRC, R6, 5			--
+	ANDI		0x00FF, R6, R6			--
+	LDSR		R6, MPRC, 5			--
+
+	--------------------------------------------------
+	--	Set MPUAn/MPLAn/MPATn(n=8-15or11)
+	--------------------------------------------------
+	MOV		R9, R13				--
+	MOVEA		0x00FF, R0, R11			--
+
+	-- Covers: CST_UM_070
+	LDSR		R13, MPUA8, 7			--
+	-- Covers: CST_UM_069
+	LDSR		R13, MPLA8, 7			--
+	-- Covers: CST_UM_071
+	LDSR		R11, MPAT8, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_073
+	LDSR		R13, MPUA9, 7			--
+	-- Covers: CST_UM_072
+	LDSR		R13, MPLA9, 7			--
+	-- Covers: CST_UM_074
+	LDSR		R11, MPAT9, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_076
+	LDSR		R13, MPUA10, 7			--
+	-- Covers: CST_UM_075
+	LDSR		R13, MPLA10, 7			--
+	-- Covers: CST_UM_077
+	LDSR		R11, MPAT10, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_079
+	LDSR		R13, MPUA11, 7			--
+	-- Covers: CST_UM_078
+	LDSR		R13, MPLA11, 7			--
+	-- Covers: CST_UM_080
+	LDSR		R11, MPAT11, 7			--
+
+#if !CST_MPU_TWELVE_CHANNELS
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_082
+	LDSR		R13, MPUA12, 7			--
+	-- Covers: CST_UM_081
+	LDSR		R13, MPLA12, 7			--
+	-- Covers: CST_UM_083
+	LDSR		R11, MPAT12, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_085
+	LDSR		R13, MPUA13, 7			--
+	-- Covers: CST_UM_084
+	LDSR		R13, MPLA13, 7			--
+	-- Covers: CST_UM_086
+	LDSR		R11, MPAT13, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_088
+	LDSR		R13, MPUA14, 7			--
+	-- Covers: CST_UM_087
+	LDSR		R13, MPLA14, 7			--
+	-- Covers: CST_UM_089
+	LDSR		R11, MPAT14, 7			--
+
+	ADD		0x04, R13			--
+
+	-- Covers: CST_UM_091
+	LDSR		R13, MPUA15, 7			--
+	-- Covers: CST_UM_090
+	LDSR		R13, MPLA15, 7			--
+	-- Covers: CST_UM_092
+	LDSR		R11, MPAT15, 7			--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+
+	--------------------------------------------------
+	--	Area check(n=8-15or11)
+	--------------------------------------------------
+	MOV		R9, R11				--
+	MOV		0x02, R7			--
+#if CST_MPU_TWELVE_CHANNELS
+	MOVEA		0x0004, R0, R8			-- n=8-11
+-- CST_MPU_TWELVE_CHANNELS
+#else
+	MOVEA		0x0008, R0, R8			-- n=8-15
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+	ADD		0x02, R11			--
+
+    SRU_mpu_1_004:
+	LDSR		R11, MCA, 5			--
+	LDSR		R7, MCS, 5			--
+	LDSR		R0, MCC, 5			--
+	STSR		MCR, R12, 5			--cst_point: out=1
+
+	ADD		0x04, R11			--
+	ADD		R12, R10			--
+	LOOP		R8, SRU_mpu_1_004		--
+
+	--------------------------------------------------
+	--	POP MPU System Registers(n=8-15or11)
+	--------------------------------------------------
+	JARL		f_sub_SRU_mpu_pop2, LP		--
+
+	--------------------------------------------------
+	--	POP General registers
+	--------------------------------------------------
+	DISPOSE		0x00, {EP-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_mpu_push1
+--  Function ID     : CST_FN_132
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_SRU_mpu_push1:
+	-- Covers: CST_DD_150
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_294
+	-- Covers: CST_UM_006
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+#if CST_INT_EN
+	STSR		PSW, R6, 0			--
+	MOV		0xFFFFFFDF, R7			--
+	OR		R6, R7				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R6, 0			--
+	AND		R7, R6				--
+	SST.W		R6, 0xDC[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R6, 0			--
+	SST.W		R6, 0xDC[EP]			--
+-- CST_INT_EN
+#endif
+
+	--
+	STSR		MPM, R6, 5			--
+	STSR		MPRC, R7, 5			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+
+	--
+	STSR		MCA, R6, 5			--
+	STSR		MCS, R7, 5			--
+	STSR		MCR, R8, 5			--
+	-- Covers: CST_UM_012
+	STSR		ASID, R9, 2			--
+	SST.W		R6, 0x0C[EP]			--
+	SST.W		R7, 0x10[EP]			--
+	SST.W		R8, 0x14[EP]			--
+	SST.W		R9, 0x18[EP]			--
+
+	--
+	STSR		MPUA0, R6, 6			--
+	STSR		MPLA0, R7, 6			--
+	STSR		MPAT0, R8, 6			--
+	SST.W		R6, 0x1C[EP]			--
+	SST.W		R7, 0x20[EP]			--
+	SST.W		R8, 0x24[EP]			--
+
+	--
+	STSR		MPUA1, R6, 6			--
+	STSR		MPLA1, R7, 6			--
+	STSR		MPAT1, R8, 6			--
+	SST.W		R6, 0x28[EP]			--
+	SST.W		R7, 0x2C[EP]			--
+	SST.W		R8, 0x30[EP]			--
+
+	--
+	STSR		MPUA2, R6, 6			--
+	STSR		MPLA2, R7, 6			--
+	STSR		MPAT2, R8, 6			--
+	SST.W		R6, 0x34[EP]			--
+	SST.W		R7, 0x38[EP]			--
+	SST.W		R8, 0x3C[EP]			--
+
+	--
+	STSR		MPUA3, R6, 6			--
+	STSR		MPLA3, R7, 6			--
+	STSR		MPAT3, R8, 6			--
+	SST.W		R6, 0x40[EP]			--
+	SST.W		R7, 0x44[EP]			--
+	SST.W		R8, 0x48[EP]			--
+
+	--
+	STSR		MPUA4, R6, 6			--
+	STSR		MPLA4, R7, 6			--
+	STSR		MPAT4, R8, 6			--
+	SST.W		R6, 0x4C[EP]			--
+	SST.W		R7, 0x50[EP]			--
+	SST.W		R8, 0x54[EP]			--
+
+	--
+	STSR		MPUA5, R6, 6			--
+	STSR		MPLA5, R7, 6			--
+	STSR		MPAT5, R8, 6			--
+	SST.W		R6, 0x58[EP]			--
+	SST.W		R7, 0x5C[EP]			--
+	SST.W		R8, 0x60[EP]			--
+
+	--
+	STSR		MPUA6, R6, 6			--
+	STSR		MPLA6, R7, 6			--
+	STSR		MPAT6, R8, 6			--
+	SST.W		R6, 0x64[EP]			--
+	SST.W		R7, 0x68[EP]			--
+	SST.W		R8, 0x6C[EP]			--
+
+	--
+	STSR		MPUA7, R6, 6			--
+	STSR		MPLA7, R7, 6			--
+	STSR		MPAT7, R8, 6			--
+	SST.W		R6, 0x70[EP]			--
+	SST.W		R7, 0x74[EP]			--
+	SST.W		R8, 0x78[EP]			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_mpu_push2
+--  Function ID     : CST_FN_133
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_SRU_mpu_push2:
+	-- Covers: CST_DD_151
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_295
+	-- Covers: CST_UM_006
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+#if CST_INT_EN
+	STSR		PSW, R6, 0			--
+	MOV		0xFFFFFFDF, R7			--
+	OR		R6, R7				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R6, 0			--
+	AND		R7, R6				--
+	SST.W		R6, 0xDC[EP]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R6, 0			--
+	SST.W		R6, 0xDC[EP]			--
+-- CST_INT_EN
+#endif
+
+	--
+	STSR		MPM, R6, 5			--
+	STSR		MPRC, R7, 5			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R7, 0x04[EP]			--
+
+	--
+	STSR		MCA, R6, 5			--
+	STSR		MCS, R7, 5			--
+	STSR		MCR, R8, 5			--
+	STSR		ASID, R9, 2			--
+	SST.W		R6, 0x0C[EP]			--
+	SST.W		R7, 0x10[EP]			--
+	SST.W		R8, 0x14[EP]			--
+	SST.W		R9, 0x18[EP]			--
+
+	--
+	STSR		MPUA8, R6, 7			--
+	STSR		MPLA8, R7, 7			--
+	STSR		MPAT8, R8, 7			--
+	SST.W		R6, 0x7C[EP]			--
+	SST.W		R7, 0x80[EP]			--
+	SST.W		R8, 0x84[EP]			--
+
+	--
+	STSR		MPUA9, R6, 7			--
+	STSR		MPLA9, R7, 7			--
+	STSR		MPAT9, R8, 7			--
+	SST.W		R6, 0x88[EP]			--
+	SST.W		R7, 0x8C[EP]			--
+	SST.W		R8, 0x90[EP]			--
+
+	--
+	STSR		MPUA10, R6, 7			--
+	STSR		MPLA10, R7, 7			--
+	STSR		MPAT10, R8, 7			--
+	SST.W		R6, 0x94[EP]			--
+	SST.W		R7, 0x98[EP]			--
+	SST.W		R8, 0x9C[EP]			--
+
+	--
+	STSR		MPUA11, R6, 7			--
+	STSR		MPLA11, R7, 7			--
+	STSR		MPAT11, R8, 7			--
+	SST.W		R6, 0xA0[EP]			--
+	SST.W		R7, 0xA4[EP]			--
+	SST.W		R8, 0xA8[EP]			--
+
+#if !CST_MPU_TWELVE_CHANNELS
+	--
+	STSR		MPUA12, R6, 7			--
+	STSR		MPLA12, R7, 7			--
+	STSR		MPAT12, R8, 7			--
+	SST.W		R6, 0xAC[EP]			--
+	SST.W		R7, 0xB0[EP]			--
+	SST.W		R8, 0xB4[EP]			--
+
+	--
+	STSR		MPUA13, R6, 7			--
+	STSR		MPLA13, R7, 7			--
+	STSR		MPAT13, R8, 7			--
+	SST.W		R6, 0xB8[EP]			--
+	SST.W		R7, 0xBC[EP]			--
+	SST.W		R8, 0xC0[EP]			--
+
+	--
+	STSR		MPUA14, R6, 7			--
+	STSR		MPLA14, R7, 7			--
+	STSR		MPAT14, R8, 7			--
+	SST.W		R6, 0xC4[EP]			--
+	SST.W		R7, 0xC8[EP]			--
+	SST.W		R8, 0xCC[EP]			--
+
+	--
+	STSR		MPUA15, R6, 7			--
+	STSR		MPLA15, R7, 7			--
+	STSR		MPAT15, R8, 7			--
+	SST.W		R6, 0xD0[EP]			--
+	SST.W		R7, 0xD4[EP]			--
+	SST.W		R8, 0xD8[EP]			--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_mpu_pop1
+--  Function ID     : CST_FN_130
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_SRU_mpu_pop1:
+	-- Covers: CST_DD_148
+	-- Covers: CST_DD_292
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	SLD.W		0x04[EP], R7			--
+	LDSR		R7, MPRC, 5			--
+
+	SLD.W		0x0C[EP], R6			--
+	SLD.W		0x10[EP], R7			--
+	SLD.W		0x14[EP], R8			--
+	SLD.W		0x18[EP], R9			--
+	LDSR		R6, MCA, 5			--
+	LDSR		R7, MCS, 5			--
+	LDSR		R8, MCR, 5			--
+	LDSR		R9, ASID, 2			--
+
+	SLD.W		0x1C[EP], R6			--
+	SLD.W		0x20[EP], R7			--
+	SLD.W		0x24[EP], R8			--
+	LDSR		R6, MPUA0, 6			--
+	LDSR		R7, MPLA0, 6			--
+	LDSR		R8, MPAT0, 6			--
+
+	SLD.W		0x28[EP], R6			--
+	SLD.W		0x2C[EP], R7			--
+	SLD.W		0x30[EP], R8			--
+	LDSR		R6, MPUA1, 6			--
+	LDSR		R7, MPLA1, 6			--
+	LDSR		R8, MPAT1, 6			--
+
+	SLD.W		0x34[EP], R6			--
+	SLD.W		0x38[EP], R7			--
+	SLD.W		0x3C[EP], R8			--
+	LDSR		R6, MPUA2, 6			--
+	LDSR		R7, MPLA2, 6			--
+	LDSR		R8, MPAT2, 6			--
+
+	SLD.W		0x40[EP], R6			--
+	SLD.W		0x44[EP], R7			--
+	SLD.W		0x48[EP], R8			--
+	LDSR		R6, MPUA3, 6			--
+	LDSR		R7, MPLA3, 6			--
+	LDSR		R8, MPAT3, 6			--
+
+	SLD.W		0x4C[EP], R6			--
+	SLD.W		0x50[EP], R7			--
+	SLD.W		0x54[EP], R8			--
+	LDSR		R6, MPUA4, 6			--
+	LDSR		R7, MPLA4, 6			--
+	LDSR		R8, MPAT4, 6			--
+
+	SLD.W		0x58[EP], R6			--
+	SLD.W		0x5C[EP], R7			--
+	SLD.W		0x60[EP], R8			--
+	LDSR		R6, MPUA5, 6			--
+	LDSR		R7, MPLA5, 6			--
+	LDSR		R8, MPAT5, 6			--
+
+	SLD.W		0x64[EP], R6			--
+	SLD.W		0x68[EP], R7			--
+	SLD.W		0x6C[EP], R8			--
+	LDSR		R6, MPUA6, 6			--
+	LDSR		R7, MPLA6, 6			--
+	LDSR		R8, MPAT6, 6			--
+
+	SLD.W		0x70[EP], R6			--
+	SLD.W		0x74[EP], R7			--
+	SLD.W		0x78[EP], R8			--
+	LDSR		R6, MPUA7, 6			--
+	LDSR		R7, MPLA7, 6			--
+	LDSR		R8, MPAT7, 6			--
+
+	SLD.W		0x00[EP], R6			--
+	LDSR		R6, MPM, 5			--
+	SYNCI						--
+
+	SLD.W		0xDC[EP], R6			--
+	LDSR		R6, PSW, 0			--
+
+	JMP		[LP]				--
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_mpu_pop2
+--  Function ID     : CST_FN_131
+--  Input           : none
+--  Output          : none
+--  Broken Register : R6, R7, R8, R9, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+f_sub_SRU_mpu_pop2:
+	-- Covers: CST_DD_149
+	-- Covers: CST_DD_293
+	MOV		CST_RAM_ADDRESS_L, EP		--
+
+	SLD.W		0x04[EP], R7			--
+	LDSR		R7, MPRC, 5			--
+
+	SLD.W		0x0C[EP], R6			--
+	SLD.W		0x10[EP], R7			--
+	SLD.W		0x14[EP], R8			--
+	SLD.W		0x18[EP], R9			--
+	LDSR		R6, MCA, 5			--
+	LDSR		R7, MCS, 5			--
+	LDSR		R8, MCR, 5			--
+	LDSR		R9, ASID, 2			--
+
+	SLD.W		0x7C[EP], R6			--
+	SLD.W		0x80[EP], R7			--
+	SLD.W		0x84[EP], R8			--
+	LDSR		R6, MPUA8, 7			--
+	LDSR		R7, MPLA8, 7			--
+	LDSR		R8, MPAT8, 7			--
+
+	SLD.W		0x88[EP], R6			--
+	SLD.W		0x8C[EP], R7			--
+	SLD.W		0x90[EP], R8			--
+	LDSR		R6, MPUA9, 7			--
+	LDSR		R7, MPLA9, 7			--
+	LDSR		R8, MPAT9, 7			--
+
+	SLD.W		0x94[EP], R6			--
+	SLD.W		0x98[EP], R7			--
+	SLD.W		0x9C[EP], R8			--
+	LDSR		R6, MPUA10, 7			--
+	LDSR		R7, MPLA10, 7			--
+	LDSR		R8, MPAT10, 7			--
+
+	SLD.W		0xA0[EP], R6			--
+	SLD.W		0xA4[EP], R7			--
+	SLD.W		0xA8[EP], R8			--
+	LDSR		R6, MPUA11, 7			--
+	LDSR		R7, MPLA11, 7			--
+	LDSR		R8, MPAT11, 7			--
+
+#if !CST_MPU_TWELVE_CHANNELS
+	SLD.W		0xAC[EP], R6			--
+	SLD.W		0xB0[EP], R7			--
+	SLD.W		0xB4[EP], R8			--
+	LDSR		R6, MPUA12, 7			--
+	LDSR		R7, MPLA12, 7			--
+	LDSR		R8, MPAT12, 7			--
+
+	SLD.W		0xB8[EP], R6			--
+	SLD.W		0xBC[EP], R7			--
+	SLD.W		0xC0[EP], R8			--
+	LDSR		R6, MPUA13, 7			--
+	LDSR		R7, MPLA13, 7			--
+	LDSR		R8, MPAT13, 7			--
+
+	SLD.W		0xC4[EP], R6			--
+	SLD.W		0xC8[EP], R7			--
+	SLD.W		0xCC[EP], R8			--
+	LDSR		R6, MPUA14, 7			--
+	LDSR		R7, MPLA14, 7			--
+	LDSR		R8, MPAT14, 7			--
+
+	SLD.W		0xD0[EP], R6			--
+	SLD.W		0xD4[EP], R7			--
+	SLD.W		0xD8[EP], R8			--
+	LDSR		R6, MPUA15, 7			--
+	LDSR		R7, MPLA15, 7			--
+	LDSR		R8, MPAT15, 7			--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+
+	SLD.W		0x00[EP], R6			--
+	LDSR		R6, MPM, 5			--
+	SYNCI						--
+
+	SLD.W		0xDC[EP], R6			--
+	LDSR		R6, PSW, 0			--
+
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   SRU_mpu_ope.850            =====
+-- ============================================================================

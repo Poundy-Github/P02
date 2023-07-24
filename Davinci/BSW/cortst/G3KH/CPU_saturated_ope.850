@@ -1,0 +1,478 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_saturated_ope.850                                        --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Saturated instructions                                                    --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_saturated_1
+	.GLOBL		_CST_CPU_saturated_2
+	.GLOBL		_CST_CPU_saturated_3
+	.GLOBL		_CST_CPU_saturated_4
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_SATCYOVSZ
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_saturated_1
+--  Function ID     : CST_FN_036
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_saturated_1:
+	-- Covers: CST_DD_057
+	-- Covers: CST_DD_202
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_saturated_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_285
+	-- Covers: CST_UM_285_01
+	--------------------------------------------------
+	--	SATADD reg1, reg2
+	--------------------------------------------------
+	MOV		R0, R6				--
+	SATADD		R11, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R13, R7				--
+	SATADD		R11, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R7, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R0, R8				--
+	SATADD		R12, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R14, R9				--
+	SATADD		R12, R9				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R9, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SATADD reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R6				--
+	SATADD		R25, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R25, R7				--
+	SATADD		R26, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R7, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_saturated_2
+--  Function ID     : CST_FN_037
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R8, R9, R10, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_saturated_2:
+	-- Covers: CST_DD_058
+	-- Covers: CST_DD_203
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_saturated_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_285
+	-- Covers: CST_UM_285_02
+	--------------------------------------------------
+	--	SATADD imm5, reg2
+	--------------------------------------------------
+	MOV		R11, R8				--
+	SATADD		0x01, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- PTN : cover immediate
+	MOV		R12, R8				--
+	SATADD		-0x02, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				-- R8:0x80000000
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_285
+	-- Covers: CST_UM_285_03
+	--------------------------------------------------
+	--	SATADD reg1, reg2, reg3
+	--------------------------------------------------
+	SATADD		R14, R12, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R9, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SATADD reg1, reg2, reg3
+	--------------------------------------------------
+	SATADD		R25, R26, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R9, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	SATADD		R26, R25, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R9, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_saturated_3
+--  Function ID     : CST_FN_038
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_saturated_3:
+	-- Covers: CST_DD_059
+	-- Covers: CST_DD_204
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_saturated_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_286
+	-- Covers: CST_UM_286_01
+	--------------------------------------------------
+	--	SATSUB reg1, reg2
+	--------------------------------------------------
+	MOV		R11, R6				--
+	SATSUB		R0, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R11, R7				--
+	SATSUB		R14, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R7, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R12, R8				--
+	SATSUB		R0, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R12, R9				--
+	SATSUB		R13, R9				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R9, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SATSUB reg1, reg2
+	--------------------------------------------------
+	MOV		R26, R6				--
+	SATSUB		R25, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R25, R6				--
+	SATSUB		R26, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_saturated_4
+--  Function ID     : CST_FN_039
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_saturated_4:
+	-- Covers: CST_DD_060
+	-- Covers: CST_DD_205
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_saturated_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_286
+	-- Covers: CST_UM_286_02
+	--------------------------------------------------
+	--	SATSUB reg1, reg2, reg3
+	--------------------------------------------------
+	SATSUB		R14, R11, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_287
+	-- Covers: CST_UM_287_01
+	--------------------------------------------------
+	--	SATSUBI imm16, reg1, reg2
+	--------------------------------------------------
+	SATSUBI		0x0001, R12, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R7, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- PTN : cover immediate
+	SATSUBI		-0x0002, R11, R7		--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R7, R10				-- R7:0x7FFFFFFF
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_288
+	-- Covers: CST_UM_288_01
+	--------------------------------------------------
+	--	SATSUBR reg1, reg2
+	--------------------------------------------------
+	MOV		R14, R8				--
+	SATSUBR		R11, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SATSUB reg1, reg2, reg3
+	--------------------------------------------------
+	SATSUB		R25, R26, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	SATSUB		R26, R25, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R6, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	SATSUBR reg1, reg2
+	--------------------------------------------------
+	MOV		R25, R8				--
+	SATSUBR		R26, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	MOV		R26, R8				--
+	SATSUBR		R25, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_SATCYOVSZ, LP	--cst_point: flag=SATCYOVSZ
+	ADD		R8, R10				--
+
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_saturated_set_data
+--  Function ID     : CST_FN_091
+--  Input           : none
+--  Output          : R11 : Input value 1 for Instruction test
+--                  : R12 : Input value 2 for Instruction test
+--                  : R13 : Input value 3 for Instruction test
+--                  : R14 : Input value 4 for Instruction test
+--  Broken Register : R11, R12, R13, R14
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_saturated_set_data:
+	-- Covers: CST_DD_112
+	-- Covers: CST_DD_256
+	MOVHI		0x8000, R0, R12			--
+	ADDI		-0x0001, R12, R11		--
+	MOV		0x01, R13			--
+	MOV		-0x01, R14			--
+	JMP		[LP]				--
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_saturated_ope.850         =====
+-- ============================================================================

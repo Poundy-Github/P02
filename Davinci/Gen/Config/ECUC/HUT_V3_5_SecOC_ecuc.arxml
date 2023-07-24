@@ -1,0 +1,2134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="1DDC2620-9464-427E-A400-E171171D291E">
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="5ef82ad3-40c2-4fd8-8511-710e2ad91258">
+          <SHORT-NAME>SecOC</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSAR/SecOC</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/MICROSAR/SecOC_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="3911d7e6-8a66-4792-8fcb-6539ae7422e0">
+              <SHORT-NAME>SecOCGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCEnableForcedPassOverride</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOcIgnoreVerificationResult</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCMainFunctionPeriodRx</DEFINITION-REF>
+                  <VALUE>0.002</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCMainFunctionPeriodTx</DEFINITION-REF>
+                  <VALUE>0.002</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCMaxAlignScalarType</DEFINITION-REF>
+                  <VALUE/>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCQueryFreshnessValue</DEFINITION-REF>
+                  <VALUE>CFUNC</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCVersionInfoApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCMaxMessageLinkerSizeOfRxPdus</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCSafeBswChecks</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCPropagateOnlyFinalVerificationStatus</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCEnableDevelopmentMode</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseGetRxFreshness</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseGetRxFreshnessAuthData</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseGetTxFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseGetTxFreshnessTruncData</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseSPduTxConfirmation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCEnableCustomAuthenticationAPI</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCCanFdPadding</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCRetryFailedTransmitRequest</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCUseMSBAlignedTruncatedFreshnessValueInFvM</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCVerificationStatusCallout</DEFINITION-REF>
+                  <VALUE>FvM_VerificationStatusCallout</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCVerificationStatusCalloutWithSecuredPdu</DEFINITION-REF>
+                  <VALUE>SecOc_Verification_Status_Callout_With_Secured_Pdu</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneral/SecOCDefaultAuthenticationInformationPattern</DEFINITION-REF>
+                  <VALUE>255</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="c617f8ff-20e4-4f6f-8e93-35542dcda2d1">
+              <SHORT-NAME>SecOCGeneration</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCGeneration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCOutOfBoundsWriteProtectionStrategy</DEFINITION-REF>
+                  <VALUE>NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCOutOfBoundsWriteSanitizer</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCOutOfBoundsReadSanitizer</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCShortSymbols</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCInterfacesForDeactivatedData</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCGeneration/SecOCReferringKeysInComments</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="2261e025-dbf4-32b3-89a0-1a2b4325c52f">
+              <SHORT-NAME>TPMS2_Sc_oB30_for_SC_CAN_V3_2_c8a12d62_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">TPMS2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>917</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>11</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_TPMS2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="0b81ecdf-36ac-3823-a9a8-20aa0a206bba">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="8e0a43f9-ceb7-3ec3-a07a-ec860915729b">
+                      <SHORT-NAME>TPMS2_Sc_oB30_for_SC_CAN_V3_2_c8a12d62_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">TPMS2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>11</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/TPMS2_Sc_oB30_for_SC_CAN_V3_2_c8a12d62_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="04671cce-1f00-35d6-993a-31f364c7bb8c">
+                  <SHORT-NAME>TPMS2_oB30_for_SC_CAN_V3_2_fc97042f_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">TPMS2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/TPMS2_oB30_for_SC_CAN_V3_2_fc97042f_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="5c5a2149-12ac-3aa6-8583-d8b4d0968235">
+              <SHORT-NAME>ABM1_Sc_oB30_for_SC_CAN_V3_2_a346d8c1_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">ABM1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>849</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_ABM1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="41921b1d-10ac-3a56-93b5-209e9698b5c5">
+                  <SHORT-NAME>ABM1_oB30_for_SC_CAN_V3_2_d004cc2e_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">ABM1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ABM1_oB30_for_SC_CAN_V3_2_d004cc2e_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="8085a039-82d9-33aa-a974-e34948427c06">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="b98d9800-3095-3202-b331-2e5dca63477d">
+                      <SHORT-NAME>ABM1_Sc_oB30_for_SC_CAN_V3_2_a346d8c1_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">ABM1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ABM1_Sc_oB30_for_SC_CAN_V3_2_a346d8c1_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="83bfad12-b939-337b-9d8f-d2c596db7b44">
+              <SHORT-NAME>BCM1_Sc_oB30_for_SC_CAN_V3_2_cf14c4a7_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">BCM1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>793</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>4</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_BCM1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="f40367c9-944a-39f2-9026-73d5c81e5477">
+                  <SHORT-NAME>BCM1_oB30_for_SC_CAN_V3_2_64cc1f5a_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">BCM1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/BCM1_oB30_for_SC_CAN_V3_2_64cc1f5a_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="cd8264f7-847a-362b-ae36-84241e49ce7f">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="dc6430eb-cd04-3120-a3da-4a3c27a3814c">
+                      <SHORT-NAME>BCM1_Sc_oB30_for_SC_CAN_V3_2_cf14c4a7_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">BCM1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>4</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/BCM1_Sc_oB30_for_SC_CAN_V3_2_cf14c4a7_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="01538eed-b029-32d7-a0a8-6c768707f16a">
+              <SHORT-NAME>HUT15_Sc_oB30_for_SC_CAN_V3_2_d2d608b6_Tx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">HUT15_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>494</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCProvideTxTruncatedFreshnessValue</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCUseTxConfirmation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAddCANFDContainerPduPadding</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Generate_HUT15</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="8d1a5776-0b37-3156-9908-ef071dd0b183">
+                  <SHORT-NAME>HUT15_oB30_for_SC_CAN_V3_2_d46de065_Tx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">HUT15_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduId</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/HUT15_oB30_for_SC_CAN_V3_2_d46de065_Tx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="2810e0e5-90fc-3d9c-8e74-ca9e736aef82">
+                  <SHORT-NAME>SecOCTxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="83b2510b-f399-3970-9a08-211ea6984cab">
+                      <SHORT-NAME>HUT15_Sc_oB30_for_SC_CAN_V3_2_d2d608b6_Tx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">HUT15_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCPduType</DEFINITION-REF>
+                          <VALUE>SECOC_IFPDU</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/HUT15_Sc_oB30_for_SC_CAN_V3_2_d2d608b6_Tx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="e7669260-4897-3921-a664-98f53feed8a3">
+              <SHORT-NAME>HUT_FD1_Sc_oB30_for_SC_CAN_V3_2_e0e5cc6a_Tx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">HUT_FD1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>707</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCProvideTxTruncatedFreshnessValue</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCUseTxConfirmation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAddCANFDContainerPduPadding</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Generate_HUT_FD1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="155de96a-81de-3779-be0e-b9d0a88a81a7">
+                  <SHORT-NAME>HUT_FD1_oB30_for_SC_CAN_V3_2_612942c0_Tx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">HUT_FD1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduId</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/HUT_FD1_oB30_for_SC_CAN_V3_2_612942c0_Tx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="00dea24f-b8ab-3e5d-a8e6-8e3e323e51a7">
+                  <SHORT-NAME>SecOCTxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="68ba625d-da19-3831-92b3-12a8f23b51d2">
+                      <SHORT-NAME>HUT_FD1_Sc_oB30_for_SC_CAN_V3_2_e0e5cc6a_Tx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">HUT_FD1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCPduType</DEFINITION-REF>
+                          <VALUE>SECOC_IFPDU</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/HUT_FD1_Sc_oB30_for_SC_CAN_V3_2_e0e5cc6a_Tx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="26d7daf6-22e7-3e80-aeb3-1d6e57b40b36">
+              <SHORT-NAME>IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_9b0c0f4a_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">IFC_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>573</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>8</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_IFC_FD2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="27861f3f-6353-36c2-9fac-b576f231ee93">
+                  <SHORT-NAME>IFC_FD2_oB30_for_SC_CAN_V3_2_c695b455_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">IFC_FD2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/IFC_FD2_oB30_for_SC_CAN_V3_2_c695b455_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="8eae92d1-8890-33a9-97ab-e11f81d39a59">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="97b2c479-ad3a-3388-9cc1-6f13c1d0b2e9">
+                      <SHORT-NAME>IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_9b0c0f4a_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">IFC_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>8</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_9b0c0f4a_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="7ee1cb2d-fbb3-3b53-a789-3d4352ab6b03">
+              <SHORT-NAME>AMP2_Sc_oB30_for_SC_CAN_V3_2_b40eb813_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">AMP2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>995</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_AMP2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="5c240b01-4153-3204-b8db-b40dd6375119">
+                  <SHORT-NAME>AMP2_oB30_for_SC_CAN_V3_2_908de48a_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">AMP2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/AMP2_oB30_for_SC_CAN_V3_2_908de48a_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="61c82e91-a272-3e6e-a663-af21839c886a">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="965c5999-e0ef-3ac1-84aa-6ab30138bee6">
+                      <SHORT-NAME>AMP2_Sc_oB30_for_SC_CAN_V3_2_b40eb813_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">AMP2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>3</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/AMP2_Sc_oB30_for_SC_CAN_V3_2_b40eb813_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="499bbfaf-dc85-3a8f-a81f-282c0e6bbb51">
+              <SHORT-NAME>TPMS1_Sc_oB30_for_SC_CAN_V3_2_fd4c9b31_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">TPMS1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>833</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_TPMS1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2e131e9d-1a6d-360a-b3b7-3adf583270cd">
+                  <SHORT-NAME>TPMS1_oB30_for_SC_CAN_V3_2_c5efa96f_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">TPMS1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/TPMS1_oB30_for_SC_CAN_V3_2_c5efa96f_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="fba5905f-c420-3729-ae83-d6502da0d754">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="ed52560d-9969-3f60-8512-d07d7f6024bc">
+                      <SHORT-NAME>TPMS1_Sc_oB30_for_SC_CAN_V3_2_fd4c9b31_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">TPMS1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>10</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/TPMS1_Sc_oB30_for_SC_CAN_V3_2_fd4c9b31_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="22e657b3-af52-3d6c-9144-56d932ce2dbd">
+              <SHORT-NAME>ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_21d026ea_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">ACC_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>683</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_ACC_FD2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="37f515ea-c3bf-3f60-b70b-0528f4680348">
+                  <SHORT-NAME>ACC_FD2_oB30_for_SC_CAN_V3_2_c4f72cb9_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">ACC_FD2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ACC_FD2_oB30_for_SC_CAN_V3_2_c4f72cb9_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="1dcc6c3a-553d-3d11-b151-38cec97fd7e9">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="30830b18-cdd8-3f46-9296-6d8771023b80">
+                      <SHORT-NAME>ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_21d026ea_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">ACC_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_21d026ea_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="65744558-b0cd-3507-a69a-aec9db334e51">
+              <SHORT-NAME>AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_cb95b5fe_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">AEB_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>551</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_AEB_FD2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="18222d6f-6df5-3bab-9fe5-e2b3ff7978c6">
+                  <SHORT-NAME>AEB_FD2_oB30_for_SC_CAN_V3_2_9fb3d7e9_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">AEB_FD2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/AEB_FD2_oB30_for_SC_CAN_V3_2_9fb3d7e9_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="0a566107-4d44-364c-9a89-4a3b5bd25cf2">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="76acfca3-0645-34ac-9ad8-4fc75a1733c0">
+                      <SHORT-NAME>AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_cb95b5fe_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">AEB_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_cb95b5fe_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="4ee0fb94-2538-3473-b4c3-c5689f9b5cec">
+              <SHORT-NAME>BCM3_Sc_oB30_for_SC_CAN_V3_2_5f72e2fa_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">BCM3_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>837</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>5</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_BCM3</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="9c9de121-be32-3a2a-9c1e-9bc37159da1a">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="f1ad0fa1-2e88-3b99-a1ee-5f6fe3202510">
+                      <SHORT-NAME>BCM3_Sc_oB30_for_SC_CAN_V3_2_5f72e2fa_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">BCM3_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>5</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/BCM3_Sc_oB30_for_SC_CAN_V3_2_5f72e2fa_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="b754ed5a-719a-3fb4-b277-5dc9a8b38345">
+                  <SHORT-NAME>BCM3_oB30_for_SC_CAN_V3_2_4a9cd6da_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">BCM3_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/BCM3_oB30_for_SC_CAN_V3_2_4a9cd6da_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="3e8d3ec7-9350-381f-bb30-3b7882a98b63">
+              <SHORT-NAME>IP2_Sc_oB30_for_SC_CAN_V3_2_bf1dcb66_Tx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">IP2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>639</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCProvideTxTruncatedFreshnessValue</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCUseTxConfirmation</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCAddCANFDContainerPduPadding</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Generate_HUT_IP2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="4081b0d2-1333-38e2-a104-50ed310b16c0">
+                  <SHORT-NAME>IP2_oB30_for_SC_CAN_V3_2_24e97840_Tx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">IP2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduId</DEFINITION-REF>
+                      <VALUE>2</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxAuthenticPduLayer/SecOCTxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/IP2_oB30_for_SC_CAN_V3_2_24e97840_Tx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="e6cbdc6c-7e38-3a1b-84e3-690e5ce66888">
+                  <SHORT-NAME>SecOCTxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="fa09a44f-7339-30fe-b9b1-b58472c16c12">
+                      <SHORT-NAME>IP2_Sc_oB30_for_SC_CAN_V3_2_bf1dcb66_Tx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">IP2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCPduType</DEFINITION-REF>
+                          <VALUE>SECOC_IFPDU</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCTxPduProcessing/SecOCTxSecuredPduLayer/SecOCTxSecuredPdu/SecOCTxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/IP2_Sc_oB30_for_SC_CAN_V3_2_bf1dcb66_Tx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="d63490ab-3956-3ee3-a710-fc0436677292">
+              <SHORT-NAME>GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_922ee695_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>88</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>1121</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>40</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>40</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>10</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>7</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_GW_SYNC_REQ</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="384efd10-4f44-3bde-8879-aafd3929e50f">
+                  <SHORT-NAME>GW_Sync_Req_oB30_for_SC_CAN_V3_2_6800966b_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">GW_Sync_Req_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/GW_Sync_Req_oB30_for_SC_CAN_V3_2_6800966b_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="33a5147e-fbc1-360d-868f-31139b80720e">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="2b846a78-1c68-3b15-ab4a-d97f3839ef6d">
+                      <SHORT-NAME>GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_922ee695_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>7</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_922ee695_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="466d9243-2d7e-3fae-8e3f-92b45ec443b5">
+              <SHORT-NAME>ESP_FD2_Sc_oB30_for_SC_CAN_V3_2_49635fc5_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">ESP_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>311</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>6</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_ESP_FD2</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="3219570d-c9dc-3613-8ecb-e38ca5429f54">
+                  <SHORT-NAME>ESP_FD2_oB30_for_SC_CAN_V3_2_c451c518_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">ESP_FD2_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ESP_FD2_oB30_for_SC_CAN_V3_2_c451c518_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="13a60117-c3dd-34d2-95c0-c69e8deaa89b">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="910ec14b-874b-3a98-87a1-26df41dec51d">
+                      <SHORT-NAME>ESP_FD2_Sc_oB30_for_SC_CAN_V3_2_49635fc5_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">ESP_FD2_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>6</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/ESP_FD2_Sc_oB30_for_SC_CAN_V3_2_49635fc5_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="1d03859d-2e4f-3637-baf0-52a1e242d913">
+              <SHORT-NAME>T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2_5339a08e_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>1001</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>13</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_T_Box_FD3</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2fab7907-cf12-315a-9db9-70c047d1a900">
+                  <SHORT-NAME>T_BOX_FD3_oB30_for_SC_CAN_V3_2_910d04fa_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">T_BOX_FD3_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/T_BOX_FD3_oB30_for_SC_CAN_V3_2_910d04fa_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="2ddd4bd9-88ce-352d-ab0d-40f39d3cf633">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="4cf221bb-2d7e-3394-abd2-23ec131fd5ed">
+                      <SHORT-NAME>T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2_5339a08e_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>13</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2_5339a08e_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="90571fd3-3bfe-3789-87df-5b7053301470">
+              <SHORT-NAME>T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2_c35f86d3_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>51</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>12</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_T_Box_FD1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="3ab3f7ff-1848-312a-9dab-80ace4042f23">
+                  <SHORT-NAME>T_BOX_FD1_oB30_for_SC_CAN_V3_2_bf5dcd7a_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">T_BOX_FD1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/T_BOX_FD1_oB30_for_SC_CAN_V3_2_bf5dcd7a_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="98a28c12-9599-3b0b-a66c-9470fc215090">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="88ddc0ec-d9a4-34e9-a5c7-af118ae75b92">
+                      <SHORT-NAME>T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2_c35f86d3_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2_c35f86d3_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="87782fcd-ca9d-3854-a04f-d3f001f168bb">
+              <SHORT-NAME>R_PBOX1_Sc_oB30_for_SC_CAN_V3_2_1bc17110_Rx</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="FOR-ALL">R_PBOX1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+              </LONG-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthInfoTxLength</DEFINITION-REF>
+                  <VALUE>48</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCDataId</DEFINITION-REF>
+                  <VALUE>412</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueLength</DEFINITION-REF>
+                  <VALUE>64</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueTxLength</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationBuildAttempts</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCAuthenticationVerifyAttempts</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCFreshnessValueId</DEFINITION-REF>
+                  <VALUE>9</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCReceptionOverflowStrategy</DEFINITION-REF>
+                  <VALUE>REJECT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCUseAuthDataFreshness</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCVerificationStatusWithSecuredPduPropagationMode</DEFINITION-REF>
+                  <VALUE>BOTH</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCImmediateProcessingOfCsmCallback</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCPduProcessing</DEFINITION-REF>
+                  <VALUE>DEFERRED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthServiceConfigRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Csm/CsmJobs/CsmJob_CMAC_Verify_R_PBox1</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="2fe1efc4-411f-3781-ac3c-610a26bd8c25">
+                  <SHORT-NAME>SecOCRxSecuredPduLayer</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="d4c84cfe-3d0b-3686-a300-a8a49c8f8476">
+                      <SHORT-NAME>R_PBOX1_Sc_oB30_for_SC_CAN_V3_2_1bc17110_Rx</SHORT-NAME>
+                      <LONG-NAME>
+                        <L-4 L="FOR-ALL">R_PBOX1_Sc_oB30_for_SC_CAN_V3_2</L-4>
+                      </LONG-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCSecuredRxPduVerification</DEFINITION-REF>
+                          <VALUE>true</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduId</DEFINITION-REF>
+                          <VALUE>9</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxSecuredPduLayer/SecOCRxSecuredPdu/SecOCRxSecuredLayerPduRef</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/R_PBOX1_Sc_oB30_for_SC_CAN_V3_2_1bc17110_Rx</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="ada131ca-5aad-3913-8abc-08976c99e082">
+                  <SHORT-NAME>R_PBOX1_oB30_for_SC_CAN_V3_2_3929a458_Rx</SHORT-NAME>
+                  <LONG-NAME>
+                    <L-4 L="FOR-ALL">R_PBOX1_oB30_for_SC_CAN_V3_2</L-4>
+                  </LONG-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCPduType</DEFINITION-REF>
+                      <VALUE>SECOC_IFPDU</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/SecOC/SecOCRxPduProcessing/SecOCRxAuthenticPduLayer/SecOCRxAuthenticLayerPduRef</DEFINITION-REF>
+                      <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/EcuC/EcucPduCollection/R_PBOX1_oB30_for_SC_CAN_V3_2_3929a458_Rx</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

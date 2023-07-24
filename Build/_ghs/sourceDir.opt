@@ -1,0 +1,152 @@
+	
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, B03)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, B02)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, P03)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${IPC_COMMON_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, P05)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, A07)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, B16)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, A08)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, ES13)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, EC24)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, D01)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, D02)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, D03)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, P01N)} :sourceDir=${IPC_COMMON_DIR}
+
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, ES24)} :sourceDir=${IPC_COMMON_DIR}
+	
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, P02)} :sourceDir=${IPC_COMMON_DIR}
+    
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${BUILD_DIR}\Device
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${BUILD_DIR}\scripts
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${DAVINCI_DIR}
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${DRIVER_DIR}
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${SWC_DIR}
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${SWC_APP_DIR}
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${APP_DIR}
+	{streq(PROJECT_TYPE, B04)} :sourceDir=${IPC_COMMON_DIR}

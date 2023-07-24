@@ -1,0 +1,11 @@
+#!gbuild
+[Subproject]
+IPC.c
+Ipc_If.c
+Ipc_Monitor.c
+Ipc_Com.c
+Ipc_LoadTest.c
+IPC_STB_If.c
+IPC_STB_Monitor.c
+IPC_STB_Com.c
+IPC_STB_LoadTest.c

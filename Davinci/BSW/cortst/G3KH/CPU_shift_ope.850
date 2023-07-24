@@ -1,0 +1,614 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_shift_ope.850                                            --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Shift instructions                                                        --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_shift_1
+	.GLOBL		_CST_CPU_shift_2
+	.GLOBL		_CST_CPU_shift_3
+	.GLOBL		_CST_CPU_shift_4
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_CYOVSZ
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_shift_1
+--  Function ID     : CST_FN_040
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_shift_1:
+	-- Covers: CST_DD_061
+	-- Covers: CST_DD_206
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_shift_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_283
+	-- Covers: CST_UM_283_01
+	--------------------------------------------------
+	--	SAR reg1, reg2
+	--------------------------------------------------
+	MOV		0x01, R14			--
+	MOV		R29, R6				--
+	SAR		R14, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		EP, R7				--
+	SAR		R14, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	MOV		0x0F, R13			--
+	MOV		R29, R8				--
+	SAR		R13, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R8, R10				--
+
+	MOV		EP, R9				--
+	SAR		R13, R9				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_283
+	-- Covers: CST_UM_283_02
+	--------------------------------------------------
+	--	SAR imm5, reg2
+	--------------------------------------------------
+	MOV		R29, R6				--
+	SAR		0x10, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		EP, R7				--
+	SAR		0x10, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	MOV		R29, R8				--
+	SAR		0x1F, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R8, R10				--
+
+	MOV		EP, R9				--
+	SAR		0x1F, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_283
+	-- Covers: CST_UM_283_03
+	--------------------------------------------------
+	--	SAR reg1, reg2, reg3
+	--------------------------------------------------
+	SAR		R0, R29, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	SAR		R0, EP, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SAR reg1, reg2
+	--------------------------------------------------
+	MOV		0x05, R14			--
+	MOV		R25, R6				--
+	SAR		R14, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		0x0A, R13			--
+	MOV		R26, R7				--
+	SAR		R13, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	SAR imm5, reg2
+	--------------------------------------------------
+	MOV		R25, R6				--
+	SAR		0x05, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		R26, R7				--
+	SAR		0x0A, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	SAR reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x0A, R13			--
+	SAR		R13, R25, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	MOV		0x05, R14			--
+	SAR		R14, R26, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_shift_2
+--  Function ID     : CST_FN_041
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_shift_2:
+	-- Covers: CST_DD_062
+	-- Covers: CST_DD_207
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_shift_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_296
+	-- Covers: CST_UM_296_01
+	--------------------------------------------------
+	--	SHL reg1, reg2
+	--------------------------------------------------
+	MOV		0x01, R11			--
+	MOV		R29, R6				--
+	SHL		R11, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		EP, R7				--
+	SHL		R11, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	MOV		0x0F, R13			--
+	MOV		R29, R8				--
+	SHL		R13, R8				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R8, R10				--
+
+	MOV		EP, R9				--
+	SHL		R13, R9				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_296
+	-- Covers: CST_UM_296_02
+	--------------------------------------------------
+	--	SHL imm5, reg2
+	--------------------------------------------------
+	MOV		R29, R11			--
+	SHL		0x10, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	MOV		EP, R12				--
+	SHL		0x10, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	MOV		R29, R13			--
+	SHL		0x1F, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R13, R10			--
+
+	MOV		EP, R14				--
+	SHL		0x1F, R14			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R14, R10			--
+
+	-- Covers: CST_UM_296
+	-- Covers: CST_UM_296_03
+	--------------------------------------------------
+	--	SHL reg1, reg2, reg3
+	--------------------------------------------------
+	SHL		R0, R29, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	SHL		R0, EP, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SHL reg1, reg2
+	--------------------------------------------------
+	MOV		0x05, R11			--
+	MOV		R25, R6				--
+	SHL		R11, R6				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		0x0A, R13			--
+	MOV		R26, R7				--
+	SHL		R13, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	SHL imm5, reg2
+	--------------------------------------------------
+	MOV		R25, R11			--
+	SHL		0x05, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	MOV		R26, R12				--
+	SHL		0x0A, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	SHL reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x0A, R13			--
+	SHL		R13, R25, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	MOV		0x05, R11			--
+	SHL		R11, R26, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_shift_3
+--  Function ID     : CST_FN_042
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, R6, R7, R10, R11, R12, R13, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_shift_3:
+	-- Covers: CST_DD_063
+	-- Covers: CST_DD_208
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_shift_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_297
+	-- Covers: CST_UM_297_01
+	--------------------------------------------------
+	--	SHR reg1, reg2
+	--------------------------------------------------
+	MOV		0x01, R1			--
+	MOV		R29, R11			--
+	SHR		R1, R11				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	-- Covers: CST_UM_297
+	-- Covers: CST_UM_297_02
+	--------------------------------------------------
+	--	SHR imm5, reg2
+	--------------------------------------------------
+	MOV		EP, R12				--
+	SHR		0x1F, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_297
+	-- Covers: CST_UM_297_03
+	--------------------------------------------------
+	--	SHR reg1, reg2, reg3
+	--------------------------------------------------
+	SHR		R0, R29, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	SHR reg1, reg2
+	--------------------------------------------------
+	MOV		0x05, R6			--
+	MOV		R25, R11			--
+	SHR		R6, R11				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	MOV		0x0A, R7			--
+	MOV		R26, R11			--
+	SHR		R7, R11				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	SHR imm5, reg2
+	--------------------------------------------------
+	MOV		R25, R12			--
+	SHR		0x05, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	MOV		R26, R12			--
+	SHR		0x0A, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	SHR reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x0A, R7			--
+	SHR		R7, R25, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R13, R10			--
+
+	MOV		0x05, R6			--
+	SHR		R6, R26, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R13, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_shift_4
+--  Function ID     : CST_FN_043
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_shift_4:
+	-- Covers: CST_DD_064
+	-- Covers: CST_DD_209
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CPU_shift_set_data, LP	--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_282
+	-- Covers: CST_UM_282_01
+	--------------------------------------------------
+	--	ROTL imm5, reg2, reg3
+	--------------------------------------------------
+	ROTL		0x01, R29, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	ROTL		0x01, EP, R7			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R7, R10				--
+
+	ROTL		0x0F, R29, R8			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R8, R10				--
+
+	ROTL		0x0F, EP, R9			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R9, R10				--
+
+	ROTL		0x10, R29, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	ROTL		0x10, EP, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	ROTL		0x1F, R29, R13			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R13, R10			--
+
+	ROTL		0x1F, EP, R14			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R14, R10			--
+
+	-- Covers: CST_UM_282
+	-- Covers: CST_UM_282_02
+	--------------------------------------------------
+	--	ROTL reg1, reg2, reg3
+	--------------------------------------------------
+	ROTL		R0, R29, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	ROTL		R0, EP, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	ROTL imm5, reg2, reg3
+	--------------------------------------------------
+	ROTL		0x05, R25, R6			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R6, R10				--
+
+	ROTL		0x0A, R26, R14			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	ROTL reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x0A, R6			--
+	ROTL		R6, R25, R11			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R11, R10			--
+
+	MOV		0x05, R7			--
+	ROTL		R7, R26, R12			--cst_point: out=1
+	JARL		f_sub_CST_psw_load_CYOVSZ, LP	--cst_point: flag=CYOVSZ
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_shift_set_data
+--  Function ID     : CST_FN_092
+--  Input           : none
+--  Output          : R29 : Input value 1 for Instruction test
+--                  : EP : Input value 2 for Instruction test
+--  Broken Register : R29, EP
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_shift_set_data:
+	-- Covers: CST_DD_113
+	-- Covers: CST_DD_257
+	MOV		0x55555555, R29			--
+	NOT		R29, EP				--
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_shift_ope.850             =====
+-- ============================================================================

@@ -1,0 +1,10 @@
+#!gbuild
+[Subproject]
+Upgrade.c
+#BehaviorTree\BehaviorTree_Cfg.c
+# BehaviorTree\BehaviorTree.c
+# uds\Uds_BtCfg.c
+uds\Uds.c
+Fcl\Fcl_api.c
+# Fcl\rBuffer.c
+# SysRecKey\SysRecKey.c

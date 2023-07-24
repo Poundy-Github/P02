@@ -1,0 +1,3 @@
+#!gbuild
+[Subproject]
+SRV_OSAL.c

@@ -1,0 +1,52 @@
+###########################################################################
+# AUTOSAR Renesas R4.0 & R4.2 SPI Driver Generation Tool for X1x - 1.0.0
+# Run time      = [04 9月 2020 - 06:37:12]
+#    Command line arguments = C:\Users\GW00188879\AppData\Local\Temp\DaVinci\Cfg-5761450\Generation\Cfg_Gen-1599208913269-0\AutosarFiles_ValGen3763191865339178278\ExtGen_DrvSpi_ECUC_4.2.2_8046980392920154194.arxml
+#	D:\Vector\CBD2000298_D00\ThirdParty\Mcal_Rh850F1x\Supply\ASR_RH850_F1KM_42.05.00\X1X\F1x\modules\spi\generator\R422_SPI_F1x_BSWMDT.arxml
+#
+# (c) 2019 Renesas Electronics Corporation. All rights reserved.
+# All rights reserved
+###########################################################################
+
+INF000001: Tool Version: 1.0.0
+INF000002: Command line arguments: MCALConfGen.exe -m Spi -O  
+           E:\WorkSpace\Git_WorkSpace\3_xCode\20200904\VIP\Davinci\Gen\Appl\GenData  
+           C:\Users\GW00188879\AppData\Local\Temp\DaVinci\Cfg-5761450\Generation\Cfg_Gen-1599208913269-0\AutosarFiles_ValGen3763191865339178278\ExtGen_DrvSpi_ECUC_4.2.2_8046980392920154194.arxml  
+           D:\Vector\CBD2000298_D00\ThirdParty\Mcal_Rh850F1x\Supply\ASR_RH850_F1KM_42.05.00\X1X\F1x\modules\spi\generator\R422_SPI_F1x_BSWMDT.arxml 
+           D:\Vector\CBD2000298_D00\ThirdParty\Mcal_Rh850F1x\Supply\ASR_RH850_F1KM_42.05.00\X1X\F1x\common_family\generator\Sample_Application_F1x.trxml
+INF083001: Calculated SPI baud rate for job 'SpiDriver0/SpiJob1' in 
+           configuration set 'SpiDriver0' is <10000000 Hz>.
+WRN083004: The parameter 'SpiSeqStartNotification' value in the container  
+           'SpiSequence' having ShortName 'SpiSequence' will be ignored,  
+           since the pre-compile parameter  
+           'SpiEnableSeqStartNotification' in the 'SpiGeneral' is  
+           configured as <false>. File name:  
+           C:\Users\GW00188879\AppData\Local\Temp\DaVinci\Cfg-5761450\Generation\Cfg_Gen-1599208913269-0\AutosarFiles_ValGen3763191865339178278\ExtGen_DrvSpi_ECUC_4.2.2_8046980392920154194.arxml 
+           Path: /ActiveEcuC/Spi/SpiDriver0/SpiSequence
+WRN083006: The value of parameter 'SpiDmaMode' in the container SpiGeneral  
+           having ShortName 'SpiGeneral0' is configured as < false > and  
+           the container 'SpiDma' is configured. In this case, the  
+           configuration in 'SpiDma' container is ignored. File  
+           name:C:\Users\GW00188879\AppData\Local\Temp\DaVinci\Cfg-5761450\Generation\Cfg_Gen-1599208913269-0\AutosarFiles_ValGen3763191865339178278\ExtGen_DrvSpi_ECUC_4.2.2_8046980392920154194.arxml 
+           Path: /ActiveEcuC/Spi/SpiGeneral0
+INF083004: The value of SpiClockFrequencyRefImmediateValue parameter in the  
+           container SpiDriver having ShortName 'SpiDriver0' will not be  
+           used since the SpiEnableClkImmediateValue parameter in the  
+           container SpiGeneral is configured as < false >. File name:  
+           C:\Users\GW00188879\AppData\Local\Temp\DaVinci\Cfg-5761450\Generation\Cfg_Gen-1599208913269-0\AutosarFiles_ValGen3763191865339178278\ExtGen_DrvSpi_ECUC_4.2.2_8046980392920154194.arxml 
+           Path: /ActiveEcuC/Spi/SpiDriver0
+INF000004: Opened file  
+           <E:\WorkSpace\Git_WorkSpace\3_xCode\20200904\VIP\Davinci\Gen\Appl\GenData\include\Spi_Cfg.h> 
+           at [04 9月 2020 - 06:37:12].
+INF000004: Opened file  
+           <E:\WorkSpace\Git_WorkSpace\3_xCode\20200904\VIP\Davinci\Gen\Appl\GenData\src\Spi_Lcfg.c> 
+           at [04 9月 2020 - 06:37:12].
+INF000004: Opened file  
+           <E:\WorkSpace\Git_WorkSpace\3_xCode\20200904\VIP\Davinci\Gen\Appl\GenData\src\Spi_PBcfg.c> 
+           at [04 9月 2020 - 06:37:12].
+INF000004: Opened file  
+           <E:\WorkSpace\Git_WorkSpace\3_xCode\20200904\VIP\Davinci\Gen\Appl\GenData\Spi.log> 
+           at [04 9月 2020 - 06:37:12].
+INF000005: <0> Error(s) and <2> Warning(s) detected.
+INF000007: Execution completed successfully with warnings.
+

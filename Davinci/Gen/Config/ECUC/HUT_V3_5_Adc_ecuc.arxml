@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="88315b75-2e55-4e07-8a67-e958b2d4694f">
+          <SHORT-NAME>Adc</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Renesas/EcucDefs_Adc/Adc</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/Renesas/EcucDefs_Adc/Adc_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="1ddcb13c-6435-4fde-b3f0-51579291e110">
+              <SHORT-NAME>AdcPublished0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcPublishedInformation</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcPublishedInformation/AdcChannelValueSigned</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcPublishedInformation/AdcGroupFirstChannelFixed</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcPublishedInformation/AdcMaxChannelResolution</DEFINITION-REF>
+                  <VALUE>12</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcPublishedInformation/AdcDmaTypeUsed</DEFINITION-REF>
+                  <VALUE>ADC_DMA_TYPE_TWO</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="7422ae4c-6c00-4ea3-baa8-09c2e88d1288">
+              <SHORT-NAME>AdcDemEventParameterRefs0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcDemEventParameterRefs</DEFINITION-REF>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="4b3c3e6f-7384-4c5c-9f47-91a22444bb9d">
+              <SHORT-NAME>AdcGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcVersionCheckExternalModules</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDeInitApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDemErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableLimitCheck</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableTrackHold</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableQueuing</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableStartStopGroupApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcGrpNotifCapability</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcHwTriggerApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPriorityImplementation</DEFINITION-REF>
+                  <VALUE>ADC_PRIORITY_NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcReadGroupApi</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcGetStreamLastPointerApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDmaMode</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcCriticalSectionProtection</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcResultAlignment</DEFINITION-REF>
+                  <VALUE>ADC_ALIGN_RIGHT</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDeviceName</DEFINITION-REF>
+                  <VALUE>R7F701651</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcSoftStop</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPwmDiagnosticSupport</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPwmDiagDoubleBuff</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcExternalMuxSupport</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableDisableChSupport</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcAlreadyInitDetCheck</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableBufferAllocation</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcHwUnitVirtualChannel</DEFINITION-REF>
+                  <VALUE>ADC_50_36</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableStreaming</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcFunctionalityMode</DEFINITION-REF>
+                  <VALUE>ADC_POLLING_INTERRUPT_MODE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcFlexibleThreshold</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPwsaQueFullIrqCallback</DEFINITION-REF>
+                  <VALUE>Adc_FullIrqCallback</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableSelfDiag</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcWakeUpFactorClearIsr</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcAdcaWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPwmDiagWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDmacWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcWufWriteVerify</DEFINITION-REF>
+                  <VALUE>WV_DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcAdcaRAMMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcPwmDiagRAMMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcDmacRAMMirror</DEFINITION-REF>
+                  <VALUE>DISABLE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcUseWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcWriteVerifyErrorInterface</DEFINITION-REF>
+                  <VALUE/>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcLoopTimeOut</DEFINITION-REF>
+                  <VALUE>65535</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcEnableClkImmediateValue</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcGeneral/AdcSelfDiagDelayClkSrc</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Mcu/McuModuleConfiguration/McuClockSettingConfig</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="2c395e0a-f348-4b72-8bef-02c80dd81bd7">
+              <SHORT-NAME>AdcConfigSet0</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="88ace9be-16e7-45a2-ae30-354838f46be2">
+                  <SHORT-NAME>AdcHwUnit0</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcClockSource</DEFINITION-REF>
+                      <VALUE>NOT_USED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwUnitId</DEFINITION-REF>
+                      <VALUE>ADC_HWUNIT_0</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcPrescale</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwUnitResolution</DEFINITION-REF>
+                      <VALUE>ADC_12_BIT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcSamplingTime</DEFINITION-REF>
+                      <VALUE>ADC_SAMPLING_12H</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcSuspendMode</DEFINITION-REF>
+                      <VALUE>ADC_SYNCHRONOUS_SUSPEND</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcMaxNoOfDiagRunTime</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcPwmDiagProtLength</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcEnableOverWriteInterrupt</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcEnableLimitCheckInterrupt</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcErrorNotification</DEFINITION-REF>
+                      <VALUE>NULL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="7307bcd2-2eac-45d8-8470-c97e267a63d1">
+                      <SHORT-NAME>AdcHwScanGroup0</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgQueueSize</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgProcessingMode</DEFINITION-REF>
+                          <VALUE>ADC_INTERRUPT_MODE</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgDmaChannel</DEFINITION-REF>
+                          <VALUE>DMA04</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgDmaChannel2</DEFINITION-REF>
+                          <VALUE>DMA05</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="99ece7dc-f299-4904-882b-f1373da27abf">
+                      <SHORT-NAME>AdcGroup0</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupAccessMode</DEFINITION-REF>
+                          <VALUE>ADC_ACCESS_MODE_SINGLE</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupConversionMode</DEFINITION-REF>
+                          <VALUE>ADC_CONV_MODE_ONESHOT</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupId</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcScanGroup</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupPriority</DEFINITION-REF>
+                          <VALUE>13</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupReplacement</DEFINITION-REF>
+                          <VALUE>ADC_GROUP_REPL_ABORT_RESTART</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupTriggSrc</DEFINITION-REF>
+                          <VALUE>ADC_TRIGG_SRC_SW</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigSignal</DEFINITION-REF>
+                          <VALUE>ADC_HW_TRIG_BOTH_EDGES</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigTimer</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcNotification</DEFINITION-REF>
+                          <VALUE>IoHwAb_Adc_Notification_Group0</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingBufferMode</DEFINITION-REF>
+                          <VALUE>ADC_STREAM_BUFFER_CIRCULAR</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingNumSamples</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcResultAccessMode</DEFINITION-REF>
+                          <VALUE>ADC_ISR_ACCESS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcPwmDiagnosticGroup</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcSelfDiagMode</DEFINITION-REF>
+                          <VALUE>ADC_SELF_DIAG_OFF</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcSelfDiagVolLevSel</DEFINITION-REF>
+                          <VALUE>SEL0</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel00_VBATT_VIP_DET_ADC</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel01_VIP_A1VREF_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel02_VIP_VREF_Fuel_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel03_VIP_Fuellevel1_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel04_VIP_Fuellevel2_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel05_VIP_Version_MON1_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel06_VIP_Version_MON2_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel07_VIP_BC_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel08_VIP_ANT1_P_Diag</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel09_VIP_ANT2_P_Diag</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel10_GPSANTpwer_VIP_Adsense</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel11_VIP_TPS7B7701_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel12_VIP_NTC_MON2_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel13_VIP_NTC_MON3_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel14_MICpwr_VIP_Adsense</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit0/AdcChannel15_VIP_NTC_MON1_IAN</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="7169d6d2-8eb6-4348-a856-8ac6ba0f45ce">
+                      <SHORT-NAME>AdcChannel00_VBATT_VIP_DET_ADC</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="a3e004fd-1206-4498-8d87-3afc10ef7bd6">
+                      <SHORT-NAME>AdcChannel01_VIP_A1VREF_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e654a855-74b3-4cdf-8b7f-57539f24305e">
+                      <SHORT-NAME>AdcChannel02_VIP_VREF_Fuel_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="0b991bf6-97d1-4d88-b905-9b5afdd5e8f2">
+                      <SHORT-NAME>AdcChannel03_VIP_Fuellevel1_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>3</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="d1350037-d41e-4664-a6ac-3b991c68251c">
+                      <SHORT-NAME>AdcChannel04_VIP_Fuellevel2_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>4</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="d3db4a65-79f7-4b3a-a26b-1cc75cc24e97">
+                      <SHORT-NAME>AdcChannel05_VIP_Version_MON1_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>5</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="423ccb26-4b3b-4267-a92d-462909785a3c">
+                      <SHORT-NAME>AdcChannel06_VIP_Version_MON2_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>6</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="dda51d84-d8f3-435e-a1b3-45301c16d467">
+                      <SHORT-NAME>AdcChannel07_VIP_BC_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>7</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e185afaf-4788-43ac-9c41-860c137ac931">
+                      <SHORT-NAME>AdcChannel08_VIP_ANT1_P_Diag</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>8</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="2d6f88a4-65e2-43a9-b900-d646e48aca79">
+                      <SHORT-NAME>AdcChannel09_VIP_ANT2_P_Diag</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>9</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="9e86bcfc-12f6-4853-a2f3-0d0dbcd3668c">
+                      <SHORT-NAME>AdcChannel10_GPSANTpwer_VIP_Adsense</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>10</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="893c81af-ed16-4067-b894-74e1f7955184">
+                      <SHORT-NAME>AdcChannel11_VIP_TPS7B7701_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>11</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="c935c9a9-abc2-4a18-bbf5-52845a24450c">
+                      <SHORT-NAME>AdcChannel12_VIP_NTC_MON2_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="358f2fb6-f8b7-49cf-979c-6f568d7fcf38">
+                      <SHORT-NAME>AdcChannel13_VIP_NTC_MON3_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>13</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="7502a258-a75e-44a1-ae18-3f77c456c35b">
+                      <SHORT-NAME>AdcChannel14_MICpwr_VIP_Adsense</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>14</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e32b1436-e4df-4357-8835-2b5bb8d766c1">
+                      <SHORT-NAME>AdcChannel15_VIP_NTC_MON1_IAN</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>15</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE UUID="c0961924-7417-41e7-8d26-e6f90f1dd8e2">
+                  <SHORT-NAME>AdcHwUnit1</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwUnitId</DEFINITION-REF>
+                      <VALUE>ADC_HWUNIT_1</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwUnitResolution</DEFINITION-REF>
+                      <VALUE>ADC_12_BIT</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcSamplingTime</DEFINITION-REF>
+                      <VALUE>ADC_SAMPLING_12H</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcClockSource</DEFINITION-REF>
+                      <VALUE>NOT_USED</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcEnableLimitCheckInterrupt</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcEnableOverWriteInterrupt</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcErrorNotification</DEFINITION-REF>
+                      <VALUE>NULL</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcMaxNoOfDiagRunTime</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcPrescale</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcPwmDiagProtLength</DEFINITION-REF>
+                      <VALUE>0</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-TEXTUAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcSuspendMode</DEFINITION-REF>
+                      <VALUE>ADC_SYNCHRONOUS_SUSPEND</VALUE>
+                    </ECUC-TEXTUAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="13af7c98-c005-4a49-bdba-fcc286b413f4">
+                      <SHORT-NAME>AdcGroup1</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupAccessMode</DEFINITION-REF>
+                          <VALUE>ADC_ACCESS_MODE_SINGLE</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupConversionMode</DEFINITION-REF>
+                          <VALUE>ADC_CONV_MODE_ONESHOT</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupTriggSrc</DEFINITION-REF>
+                          <VALUE>ADC_TRIGG_SRC_SW</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingBufferMode</DEFINITION-REF>
+                          <VALUE>ADC_STREAM_BUFFER_CIRCULAR</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcStreamingNumSamples</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcResultAccessMode</DEFINITION-REF>
+                          <VALUE>ADC_ISR_ACCESS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcScanGroup</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupPriority</DEFINITION-REF>
+                          <VALUE>13</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupReplacement</DEFINITION-REF>
+                          <VALUE>ADC_GROUP_REPL_ABORT_RESTART</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigSignal</DEFINITION-REF>
+                          <VALUE>ADC_HW_TRIG_BOTH_EDGES</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcHwTrigTimer</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcPwmDiagnosticGroup</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcSelfDiagMode</DEFINITION-REF>
+                          <VALUE>ADC_SELF_DIAG_OFF</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcSelfDiagVolLevSel</DEFINITION-REF>
+                          <VALUE>SEL0</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcNotification</DEFINITION-REF>
+                          <VALUE>IoHwAb_Adc_Notification_Group1</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                      <REFERENCE-VALUES>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit1/AdcChannel00_MIC_VIP_SENS1</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit1/AdcChannel01_MIC_VIP_SENS2</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit1/AdcChannel02_MIC_VIP_SENS1_N</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                        <ECUC-REFERENCE-VALUE>
+                          <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcGroup/AdcGroupDefinition</DEFINITION-REF>
+                          <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/Adc/AdcConfigSet0/AdcHwUnit1/AdcChannel03_MIC_VIP_SENS2_N</VALUE-REF>
+                        </ECUC-REFERENCE-VALUE>
+                      </REFERENCE-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="11656707-331e-4c22-967c-5f723c4b35d6">
+                      <SHORT-NAME>AdcHwScanGroup1</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgProcessingMode</DEFINITION-REF>
+                          <VALUE>ADC_INTERRUPT_MODE</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgDmaChannel</DEFINITION-REF>
+                          <VALUE>DMA00</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgDmaChannel2</DEFINITION-REF>
+                          <VALUE>DMA00</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcHwScanGroup/AdcSgQueueSize</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="3cb78c97-68fa-4bea-ae2a-423190d2caad">
+                      <SHORT-NAME>AdcChannel00_MIC_VIP_SENS1</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="1d7de56b-c39d-4245-b2f2-6853a836c0a4">
+                      <SHORT-NAME>AdcChannel01_MIC_VIP_SENS2</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>1</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="3e68f029-9cff-4ab9-ac24-68be5297cee2">
+                      <SHORT-NAME>AdcChannel02_MIC_VIP_SENS1_N</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                    <ECUC-CONTAINER-VALUE UUID="e5c2ad4a-88c0-4768-9100-53aebf7581eb">
+                      <SHORT-NAME>AdcChannel03_MIC_VIP_SENS2_N</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelId</DEFINITION-REF>
+                          <VALUE>3</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelConvTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelHighLimit</DEFINITION-REF>
+                          <VALUE>4095</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLimitCheck</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcEnablePullDown</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelectDiagCh</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcSelfDiagChSel</DEFINITION-REF>
+                          <VALUE>false</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelLowLimit</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRangeSelect</DEFINITION-REF>
+                          <VALUE>ADC_RANGE_ALWAYS</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcHigh</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelRefVoltsrcLow</DEFINITION-REF>
+                          <VALUE>NOT_USED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelResolution</DEFINITION-REF>
+                          <VALUE>12</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelSampTime</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-TEXTUAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcChannelTrackHold</DEFINITION-REF>
+                          <VALUE>ADC_TH_DISABLED</VALUE>
+                        </ECUC-TEXTUAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Renesas/EcucDefs_Adc/Adc/AdcConfigSet/AdcHwUnit/AdcChannel/AdcExtMuxDelayCounter</DEFINITION-REF>
+                          <VALUE>0</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

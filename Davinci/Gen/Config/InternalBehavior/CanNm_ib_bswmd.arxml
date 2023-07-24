@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="f08dba86-dea1-4578-b3c5-7afff8e5298c">
+          <SHORT-NAME>CanNm_Impl</SHORT-NAME>
+          <MC-SUPPORT/>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>10.00.00</SW-VERSION>
+          <USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+          <VENDOR-ID>30</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+        </BSW-IMPLEMENTATION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="8c600621-d5b5-4a32-91fb-6971cac394ca">
+          <SHORT-NAME>CanNm_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="74759691-b392-4a34-9f02-b8a6ee83f60c">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="44db28ff-9be5-4576-bd14-03bde241e702">
+                  <SHORT-NAME>CanNm</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanNm_ib_bswmd/BswModuleDescriptions/CanNm_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="223e5895-f100-4be0-b5b9-c6102a44ed07">
+                      <SHORT-NAME>CanNmBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="44f93623-d709-4683-b2bb-187cf8041045">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_0</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption by any interrupt allowed (i.e. global interrupt locks).</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="8423e8d6-38bf-44c3-bd68-b74de7e623fc">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_1</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_MainFunction or CanNm_RequestBusSynchronization by CanNm_SetUserData or CanNm_SetSleepReadyBit allowed.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="a01f4418-5816-4c26-a4c5-d18103894a41">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_2</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_SetUserData by CanNm_MainFunction or CanNm_RequestBusSynchronization allowed.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="b2248768-5036-45b4-b3e1-a9828e9029f3">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_3</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_SetSleepReadyBit by CanNm_MainFunction or CanNm_RequestBusSynchronization allowed.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="70bd0f53-7061-4eb7-851c-e123aa8324f0">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_4</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_RxIndication by CanNm_GetUserData or CanNm_GetPduData allowed.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="fbd27fa2-9ec2-44de-8ed3-c9502d0196dd">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_5</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_GetUserData or CanNm_GetPduData by CanNm_RxIndication allowed.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="a742ef87-7fd2-467f-b7b8-d76e70d48432">
+                          <SHORT-NAME>CANNM_EXCLUSIVE_AREA_6</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">No interruption of CanNm_MainFunction by CanNm_RequestBusSynchronization allowed. Note: This critical section can be left empty when CanNm_MainFunction and Nm_MainFunction have the same task.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="d2fb19f9-c1a2-4c33-abf6-c914dd07145d">
+                          <SHORT-NAME>CanNm_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanNm_ib_bswmd/BswModuleDescriptions/CanNm_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="06bc399c-e863-4713-90d1-bd75cbf6b77f">
+                          <SHORT-NAME>CanNm_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/CanNm_ib_bswmd/BswModuleDescriptions/CanNm/CanNmBehavior/CanNm_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="318c8438-1a41-4a1c-8aa7-74d5d04972f6">
+                  <SHORT-NAME>CanNm_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="dd16451e-b888-4b2e-a658-5cc659798931">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

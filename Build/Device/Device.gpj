@@ -1,0 +1,10 @@
+#!gbuild
+[Subproject]
+
+
+#dr7f701651.dvf.h
+#dr7f701651_irq.dvf.h
+dr7f701651_startup.850
+#main.c
+#FreeRTOS_hook.c
+Preinitialize.c

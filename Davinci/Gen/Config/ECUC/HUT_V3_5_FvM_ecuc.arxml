@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="1DDC2620-9464-427E-A400-E171171D291E">
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="5ec27282-b7b4-4a39-8487-44529b578249">
+          <SHORT-NAME>FvM</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/MICROSAR/FvM</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/MICROSAR/FvM_Impl</MODULE-DESCRIPTION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="cf814961-d3f2-4db0-9b4f-8f0bcb0c7d61">
+              <SHORT-NAME>FvMGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneral/FvMDevErrorDetect</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneral/FvMVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneral/FvMSafeBswChecks</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/FvM/FvMGeneral/FvMStartUpAcceptanceTime</DEFINITION-REF>
+                  <VALUE>0.1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-FLOAT-PARAM-DEF">/MICROSAR/FvM/FvMGeneral/FvMMainFunctionPeriod</DEFINITION-REF>
+                  <VALUE>0.1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="43f4dcf8-2a51-4b24-9d29-3c189794f14d">
+              <SHORT-NAME>FvMGeneration</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMGeneration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMOutOfBoundsWriteProtectionStrategy</DEFINITION-REF>
+                  <VALUE>NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMOutOfBoundsWriteSanitizer</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMOutOfBoundsReadSanitizer</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMShortSymbols</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMInterfacesForDeactivatedData</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMGeneration/FvMReferringKeysInComments</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="e45aeac5-d420-4066-9bc6-021330ddbebf">
+              <SHORT-NAME>FvMJasparGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMJasparGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMTripCounterBitSize</DEFINITION-REF>
+                  <VALUE>24</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMResetCounterBitSize</DEFINITION-REF>
+                  <VALUE>16</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMClearAcceptanceWindow</DEFINITION-REF>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMTxUseDefaultFreshnessValueDuringStartUp</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMEnableDevelopmentMode</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMUseDefaultValuesIfOutOfSyncAfterStartUpTime</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMReturnValueForSameTripResetCounterSyncMessage</DEFINITION-REF>
+                  <VALUE>E_OK</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-SYMBOLIC-NAME-REFERENCE-DEF">/MICROSAR/FvM/FvMJasparGeneral/FvMTripCounterNvMBlockDescriptor</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/NvM/NvMBlockDescriptor_Fvm_TripCount</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="6c0190f5-7338-480c-893c-e7f35da3f4b1">
+              <SHORT-NAME>FreshnessValueProcessing_HUT_FD1_Sc_oB30_for_SC_CAN_V3_2_e0e5cc6a_Tx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/HUT_FD1_Sc_oB30_for_SC_CAN_V3_2_e0e5cc6a_Tx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="0bb4eda4-4c8e-4274-b5a9-5808fab3e6b0">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="88736386-f738-468b-80f1-a77c556e413b">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="70266230-bf8e-4e68-9fab-4387ede8816a">
+              <SHORT-NAME>FreshnessValueProcessing_HUT15_Sc_oB30_for_SC_CAN_V3_2_d2d608b6_Tx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/HUT15_Sc_oB30_for_SC_CAN_V3_2_d2d608b6_Tx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="ef7396d4-a8e4-43ae-88ee-7c7dea77b6d8">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="1edf2c4c-e119-4391-a282-cd14295d941a">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="f206ec22-bada-4074-9328-ac050aeb5eae">
+              <SHORT-NAME>FreshnessValueProcessing_TPMS2_Sc_oB30_for_SC_CAN_V3_2_c8a12d62_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/TPMS2_Sc_oB30_for_SC_CAN_V3_2_c8a12d62_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="50ee1225-a3e9-47b9-9832-5a79419e632c">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="3b5fb248-19b2-41e1-ba62-72c97b4e3fe7">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="10a49cd7-6ead-423a-81c5-497d9c43f0fc">
+              <SHORT-NAME>FreshnessValueProcessing_TPMS1_Sc_oB30_for_SC_CAN_V3_2_fd4c9b31_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/TPMS1_Sc_oB30_for_SC_CAN_V3_2_fd4c9b31_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="7182b57e-54ce-4167-971f-44c3fba946cb">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="0868716e-f623-405e-8ea6-efbd1a05f65e">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="68030593-afb8-433c-967b-30f2736ad8ea">
+              <SHORT-NAME>FreshnessValueProcessing_R_PBox1_Sc_oB30_for_SC_CAN_V3_2_28fd970b_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/R_PBOX1_Sc_oB30_for_SC_CAN_V3_2_1bc17110_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="231fac45-22c6-43c2-982b-ecb4bfe9a011">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="4ac45da6-b085-4fbc-b60e-18736310b641">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="576f28aa-1cfc-4367-a8e8-1be108930d95">
+              <SHORT-NAME>FreshnessValueProcessing_IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_9b0c0f4a_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_9b0c0f4a_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="505062a2-d6f6-4066-980f-8b8960311b0f">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="2abddb8d-5b39-4f03-bee1-90654c4ba51d">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="61bc108c-4a56-40d3-a951-5749c0d89179">
+              <SHORT-NAME>FreshnessValueProcessing_GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_922ee695_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_922ee695_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="1552efcd-629f-4f5d-bb9f-faf1e82993a1">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="e4629fa6-61e7-4792-97d3-35270eb58e41">
+                      <SHORT-NAME>FvMSyncMessage</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMSyncMessage</DEFINITION-REF>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="112110b6-bae3-49d4-9d30-e591eb7e2d0a">
+              <SHORT-NAME>FreshnessValueProcessing_BCM3_Sc_oB30_for_SC_CAN_V3_2_5f72e2fa_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/BCM3_Sc_oB30_for_SC_CAN_V3_2_5f72e2fa_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="a9fd7202-87e7-4103-b716-443fe2c3f217">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="31f503b7-ec98-4129-a878-7e6639f5c900">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="ef33abe4-aef1-4e8e-9646-d6f2cbc719bc">
+              <SHORT-NAME>FreshnessValueProcessing_BCM1_Sc_oB30_for_SC_CAN_V3_2_cf14c4a7_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/BCM1_Sc_oB30_for_SC_CAN_V3_2_cf14c4a7_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="827449ec-dc0a-4f01-9acf-6deac5f43122">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="7e0f36fa-5af4-4552-97e8-896e58c16c1f">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="8863eb01-28bb-4aa1-90bc-418374698515">
+              <SHORT-NAME>FreshnessValueProcessing_AMP2_Sc_oB30_for_SC_CAN_V3_2_b40eb813_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/AMP2_Sc_oB30_for_SC_CAN_V3_2_b40eb813_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="c460ff4d-4bf7-42c6-8425-4466704f5531">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="97638033-a67e-40ca-9b3b-09e7e78902a3">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="aa2775c0-a90e-462d-94c1-e113d5eb619e">
+              <SHORT-NAME>FreshnessValueProcessing_AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_cb95b5fe_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_cb95b5fe_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="6c6b78e1-8513-42a3-a154-a88cf838e327">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="30b41b66-7fa7-4ffc-8c83-e00e85998149">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="68cebe5c-b3c1-4d70-9832-38ba76969a61">
+              <SHORT-NAME>FreshnessValueProcessing_ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_21d026ea_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_21d026ea_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="0039e996-2025-40ad-8207-2fb670734bf9">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="56c3cbe2-0cdf-4ae6-9892-fd7ca2c394fa">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="7e5758d5-0d3f-462c-a892-512b669e91a2">
+              <SHORT-NAME>FreshnessValueProcessing_ABM1_Sc_oB30_for_SC_CAN_V3_2_a346d8c1_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/ABM1_Sc_oB30_for_SC_CAN_V3_2_a346d8c1_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="30abdfd6-198f-4468-9ebc-40bcbc434363">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="e1311b87-0cda-42d8-a553-4ee582fdb844">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="53e2cd65-b533-492b-9b56-6db2ec26fb0d">
+              <SHORT-NAME>FreshnessValueProcessing_IP2_Sc_oB30_for_SC_CAN_V3_2_bf1dcb66_Tx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/IP2_Sc_oB30_for_SC_CAN_V3_2_bf1dcb66_Tx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="d96618c9-5b14-4432-8abd-f8c4806749d3">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="7fda5db8-f559-4e99-a629-834be3a7233d">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueTxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="e04cc3b2-57a0-4f34-8b83-5b223213f8bb">
+              <SHORT-NAME>FreshnessValueProcessing_ESP_FD2_Sc_oB30_for_SC_CAN_V3_2_49635fc5_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/ESP_FD2_Sc_oB30_for_SC_CAN_V3_2_49635fc5_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="c5d30319-0c30-469c-9e07-bf8e885c0600">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="b3610ccf-f8ef-4860-8227-a28c23a49969">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="2d0e3fba-ae27-4654-97dd-fcab0b269ee9">
+              <SHORT-NAME>FreshnessValueProcessing_T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2_c35f86d3_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/T_BOX_FD1_Sc_oB30_for_SC_CAN_V3_2_c35f86d3_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="94d09ef0-ccac-440e-8386-ebecff3e82c2">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="6c4f89e2-9974-4f45-b122-26a5003ebf99">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="e2e60cf2-c657-40d5-ad54-a2b189aaf969">
+              <SHORT-NAME>FreshnessValueProcessing_T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2_5339a08e_Rx</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST="ECUC-REFERENCE-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMProcessingRef</DEFINITION-REF>
+                  <VALUE-REF DEST="ECUC-CONTAINER-VALUE">/ActiveEcuC/SecOC/T_BOX_FD3_Sc_oB30_for_SC_CAN_V3_2_5339a08e_Rx</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE UUID="520c9884-c349-4b80-81fa-7ea53b4e5902">
+                  <SHORT-NAME>FvMFreshnessValueUseCase</SHORT-NAME>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase</DEFINITION-REF>
+                  <SUB-CONTAINERS>
+                    <ECUC-CONTAINER-VALUE UUID="44aeb50b-5141-4228-ada2-01259e7e1fe5">
+                      <SHORT-NAME>FvMJasparAttributes</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes</DEFINITION-REF>
+                      <PARAMETER-VALUES>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMMessageCounterBitSize</DEFINITION-REF>
+                          <ANNOTATIONS>
+                            <ANNOTATION>
+                              <ANNOTATION-ORIGIN>DV:UserDefined</ANNOTATION-ORIGIN>
+                            </ANNOTATION>
+                          </ANNOTATIONS>
+                          <VALUE>22</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                        <ECUC-NUMERICAL-PARAM-VALUE>
+                          <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/MICROSAR/FvM/FvMFreshnessValueRxProcessing/FvMFreshnessValueUseCase/FvMJasparAttributes/FvMResetFlagBitSize</DEFINITION-REF>
+                          <VALUE>2</VALUE>
+                        </ECUC-NUMERICAL-PARAM-VALUE>
+                      </PARAMETER-VALUES>
+                    </ECUC-CONTAINER-VALUE>
+                  </SUB-CONTAINERS>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

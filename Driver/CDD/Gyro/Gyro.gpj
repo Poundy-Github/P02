@@ -1,0 +1,7 @@
+#!gbuild
+[Subproject]
+Gyro.c
+Gyro.h
+Gyro_asm330.c
+Gyro_asm330.h
+Gyro_asm330reg.h

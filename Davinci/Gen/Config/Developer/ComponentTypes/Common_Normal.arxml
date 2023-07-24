@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="0F80BDF9-E3E2-42E7-B3B7-55DA0E62DDA6">
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE UUID="0EC2E0AB-94E4-4F69-917C-B23E1438E3D0">
+          <SHORT-NAME>Commom_Normal</SHORT-NAME>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR UUID="0D9010F9-FD31-4E2F-A19D-DA6C27C06718">
+              <SHORT-NAME>Commom_Normal_InternalBehavior</SHORT-NAME>
+              <EVENTS>
+                <TIMING-EVENT UUID="8437915E-AB51-47E0-836C-58AB513BCFF2">
+                  <SHORT-NAME>TMT_Common_Normal_MainFunction</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_MainFunction_5</START-ON-EVENT-REF>
+                  <PERIOD>0.005</PERIOD>
+                </TIMING-EVENT>
+                <INIT-EVENT UUID="67E399DF-3DD5-4330-8737-2FE43C9F2732">
+                  <SHORT-NAME>Common_Normal_InitEvent</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_Init</START-ON-EVENT-REF>
+                </INIT-EVENT>
+                <TIMING-EVENT UUID="5167D062-C52B-4E8A-9743-492C189FEE5D">
+                  <SHORT-NAME>TMT_Commom_Normal_MainFunction_10</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_MainFunction_10</START-ON-EVENT-REF>
+                  <PERIOD>0.01</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="FE903D3A-F2F3-48BD-8B9B-622F31E0D48B">
+                  <SHORT-NAME>TMT_Commom_Normal_MainFunction_20</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_MainFunction_20</START-ON-EVENT-REF>
+                  <PERIOD>0.02</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="BE4DE99C-8FBA-43C9-A64C-4F4D62D5969C">
+                  <SHORT-NAME>TMT_Commom_Normal_MainFunction_50</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_MainFunction_50</START-ON-EVENT-REF>
+                  <PERIOD>0.05</PERIOD>
+                </TIMING-EVENT>
+                <TIMING-EVENT UUID="ACFE2BFD-3C13-4A89-AA1E-8B02F7DEC958">
+                  <SHORT-NAME>TMT_Commom_Normal_MainFunction_100</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior/Commom_Normal_MainFunction_100</START-ON-EVENT-REF>
+                  <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY UUID="7678C7D6-AD3F-4E46-8440-B897EA21A5DE">
+                  <SHORT-NAME>Commom_Normal_MainFunction_5</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="158F7857-39F8-40F5-A9DF-DDF366535C12">
+                  <SHORT-NAME>Commom_Normal_Init</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="edve:RunnableKind">
+                        <SD>InitRunnable</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="5D0B46B0-EBAC-4EDA-9363-31A00C7AED2E">
+                  <SHORT-NAME>Commom_Normal_MainFunction_10</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="B136EFEB-01C1-450B-B1C2-0F239C0809A1">
+                  <SHORT-NAME>Commom_Normal_MainFunction_20</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="1954F840-DBBA-4B33-8989-D74E7CD98B2D">
+                  <SHORT-NAME>Commom_Normal_MainFunction_50</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY UUID="113BCED8-AD81-4EE9-A494-A7CEA5E22DD2">
+                  <SHORT-NAME>Commom_Normal_MainFunction_100</SHORT-NAME>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION UUID="9A9D15F3-BFE7-4AC5-A281-CD2590051966">
+          <SHORT-NAME>Commom_Normal_Implementation</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/Commom_Normal/Commom_Normal_InternalBehavior</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

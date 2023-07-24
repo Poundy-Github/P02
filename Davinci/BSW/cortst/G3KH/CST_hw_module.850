@@ -1,0 +1,1346 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CST_hw_module.850                                            --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Hardware module Test                                                      --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+-------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_ipu_1
+	.GLOBL		_CST_CPU_lsu_1
+	.GLOBL		_CST_CPU_lsu_2
+	.GLOBL		_CST_CPU_ifu_1
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_ipu_1
+--  Function ID     : CST_FN_022
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R11, R12, R13, R14, (LP)
+--------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_ipu_1:
+	-- Covers: CST_DD_041
+	-- Covers: CST_DD_186
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Instruction Packing Test
+	--------------------------------------------------
+	-- I0Std_I x I1Std_I
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	AND		R11, R12			--cst_point: out=1
+	OR		R13, R14			--cst_point: out=1
+	ADD		R12, R10			--
+	ADD		R14, R10			--
+	-- I0Std_I x I1Std_R
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	AND		R11, R12			--cst_point: out=1
+	SHR		0x02, R13			--cst_point: out=1
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	-- I0Std_I x I1Std_L
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	AND		R11, R12			--cst_point: out=1
+	MUL		0x0AA, R13, R14			--cst_point: out=2
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	-- I0Std_R x I1Std_I
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	SXB		R11				--cst_point: out=1
+	OR		R13, R14			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R14, R10			--
+	-- I0Std_R x I1Std_R
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	SXB		R11				--cst_point: out=1
+	SHR		0x02, R13			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R13, R10			--
+	-- I0Std_R x I1Std_L
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	SXB		R11				--cst_point: out=1
+	MUL		0x0AA, R13, R14			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	-- I0Std_L x I1Std_I
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	MULH		0x0A, R11			--cst_point: out=1
+	OR		R13, R14			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R14, R10			--
+	-- I0Std_L x I1Std_R
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	MULH		0x0A, R11			--cst_point: out=1
+	SHR		0x02, R13			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R13, R10			--
+	-- I0Std_L x I1Std_L
+	JARL		f_sub_CPU_ipu_set_data, LP	--
+	SYNCP						--
+	MULH		0x0A, R11			--cst_point: out=1
+	MUL		0x0AA, R13, R14			--cst_point: out=2
+	ADD		R11, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_ipu_set_data
+--  Function ID     : CST_FN_162
+--  Input           : none
+--  Output          : R11 : data1
+--                  : R12 : data2
+--                  : R13 : data3
+--                  : R14 : data4
+--  Broken Register : none
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_ipu_set_data:
+	-- Covers: CST_DD_108
+	-- Covers: CST_DD_252
+	MOV		0x77777777, R11			--
+	MOV		0xEEEEEEEE, R12			--
+	MOV		0xAAAAAAAA, R13			--
+	MOV		0x55555555, R14			--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_lsu_1
+--  Function ID     : CST_FN_156
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, R27, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_lsu_1:
+	-- Covers: CST_DD_017
+	-- Covers: CST_DD_048
+	-- Covers: CST_DD_193
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	elsSBuf4entry/elsNBBuf4entry part1
+	--------------------------------------------------
+	MOV		0x02, R1			-- loop counter
+	MOV		CST_RAM_ADDRESS_A, R6		-- NBBufer(GRAM/VCI)
+	MOV		CST_RAM_ADDRESS_B, R29		--
+
+    CPU_lsu_1_001:
+	MOVEA		0x0004, R6, R7			--
+	MOVEA		0x0008, R6, R8			--
+	MOVEA		0x000C, R6, R9			--
+
+	MOV		0x12345678, R11			--
+	MOV		0x55555555, R12			--
+	MOV		0xAAAAAAAA, R13			--
+	MOV		0xFFFFFFFF, R14			--
+
+	-- (DI start)
+#if CST_INT_EN
+	STSR		PSW, R26, 0			--
+	MOV		0xFFFFFFDF, R25			--
+	OR		R26, R25			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R26, 0			--
+	AND		R25, R26			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R26, 0			--
+-- CST_INT_EN
+#endif
+
+	-- ST.W / LD.W
+	ST.W		R11, 0x0000[R6]			--
+	ST.W		R12, 0x0004[R6]			--
+	ST.W		R13, 0x0008[R6]			--
+	ST.W		R14, 0x000C[R6]			--
+	ST.W		R11, 0x0000[R29]		--
+	ST.W		R12, 0x0004[R29]		--
+	ST.W		R13, 0x0008[R29]		--
+	ST.W		R14, 0x000C[R29]		--
+	LDL.W		[R6], R11			--cst_point: out=1
+	LDL.W		[R7], R12			--cst_point: out=1
+	LDL.W		[R8], R13			--cst_point: out=1
+	LDL.W		[R9], R14			--cst_point: out=1
+	CLL						--
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	-- (DI end)
+	LDSR		R26, PSW, 0			--
+
+	LD.W		0x0000[R6], R11			--cst_point: out=1
+	LD.W		0x0004[R6], R12			--cst_point: out=1
+	LD.W		0x0008[R6], R13			--cst_point: out=1
+	LD.W		0x000C[R6], R14			--cst_point: out=1
+	LD.W		0x0000[R29], R25		--cst_point: out=1
+	LD.W		0x0004[R29], R26		--cst_point: out=1
+	LD.W		0x0008[R29], R27		--cst_point: out=1
+	LD.W		0x000C[R29], R28		--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	-- SST.W / SLD.W
+	MOV		R6, EP				--
+	SST.W		R11, 0x00[EP]			--
+	SST.W		R12, 0x04[EP]			--
+	SST.W		R13, 0x08[EP]			--
+	SST.W		R14, 0x0C[EP]			--
+	MOV		R29, EP				--
+	SST.W		R11, 0x00[EP]			--
+	SST.W		R12, 0x04[EP]			--
+	SST.W		R13, 0x08[EP]			--
+	SST.W		R14, 0x0C[EP]			--
+	MOV		R6, EP				--
+	SLD.W		0x00[EP], R11			--cst_point: out=1
+	SLD.W		0x04[EP], R12			--cst_point: out=1
+	SLD.W		0x08[EP], R13			--cst_point: out=1
+	SLD.W		0x0C[EP], R14			--cst_point: out=1
+	MOV		R29, EP				--
+	SLD.W		0x00[EP], R25			--cst_point: out=1
+	SLD.W		0x04[EP], R26			--cst_point: out=1
+	SLD.W		0x08[EP], R27			--cst_point: out=1
+	SLD.W		0x0C[EP], R28			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	-- ST.H / LD.H
+	ST.H		R11, 0x0000[R6]			--
+	ST.H		R12, 0x0004[R6]			--
+	ST.H		R13, 0x0008[R6]			--
+	ST.H		R14, 0x000C[R6]			--
+	ST.H		R11, 0x0000[R29]		--
+	ST.H		R12, 0x0004[R29]		--
+	ST.H		R13, 0x0008[R29]		--
+	ST.H		R14, 0x000C[R29]		--
+	LD.H		0x0000[R6], R11			--cst_point: out=1
+	LD.H		0x0004[R6], R12			--cst_point: out=1
+	LD.H		0x0008[R6], R13			--cst_point: out=1
+	LD.H		0x000C[R6], R14			--cst_point: out=1
+	LD.H		0x0000[R29], R25		--cst_point: out=1
+	LD.H		0x0004[R29], R26		--cst_point: out=1
+	LD.H		0x0008[R29], R27		--cst_point: out=1
+	LD.H		0x000C[R29], R28		--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	-- SST.H / SLD.HU / SLD.H
+	MOV		R6, EP				--
+	SST.H		R11, 0x00[EP]			--
+	SST.H		R12, 0x04[EP]			--
+	SST.H		R13, 0x08[EP]			--
+	SST.H		R14, 0x0C[EP]			--
+	MOV		R29, EP				--
+	SST.H		R11, 0x00[EP]			--
+	SST.H		R12, 0x04[EP]			--
+	SST.H		R13, 0x08[EP]			--
+	SST.H		R14, 0x0C[EP]			--
+	MOV		R6, EP				--
+	SLD.HU		0x00[EP], R11			--cst_point: out=1
+	SLD.HU		0x04[EP], R12			--cst_point: out=1
+	SLD.HU		0x08[EP], R13			--cst_point: out=1
+	SLD.HU		0x0C[EP], R14			--cst_point: out=1
+	MOV		R29, EP				--
+	SLD.H		0x00[EP], R25			--cst_point: out=1
+	SLD.H		0x04[EP], R26			--cst_point: out=1
+	SLD.H		0x08[EP], R27			--cst_point: out=1
+	SLD.H		0x0C[EP], R28			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	-- ST.B / LD.B
+	ST.B		R11, 0x0000[R6]			--
+	ST.B		R12, 0x0004[R6]			--
+	ST.B		R13, 0x0008[R6]			--
+	ST.B		R14, 0x000C[R6]			--
+	ST.B		R11, 0x0000[R29]		--
+	ST.B		R12, 0x0004[R29]		--
+	ST.B		R13, 0x0008[R29]		--
+	ST.B		R14, 0x000C[R29]		--
+	SET1		R11, [R6]			--
+	SET1		R12, [R7]			--
+	SET1		R13, [R8]			--
+	SET1		R14, [R9]			--
+	CLR1		R11, [R6]			--
+	CLR1		R12, [R7]			--
+	CLR1		R13, [R8]			--
+	CLR1		R14, [R9]			--
+	NOT1		R11, [R6]			--
+	NOT1		R12, [R7]			--
+	NOT1		R13, [R8]			--
+	NOT1		R14, [R9]			--
+	LD.B		0x0000[R6], R11			--cst_point: out=1
+	LD.B		0x0004[R6], R12			--cst_point: out=1
+	LD.B		0x0008[R6], R13			--cst_point: out=1
+	LD.B		0x000C[R6], R14			--cst_point: out=1
+	LD.B		0x0000[R29], R25		--cst_point: out=1
+	LD.B		0x0004[R29], R26		--cst_point: out=1
+	LD.B		0x0008[R29], R27		--cst_point: out=1
+	LD.B		0x000C[R29], R28		--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	-- SST.B / SLD.BU / SLD.B
+	MOV		R6, EP				--
+	SST.B		R11, 0x00[EP]			--
+	SST.B		R12, 0x04[EP]			--
+	SST.B		R13, 0x08[EP]			--
+	SST.B		R14, 0x0C[EP]			--
+	MOV		R29, EP				--
+	SST.B		R11, 0x00[EP]			--
+	SST.B		R12, 0x04[EP]			--
+	SST.B		R13, 0x08[EP]			--
+	SST.B		R14, 0x0C[EP]			--
+	MOV		R6, EP				--
+	SLD.BU		0x00[EP], R11			--cst_point: out=1
+	SLD.BU		0x04[EP], R12			--cst_point: out=1
+	SLD.BU		0x08[EP], R13			--cst_point: out=1
+	SLD.BU		0x0C[EP], R14			--cst_point: out=1
+	MOV		R29, EP				--
+	SLD.B		0x00[EP], R25			--cst_point: out=1
+	SLD.B		0x04[EP], R26			--cst_point: out=1
+	SLD.B		0x08[EP], R27			--cst_point: out=1
+	SLD.B		0x0C[EP], R28			--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	MOV		CST_RAM_ADDRESS_L, R6		-- Store Buffer(TCM)
+	MOVEA		0x0010, R6, R29			--
+	LOOP		R1, CPU_lsu_1_001		--
+
+	--------------------------------------------------
+	--	elsSBuf4entry/elsNBBuf4entry part2
+	--------------------------------------------------
+	MOV		0xFFFFFFFF, R8			--
+	MOV		0x00, R9			--
+	JARL		f_sub_CPU_lsu_test_prog_1, LP	--
+	MOV		0x00, R8			--
+	MOV		0xFFFFFFFF, R9			--
+	JARL		f_sub_CPU_lsu_test_prog_1, LP	--
+	MOV		0x5A5A5A5A, R8			--
+	MOV		0xA5A5A5A5, R9			--
+	JARL		f_sub_CPU_lsu_test_prog_1, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_lsu_test_prog_1
+--  Function ID     : CST_FN_161
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R6, R8, R9, R10, R11, R12, R13, R14, (R25, R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_lsu_test_prog_1:
+	-- Covers: CST_DD_017
+	-- Covers: CST_DD_110
+	-- Covers: CST_DD_254
+	MOV		0x02, R1			-- loop counter
+	MOV		CST_RAM_ADDRESS_A, R6		-- NBBufer(GRAM/VCI)
+	MOV		CST_RAM_ADDRESS_B, R29		--
+
+    CPU_lsu_test_prog_1_001:
+	ST.W		R9, 0x0000[R6]			--
+	ST.B		R8, 0x0003[R29]			--
+	ST.W		R9, 0x0008[R6]			--
+	ST.B		R8, 0x0007[R29]			--
+	ST.W		R9, 0x0000[R6]			--
+	ST.B		R8, 0x000B[R29]			--
+	ST.W		R9, 0x0008[R6]			--
+	ST.B		R8, 0x000F[R29]			--
+	LD.W		0x0000[R6], R11			--
+	LD.BU		0x0003[R29], R12		--
+	LD.W		0x0008[R6], R13			--
+	LD.BU		0x0007[R29], R14		--
+	LD.W		0x0000[R6], R25			--
+	LD.BU		0x000B[R29], R26		--
+	LD.W		0x0008[R6], R27			--
+	LD.BU		0x000F[R29], R28		--
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	ST.B		R8, 0x0001[R6]			--
+	ST.W		R9, 0x0004[R29]			--
+	ST.B		R8, 0x0005[R6]			--
+	ST.W		R9, 0x000C[R29]			--
+	ST.B		R8, 0x0009[R6]			--
+	ST.W		R9, 0x0004[R29]			--
+	ST.B		R8, 0x000D[R6]			--
+	ST.W		R9, 0x000C[R29]			--
+	LD.B		0x0001[R6], R11			--cst_point: out=1
+	LD.W		0x0004[R29], R12		--cst_point: out=1
+	LD.B		0x0005[R6], R13			--cst_point: out=1
+	LD.W		0x000C[R29], R14		--cst_point: out=1
+	LD.B		0x0009[R6], R25			--cst_point: out=1
+	LD.W		0x0004[R29], R26		--cst_point: out=1
+	LD.B		0x000D[R6], R27			--cst_point: out=1
+	LD.W		0x000C[R29], R28		--cst_point: out=1
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	ST.DW		R8, 0x000000[R6]		--
+	ST.H		R9, 0x0006[R29]			--
+	SET1		R9, [R6]			--
+	LD.DW		0x000000[R6], R12		--cst_point: out=1
+	LD.HU		0x0006[R29], R14		--cst_point: out=1
+	ST.DW		R8, 0x000000[R29]		--
+	ST.H		R8, 0x0002[R6]			--
+	CLR1		R8, [R29]			--
+	LD.DW		0x000000[R29], R26		--cst_point: out=1
+	LD.H		0x0002[R6], R28			--cst_point: out=1
+	ADD		R12, R10			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	ADD		R26, R10			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+
+	MOV		CST_RAM_ADDRESS_L, R6		-- Store Buffer(TCM)
+	MOVEA		0x0010, R6, R29			--
+	LOOP		R1, CPU_lsu_test_prog_1_001	--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_lsu_2
+--  Function ID     : CST_FN_157
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, R6, R7, R8, R9, R10, R11, R12, R13, R14, (R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_lsu_2:
+	-- Covers: CST_DD_017
+	-- Covers: CST_DD_049
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_194
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+#if CST_MA_HW_OPERATION
+	PREPARE		{R28-LP}, 0x00			--
+-- CST_MA_HW_OPERATION
+#else
+	PREPARE		{EP-LP}, 0x00			--
+-- CST_MA_HW_OPERATION
+#endif
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	elsSBuf4entry Test (Various Data/Address)
+	--------------------------------------------------
+	MOV		CST_RAM_ADDRESS_L, EP		--
+	MOV		0x00, R6			--
+	MOV		0x0000FFFF, R7			--
+	MOV		0x00005555, R8			--
+	MOV		0x0000AAAA, R9			--
+	SST.H		R6, 0x00[EP]			--
+	SST.H		R7, 0x10[EP]			--
+	SST.H		R8, 0x20[EP]			--
+	SST.H		R9, 0x30[EP]			--
+	SLD.H		0x00[EP], R6			--cst_point: out=1 R6 = 0x00000000
+	SLD.H		0x10[EP], R7			--cst_point: out=1 R7 = 0xFFFFFFFF
+	SLD.H		0x20[EP], R8			--cst_point: out=1 R8 = 0x00005555
+	SLD.H		0x30[EP], R9			--cst_point: out=1 R9 = 0xFFFFAAAA
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	MOV		0x0000FFFF, R6			--
+	MOV		0x00, R7			--
+	MOV		0x0000AAAA, R8			--
+	MOV		0x00005555, R9			--
+	SST.H		R6, 0xCE[EP]			--
+	SST.H		R7, 0xDE[EP]			--
+	SST.H		R8, 0xEE[EP]			--
+	SST.H		R9, 0xFE[EP]			--
+	SLD.H		0xCE[EP], R6			--cst_point: out=1 R6 = 0xFFFFFFFF
+	SLD.H		0xDE[EP], R7			--cst_point: out=1 R7 = 0x00000000
+	SLD.H		0xEE[EP], R8			--cst_point: out=1 R8 = 0xFFFFAAAA
+	SLD.H		0xFE[EP], R9			--cst_point: out=1 R9 = 0x00005555
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	MOV		CST_RAM_ADDRESS_L + 0x80, EP	--
+	MOV		0x00000055, R6			--
+	MOV		0x000000AA, R7			--
+	MOV		0x00, R8			--
+	MOV		0x000000FF, R9			--
+	SST.B		R6, 0x3F[EP]			--
+	SST.B		R7, 0x2F[EP]			--
+	SST.B		R8, 0x1F[EP]			--
+	SST.B		R9, 0x0F[EP]			--
+	SLD.B		0x3F[EP], R6			--cst_point: out=1 R6 = 0x00000055
+	SLD.B		0x2F[EP], R7			--cst_point: out=1 R7 = 0xFFFFFFAA
+	SLD.B		0x1F[EP], R8			--cst_point: out=1 R8 = 0x00000000
+	SLD.B		0x0F[EP], R9			--cst_point: out=1 R9 = 0xFFFFFFFF
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	MOV		CST_RAM_ADDRESS_L + 0x100, EP	--
+	MOV		0x0000AAAA, R6			--
+	MOV		0x00005555, R7			--
+	MOV		0x0000FFFF, R8			--
+	MOV		0x00, R9			--
+	SST.H		R6, 0x00[EP]			--
+	SST.H		R7, 0x10[EP]			--
+	SST.H		R8, 0x20[EP]			--
+	SST.H		R9, 0x30[EP]			--
+	SLD.H		0x00[EP], R6			--cst_point: out=1 R6 = 0xFFFFAAAA
+	SLD.H		0x10[EP], R7			--cst_point: out=1 R7 = 0x00005555
+	SLD.H		0x20[EP], R8			--cst_point: out=1 R8 = 0xFFFFFFFF
+	SLD.H		0x30[EP], R9			--cst_point: out=1 R9 = 0x00000000
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	elsSBuf4entry Test
+	--	(NBBUFReqRMWReservH/L activation & Various Address)
+	--------------------------------------------------
+	MOVEA		0x0011, R0, R6			--
+	MOVEA		0x0022, R0, R7			--
+	MOVEA		0x0033, R0, R8			--
+	MOVEA		0x0044, R0, R9			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x00, EP	--
+	SST.B		R6, 0x00[EP]			-- en0
+	SST.B		R7, 0x10[EP]			-- en1
+	SST.B		R8, 0x20[EP]			-- en2
+	SST.B		R9, 0x30[EP]			-- en3
+	SST.B		R6, 0x01[EP]			-- en0(m)
+	SST.B		R7, 0x02[EP]			-- en0(m)
+	SST.B		R8, 0x03[EP]			-- en0(m)
+	SST.B		R9, 0x04[EP]			-- en0(m)
+	SST.B		R6, 0x05[EP]			-- en0(m)
+	SST.B		R7, 0x06[EP]			-- en0(m)
+	SST.B		R8, 0x07[EP]			-- en0(m)
+	SYNCP						--
+	SLD.W		0x00[EP], R11			--cst_point: out=1 R11 = 0x33221111
+	SLD.W		0x04[EP], R12			--cst_point: out=1 R12 = 0x33221144
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x10, EP	--
+	SST.B		R6, 0x00[EP]			-- en0
+	SST.B		R7, 0x10[EP]			-- en1
+	SST.B		R8, 0x20[EP]			-- en2
+	SST.B		R9, 0x30[EP]			-- en3
+	SST.B		R6, 0x11[EP]			-- en1(m)
+	SST.B		R7, 0x12[EP]			-- en1(m)
+	SST.B		R8, 0x13[EP]			-- en1(m)
+	SST.B		R9, 0x14[EP]			-- en1(m)
+	SST.B		R6, 0x15[EP]			-- en1(m)
+	SST.B		R7, 0x16[EP]			-- en1(m)
+	SST.B		R8, 0x17[EP]			-- en1(m)
+	SYNCP						--
+	SLD.W		0x10[EP], R11			--cst_point: out=1 R11 = 0x33221122
+	SLD.W		0x14[EP], R12			--cst_point: out=1 R12 = 0x33221144
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x20, EP	--
+	SST.B		R6, 0x00[EP]			-- en0
+	SST.B		R7, 0x10[EP]			-- en1
+	SST.B		R8, 0x20[EP]			-- en2
+	SST.B		R9, 0x30[EP]			-- en3
+	SST.B		R6, 0x21[EP]			-- en2(m)
+	SST.B		R7, 0x22[EP]			-- en2(m)
+	SST.B		R8, 0x23[EP]			-- en2(m)
+	SST.B		R9, 0x24[EP]			-- en2(m)
+	SST.B		R6, 0x25[EP]			-- en2(m)
+	SST.B		R7, 0x26[EP]			-- en2(m)
+	SST.B		R8, 0x27[EP]			-- en2(m)
+	SYNCP						--
+	SLD.W		0x20[EP], R11			--cst_point: out=1 R11 = 0x33221133
+	SLD.W		0x24[EP], R12			--cst_point: out=1 R12 = 0x33221144
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x30, EP	--
+	SST.B		R6, 0x00[EP]			-- en0
+	SST.B		R7, 0x10[EP]			-- en1
+	SST.B		R8, 0x20[EP]			-- en2
+	SST.B		R9, 0x30[EP]			-- en3
+	SST.B		R6, 0x31[EP]			-- en3(m)
+	SST.B		R7, 0x32[EP]			-- en3(m)
+	SST.B		R8, 0x33[EP]			-- en3(m)
+	SST.B		R9, 0x34[EP]			-- en3(m)
+	SST.B		R6, 0x35[EP]			-- en3(m)
+	SST.B		R7, 0x36[EP]			-- en3(m)
+	SST.B		R8, 0x37[EP]			-- en3(m)
+	SYNCP						--
+	SLD.W		0x30[EP], R11			--cst_point: out=1 R11 = 0x33221144
+	SLD.W		0x34[EP], R12			--cst_point: out=1 R12 = 0x33221144
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x40, EP	--
+	SST.B		R6, 0x0F[EP]			-- en0
+	SST.B		R7, 0x1F[EP]			-- en1
+	SST.B		R8, 0x2F[EP]			-- en2
+	SST.B		R9, 0x3F[EP]			-- en3
+	SST.B		R6, 0x0E[EP]			-- en0(m)
+	SST.B		R7, 0x0D[EP]			-- en0(m)
+	SST.B		R8, 0x0C[EP]			-- en0(m)
+	SST.B		R9, 0x0B[EP]			-- en0(m)
+	SST.B		R6, 0x0A[EP]			-- en0(m)
+	SST.B		R7, 0x09[EP]			-- en0(m)
+	SST.B		R8, 0x08[EP]			-- en0(m)
+	SYNCP						--
+	SLD.W		0x08[EP], R11			--cst_point: out=1 R11 = 0x44112233
+	SLD.W		0x0C[EP], R12			--cst_point: out=1 R12 = 0x11112233
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x50, EP	--
+	SST.B		R6, 0x0F[EP]			-- en0
+	SST.B		R7, 0x1F[EP]			-- en1
+	SST.B		R8, 0x2F[EP]			-- en2
+	SST.B		R9, 0x3F[EP]			-- en3
+	SST.B		R6, 0x1E[EP]			-- en1(m)
+	SST.B		R7, 0x1D[EP]			-- en1(m)
+	SST.B		R8, 0x1C[EP]			-- en1(m)
+	SST.B		R9, 0x1B[EP]			-- en1(m)
+	SST.B		R6, 0x1A[EP]			-- en1(m)
+	SST.B		R7, 0x19[EP]			-- en1(m)
+	SST.B		R8, 0x18[EP]			-- en1(m)
+	SYNCP						--
+	SLD.W		0x18[EP], R11			--cst_point: out=1 R11 = 0x44112233
+	SLD.W		0x1C[EP], R12			--cst_point: out=1 R12 = 0x22112233
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x60, EP	--
+	SST.B		R6, 0x0F[EP]			-- en0
+	SST.B		R7, 0x1F[EP]			-- en1
+	SST.B		R8, 0x2F[EP]			-- en2
+	SST.B		R9, 0x3F[EP]			-- en3
+	SST.B		R6, 0x2E[EP]			-- en2(m)
+	SST.B		R7, 0x2D[EP]			-- en2(m)
+	SST.B		R8, 0x2C[EP]			-- en2(m)
+	SST.B		R9, 0x2B[EP]			-- en2(m)
+	SST.B		R6, 0x2A[EP]			-- en2(m)
+	SST.B		R7, 0x29[EP]			-- en2(m)
+	SST.B		R8, 0x28[EP]			-- en2(m)
+	SYNCP						--
+	SLD.W		0x28[EP], R11			--cst_point: out=1 R11 = 0x44112233
+	SLD.W		0x2C[EP], R12			--cst_point: out=1 R12 = 0x33112233
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	MOV		CST_RAM_ADDRESS_L + 0x70, EP	--
+	SST.B		R6, 0x0F[EP]			-- en0
+	SST.B		R7, 0x1F[EP]			-- en1
+	SST.B		R8, 0x2F[EP]			-- en2
+	SST.B		R9, 0x3F[EP]			-- en3
+	SST.B		R6, 0x3E[EP]			-- en3(m)
+	SST.B		R7, 0x3D[EP]			-- en3(m)
+	SST.B		R8, 0x3C[EP]			-- en3(m)
+	SST.B		R9, 0x3B[EP]			-- en3(m)
+	SST.B		R6, 0x3A[EP]			-- en3(m)
+	SST.B		R7, 0x39[EP]			-- en3(m)
+	SST.B		R8, 0x38[EP]			-- en3(m)
+	SYNCP						--
+	SLD.W		0x38[EP], R11			--cst_point: out=1 R11 = 0x44112233
+	SLD.W		0x3C[EP], R12			--cst_point: out=1 R12 = 0x44112233
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+
+	--------------------------------------------------
+	--	elsNBBuf4entry Test (Instruction Kind)
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+	MOV		CST_RAM_ADDRESS_A, EP		--
+	MOVEA		0x0002, R0, R6			--
+	MOVEA		0x0004, R0, R7			--
+	MOVEA		0x0008, R0, R8			--
+
+	-- TST1
+	SST.W		R6, 0x00[EP]			--
+	TST1		0x0, 0x0000[EP]			-- use elsNBBuf_1
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z  --Z = 1
+
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R6, 0x00[EP]			--
+	TST1		0x1, 0x0000[EP]			-- use elsNBBuf_2
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z  --Z = 0
+
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R6, 0x00[EP]			--
+	SST.W		R6, 0x00[EP]			--
+	TST1		0x2, 0x0000[EP]			-- use elsNBBuf_3
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z  --Z = 1
+
+	-- STC.W
+	MOV		R6, R9				--
+	SST.W		R7, 0x00[EP]			--
+	STC.W		R9, [EP]			-- use elsNBBuf_1
+	SLD.W		0x00[EP], R9			--cst_point: out=1   --R9 = 0x00000004
+	ADD		R9, R10				--
+
+	MOV		R6, R9				--
+	SST.W		R7, 0x00[EP]			--
+	SST.W		R7, 0x00[EP]			--
+	STC.W		R9, [EP]			-- use elsNBBuf_2
+	SLD.W		0x00[EP], R9			--cst_point: out=1   --R9 = 0x00000004
+	ADD		R9, R10				--
+
+	MOV		R6, R9				--
+	SST.W		R7, 0x00[EP]			--
+	SST.W		R7, 0x00[EP]			--
+	SST.W		R7, 0x00[EP]			--
+	STC.W		R9, [EP]			-- use elsNBBuf_3
+	SLD.W		0x00[EP], R9			--cst_point: out=1   --R9 = 0x00000004
+	ADD		R9, R10				--
+
+	-- SYNCM
+	SST.W		R6, 0x04[EP]			--
+	SYNCM						--
+	SLD.W		0x04[EP], R9			--cst_point: out=1   --R9 = 0x00000002
+	ADD		R9, R10				--
+
+	SST.W		R7, 0x04[EP]			--
+	SST.W		R7, 0x04[EP]			--
+	SYNCM						--
+	SLD.W		0x04[EP], R9			--cst_point: out=1   --R9 = 0x00000002
+	ADD		R9, R10				--
+
+	SST.W		R8, 0x04[EP]			--
+	SST.W		R8, 0x04[EP]			--
+	SST.W		R8, 0x04[EP]			--
+	SYNCM						--
+	SLD.W		0x04[EP], R9			--cst_point: out=1   --R9 = 0x00000002
+	ADD		R9, R10				--
+	-- Covers: CST_UM_006
+
+#if CST_MA_HW_OPERATION
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R29, 0			--
+	MOV		0xFFFFFFDF, R28			--
+	OR		R29, R28			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R29, 0			--
+	AND		R28, R29			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R29, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MCTL, R28, 1			--
+	MOV		MCTL_MA_BIT, R1			--
+	OR		R28, R1				--
+	-- Covers: CST_UM_025
+	LDSR		R1, MCTL, 1			--
+	NOP						--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x12345678, R12			--
+	MOV		0x9ABCDEF0, R13			--
+	MOV		CST_RAM_ADDRESS_A, EP		--
+	MOV		CST_RAM_ADDRESS_B, LP		--
+	MOV		CST_RAM_ADDRESS_A + 0x01, R11	--
+	MOV		CST_RAM_ADDRESS_B + 0x01, R14	--
+
+	--------------------------------------------------
+	--	elsNBBuf4entry Test
+	--	(missalign half-word (byte align))
+	--------------------------------------------------
+	ST.H		R12, 0x0000[R11]		--
+	LD.H		0x0000[R11], R6			--cst_point: out=1
+
+	SST.H		R12, 0x00[EP]			--
+	ST.H		R13, 0x0004[R11]		--
+	LD.H		0x0004[R11], R7			--cst_point: out=1
+
+	SST.H		R12, 0x00[EP]			--
+	SST.H		R12, 0x00[EP]			--
+	ST.H		R12, 0x0000[R14]		--
+	LD.H		0x0000[R14], R8			--cst_point: out=1
+
+	SST.H		R12, 0x00[EP]			--
+	SST.H		R12, 0x00[EP]			--
+	SST.H		R12, 0x00[EP]			--
+	ST.H		R13, 0x0004[R14]		--
+	LD.H		0x0004[R14], R9			--cst_point: out=1
+
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R28, MCTL, 1			--
+	LDSR		R29, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R29, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R28			--
+	OR		R29, R28			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R29, 0			--
+	AND		R28, R29			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R29, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MCTL, R28, 1			--
+	MOV		MCTL_MA_BIT, R1			--
+	OR		R28, R1				--
+	LDSR		R1, MCTL, 1			--
+	NOP						--
+
+	--------------------------------------------------
+	--	elsNBBuf4entry Test
+	--	(missalign word (byte align))
+	--------------------------------------------------
+	ST.W		R12, 0x0000[R11]		--
+	LD.W		0x0000[R11], R6			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R13, 0x0004[R11]		--
+	LD.W		0x0004[R11], R7			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R12, 0x0000[R14]		--
+	LD.W		0x0000[R14], R8			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R13, 0x0004[R14]		--
+	LD.W		0x0004[R14], R9			--cst_point: out=1
+
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R28, MCTL, 1			--
+	LDSR		R29, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R29, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R28			--
+	OR		R29, R28			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R29, 0			--
+	AND		R28, R29			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R29, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MCTL, R28, 1			--
+	MOV		MCTL_MA_BIT, R1			--
+	OR		R28, R1				--
+	LDSR		R1, MCTL, 1			--
+	NOP						--
+
+	--------------------------------------------------
+	--	elsNBBuf4entry Test
+	--	(missalign word (half-word align))
+	--------------------------------------------------
+	ST.W		R12, 0x0002[EP]			--
+	LD.W		0x0002[EP], R6			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R13, 0x0006[EP]			--
+	LD.W		0x0006[EP], R7			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R12, 0x0002[LP]			--
+	LD.W		0x0002[LP], R8			--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.W		R13, 0x0006[LP]			--
+	LD.W		0x0006[LP], R9			--cst_point: out=1
+
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, MCTL, 1			--
+	LDSR		R29, PSW, 0			--
+-- CST_MA_HW_OPERATION
+#else
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x12345678, R12			--
+	MOV		0x9ABCDEF0, R13			--
+	MOV		CST_RAM_ADDRESS_A, EP		--
+	MOV		CST_RAM_ADDRESS_B, LP		--
+-- CST_MA_HW_OPERATION
+#endif
+
+	--------------------------------------------------
+	--	elsNBBuf4entry Test
+	--	(missalign double-word (word align))
+	--------------------------------------------------
+	ST.DW		R12, 0x000004[EP]		--
+	LD.DW		0x000004[EP], R6		--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	ST.DW		R12, 0x000004[LP]		--
+	LD.DW		0x000004[LP], R8		--cst_point: out=1
+
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.DW		R12, 0x000004[EP]		--
+	LD.DW		0x000004[EP], R6		--cst_point: out=1
+
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	SST.W		R12, 0x00[EP]			--
+	ST.DW		R12, 0x000004[LP]		--
+	LD.DW		0x000004[LP], R8		--cst_point: out=1
+
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+#if CST_MA_HW_OPERATION
+	DISPOSE		0x00, {R28-LP}, [LP]		--
+-- CST_MA_HW_OPERATION
+#else
+	DISPOSE		0x00, {EP-LP}, [LP]		--
+-- CST_MA_HW_OPERATION
+#endif
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_ifu_1
+--  Function ID     : CST_FN_155
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, (R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_ifu_1:
+	-- Covers: CST_DD_017
+	-- Covers: CST_DD_040
+	-- Covers: CST_DD_185
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R28-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	u_htbtb Test (LRAM Pattern1)
+	--------------------------------------------------
+	MOV		f_sub_CPU_ifu_test_prog_1, R28	--
+	MOV		CST_RAM_ADDRESS_L, R29		--
+	MOV		CPU_ifu_test_prog_1_999 + 2, LP	--
+
+    CPU_ifu_1_001:
+	LD.DW		0x000000[R28], R6		-- copy program
+	ST.DW		R6, 0x000000[R29]		--
+
+	ADD		0x08, R28			--
+	ADD		0x08, R29			--
+	CMP		R28, LP				--
+	BP		CPU_ifu_1_001			--
+
+	MOV		CST_RAM_ADDRESS_L, R6		--Build(CST_RAM_ADDRESS_L -> f_sub_CPU_ifu_test_prog_1)
+	JARL		[R6], LP			-- execute
+
+	--------------------------------------------------
+	--	u_htbtb Test (LRAM Pattern2 offset136)
+	--------------------------------------------------
+	MOV		f_sub_CPU_ifu_test_prog_2, R28	--
+	MOV		CST_RAM_ADDRESS_L + 0x88, R29	--
+
+	JARL		f_sub_CPU_ifu_copy_16byte, LP	-- copy program
+
+	MOV		CST_RAM_ADDRESS_L + 0x88, R6	--Build(CST_RAM_ADDRESS_L + 0x88 -> f_sub_CPU_ifu_test_prog_2)
+	JARL		[R6], LP			-- execute
+
+	--------------------------------------------------
+	--	u_htbtb Test (GRAM1 Pattern2)
+	--------------------------------------------------
+	MOV		CST_RAM_ADDRESS_A, R29		--Build(CST_RAM_ADDRESS_A -> f_sub_CPU_ifu_test_prog_2)
+
+	JARL		f_sub_CPU_ifu_copy_16byte, LP	-- copy program
+
+	JARL		[R29], LP			-- execute
+
+	--------------------------------------------------
+	--	u_htbtb Test (GRAM2 Pattern2)
+	--------------------------------------------------
+	MOV		CST_RAM_ADDRESS_B, R29		--Build(CST_RAM_ADDRESS_B -> f_sub_CPU_ifu_test_prog_2)
+
+	JARL		f_sub_CPU_ifu_copy_16byte, LP	-- copy program
+
+	JARL		[R29], LP			-- execute
+
+	--------------------------------------------------
+	--	u_htbtb Test (GRAM3 Pattern2)
+	--------------------------------------------------
+	MOV		CST_RAM_ADDRESS_C, R29		--Build(CST_RAM_ADDRESS_C -> f_sub_CPU_ifu_test_prog_2)
+
+	JARL		f_sub_CPU_ifu_copy_16byte, LP	-- copy program
+
+	JARL		[R29], LP			-- execute
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R28-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_ifu_test_prog_1
+--  Function ID     : CST_FN_159
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R6
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		8
+
+f_sub_CPU_ifu_test_prog_1:
+	-- Covers: CST_DD_106
+	-- Covers: CST_DD_250
+	--------------------------------------------------
+	--	Branch 1-1
+	--------------------------------------------------
+	MOV		0x03, R6			--
+    CPU_ifu_test_prog_1_001:
+	ADD		0x01, R10			--
+	ADD		-0x01, R6			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_001		--cst_point_onram: PC=+2
+
+
+	--------------------------------------------------
+	--	Branch 1-2
+	--------------------------------------------------
+	MOV		0x03, R6			--
+    CPU_ifu_test_prog_1_002:
+	ADD		0x01, R10			--
+	ADD		-0x01, R6			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_002		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-3
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_003:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_003		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-4
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_004:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_004		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-5
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_005:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_005		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-6
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_006:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_006		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-7
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_007:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_007		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-8
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_008:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_008		--cst_point_onram: PC=+2
+
+	--------------------------------------------------
+	--	Branch 1-9
+	--------------------------------------------------
+	MOV		0x02, R6			--
+    CPU_ifu_test_prog_1_009:
+	ADD		-0x01, R6			--
+	ADD		0x01, R10			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_1_009		--cst_point_onram: PC=+2
+
+    CPU_ifu_test_prog_1_999:
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_ifu_test_prog_2
+--  Function ID     : CST_FN_160
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R6
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		8
+
+f_sub_CPU_ifu_test_prog_2:
+	-- Covers: CST_DD_107
+	-- Covers: CST_DD_251
+	--------------------------------------------------
+	--	Branch 2
+	--------------------------------------------------
+	MOV		0x03, R6			--
+    CPU_ifu_test_prog_2_001:
+	ADD		0x01, R10			--
+	ADD		-0x01, R6			--
+	CMP		R0, R6				--
+	BNZ		CPU_ifu_test_prog_2_001		--cst_point_onram: PC=+2,loop@2
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CPU_ifu_copy_16byte
+--  Function ID     : CST_FN_158
+--  Input           : R28 : Source Address
+--                  : R29 : Destination Address
+--  Output          : none
+--  Broken Register : R6
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CPU_ifu_copy_16byte:
+	-- Covers: CST_DD_105
+	-- Covers: CST_DD_249
+	LD.DW		0x000000[R28], R6		--
+	ST.DW		R6, 0x000000[R29]		--
+	LD.DW		0x000008[R28], R6		--
+	ST.DW		R6, 0x000008[R29]		--
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_hw_module.850             =====
+-- ============================================================================

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="a96c5e78-3e1c-45a0-bb07-4f6e7d50f19c">
+          <SHORT-NAME>SecOC_swc</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="ea88c142-f146-4920-baa3-c7923d2b44e4">
+              <SHORT-NAME>DataTypes</SHORT-NAME>
+              <ELEMENTS>
+                <IMPLEMENTATION-DATA-TYPE UUID="a063a700-c8d0-4daa-a0a3-b275875ccfac">
+                  <SHORT-NAME>SecOC_VerificationResultType</SHORT-NAME>
+                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                  <SW-DATA-DEF-PROPS>
+                    <SW-DATA-DEF-PROPS-VARIANTS>
+                      <SW-DATA-DEF-PROPS-CONDITIONAL>
+                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/MICROSAR/SecOC_swc/DataTypes/CompuMethods/SecOC_VerificationResultType</COMPU-METHOD-REF>
+                        <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/SecOC_swc/DataTypes/DataConstrs/SecOC_VerificationResultType_Constr</DATA-CONSTR-REF>
+                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                      </SW-DATA-DEF-PROPS-CONDITIONAL>
+                    </SW-DATA-DEF-PROPS-VARIANTS>
+                  </SW-DATA-DEF-PROPS>
+                </IMPLEMENTATION-DATA-TYPE>
+                <IMPLEMENTATION-DATA-TYPE UUID="1580bc36-1eb8-4d62-9ed1-f8da989497a2">
+                  <SHORT-NAME>SecOC_VerificationStatusType</SHORT-NAME>
+                  <CATEGORY>STRUCTURE</CATEGORY>
+                  <SUB-ELEMENTS>
+                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="13d35a36-c749-4f13-87da-41ff5e72b882">
+                      <SHORT-NAME>freshnessValueID</SHORT-NAME>
+                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/SecOC_swc/DataTypes/DataConstrs/freshnessValueID_Constr</DATA-CONSTR-REF>
+                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="d1733cb5-60ba-4db0-b60f-0a46b997b94b">
+                      <SHORT-NAME>verificationStatus</SHORT-NAME>
+                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/SecOC_swc/DataTypes/SecOC_VerificationResultType</IMPLEMENTATION-DATA-TYPE-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="66f93377-2640-4874-9f34-1317e22bec96">
+                      <SHORT-NAME>secOCDataId</SHORT-NAME>
+                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <DATA-CONSTR-REF DEST="DATA-CONSTR">/MICROSAR/SecOC_swc/DataTypes/DataConstrs/secOCDataId_Constr</DATA-CONSTR-REF>
+                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                  </SUB-ELEMENTS>
+                </IMPLEMENTATION-DATA-TYPE>
+              </ELEMENTS>
+              <AR-PACKAGES>
+                <AR-PACKAGE UUID="7f229d93-caca-4067-bc42-0e757b20e918">
+                  <SHORT-NAME>DataConstrs</SHORT-NAME>
+                  <ELEMENTS>
+                    <DATA-CONSTR UUID="f61ac241-1be3-4d16-8d19-b0134c205944">
+                      <SHORT-NAME>SecOC_VerificationResultType_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="b97dde2e-4efe-4d82-b280-c0b4ea5e7709">
+                      <SHORT-NAME>freshnessValueID_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                    <DATA-CONSTR UUID="6d8f3d98-2f11-4bff-bef6-1045c11a7cf0">
+                      <SHORT-NAME>secOCDataId_Constr</SHORT-NAME>
+                      <DATA-CONSTR-RULES>
+                        <DATA-CONSTR-RULE>
+                          <INTERNAL-CONSTRS>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                          </INTERNAL-CONSTRS>
+                        </DATA-CONSTR-RULE>
+                      </DATA-CONSTR-RULES>
+                    </DATA-CONSTR>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+                <AR-PACKAGE UUID="30e2bc5e-b092-4ae7-bbef-e273eef12343">
+                  <SHORT-NAME>CompuMethods</SHORT-NAME>
+                  <ELEMENTS>
+                    <COMPU-METHOD UUID="3185ca06-6d9e-41e3-82be-1e4e88b3c409">
+                      <SHORT-NAME>SecOC_VerificationResultType</SHORT-NAME>
+                      <CATEGORY>TEXTTABLE</CATEGORY>
+                      <COMPU-INTERNAL-TO-PHYS>
+                        <COMPU-SCALES>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_VERIFICATIONSUCCESS</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_VERIFICATIONSUCCESS</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_VERIFICATIONFAILURE</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_VERIFICATIONFAILURE</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_FRESHNESSFAILURE</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_FRESHNESSFAILURE</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_AUTHENTICATIONBUILDFAILURE</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_AUTHENTICATIONBUILDFAILURE</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_NO_VERIFICATION</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_NO_VERIFICATION</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <SHORT-LABEL>SECOC_VERIFICATIONFAILURE_OVERWRITTEN</SHORT-LABEL>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>SECOC_VERIFICATIONFAILURE_OVERWRITTEN</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                        </COMPU-SCALES>
+                      </COMPU-INTERNAL-TO-PHYS>
+                    </COMPU-METHOD>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="3e7931c4-d976-4dca-9eff-2474ee2bc208">
+              <SHORT-NAME>Interfaces</SHORT-NAME>
+              <ELEMENTS>
+                <SENDER-RECEIVER-INTERFACE UUID="ac2c3017-f92a-44ff-b345-f9c6c0fbee5f">
+                  <SHORT-NAME>SecOC_VerificationStatusService</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>VENDOR-SPECIFIC</SERVICE-KIND>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="d305c9a1-36fd-4057-9ae3-17e13ec06fb7">
+                      <SHORT-NAME>verificationStatus</SHORT-NAME>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/SecOC_swc/DataTypes/SecOC_VerificationStatusType</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                </SENDER-RECEIVER-INTERFACE>
+                <CLIENT-SERVER-INTERFACE UUID="240f329c-c205-47c6-8dfc-cf74ac4ab996">
+                  <SHORT-NAME>SecOC_VerifyStatusConfiguration</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <SERVICE-KIND>VENDOR-SPECIFIC</SERVICE-KIND>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="94bb030d-8585-4ec4-a3b2-aa830c8b9a17">
+                      <SHORT-NAME>VerifyStatusOverride</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="FOR-ALL"/>
+                      </DESC>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="cf9c39a3-493b-48cc-92a7-647f72cd8744">
+                          <SHORT-NAME>freshnessValueID</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">ID of the Freshness Value which when used to authenticate data, results in SecOC_VerifyStatus equal to OverrideStatus independent of the actual authentication status.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="85974c95-18c3-4da8-b3b9-98ea69bd9fbe">
+                          <SHORT-NAME>overrideStatus</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Defines whether verification is executed and whether the I-PDU is passed on, and for how long the override is active.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="f8749f4a-795e-4ea6-a306-0599a3e5a313">
+                          <SHORT-NAME>numberOfMessagesToOverride</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Number of sequential VerifyStatus to override when using a specific counter for authentication verification.</L-2>
+                          </DESC>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>IN</DIRECTION>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                      <POSSIBLE-ERROR-REFS>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerifyStatusConfiguration/E_OK</POSSIBLE-ERROR-REF>
+                        <POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerifyStatusConfiguration/E_NOT_OK</POSSIBLE-ERROR-REF>
+                      </POSSIBLE-ERROR-REFS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                  <POSSIBLE-ERRORS>
+                    <APPLICATION-ERROR UUID="d0f6273f-6c05-4235-828b-3ac79d9a0212">
+                      <SHORT-NAME>E_OK</SHORT-NAME>
+                      <ERROR-CODE>0</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                    <APPLICATION-ERROR UUID="0f19b617-e15a-4f3e-9663-971c6918de0e">
+                      <SHORT-NAME>E_NOT_OK</SHORT-NAME>
+                      <ERROR-CODE>1</ERROR-CODE>
+                    </APPLICATION-ERROR>
+                  </POSSIBLE-ERRORS>
+                </CLIENT-SERVER-INTERFACE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="ccdfc5a0-c2f2-42e5-ba7a-313668aa1b1a">
+              <SHORT-NAME>ComponentTypes</SHORT-NAME>
+              <ELEMENTS>
+                <SERVICE-SW-COMPONENT-TYPE UUID="17734f1b-28fe-4f30-bb24-2aa83748c17e">
+                  <SHORT-NAME>SecOC</SHORT-NAME>
+                  <CATEGORY>SERVICE_COMPONENT</CATEGORY>
+                  <PORTS>
+                    <P-PORT-PROTOTYPE UUID="c5acebd6-91af-4de8-bc46-c73c507dfc52">
+                      <SHORT-NAME>VerificationStatus</SHORT-NAME>
+                      <PROVIDED-COM-SPECS>
+                        <NONQUEUED-SENDER-COM-SPEC>
+                          <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerificationStatusService/verificationStatus</DATA-ELEMENT-REF>
+                          <INIT-VALUE>
+                            <RECORD-VALUE-SPECIFICATION>
+                              <FIELDS>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                                <TEXT-VALUE-SPECIFICATION>
+                                  <VALUE>SECOC_VERIFICATIONFAILURE</VALUE>
+                                </TEXT-VALUE-SPECIFICATION>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
+                              </FIELDS>
+                            </RECORD-VALUE-SPECIFICATION>
+                          </INIT-VALUE>
+                        </NONQUEUED-SENDER-COM-SPEC>
+                      </PROVIDED-COM-SPECS>
+                      <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerificationStatusService</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                    <P-PORT-PROTOTYPE UUID="98ee839d-b50f-488f-a14e-d0a451382b9d">
+                      <SHORT-NAME>VerifyStatusConfiguration</SHORT-NAME>
+                      <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerifyStatusConfiguration</PROVIDED-INTERFACE-TREF>
+                    </P-PORT-PROTOTYPE>
+                  </PORTS>
+                  <INTERNAL-BEHAVIORS>
+                    <SWC-INTERNAL-BEHAVIOR UUID="42c398b3-8db9-4b3f-b754-0489fc1e2fc1">
+                      <SHORT-NAME>SecOCInternalBehavior</SHORT-NAME>
+                      <EVENTS>
+                        <TIMING-EVENT UUID="7a55c9ae-ac6d-43c4-aa00-75a1b4e704bb">
+                          <SHORT-NAME>Timer_SecOC_MainFunctionRx</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/SecOCInternalBehavior/SecOC_MainFunctionRx</START-ON-EVENT-REF>
+                          <PERIOD>0.002</PERIOD>
+                        </TIMING-EVENT>
+                        <TIMING-EVENT UUID="869b0bdc-00ac-4bf8-a7f6-8405cb84295e">
+                          <SHORT-NAME>Timer_SecOC_MainFunctionTx</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/SecOCInternalBehavior/SecOC_MainFunctionTx</START-ON-EVENT-REF>
+                          <PERIOD>0.002</PERIOD>
+                        </TIMING-EVENT>
+                        <OPERATION-INVOKED-EVENT UUID="15087327-f19f-4147-bd90-1ac034029828">
+                          <SHORT-NAME>OpEventVerifyStatusOverride_VerifyStatusOverride_VerifyStatusConfiguration</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/SecOCInternalBehavior/VerifyStatusOverride</START-ON-EVENT-REF>
+                          <OPERATION-IREF>
+                            <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/VerifyStatusConfiguration</CONTEXT-P-PORT-REF>
+                            <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerifyStatusConfiguration/VerifyStatusOverride</TARGET-PROVIDED-OPERATION-REF>
+                          </OPERATION-IREF>
+                        </OPERATION-INVOKED-EVENT>
+                      </EVENTS>
+                      <HANDLE-TERMINATION-AND-RESTART>NO-SUPPORT</HANDLE-TERMINATION-AND-RESTART>
+                      <INCLUDED-DATA-TYPE-SETS>
+                        <INCLUDED-DATA-TYPE-SET>
+                          <DATA-TYPE-REFS>
+                            <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/SecOC_swc/DataTypes/SecOC_VerificationResultType</DATA-TYPE-REF>
+                            <DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/MICROSAR/SecOC_swc/DataTypes/SecOC_VerificationStatusType</DATA-TYPE-REF>
+                          </DATA-TYPE-REFS>
+                        </INCLUDED-DATA-TYPE-SET>
+                      </INCLUDED-DATA-TYPE-SETS>
+                      <PORT-API-OPTIONS>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/VerificationStatus</PORT-REF>
+                        </PORT-API-OPTION>
+                        <PORT-API-OPTION>
+                          <ENABLE-TAKE-ADDRESS>true</ENABLE-TAKE-ADDRESS>
+                          <INDIRECT-API>false</INDIRECT-API>
+                          <PORT-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/VerifyStatusConfiguration</PORT-REF>
+                        </PORT-API-OPTION>
+                      </PORT-API-OPTIONS>
+                      <RUNNABLES>
+                        <RUNNABLE-ENTITY UUID="15224da6-56f8-43a7-baef-4fe9d2bfdcee">
+                          <SHORT-NAME>SecOC_MainFunctionRx</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <DATA-SEND-POINTS>
+                            <VARIABLE-ACCESS UUID="fc106f3d-b707-474e-bbb3-a07b35b2ba74">
+                              <SHORT-NAME>DataSendPointSecOC_MainFunctionRx_VerificationStatus_verificationStatus</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/VerificationStatus</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/MICROSAR/SecOC_swc/Interfaces/SecOC_VerificationStatusService/verificationStatus</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-SEND-POINTS>
+                          <SYMBOL>SecOC_MainFunctionRx</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="678b9252-d628-4d0a-b649-f8d0bd96694d">
+                          <SHORT-NAME>SecOC_MainFunctionTx</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>SecOC_MainFunctionTx</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                        <RUNNABLE-ENTITY UUID="b1af01b0-4233-43aa-b153-04ea29091491">
+                          <SHORT-NAME>VerifyStatusOverride</SHORT-NAME>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                          <SYMBOL>SecOC_VerifyStatusOverride</SYMBOL>
+                        </RUNNABLE-ENTITY>
+                      </RUNNABLES>
+                      <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                    </SWC-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </SERVICE-SW-COMPONENT-TYPE>
+                <SWC-IMPLEMENTATION UUID="5b301566-ba5e-436f-9d90-50098e2e36a8">
+                  <SHORT-NAME>SecOCImplementation</SHORT-NAME>
+                  <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+                  <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/MICROSAR/SecOC_swc/ComponentTypes/SecOC/SecOCInternalBehavior</BEHAVIOR-REF>
+                </SWC-IMPLEMENTATION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,354 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_div_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Division instructions                                                     --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_div_1
+	.GLOBL		_CST_CPU_div_2
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_OVSZ
+	.EXTERN		f_sub_CST_psw_load_OV
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_div_1
+--  Function ID     : CST_FN_019
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, R27, R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_div_1:
+	-- Covers: CST_DD_037
+	-- Covers: CST_DD_182
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOVHI		0x8000, R0, EP			--
+	MOV		0x55555555, R29			--
+	MOV		EP, R28				--
+	ADD		-0x01, R28			--
+	NOT		R29, R27			--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_239
+	-- Covers: CST_UM_239_01
+	--------------------------------------------------
+	--	DIV reg1, reg2, reg3
+	--------------------------------------------------
+	-- Overflow1(OV=1,S=1)
+	MOV		-0x01, R12			--
+	MOV		EP, R13				--
+	DIV		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	-- Overflow2(OV=1) ZERO division
+	MOV		R0, R11				--
+	MOV		R28, R12			--
+	DIV		R11, R12, R13			--
+	JARL		f_sub_CST_psw_load_OV, LP	--cst_point: flag=OV
+
+	--Positive division, Reversal quotient
+	MOV		0x02, R6			--
+	MOV		R29, R7				--
+	DIV		R6, R7, R8			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+	ADD		R8, R10				--
+
+	--Negative division, Reversal quotient(S=1)
+	MOV		0x02, R6			--
+	MOV		R27, R9				--
+	DIV		R6, R9, R7			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+	ADD		R7, R10				--
+
+	--Quotient 0 (Z=1)
+	MOV		EP, R12				--
+	MOV		R28, R13			--
+	DIV		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--Quotient(+) Surplus 0
+	MOV		0x01, R13			--
+	MOV		R28, R14			--
+	DIV		R13, R14, R11			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R14, R10			--
+	ADD		R11, R10			--
+
+	--Surplus 0x55
+	MOV		0xD5555554, R12			--
+	MOV		0xAAAAAAA9, R13			--
+	DIV		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--Surplus 0xAA
+	MOV		R29, R6				--
+	MOV		R28, R8				--
+	DIV		R6, R8, R7			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	DIV reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R12			--
+	MOV		R26, R13				--
+	DIV		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	MOV		R26, R12			--
+	MOV		R25, R13				--
+	DIV		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_div_2
+--  Function ID     : CST_FN_020
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R25, R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_div_2:
+	-- Covers: CST_DD_038
+	-- Covers: CST_DD_183
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_240
+	-- Covers: CST_UM_240_01
+	--------------------------------------------------
+	--	DIVH reg1, reg2
+	--------------------------------------------------
+	MOV		0x01, R6			--
+	MOV		0x01, R7			--
+	DIVH		R6, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_240
+	-- Covers: CST_UM_240_02
+	--------------------------------------------------
+	--	DIVH reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x01, R8			--
+	MOV		0x01, R9			--
+	DIVH		R8, R9, R11			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+	ADD		R11, R10			--
+
+	-- Covers: CST_UM_241
+	-- Covers: CST_UM_241_01
+	--------------------------------------------------
+	--	DIVHU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x01, R12			--
+	MOV		0x01, R13			--
+	DIVHU		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	-- Covers: CST_UM_244
+	-- Covers: CST_UM_244_01
+	--------------------------------------------------
+	--	DIVU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		0x01, R7			--
+	MOV		0x01, R8			--
+	DIVU		R7, R8, R9			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R25			--
+	NOT		R25, R26			--
+
+	--------------------------------------------------
+	--	DIVH reg1, reg2
+	--------------------------------------------------
+	MOV		R25, R6				--
+	MOV		R26, R7				--
+	DIVH		R6, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+
+	MOV		R26, R6				--
+	MOV		R25, R7				--
+	DIVH		R6, R7				--cst_point: out=1
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R7, R10				--
+
+	--------------------------------------------------
+	--	DIVH reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R8				--
+	MOV		R26, R9				--
+	DIVH		R8, R9, R11			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+	ADD		R11, R10			--
+
+	MOV		R26, R8				--
+	MOV		R25, R9				--
+	DIVH		R8, R9, R11			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R9, R10				--
+	ADD		R11, R10			--
+
+	--------------------------------------------------
+	--	DIVHU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R12			--
+	MOV		R26, R13			--
+	DIVHU		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	MOV		R26, R12			--
+	MOV		R25, R13			--
+	DIVHU		R12, R13, R14			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+
+	--------------------------------------------------
+	--	DIVU reg1, reg2, reg3
+	--------------------------------------------------
+	MOV		R25, R7				--
+	MOV		R26, R8				--
+	DIVU		R7, R8, R9			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	MOV		R26, R7				--
+	MOV		R25, R8				--
+	DIVU		R7, R8, R9			--cst_point: out=2
+	JARL		f_sub_CST_psw_load_OVSZ, LP	--cst_point: flag=OVSZ
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R25-LP}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_div_ope.850               =====
+-- ============================================================================

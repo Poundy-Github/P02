@@ -1,0 +1,8 @@
+#!gbuild
+[Subproject]
+CanIf\CanIf_Cfg.c
+Can\Can_Cfg.c
+CanSM\CanSm_Cfg.c
+CanSM\CanSm.c
+CanIf\canif.c
+Can\can.c

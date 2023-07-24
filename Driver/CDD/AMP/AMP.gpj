@@ -1,0 +1,11 @@
+#!gbuild
+[Subproject]
+AMP.c
+AMP_Cfg.c
+AMP_DTC.c
+AMP_Common.c
+AMP_ShutDown.c
+AMP_StartUp.c
+AMP_Normal.c
+AMP_LCCalib.c
+AMPVCfg.c

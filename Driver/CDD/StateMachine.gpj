@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+StateMachine\StateMachine.c
+StateMachine\StateMachine_Cfg.c

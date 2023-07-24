@@ -1,0 +1,295 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_bit_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Bit manipulation instructions                                             --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_bit_1
+	.GLOBL		_CST_CPU_bit_2
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_CST_psw_clear
+	.EXTERN		f_sub_CST_psw_load_Z
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_bit_1
+--  Function ID     : CST_FN_005
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, R11, R14, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_bit_1:
+	-- Covers: CST_DD_023
+	-- Covers: CST_DD_168
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x01, SP		--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	SST.W		R0, 0x00[EP]			--
+	MOV		0x07, R11			--
+	MOV		0x08, R14			--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+    CPU_bit_1_001:
+	-- Covers: CST_UM_294
+	-- Covers: CST_UM_294_02
+	--------------------------------------------------
+	--	SET1 reg2, [reg1]
+	--------------------------------------------------
+	SET1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R6				--
+	SLD.BU		0x0[EP], R6			--
+	ADD		R6, R10				--
+
+	SET1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R6				--
+	SLD.BU		0x0[EP], R6			--
+	ADD		R6, R10				--
+
+	-- Covers: CST_UM_325
+	-- Covers: CST_UM_325_02
+	--------------------------------------------------
+	--	TST1 reg2, [reg1]
+	--------------------------------------------------
+	TST1		R11, [EP]			--
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+
+	-- Covers: CST_UM_233
+	-- Covers: CST_UM_233_02
+	--------------------------------------------------
+	--	CLR1 reg2, [reg1]
+	--------------------------------------------------
+	CLR1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R7				--
+	SLD.BU		0x0[EP], R7			--
+	ADD		R7, R10				--
+
+	CLR1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R7				--
+	SLD.BU		0x0[EP], R7			--
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_275
+	-- Covers: CST_UM_275_02
+	--------------------------------------------------
+	--	NOT1 reg2, [reg1]
+	--------------------------------------------------
+	NOT1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R8				--
+	SLD.BU		0x0[EP], R8			--
+	ADD		R8, R10				--
+
+	NOT1		R11, [EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R8				--
+	SLD.BU		0x0[EP], R8			--
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_325
+	-- Covers: CST_UM_325_02
+	--------------------------------------------------
+	--	TST1 reg2, [reg1]
+	--------------------------------------------------
+	TST1		R11, [EP]			--
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		-0x01, R11			--
+	LOOP		R14, CPU_bit_1_001		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x01, {EP-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_bit_2
+--  Function ID     : CST_FN_006
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, R11, R12, R13, R14, (EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_bit_2:
+	-- Covers: CST_DD_024
+	-- Covers: CST_DD_169
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP-LP}, 0x00			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x02, R7			--
+	MOV		CST_RAM_ADDRESS_A, EP		-- test at GRAM
+  CPU_bit_2_001:
+
+	ORI		0x00A5, R0, R6			--
+	SST.W		R6, 0x00[EP]			--
+	JARL		f_sub_CST_psw_clear, LP		--
+
+	-- Covers: CST_UM_294
+	-- Covers: CST_UM_294_01
+	--------------------------------------------------
+	--	SET1 bit#3, disp16 [reg1]
+	--------------------------------------------------
+	SET1		0x0, 0x0000[EP]			--cst_point: memout=ep
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R11				--
+	SLD.BU		0x0[EP], R11			--
+	ADD		R11, R10			--
+
+	MOVEA		0x0001, EP, R6			--
+	SET1		0x1, -0x0001[R6]		--cst_point: memout=r6
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R11				--
+	SLD.BU		0x0[EP], R11			--
+	ADD		R11, R10			--
+
+	-- Covers: CST_UM_233
+	-- Covers: CST_UM_233_01
+	--------------------------------------------------
+	--	CLR1 bit#3, disp16 [reg1]
+	--------------------------------------------------
+	MOVEA		-0x5555, EP, R6			--
+	CLR1		0x2, 0x5555[R6]			--cst_point: memout=r6
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R12				--
+	SLD.BU		0x0[EP], R12			--
+	ADD		R12, R10			--
+
+	MOVEA		0x5556, EP, R6			--
+	CLR1		0x3, -0x5556[R6]		--cst_point: memout=r6
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R12				--
+	SLD.BU		0x0[EP], R12			--
+	ADD		R12, R10			--
+
+	-- Covers: CST_UM_325
+	-- Covers: CST_UM_325_01
+	--------------------------------------------------
+	--	TST1 bit#3, disp16 [reg1]
+	--------------------------------------------------
+	MOVEA		-0x5A5A, EP, R6			--
+	TST1		0x4, 0x5A5A[R6]			--
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+
+	MOVEA		0x5A5B, EP, R6			--
+	TST1		0x5, -0x5A5B[R6]		--
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+
+	-- Covers: CST_UM_275
+	-- Covers: CST_UM_275_01
+	--------------------------------------------------
+	--	NOT1 bit#3, disp16 [reg1]
+	--------------------------------------------------
+	MOVEA		-0x5AA5, EP, R6			--
+	NOT1		0x6, 0x5AA5[R6]			--cst_point: memout=r6
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R13				--
+	SLD.BU		0x0[EP], R13			--
+	ADD		R13, R10			--
+
+	MOVEA		0x5AA6, EP, R6			--
+	NOT1		0x7, -0x5AA6[R6]		--cst_point: memout=r6
+	JARL		f_sub_CST_psw_load_Z, LP	--cst_point: flag=Z
+	MOV		R0, R13				--
+	SLD.BU		0x0[EP], R13			--
+	ADD		R13, R10			--
+
+	MOV		CST_RAM_ADDRESS_L, EP		-- test at LRAM
+	LOOP		R7, CPU_bit_2_001		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {EP-LP}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_bit_ope.850               =====
+-- ============================================================================

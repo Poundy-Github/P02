@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="4ee4706b-77ed-4b58-adb1-f1e570b82efa">
+          <SHORT-NAME>LinTrcv_30_Tle7259_ib_bsmwd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="18de76ba-f881-4ce5-8600-ddf0576b8617">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="6b6a2db8-809c-49eb-b8fc-bcc767a34c2e">
+                  <SHORT-NAME>LinTrcv</SHORT-NAME>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="f9e93b33-8c27-4d1f-b55b-80e5baf1b977">
+                      <SHORT-NAME>LinTrcv_30_Tle7259Behavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="bb700b74-3dac-4c78-96ef-d18e6d96de81">
+                          <SHORT-NAME>LINTRCV_30_TLE7259_EXCLUSIVE_AREA_0</SHORT-NAME>
+                          <DESC>
+                            <L-2 L="FOR-ALL">Using to secure atomic Hardware access. this Area should be protected with global interrupt locks.</L-2>
+                          </DESC>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

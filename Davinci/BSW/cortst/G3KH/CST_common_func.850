@@ -1,0 +1,722 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CST_common_func.850                                          --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Common Function for Test                                                  --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+-------------------------------------------------------------------------------
+--	Defined Symbol
+-------------------------------------------------------------------------------
+	.GLOBL		f_sub_CST_push_psw
+	.GLOBL		f_sub_CST_pop_psw
+
+	.GLOBL		f_sub_CST_check_int
+	.GLOBL		f_sub_CST_check_feint
+
+	.GLOBL		f_sub_CST_psw_clear
+	.GLOBL		f_sub_CST_psw_load_SATCYOVSZ
+	.GLOBL		f_sub_CST_psw_load_CYOVSZ
+	.GLOBL		f_sub_CST_psw_load_OVSZ
+	.GLOBL		f_sub_CST_psw_load_OV
+	.GLOBL		f_sub_CST_psw_load_Z
+	.GLOBL		f_sub_SRU_fpu_set
+	.GLOBL		f_sub_SRU_fpu_restore
+	.GLOBL		f_sub_SRU_fpu_rmset
+	.GLOBL		f_sub_FPU_fpst_load_VOUI
+	.GLOBL		f_sub_FPU_fpst_load_VI
+	.GLOBL		f_sub_FPU_fpst_load_I
+	.GLOBL		f_sub_FPU_fpst_load_V
+	.GLOBL		f_sub_FPU_fpcc_load
+	.GLOBL		f_sub_FPU_fpcc_set_0
+	.GLOBL		f_sub_FPU_fpcc_set_1
+	.GLOBL		f_sub_FPU_fpcc_set_2
+	.GLOBL		f_sub_FPU_fpcc_set_3
+	.GLOBL		f_sub_FPU_fpcc_set_4
+	.GLOBL		f_sub_FPU_fpcc_set_5
+	.GLOBL		f_sub_FPU_fpcc_set_6
+	.GLOBL		f_sub_FPU_fpcc_set_7
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_check_int
+--  Function ID     : CST_FN_100
+--  Input           : R8 : PSW Value of before SYSCALL/TRAP instruction
+--                  : R9 : Next address of SYSCALL/TRAP instruction
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R6, R7, R8, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_check_int:
+	-- Covers: CST_DD_121
+	-- Covers: CST_DD_265
+	STSR		PSW, R6, 0			--
+	MOV		CST_RAM_ADDRESS_L, R7		--
+
+	LD.W		0x00E8[R7], R1			-- EIPC
+	XOR		R9, R1				--
+	ADD		R1, R10				--
+
+	LD.W		0x00F0[R7], R1			-- EIIC,Signature
+	ADD		R1, R10				--
+
+	LD.W		0x00EC[R7], R7			-- EIPSW
+	XOR		R6, R7				--
+	ADD		R7, R10				--
+	XOR		R6, R8				--
+	ADD		R8, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_check_feint
+--  Function ID     : CST_FN_099
+--  Input           : R8 : PSW Value of before TRAP instruction
+--                  : R9 : Next address of TRAP instruction
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R6, R7, R8, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_check_feint:
+	-- Covers: CST_DD_120
+	-- Covers: CST_DD_264
+	STSR		PSW, R6, 0			--
+	MOV		CST_RAM_ADDRESS_L, R7		--
+
+	LD.W		0x00E8[R7], R1			-- FEPC
+	XOR		R9, R1				--
+	ADD		R1, R10				--
+
+	LD.W		0x00F0[R7], R1			-- FEIC,Signature
+	ADD		R1, R10				--
+
+	LD.W		0x00EC[R7], R7			-- FEPSW
+	XOR		R6, R7				--
+	ADD		R7, R10				--
+	XOR		R6, R8				--
+	ADD		R8, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_push_psw
+--  Function ID     : CST_FN_108
+--  Input           : R29 : Store address(Stack area)
+--  Output          : none
+--  Broken Register : R1, R6
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_push_psw:
+	-- Covers: CST_DD_129
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_273
+#if CST_INT_EN
+	STSR		PSW, R1, 0			--
+	MOV		0xFFFFFFDF, R6			--
+	OR		R1, R6				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R1, 0			--
+	AND		R6, R1				--
+	ST.W		R1, 0x0000[R29]			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R1, 0			--
+	ST.W		R1, 0x0000[R29]			--
+-- CST_INT_EN
+#endif
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_pop_psw
+--  Function ID     : CST_FN_101
+--  Input           : R29 : Load address(Stack area)
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_pop_psw:
+	-- Covers: CST_DD_122
+	-- Covers: CST_DD_266
+	LD.W		0x0000[R29], R1			--
+	LDSR		R1, PSW, 0			--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_clear
+--  Function ID     : CST_FN_102
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1, R6
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_clear:
+	-- Covers: CST_DD_123
+	-- Covers: CST_DD_267
+	MOV		PSW_MASK_SATCYOVSZ, R1		--
+	STSR		PSW, R6, 0			--
+	AND		R1, R6				--
+	LDSR		R6, PSW, 0			--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_load_SATCYOVSZ
+--  Function ID     : CST_FN_106
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_load_SATCYOVSZ:
+	-- Covers: CST_DD_127
+	-- Covers: CST_DD_271
+	STSR		PSW, R1, 0			--
+	ANDI		0x001F, R1, R1			--
+	ADD		R1, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_load_CYOVSZ
+--  Function ID     : CST_FN_103
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_load_CYOVSZ:
+	-- Covers: CST_DD_124
+	-- Covers: CST_DD_268
+	STSR		PSW, R1, 0			--
+	ANDI		0x000F, R1, R1			--
+	ADD		R1, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_load_OVSZ
+--  Function ID     : CST_FN_105
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_load_OVSZ:
+	-- Covers: CST_DD_126
+	-- Covers: CST_DD_270
+	STSR		PSW, R1, 0			--
+	ANDI		0x0007, R1, R1			--
+	ADD		R1, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_load_OV
+--  Function ID     : CST_FN_104
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_load_OV:
+	-- Covers: CST_DD_125
+	-- Covers: CST_DD_269
+	STSR		PSW, R1, 0			--
+	ANDI		0x0004, R1, R1			--
+	ADD		R1, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_CST_psw_load_Z
+--  Function ID     : CST_FN_107
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_CST_psw_load_Z:
+	-- Covers: CST_DD_128
+	-- Covers: CST_DD_272
+	STSR		PSW, R1, 0			--
+	ANDI		0x0001, R1, R1			--
+	ADD		R1, R10				--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_fpu_set
+--  Function ID     : CST_FN_127
+--  Input           : EP : Store address(Stack area)
+--  Output          : R29 : PSW backup value
+--  Broken Register : R1, R14
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_SRU_fpu_set:
+	-- Covers: CST_DD_147
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_291
+#if CST_INT_EN
+	STSR		PSW, R29, 0			--
+	MOV		0xFFFFFFDF, R1			--
+	OR		R29, R1				-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R29, 0			--
+	AND		R1, R29				--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R29, 0			--
+-- CST_INT_EN
+#endif
+
+	-- CU0 on(FPU enable)
+	MOV		0x00010000, R1			--
+	STSR		PSW, R14, 0			--
+	OR		R14, R1				--
+	LDSR		R1, PSW, 0			--
+	SYNCI						--
+
+	--
+	-- Covers: CST_UM_031
+	STSR		FPSR, R14, 0			--
+	SST.W		R14, 0x00[EP]			--
+
+	--
+	-- Covers: CST_UM_032
+	STSR		FPEPC, R1, 0			--
+	SST.W		R1, 0x04[EP]			--
+
+	--
+	-- Covers: CST_UM_033
+	STSR		FPST, R1, 0			--
+	SST.W		R1, 0x08[EP]			--
+
+	--
+	-- Covers: CST_UM_034
+	STSR		FPCC, R1, 0			--
+	SST.W		R1, 0x0C[EP]			--
+
+	--
+	-- Covers: CST_UM_035
+	STSR		FPCFG, R1, 0			--
+	SST.W		R1, 0x10[EP]			--
+
+	--
+	MOV		0x00020000, R1			--
+	NOT		R1, R1				--
+	AND		R1, R14				--
+
+	LDSR		R14, FPSR, 0			--
+	LDSR		R0, FPCFG, 0			--
+	LDSR		R0, FPST, 0			--
+	LDSR		R0, FPCC, 0			--
+	LDSR		R0, FPEPC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_fpu_rmset
+--  Function ID     : CST_FN_126
+--  Input           : R6 : Setting value
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R7, R14
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_SRU_fpu_rmset:
+	-- Covers: CST_DD_146
+	-- Covers: CST_DD_290
+	STSR		FPSR, R14, 0			--
+	MOV		0xFFF3FC1F, R7			--
+	AND		R7, R14				--
+	MOV		R6, R1				--
+	SHL		0x12, R1			--
+	OR		R1, R14				--
+	LDSR		R14, FPSR, 0			--
+	SYNCP						--
+
+	STSR		FPCFG, R14, 0			--
+	SHR		0x08, R14			--
+	ANDI		0x0003, R14, R14		--
+
+	SUB		R6, R14				--
+	ADD		R14, R10			--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_SRU_fpu_restore
+--  Function ID     : CST_FN_125
+--  Input           : R29 : PSW backup value
+--                  : EP : Load address(Stack area)
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_SRU_fpu_restore:
+	-- Covers: CST_DD_145
+	-- Covers: CST_DD_289
+	SLD.W		0x10[EP], R1			--
+	LDSR		R1, FPCFG, 0			--
+
+	SLD.W		0x0C[EP], R1			--
+	LDSR		R1, FPCC, 0			--
+
+	SLD.W		0x08[EP], R1			--
+	LDSR		R1, FPST, 0			--
+
+	SLD.W		0x04[EP], R1			--
+	LDSR		R1, FPEPC, 0			--
+
+	SLD.W		0x00[EP], R1			--
+	LDSR		R1, FPSR, 0			--
+	SYNCP						--
+
+	LDSR		R29, PSW, 0			--
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpst_load_VOUI
+--  Function ID     : CST_FN_122
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpst_load_VOUI:
+	-- Covers: CST_DD_142
+	-- Covers: CST_DD_286
+	STSR		FPST, R1, 0			--
+	ANDI		0x0017, R1, R1			--
+	ADD		R1, R10				--
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpst_load_VI
+--  Function ID     : CST_FN_121
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpst_load_VI:
+	-- Covers: CST_DD_141
+	-- Covers: CST_DD_285
+	STSR		FPST, R1, 0			--
+	ANDI		0x0011, R1, R1			--
+	ADD		R1, R10				--
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpst_load_I
+--  Function ID     : CST_FN_119
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpst_load_I:
+	-- Covers: CST_DD_139
+	-- Covers: CST_DD_283
+	STSR		FPST, R1, 0			--
+	ANDI		0x0001, R1, R1			--
+	ADD		R1, R10				--
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpst_load_V
+--  Function ID     : CST_FN_120
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpst_load_V:
+	-- Covers: CST_DD_140
+	-- Covers: CST_DD_284
+	STSR		FPST, R1, 0			--
+	ANDI		0x0010, R1, R1			--
+	ADD		R1, R10				--
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_load
+--  Function ID     : CST_FN_110
+--  Input/Output    : R10 : Result SUM
+--  Broken Register : R1, R10
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_load:
+	-- Covers: CST_DD_130
+	-- Covers: CST_DD_274
+	STSR		FPCC, R1, 0			--
+	ANDI		0x00FF, R1, R1			--
+	ADD		R1, R10				--
+	LDSR		R0, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_0
+--  Function ID     : CST_FN_111
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_0:
+	-- Covers: CST_DD_131
+	-- Covers: CST_DD_275
+	MOVEA		0x0001, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_1
+--  Function ID     : CST_FN_112
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_1:
+	-- Covers: CST_DD_132
+	-- Covers: CST_DD_276
+	MOVEA		0x0002, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_2
+--  Function ID     : CST_FN_113
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_2:
+	-- Covers: CST_DD_133
+	-- Covers: CST_DD_277
+	MOVEA		0x0004, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_3
+--  Function ID     : CST_FN_114
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_3:
+	-- Covers: CST_DD_134
+	-- Covers: CST_DD_278
+	MOVEA		0x0008, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_4
+--  Function ID     : CST_FN_115
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_4:
+	-- Covers: CST_DD_135
+	-- Covers: CST_DD_279
+	MOVEA		0x0010, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_5
+--  Function ID     : CST_FN_116
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_5:
+	-- Covers: CST_DD_136
+	-- Covers: CST_DD_280
+	MOVEA		0x0020, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_6
+--  Function ID     : CST_FN_117
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_6:
+	-- Covers: CST_DD_137
+	-- Covers: CST_DD_281
+	MOVEA		0x0040, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : f_sub_FPU_fpcc_set_7
+--  Function ID     : CST_FN_118
+--  Input           : none
+--  Output          : none
+--  Broken Register : R1
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+f_sub_FPU_fpcc_set_7:
+	-- Covers: CST_DD_138
+	-- Covers: CST_DD_282
+	MOVEA		0x0080, R0, R1			--
+	LDSR		R1, FPCC, 0			--
+	SYNCP						--
+
+	JMP		[LP]				--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CST_common_func.850           =====
+-- ============================================================================

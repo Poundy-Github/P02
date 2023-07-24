@@ -1,0 +1,4 @@
+#!gbuild
+[Subproject]
+Dma.c
+Dma_Cfg.c

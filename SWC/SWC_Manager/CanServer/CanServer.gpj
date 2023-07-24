@@ -1,0 +1,38 @@
+#!gbuild
+[Subproject]
+${PROJECT_TYPE}\ComNoAction_Cfg.c
+{streq(PROJECT_TYPE, B02)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, P03)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, P02)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, P09)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, P01)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, D01)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, D02)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, D03)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, P05)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, A07)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, A08)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, ES13)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, EC24)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, ES24)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, B16)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+{streq(PROJECT_TYPE, EC31)} ${PROJECT_TYPE}\MissingDTC_Cfg.c
+
+
+{streq(PROJECT_TYPE, B02)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, P01)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, P02)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, P09)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, P03)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, D01)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, D02)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, D03)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, P05)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, A07)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, A08)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, ES13)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, EC24)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, ES24)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, B16)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+{streq(PROJECT_TYPE, EC31)} ${PROJECT_TYPE}\NetStatus_Cfg.c
+${PROJECT_TYPE}\Can_Server.c

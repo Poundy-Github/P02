@@ -1,0 +1,2978 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = SRU_loadstore_ope.850                                        --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of System Register (Store / Load Test)                               --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_SRU_loadstore_1
+	.GLOBL		_CST_SRU_loadstore_2
+	.GLOBL		_CST_SRU_loadstore_3
+#if CST_INST_CACHE_SUPPORT
+	.GLOBL		_CST_SRU_loadstore_4
+-- CST_INST_CACHE_SUPPORT
+#endif
+	.GLOBL		_CST_SRU_loadstore_5
+	.GLOBL		_CST_SRU_loadstore_6
+	.GLOBL		_CST_SRU_loadstore_7
+#if CST_DBUF_OPE_REG_SUPPORT
+	.GLOBL		_CST_SRU_loadstore_8
+-- CST_DBUF_OPE_REG_SUPPORT
+#endif
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	-- Nothing
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_1
+--  Function ID     : CST_FN_079
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, R13, R14, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_1:
+	-- Covers: CST_DD_092
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_237
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 0
+	--- EIPC
+	-- Covers: CST_UM_312
+	-- Covers: CST_UM_312_01
+	STSR		EIPC, R27, 0			--
+	-- Covers: CST_UM_262
+	-- Covers: CST_UM_262_01
+	LDSR		R0, EIPC, 0			--
+
+	-- Covers: CST_UM_002
+	MOV		0xFFFFFFFE, R7			--
+	LDSR		R7, EIPC, 0			--
+	STSR		EIPC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFE
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_002
+	LDSR		R0, EIPC, 0			--
+	STSR		EIPC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, EIPC, 0			--
+
+	--- EIPSW
+	STSR		EIPSW, R27, 0			--
+	LDSR		R0, EIPSW, 0			--
+
+	MOV		0x400180FF, R7			--
+	-- Covers: CST_UM_003
+	LDSR		R7, EIPSW, 0			--
+	STSR		EIPSW, R6, 0			--cst_point: out=1 -- R6:0x400180FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_003
+	LDSR		R0, EIPSW, 0			--
+	STSR		EIPSW, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, EIPSW, 0			--
+
+	--- FEPC
+	STSR		FEPC, R27, 0			--
+	LDSR		R0, FEPC, 0			--
+
+	-- Covers: CST_UM_004
+	MOV		0xFFFFFFFE, R7			--
+	LDSR		R7, FEPC, 0			--
+	STSR		FEPC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFE
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_004
+	LDSR		R0, FEPC, 0			--
+	STSR		FEPC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, FEPC, 0			--
+
+	--- FEPSW
+	STSR		FEPSW, R27, 0			--
+	LDSR		R0, FEPSW, 0			--
+
+	MOV		0x400180FF, R7			--
+	-- Covers: CST_UM_005
+	LDSR		R7, FEPSW, 0			--
+	STSR		FEPSW, R6, 0			--cst_point: out=1 -- R6:0x400180FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_005
+	LDSR		R0, FEPSW, 0			--
+	STSR		FEPSW, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, FEPSW, 0			--
+
+	--- PSW
+	-- Covers: CST_UM_006
+	STSR		PSW, R27, 0			--
+	ORI		0x0020, R0, R7			-- force IDbit
+	ANDI		0x8000, R27, R8			-- keep EBVbit
+	OR		R8, R7				--
+	LDSR		R7, PSW, 0			--
+
+	MOV		0x000100FF, R7			-- UM = 0(difficult to restore)
+	ANDI		0x8000, R27, R8			--
+	OR		R8, R7				--
+	-- Covers: CST_UM_006
+	LDSR		R7, PSW, 0			--
+	STSR		PSW, R6, 0			--cst_point: out=1 -- R6:0x000180FF or 0x000100FF
+	MOV		0xFFFF7FFF, R7			--
+	AND		R7, R6				--
+	XOR		R6, R10				--
+
+	ORI		0x0020, R0, R7			-- force IDbit
+	ANDI		0x8000, R27, R8			-- keep EBVbit
+	OR		R8, R7				--
+	-- Covers: CST_UM_006
+	LDSR		R7, PSW, 0			--
+	STSR		PSW, R6, 0			--cst_point: out=1 -- R6:0x00008020 or 0x00000020
+	MOV		0xFFFF7FFF, R7			--
+	AND		R7, R6				--
+	XOR		R6, R10				--
+
+	LDSR		R27, PSW, 0			--
+
+	--- FPU Function Registers
+	STSR		PSW, R27, 0			--
+	MOVHI		0x0001, R0, R7			--
+	OR		R27, R7				--
+	LDSR		R7, PSW, 0			-- CU0 = 1(FPU enable)
+
+	--- FPSR
+	STSR		FPSR, R26, 0			--
+	SYNCP						--
+	SYNCE						--
+	LDSR		R0, FPSR, 0			--
+	SYNCP						--
+
+	SYNCE						--
+	MOV		0xFFEEFFFF, R7			--
+	-- Covers: CST_UM_031
+	LDSR		R7, FPSR, 0			--
+	SYNCP						--
+	STSR		FPSR, R6, 0			--cst_point: out=1 -- R6:0xFFEEFFFF
+	XOR		R6, R10				--
+
+	SYNCE						--
+	-- Covers: CST_UM_031
+	LDSR		R0, FPSR, 0			--
+	SYNCP						--
+	STSR		FPSR, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	SYNCE						--
+	LDSR		R26, FPSR, 0			--
+	SYNCP						--
+
+	--- FPEPC
+	STSR		FPEPC, R26, 0			--
+	LDSR		R0, FPEPC, 0			--
+	SYNCP						--
+
+	XORI		0x0001, R29, R7			--
+	-- Covers: CST_UM_032
+	LDSR		R7, FPEPC, 0			--
+	SYNCP						--
+	STSR		FPEPC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFE
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_032
+	LDSR		R0, FPEPC, 0			--
+	SYNCP						--
+	STSR		FPEPC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, FPEPC, 0			--
+	SYNCP						--
+
+	--- FPST
+	STSR		FPST, R26, 0			--
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+
+	ANDI		0x3F3F, R29, R7			--
+	-- Covers: CST_UM_033
+	LDSR		R7, FPST, 0			--
+	SYNCP						--
+	STSR		FPST, R6, 0			--cst_point: out=1 -- R6:0x00003F3F
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_033
+	LDSR		R0, FPST, 0			--
+	SYNCP						--
+	STSR		FPST, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, FPST, 0			--
+	SYNCP						--
+
+	--- FPCC
+	STSR		FPCC, R26, 0			--
+	LDSR		R0, FPCC, 0			--
+	SYNCP						--
+
+	ANDI		0x00FF, R29, R7			--
+	-- Covers: CST_UM_034
+	LDSR		R7, FPCC, 0			--
+	SYNCP						--
+	STSR		FPCC, R6, 0			--cst_point: out=1 -- R6:0x000000FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_034
+	LDSR		R0, FPCC, 0			--
+	SYNCP						--
+	STSR		FPCC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, FPCC, 0			--
+	SYNCP						--
+
+	--- FPCFG
+	STSR		FPCFG, R26, 0			--
+	LDSR		R0, FPCFG, 0			--
+	SYNCP						--
+
+	ANDI		0x031F, R29, R7			--
+	-- Covers: CST_UM_035
+	LDSR		R7, FPCFG, 0			--
+	SYNCP						--
+	STSR		FPCFG, R6, 0			--cst_point: out=1 -- R6:0x0000031F
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_035
+	LDSR		R0, FPCFG, 0			--
+	SYNCP						--
+	STSR		FPCFG, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, FPCFG, 0			--
+	SYNCP						--
+
+	--- FPEC (Write 1 to FPEC.FPIVD is inhibited)
+	-- Covers: CST_UM_036
+	STSR		FPEC, R6, 0			--
+	XORI		0x0001, R29, R7			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+
+	LDSR		R27, PSW, 0			-- CU0 restore
+
+	--- EIIC
+	STSR		EIIC, R27, 0			--
+	LDSR		R0, EIIC, 0			--
+
+	-- Covers: CST_UM_007
+	LDSR		R29, EIIC, 0			--
+	STSR		EIIC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_007
+	LDSR		R0, EIIC, 0			--
+	STSR		EIIC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, EIIC, 0			--
+
+	--- FEIC
+	STSR		FEIC, R27, 0			--
+	LDSR		R0, FEIC, 0			--
+
+	-- Covers: CST_UM_008
+	LDSR		R29, FEIC, 0			--
+	STSR		FEIC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_008
+	LDSR		R0, FEIC, 0			--
+	STSR		FEIC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, FEIC, 0			--
+
+	--- CTPC
+	STSR		CTPC, R27, 0			--
+	LDSR		R0, CTPC, 0			--
+
+	-- Covers: CST_UM_009
+	MOV		0xFFFFFFFE, R7			--
+	LDSR		R7, CTPC, 0			--
+	STSR		CTPC, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFE
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_009
+	LDSR		R0, CTPC, 0			--
+	STSR		CTPC, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, CTPC, 0			--
+
+	--- CTPSW
+	STSR		CTPSW, R27, 0			--
+	LDSR		R0, CTPSW, 0			--
+
+	ANDI		0x001F, R29, R7			--
+	-- Covers: CST_UM_010
+	LDSR		R7, CTPSW, 0			--
+	STSR		CTPSW, R6, 0			--cst_point: out=1 -- R6:0x0000001F
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_010
+	LDSR		R0, CTPSW, 0			--
+	STSR		CTPSW, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, CTPSW, 0			--
+
+	--- CTBP
+	STSR		CTBP, R27, 0			--
+	LDSR		R0, CTBP, 0			--
+
+	XORI		0x0001, R29, R7			--
+	-- Covers: CST_UM_011
+	LDSR		R7, CTBP, 0			--
+	STSR		CTBP, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFE
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_011
+	LDSR		R0, CTBP, 0			--
+	STSR		CTBP, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, CTBP, 0			--
+
+	--- EIWR
+	STSR		EIWR, R27, 0			--
+	LDSR		R0, EIWR, 0			--
+
+	-- Covers: CST_UM_013
+	LDSR		R29, EIWR, 0			--
+	STSR		EIWR, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_013
+	LDSR		R0, EIWR, 0			--
+	STSR		EIWR, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, EIWR, 0			--
+
+	--- FEWR
+	STSR		FEWR, R27, 0			--
+	LDSR		R0, FEWR, 0			--
+
+	-- Covers: CST_UM_014
+	LDSR		R29, FEWR, 0			--
+	STSR		FEWR, R6, 0			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_014
+	LDSR		R0, FEWR, 0			--
+	STSR		FEWR, R6, 0			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, FEWR, 0			--
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		0x5AA5C33C, R13			--
+	NOT		R13, R14			--
+
+	--------------------------------------------------
+	--	Check LDSR/STSR without selID
+	--------------------------------------------------
+	--- EIWR
+	-- Covers: CST_UM_312_02
+	STSR		EIWR, R27			--
+	-- Covers: CST_UM_262_02
+	LDSR		R0, EIWR			--
+
+	LDSR		R13, EIWR			--
+	STSR		EIWR, R6			--cst_point: out=1 -- R6:0x5AA5C33C
+	XOR		R6, R10				--
+
+	LDSR		R14, EIWR			--
+	STSR		EIWR, R6			--cst_point: out=1 -- R6:0xA55A3CC3
+	XOR		R6, R10				--
+
+	LDSR		R27, EIWR			--
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_2
+--  Function ID     : CST_FN_080
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, (R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_2:
+	-- Covers: CST_DD_093
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_238
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R27-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 1
+	--- MCFG0
+	STSR		MCFG0, R27, 1			--
+#if CST_SPID_BIT_WIDTH_FIVE
+	MOV		0x00020004, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#else
+	ORI		0x0004, R0, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#endif
+	LDSR		R7, MCFG0, 1			--
+	SYNCI						--
+
+#if CST_SPID_BIT_WIDTH_FIVE
+	MOV		0x001D0004, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#else
+	MOV		0x00030004, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#endif
+	-- Covers: CST_UM_024
+	LDSR		R7, MCFG0, 1			--
+	SYNCI						--
+	STSR		MCFG0, R6, 1			--cst_point: out=1
+							-- R6:0x00030004(F1H/F1M),0x001D0004(P1x-C),0x00030004(D1M/D1L)
+							-- R6:0x00030004(F1K)
+	XOR		R6, R10				--
+
+#if CST_SPID_BIT_WIDTH_FIVE
+	MOV		0x00020004, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#else
+	ORI		0x0004, R0, R7			--
+-- CST_SPID_BIT_WIDTH_FIVE
+#endif
+	-- Covers: CST_UM_024
+	LDSR		R7, MCFG0, 1			--
+	SYNCI						--
+	STSR		MCFG0, R6, 1			--cst_point: out=1
+							-- R6:0x00000004(F1H/F1M),0x00020004(P1x-C),0x00000004(D1M/D1L)
+							-- R6:0x00000004(F1K)
+	XOR		R6, R10				--
+
+	LDSR		R27, MCFG0, 1			--
+	SYNCI						--
+
+	--- RBASE (Read Only)
+	-- Covers: CST_UM_018
+	STSR		RBASE, R6, 1			--
+	ANDI		0x01FE, R6, R6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	--- INTBP
+	STSR		INTBP, R27, 1			--
+	LDSR		R0, INTBP, 1			--
+
+	XORI		0x01FF, R29, R7			--
+	-- Covers: CST_UM_020
+	LDSR		R7, INTBP, 1			--
+	STSR		INTBP, R6, 1			--cst_point: out=1 -- R6:0xFFFFFE00
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_020
+	LDSR		R0, INTBP, 1			--
+	STSR		INTBP, R6, 1			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, INTBP, 1			--
+
+	--- MCTL
+	STSR		MCTL, R27, 1			--
+	MOVHI		0x8000, R0, R7			--
+	LDSR		R7, MCTL, 1			--
+
+#if CST_MA_HW_OPERATION
+	MOV		0x80000003, R7			--
+-- CST_MA_HW_OPERATION
+#else
+	MOV		0x80000001, R7			--
+-- CST_MA_HW_OPERATION
+#endif
+	-- Covers: CST_UM_025
+	LDSR		R7, MCTL, 1			--
+	STSR		MCTL, R6, 1			--cst_point: out=1
+							-- R6:0x80000001(F1H/F1M),0x80000003(P1x-C),0x80000001(D1M/D1L)
+							-- R6:0x80000003(F1K)
+	XOR		R6, R10				--
+
+	MOVHI		0x8000, R0, R7			--
+	LDSR		R7, MCTL, 1			--
+	STSR		MCTL, R6, 1			--cst_point: out=1 -- R6:0x80000000
+	XOR		R6, R10				--
+
+	LDSR		R27, MCTL, 1			--
+
+	--- PID (Read Only)
+	-- Covers: CST_UM_021
+	STSR		PID, R6, 1			--cst_point: out=1
+	MOV		PID_MASK_REV_ID, R7		--
+	AND		R7, R6				-- R6:0x05800700(F1H/F1M),0x05800700(P1x-C),0x05800F00(D1M/D1L)
+							-- R6:0x050003A0(F1K)
+	XOR		R6, R10				--
+
+	--- FPIPR
+	STSR		FPIPR, R27, 1			--
+	LDSR		R0, FPIPR, 1			--
+
+	ANDI		0x000F, R29, R7			--
+	-- Covers: CST_UM_026
+	LDSR		R7, FPIPR, 1			--
+	STSR		FPIPR, R6, 1			--cst_point: out=1 -- R6:0x0000000F
+	XOR		R6, R10				--
+
+	ORI		0x0010, R0, R7			--
+	-- Covers: CST_UM_026
+	LDSR		R7, FPIPR, 1			--
+	STSR		FPIPR, R6, 1			--cst_point: out=1 -- R6:0x00000010
+	XOR		R6, R10				--
+
+	LDSR		R27, FPIPR, 1			--
+
+	--- SCCFG
+	STSR		SCCFG, R27, 1			--
+	LDSR		R0, SCCFG, 1			--
+
+	ANDI		0x00FF, R29, R7			--
+	-- Covers: CST_UM_022
+	LDSR		R7, SCCFG, 1			--
+	STSR		SCCFG, R6, 1			--cst_point: out=1 --- R6:0x000000FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_022
+	LDSR		R0, SCCFG, 1			--
+	STSR		SCCFG, R6, 1			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, SCCFG, 1			--
+
+	--- SCBP
+	STSR		SCBP, R27, 1			--
+	LDSR		R0, SCBP, 1			--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_023
+	LDSR		R7, SCBP, 1			--
+	STSR		SCBP, R6, 1			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_023
+	LDSR		R0, SCBP, 1			--
+	STSR		SCBP, R6, 1			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, SCBP, 1			--
+
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R27-R29}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_3
+--  Function ID     : CST_FN_081
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_3:
+	-- Covers: CST_DD_094
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_239
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 2
+	--- HTCFG0 (Read Only)
+	-- Covers: CST_UM_015
+	STSR		HTCFG0, R6, 2			--
+	MOV		0xFFF8FFFF, R7			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00008000
+	XOR		R6, R10				--
+
+	--- MEA
+	STSR		MEA, R27, 2			--
+	LDSR		R0, MEA, 2			--
+
+	-- Covers: CST_UM_016
+	LDSR		R29, MEA, 2			--
+	STSR		MEA, R6, 2			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_016
+	LDSR		R0, MEA, 2			--
+	STSR		MEA, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, MEA, 2			--
+
+	--- ASID
+	STSR		MPM, R26, 5			--
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	STSR		ASID, R27, 2			--
+	LDSR		R0, ASID, 2			--
+	SYNCI						--
+	SYNCP						--
+
+	ANDI		0x03FF, R29, R7			--
+	-- Covers: CST_UM_012
+	LDSR		R7, ASID, 2			--
+	SYNCI						--
+	SYNCP						--
+	STSR		ASID, R6, 2			--cst_point: out=1 -- R6:0x000003FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_012
+	LDSR		R0, ASID, 2			--
+	SYNCI						--
+	SYNCP						--
+	STSR		ASID, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ASID, 2			--
+	SYNCI						--
+	SYNCP						--
+
+	LDSR		R26, MPM, 5			-- MPE restore
+	SYNCI						--
+
+	--- MEI
+	STSR		MEI, R27, 2			--
+	LDSR		R0, MEI, 2			--
+
+	-- Covers: CST_UM_017
+	MOV		0x001F073F, R7			--
+	LDSR		R7, MEI, 2			--
+	STSR		MEI, R6, 2			--cst_point: out=1 -- R6:0x001F073F
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_017
+	LDSR		R0, MEI, 2			--
+	STSR		MEI, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, MEI, 2			--
+
+	--- ISPR
+	STSR		INTCFG, R27, 2			--
+
+	STSR		ISPR, R26, 2			--
+
+	ORI		0x0001, R0, R8			--
+	LDSR		R8, INTCFG, 2			-- ISPC = 1
+	LDSR		R0, ISPR, 2			--
+
+	LDSR		R0, INTCFG, 2			-- ISPC = 0
+
+	ANDI		0xFFFF, R29, R7			--
+	-- Covers: CST_UM_027
+	LDSR		R7, ISPR, 2			--
+	STSR		ISPR, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_027
+	LDSR		R0, ISPR, 2			--
+	STSR		ISPR, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	ORI		0x0001, R0, R8			--
+	LDSR		R8, INTCFG, 2			-- ISPC = 1
+
+	-- Covers: CST_UM_027
+	LDSR		R7, ISPR, 2			--
+	STSR		ISPR, R6, 2			--cst_point: out=1 -- R6:0x0000FFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_027
+	LDSR		R0, ISPR, 2			--
+	STSR		ISPR, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, ISPR, 2			--
+
+	LDSR		R27, INTCFG, 2			-- ISPC restore
+
+	--- PMR
+	STSR		PMR, R27, 2			--
+	LDSR		R0, PMR, 2			--
+
+	ANDI		0xFFFF, R29, R7			--
+	-- Covers: CST_UM_028
+	LDSR		R7, PMR, 2			--
+	STSR		PMR, R6, 2			--cst_point: out=1 -- R6:0x0000FFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_028
+	LDSR		R0, PMR, 2			--
+	STSR		PMR, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, PMR, 2			--
+
+	--- ICSR (Read Only)
+	-- Covers: CST_UM_029
+	STSR		ICSR, R6, 2			--
+	MOV		0xFFFFFFFC, R7			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	--- INTCFG
+	STSR		INTCFG, R27, 2			--
+	LDSR		R0, INTCFG, 2			--
+
+	ANDI		0x0001, R29, R7			--
+	-- Covers: CST_UM_030
+	LDSR		R7, INTCFG, 2			--
+	STSR		INTCFG, R6, 2			--cst_point: out=1 -- R6:0x00000001
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_030
+	LDSR		R0, INTCFG, 2			--
+	STSR		INTCFG, R6, 2			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, INTCFG, 2			--
+
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+
+#if CST_INST_CACHE_SUPPORT
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_4
+--  Function ID     : CST_FN_082
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_4:
+	-- Covers: CST_DD_AP_510
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 4
+	--- ICTAGL
+	STSR		ICTAGL, R27, 4			--
+	LDSR		R0, ICTAGL, 4			--
+
+#if CST_INST_CACHE_SIZE_8K
+	MOV		0x01FFF835, R7			--
+-- CST_INST_CACHE_SIZE_8K
+#else
+	MOV		0x01FFF035, R7			--
+-- CST_INST_CACHE_SIZE_8K
+#endif
+	-- Covers: CST_UM_093
+	LDSR		R7, ICTAGL, 4			--
+	STSR		ICTAGL, R6, 4			--
+	MOV		0xFFFFFFBF, R7			--
+	AND		R7, R6				--cst_point: out=1
+							-- R6:0x01FFF835(F1H/F1M),0x01FFF035(P1x-C),0x01FFF835(D1M/D1L)
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_093
+	LDSR		R0, ICTAGL, 4			--
+	STSR		ICTAGL, R6, 4			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICTAGL, 4			--
+
+	--- ICTAGH
+	STSR		ICTAGH, R27, 4			--
+	LDSR		R0, ICTAGH, 4			--
+
+	MOV		0xF0FF7F00, R7			--
+	-- Covers: CST_UM_094
+	LDSR		R7, ICTAGH, 4			--
+	STSR		ICTAGH, R6, 4			--
+	MOV		0xFFFFFFBC, R7			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0xF0FF7F00
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_094
+	LDSR		R0, ICTAGH, 4			--
+	STSR		ICTAGH, R6, 4			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICTAGH, 4			--
+
+	--- ICDATL
+	STSR		ICDATL, R27, 4			--
+	LDSR		R0, ICDATL, 4			--
+
+	-- Covers: CST_UM_095
+	LDSR		R29, ICDATL, 4			--
+	STSR		ICDATL, R6, 4			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_095
+	LDSR		R0, ICDATL, 4			--
+	STSR		ICDATL, R6, 4			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICDATL, 4			--
+
+	--- ICDATH
+	STSR		ICDATH, R27, 4			--
+	LDSR		R0, ICDATH, 4			--
+
+	-- Covers: CST_UM_096
+	LDSR		R29, ICDATH, 4			--
+	STSR		ICDATH, R6, 4			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_096
+	LDSR		R0, ICDATH, 4			--
+	STSR		ICDATH, R6, 4			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICDATH, 4			--
+
+	--- ICERR(ICERR.ICHERQ=0)
+	STSR		ICERR, R26, 4			--
+	MOV		0xFFFFFFEF, R8			--
+	AND		R26, R8				--
+	LDSR		R8, ICERR, 4			--
+
+	--- ICCTRL
+	STSR		ICCTRL, R27, 4			--
+	MOVHI		0x0001, R0, R8			--
+	LDSR		R8, ICCTRL, 4			--
+	SYNCI						--
+
+	-- Covers: CST_UM_097
+	MOV		0x00030107, R7			--
+	LDSR		R7, ICCTRL, 4			--
+	SYNCI						--
+	STSR		ICCTRL, R6, 4			--
+	MOV		0xFFFFFEFF, R7			--
+	AND		R7, R6				--cst_point: out=1 -- R6:0x00030007
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_097
+	LDSR		R8, ICCTRL, 4			--
+	SYNCI						--
+	STSR		ICCTRL, R6, 4			--cst_point: out=1 -- R6:0x00010000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICCTRL, 4			--
+	SYNCI						--
+
+	LDSR		R26, ICERR, 4			--
+
+	--- ICCFG (Read Only)
+	-- Covers: CST_UM_098
+	STSR		ICCFG, R6, 4			--cst_point: out=1
+							-- R6:0x00010844(F1H/F1M),0x00011084(P1x-C),0x00010844(D1M/D1L)
+	XOR		R6, R10				--
+
+	--- ICCTRL(ICCTRL.ICHEMK Enable)
+	STSR		ICCTRL, R26, 4			--
+	MOV		0x02, R8			--
+	OR		R26, R8				--
+	LDSR		R8, ICCTRL, 4			--
+	SYNCI						--
+
+	--- ICERR
+	STSR		ICERR, R27, 4			--
+	LDSR		R0, ICERR, 4			--
+
+	-- Covers: CST_UM_099
+#if CST_INST_CACHE_SIZE_8K
+	MOV		0xBF3F6FFD, R7			--
+-- CST_INST_CACHE_SIZE_8K
+#else
+	MOV		0xBF3F7FFD, R7			--
+-- CST_INST_CACHE_SIZE_8K
+#endif
+	LDSR		R7, ICERR, 4			--
+	STSR		ICERR, R6, 4			--cst_point: out=1
+							-- R6:0xBF3F6FFD(F1H/F1M),0xBF3F7FFD(P1x-C),0xBF3F6FFD(D1M/D1L)
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_099
+	LDSR		R0, ICERR, 4			--
+	STSR		ICERR, R6, 4			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, ICERR, 4			--
+
+	LDSR		R26, ICCTRL, 4			--
+	SYNCI						--
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+-- CST_INST_CACHE_SUPPORT
+#endif
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_5
+--  Function ID     : CST_FN_083
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R10, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_5:
+	-- Covers: CST_DD_095
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_240
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 5
+	--- MPM
+	STSR		MPM, R27, 5			--
+	LDSR		R0, MPM, 5			--
+	SYNCI						--
+
+	ANDI		0x0002, R29, R7			-- not (SVP = 1 & MPE = 1) in order to avoid MIP exception
+	LDSR		R7, MPM, 5			--
+	SYNCI						--
+	-- Covers: CST_UM_037
+	STSR		MPM, R6, 5			--cst_point: out=1 -- R6:0x00000002
+	XOR		R6, R10				--
+
+	ORI		0x0001, R0, R7			-- not (SVP = 1 & MPE = 1) in order to avoid MIP exception
+	LDSR		R7, MPM, 5			--
+	SYNCI						--
+	-- Covers: CST_UM_037
+	STSR		MPM, R6, 5			--cst_point: out=1 -- R6:0x00000001
+	XOR		R6, R10				--
+
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+
+	--- MPRC
+	STSR		MPM, R27, 5			--
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	STSR		MPRC, R26, 5			--
+	LDSR		R0, MPRC, 5			--
+	SYNCI						--
+
+#if CST_MPU_TWELVE_CHANNELS
+	ANDI		0x0FFF, R29, R7			--
+-- CST_MPU_TWELVE_CHANNELS
+#else
+	ANDI		0xFFFF, R29, R7			--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+	-- Covers: CST_UM_038
+	LDSR		R7, MPRC, 5			--
+	SYNCI						--
+	STSR		MPRC, R6, 5			--cst_point: out=1
+							-- R6:0x0000FFFF(F1H/F1M),0x0000FFFF(P1x-C),0x00000FFF(D1M/D1L)
+							-- R6:0x0000FFFF(F1K)
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_038
+	LDSR		R0, MPRC, 5			--
+	SYNCI						--
+	STSR		MPRC, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPRC, 5			--
+	SYNCI						--
+
+	LDSR		R27, MPM, 5			-- MPE restore
+	-- Covers: CST_UM_039
+	SYNCI						--
+
+	--- MPBRGN (Read Only)
+	-- Covers: CST_UM_040
+	STSR		MPBRGN, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	--- MPTRGN (Read Only)
+	STSR		MPTRGN, R6, 5			--cst_point: out=1
+							-- R6:0x00000010(F1H/F1M),0x00000010(P1x-C),0x0000000C(D1M/D1L)
+							-- R6:0x00000010(F1K)
+	XOR		R6, R10				--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--- MCA
+	STSR		MCA, R27, 5			--
+	LDSR		R0, MCA, 5			--
+	SYNCI						--
+
+	-- Covers: CST_UM_041
+	LDSR		R29, MCA, 5			--
+	SYNCI						--
+	STSR		MCA, R6, 5			--cst_point: out=1 -- R6:0xFFFFFFFF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_041
+	LDSR		R0, MCA, 5			--
+	SYNCI						--
+	STSR		MCA, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, MCA, 5			--
+	SYNCI						--
+
+	--- MCS
+	MOV		0x5A5A5A5A, R7			--
+	NOT		R7, R8				--
+
+	-- Covers: CST_UM_042
+	STSR		MCS, R27, 5			--
+	LDSR		R7, MCS, 5			-- in order to avoid MCS = 0x00000000
+	SYNCI						--
+
+	-- Covers: CST_UM_042
+	LDSR		R8, MCS, 5			--
+	SYNCI						--
+	STSR		MCS, R6, 5			--cst_point: out=1 -- R6:0xA5A5A5A5
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_042
+	LDSR		R7, MCS, 5			--
+	SYNCI						--
+	STSR		MCS, R6, 5			--cst_point: out=1 -- R6:0x5A5A5A5A
+	XOR		R6, R10				--
+
+	LDSR		R27, MCS, 5			--
+	SYNCI						--
+
+	--- MCC
+	STSR		MCR, R27, 5			--
+
+	STSR		MCC, R26, 5			--
+	LDSR		R0, MCC, 5			--
+	SYNCI						--
+
+	-- Covers: CST_UM_043
+	LDSR		R29, MCC, 5			--
+	SYNCI						--
+	STSR		MCC, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_043
+	LDSR		R0, MCC, 5			--
+	SYNCI						--
+	STSR		MCC, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MCC, 5			--
+	SYNCI						--
+
+	--- MCR
+	LDSR		R0, MCR, 5			--
+	SYNCI						--
+
+	ANDI		0x013F, R29, R7			--
+	-- Covers: CST_UM_044
+	LDSR		R7, MCR, 5			--
+	SYNCI						--
+	STSR		MCR, R6, 5			--cst_point: out=1 -- R6:0x0000013F
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_044
+	LDSR		R0, MCR, 5			--
+	SYNCI						--
+	STSR		MCR, R6, 5			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, MCR, 5			--
+	SYNCI						--
+
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_6
+--  Function ID     : CST_FN_084
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_6:
+	-- Covers: CST_DD_096
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_241
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 6
+	--- MPLA0
+	STSR		MPLA0, R26, 6			--
+	LDSR		R0, MPLA0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_045
+	LDSR		R7, MPLA0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA0, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_045
+	LDSR		R0, MPLA0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA0, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA0
+	STSR		MPUA0, R26, 6			--
+	LDSR		R0, MPUA0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_046
+	LDSR		R7, MPUA0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA0, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_046
+	LDSR		R0, MPUA0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA0, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT0
+	STSR		MPAT0, R26, 6			--
+	LDSR		R0, MPAT0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_047
+	LDSR		R7, MPAT0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT0, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_047
+	LDSR		R0, MPAT0, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT0, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT0, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA1
+	STSR		MPLA1, R26, 6			--
+	LDSR		R0, MPLA1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_048
+	LDSR		R7, MPLA1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA1, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_048
+	LDSR		R0, MPLA1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA1, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA1
+	STSR		MPUA1, R26, 6			--
+	LDSR		R0, MPUA1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_049
+	LDSR		R7, MPUA1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA1, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_049
+	LDSR		R0, MPUA1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA1, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPAT1
+	STSR		MPAT1, R26, 6			--
+	LDSR		R0, MPAT1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_050
+	LDSR		R7, MPAT1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT1, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_050
+	LDSR		R0, MPAT1, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT1, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT1, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA2
+	STSR		MPLA2, R26, 6			--
+	LDSR		R0, MPLA2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_051
+	LDSR		R7, MPLA2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA2, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_051
+	LDSR		R0, MPLA2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA2, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA2
+	STSR		MPUA2, R26, 6			--
+	LDSR		R0, MPUA2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_052
+	LDSR		R7, MPUA2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA2, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_052
+	LDSR		R0, MPUA2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA2, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT2
+	STSR		MPAT2, R26, 6			--
+	LDSR		R0, MPAT2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_053
+	LDSR		R7, MPAT2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT2, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_053
+	LDSR		R0, MPAT2, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT2, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT2, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA3
+	STSR		MPLA3, R26, 6			--
+	LDSR		R0, MPLA3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_054
+	LDSR		R7, MPLA3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA3, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_054
+	LDSR		R0, MPLA3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA3, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPUA3
+	STSR		MPUA3, R26, 6			--
+	LDSR		R0, MPUA3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_055
+	LDSR		R7, MPUA3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA3, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_055
+	LDSR		R0, MPUA3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA3, R6, 6			--cst_point: out=1 ---- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT3
+	STSR		MPAT3, R26, 6			--
+	LDSR		R0, MPAT3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_056
+	LDSR		R7, MPAT3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT3, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_056
+	LDSR		R0, MPAT3, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT3, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT3, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA4
+	STSR		MPLA4, R26, 6			--
+	LDSR		R0, MPLA4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_057
+	LDSR		R7, MPLA4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA4, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_057
+	LDSR		R0, MPLA4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA4, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA4
+	STSR		MPUA4, R26, 6			--
+	LDSR		R0, MPUA4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_058
+	LDSR		R7, MPUA4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA4, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_058
+	LDSR		R0, MPUA4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA4, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT4
+	STSR		MPAT4, R26, 6			--
+	LDSR		R0, MPAT4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_059
+	LDSR		R7, MPAT4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT4, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_059
+	LDSR		R0, MPAT4, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT4, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT4, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPLA5
+	STSR		MPLA5, R26, 6			--
+	LDSR		R0, MPLA5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_060
+	LDSR		R7, MPLA5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA5, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_060
+	LDSR		R0, MPLA5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA5, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA5
+	STSR		MPUA5, R26, 6			--
+	LDSR		R0, MPUA5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_061
+	LDSR		R7, MPUA5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA5, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_061
+	LDSR		R0, MPUA5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA5, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT5
+	STSR		MPAT5, R26, 6			--
+	LDSR		R0, MPAT5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_062
+	LDSR		R7, MPAT5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT5, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_062
+	LDSR		R0, MPAT5, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT5, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT5, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA6
+	STSR		MPLA6, R26, 6			--
+	LDSR		R0, MPLA6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_063
+	LDSR		R7, MPLA6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA6, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_063
+	LDSR		R0, MPLA6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA6, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA6
+	STSR		MPUA6, R26, 6			--
+	LDSR		R0, MPUA6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_064
+	LDSR		R7, MPUA6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA6, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_064
+	LDSR		R0, MPUA6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA6, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPAT6
+	STSR		MPAT6, R26, 6			--
+	LDSR		R0, MPAT6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_065
+	LDSR		R7, MPAT6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT6, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_065
+	LDSR		R0, MPAT6, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT6, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT6, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA7
+	STSR		MPLA7, R26, 6			--
+	LDSR		R0, MPLA7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_066
+	LDSR		R7, MPLA7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA7, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_066
+	LDSR		R0, MPLA7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA7, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA7
+	STSR		MPUA7, R26, 6			--
+	LDSR		R0, MPUA7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_067
+	LDSR		R7, MPUA7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA7, R6, 6			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_067
+	LDSR		R0, MPUA7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA7, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT7
+	STSR		MPAT7, R26, 6			--
+	LDSR		R0, MPAT7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_068
+	LDSR		R7, MPAT7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT7, R6, 6			--cst_point: out=1 -- R6:0x03FF00FF
+	ADD		R6, R10				-- in order to avoid R10 = 0x00000000
+
+	-- Covers: CST_UM_068
+	LDSR		R0, MPAT7, 6			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT7, R6, 6			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT7, 6			--
+	SYNCI						--
+	SYNCP						--
+
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_7
+--  Function ID     : CST_FN_085
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, (R26, R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_7:
+	-- Covers: CST_DD_097
+	-- Covers: CST_DD_319
+	-- Covers: CST_DD_242
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	LDSR		R0, MPM, 5			-- MPM.MPE = 0(MPU disable)
+	SYNCI						--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 7
+	--- MPLA8
+	STSR		MPLA8, R26, 7			--
+	LDSR		R0, MPLA8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_069
+	LDSR		R7, MPLA8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA8, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_069
+	LDSR		R0, MPLA8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA8, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA8
+	STSR		MPUA8, R26, 7			--
+	LDSR		R0, MPUA8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_070
+	LDSR		R7, MPUA8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA8, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_070
+	LDSR		R0, MPUA8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA8, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT8
+	STSR		MPAT8, R26, 7			--
+	LDSR		R0, MPAT8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_071
+	LDSR		R7, MPAT8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT8, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_071
+	LDSR		R0, MPAT8, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT8, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT8, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA9
+	STSR		MPLA9, R26, 7			--
+	LDSR		R0, MPLA9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_072
+	LDSR		R7, MPLA9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA9, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_072
+	LDSR		R0, MPLA9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA9, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA9
+	STSR		MPUA9, R26, 7			--
+	LDSR		R0, MPUA9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_073
+	LDSR		R7, MPUA9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA9, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_073
+	LDSR		R0, MPUA9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA9, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPAT9
+	STSR		MPAT9, R26, 7			--
+	LDSR		R0, MPAT9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_074
+	LDSR		R7, MPAT9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT9, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_074
+	LDSR		R0, MPAT9, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT9, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT9, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA10
+	STSR		MPLA10, R26, 7			--
+	LDSR		R0, MPLA10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_075
+	LDSR		R7, MPLA10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA10, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_075
+	LDSR		R0, MPLA10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA10, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA10
+	STSR		MPUA10, R26, 7			--
+	LDSR		R0, MPUA10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_076
+	LDSR		R7, MPUA10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA10, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_076
+	LDSR		R0, MPUA10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA10, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT10
+	STSR		MPAT10, R26, 7			--
+	LDSR		R0, MPAT10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_077
+	LDSR		R7, MPAT10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT10, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_077
+	LDSR		R0, MPAT10, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT10, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT10, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA11
+	STSR		MPLA11, R26, 7			--
+	LDSR		R0, MPLA11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_078
+	LDSR		R7, MPLA11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA11, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_078
+	LDSR		R0, MPLA11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA11, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPUA11
+	STSR		MPUA11, R26, 7			--
+	LDSR		R0, MPUA11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_079
+	LDSR		R7, MPUA11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA11, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_079
+	LDSR		R0, MPUA11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA11, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT11
+	STSR		MPAT11, R26, 7			--
+	LDSR		R0, MPAT11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_080
+	LDSR		R7, MPAT11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT11, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+#if CST_MPU_TWELVE_CHANNELS
+	ADD		R6, R10				-- in order to avoid R10 = 0x00000000
+-- CST_MPU_TWELVE_CHANNELS
+#else
+	XOR		R6, R10				--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+
+	-- Covers: CST_UM_080
+	LDSR		R0, MPAT11, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT11, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT11, 7			--
+	SYNCI						--
+	SYNCP						--
+
+#if !CST_MPU_TWELVE_CHANNELS
+	--- MPLA12
+	STSR		MPLA12, R26, 7			--
+	LDSR		R0, MPLA12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_081
+	LDSR		R7, MPLA12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA12, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_081
+	LDSR		R0, MPLA12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA12, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA12
+	STSR		MPUA12, R26, 7			--
+	LDSR		R0, MPUA12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_082
+	LDSR		R7, MPUA12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA12, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_082
+	LDSR		R0, MPUA12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA12, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT12
+	STSR		MPAT12, R26, 7			--
+	LDSR		R0, MPAT12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_083
+	LDSR		R7, MPAT12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT12, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_083
+	LDSR		R0, MPAT12, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT12, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT12, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPLA13
+	STSR		MPLA13, R26, 7			--
+	LDSR		R0, MPLA13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_084
+	LDSR		R7, MPLA13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA13, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_084
+	LDSR		R0, MPLA13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA13, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA13
+	STSR		MPUA13, R26, 7			--
+	LDSR		R0, MPUA13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_085
+	LDSR		R7, MPUA13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA13, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_085
+	LDSR		R0, MPUA13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA13, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT13
+	STSR		MPAT13, R26, 7			--
+	LDSR		R0, MPAT13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_086
+	LDSR		R7, MPAT13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT13, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_086
+	LDSR		R0, MPAT13, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT13, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT13, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA14
+	STSR		MPLA14, R26, 7			--
+	LDSR		R0, MPLA14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_087
+	LDSR		R7, MPLA14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA14, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_087
+	LDSR		R0, MPLA14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA14, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA14
+	STSR		MPUA14, R26, 7			--
+	LDSR		R0, MPUA14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_088
+	LDSR		R7, MPUA14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA14, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_088
+	LDSR		R0, MPUA14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA14, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	-- DI pediod is Max 480 cycle
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+	LDSR		R28, PSW, 0			--
+	NOP						--
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--cst_point: popreg
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MPM, R27, 5			--
+
+	LDSR		R0, MPM, 5			-- MPE = 0(MPU disable)
+	SYNCI						--
+
+	--- MPAT14
+	STSR		MPAT14, R26, 7			--
+	LDSR		R0, MPAT14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_089
+	LDSR		R7, MPAT14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT14, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_089
+	LDSR		R0, MPAT14, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT14, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT14, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPLA15
+	STSR		MPLA15, R26, 7			--
+	LDSR		R0, MPLA15, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_090
+	LDSR		R7, MPLA15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA15, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_090
+	LDSR		R0, MPLA15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPLA15, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPLA15, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPUA15
+	STSR		MPUA15, R26, 7			--
+	LDSR		R0, MPUA15, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	XORI		0x0003, R29, R7			--
+	-- Covers: CST_UM_091
+	LDSR		R7, MPUA15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA15, R6, 7			--cst_point: out=1 -- R6:0xFFFFFFFC
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_091
+	LDSR		R0, MPUA15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPUA15, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPUA15, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	--- MPAT15
+	STSR		MPAT15, R26, 7			--
+	LDSR		R0, MPAT15, 7			--
+	SYNCI						--
+	SYNCP						--
+
+	MOV		0x03FF00FF, R7			--
+	-- Covers: CST_UM_092
+	LDSR		R7, MPAT15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT15, R6, 7			--cst_point: out=1 -- R6:0x03FF00FF
+	ADD		R6, R10				-- in order to avoid R10 = 0x00000000
+
+	-- Covers: CST_UM_092
+	LDSR		R0, MPAT15, 7			--
+	SYNCI						--
+	SYNCP						--
+	STSR		MPAT15, R6, 7			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R26, MPAT15, 7			--
+	SYNCI						--
+	SYNCP						--
+-- CST_MPU_TWELVE_CHANNELS
+#endif
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R27, MPM, 5			--
+	SYNCI						--
+
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R26-R29}, [LP]		--
+
+
+#if CST_DBUF_OPE_REG_SUPPORT
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_loadstore_8
+--  Function ID     : CST_FN_086
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R10, (R27, R28, R29)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_loadstore_8:
+	-- Covers: CST_DD_AP_511
+	-- Covers: CST_UM_006
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R27-R29}, 0x00			--
+
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+#if CST_INT_EN
+	STSR		PSW, R28, 0			--
+	MOV		0xFFFFFFDF, R27			--
+	OR		R28, R27			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R28, 0			--
+	AND		R27, R28			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R28, 0			--
+-- CST_INT_EN
+#endif
+
+	--------------------------------------------------
+	--	Settings
+	--------------------------------------------------
+	MOV		R0, R10				--
+	NOT		R0, R29				--
+
+	--------------------------------------------------
+	--	System Registers check
+	--------------------------------------------------
+	-- SelID 13
+	--- CDBCR
+	STSR		24, R27, 13			--
+	LDSR		R0, 24, 13			--
+
+	-- Covers: CST_UM_100
+	ANDI		0x0003, R29, R7			--
+	LDSR		R7, 24, 13			--
+	STSR		24, R6, 13			--cst_point: out=1 -- R6:0x00000001
+	XOR		R6, R10				--
+
+	-- Covers: CST_UM_100
+	LDSR		R0, 24, 13			--
+	STSR		24, R6, 13			--cst_point: out=1 -- R6:0x00000000
+	XOR		R6, R10				--
+
+	LDSR		R27, 24, 13			--
+
+
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, PSW, 0			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x00, {R27-R29}, [LP]		--
+
+-- CST_DBUF_OPE_REG_SUPPORT
+#endif
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   SRU_loadstore_ope.850         =====
+-- ============================================================================

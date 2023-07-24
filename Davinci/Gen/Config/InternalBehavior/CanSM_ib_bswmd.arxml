@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <ELEMENTS>
+        <BSW-IMPLEMENTATION UUID="b0f546c7-6c38-4e9f-a1bd-0df9c9622c3a">
+          <SHORT-NAME>CanSM_Impl</SHORT-NAME>
+          <MC-SUPPORT/>
+          <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+          <SW-VERSION>3.00.01</SW-VERSION>
+          <USED-CODE-GENERATOR>DaVinci Configurator</USED-CODE-GENERATOR>
+          <VENDOR-ID>30</VENDOR-ID>
+          <AR-RELEASE-VERSION>4.00.03</AR-RELEASE-VERSION>
+        </BSW-IMPLEMENTATION>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="26315610-ea22-4e76-9e9a-058987eea18e">
+          <SHORT-NAME>CanSM_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="8921225c-10a8-418e-9ca3-39728bfd4bdc">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="88933fc5-0258-4cc0-8e6a-acc09a6f7a02">
+                  <SHORT-NAME>CanSM</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanSM_ib_bswmd/BswModuleDescriptions/CanSM_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="237a43e2-48b3-44bc-99c2-0f6e4c93cb1d">
+                      <SHORT-NAME>CanSMBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="cb7c3639-9683-43d6-a3d9-3e72733716cf">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_1</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="8edbc64b-6e71-4247-8ff2-40d49d5ceb85">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_2</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="151a4bb7-10bb-4753-bb6b-c437248ee72e">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_3</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="ff25c7bb-e0c4-4598-8a5e-3ba9dd2663af">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_4</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="1ac2fad7-9e4e-4e5d-a016-5d36dc0f58e4">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_5</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="d68a1cbf-c6a7-4345-8e36-7c9e0f7b329b">
+                          <SHORT-NAME>CANSM_EXCLUSIVE_AREA_6</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="0288e4e4-f1a6-4eee-a17f-3c7da487de85">
+                          <SHORT-NAME>CanSM_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/CanSM_ib_bswmd/BswModuleDescriptions/CanSM_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="3247b0c5-6932-4a4f-a134-7c5fcf18e05c">
+                          <SHORT-NAME>CanSM_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/CanSM_ib_bswmd/BswModuleDescriptions/CanSM/CanSMBehavior/CanSM_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="e902a4ed-15a6-4fa4-b56f-f48bd9e421bd">
+                  <SHORT-NAME>CanSM_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+            <AR-PACKAGE UUID="27a0d37e-3712-41cf-9c95-2f556aa72e0d">
+              <SHORT-NAME>XcpEvents</SHORT-NAME>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

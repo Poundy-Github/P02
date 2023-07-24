@@ -1,0 +1,269 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = SRU_fpu_ope.850                                              --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Test of System Register for Floating Point Unit                           --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_SRU_fpu_1
+#if CST_FPU_SUPPORT_DOUBLE
+	.GLOBL		_CST_SRU_fpu_2
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		f_sub_SRU_fpu_set
+	.EXTERN		f_sub_SRU_fpu_restore
+	.EXTERN		f_sub_SRU_fpu_rmset
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_fpu_1
+--  Function ID     : CST_FN_076
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R8, R10, R11, R12, (R26, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_fpu_1:
+	-- Covers: CST_DD_091
+	-- Covers: CST_DD_236
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Set Initial RM mode
+	--------------------------------------------------
+	MOV		R0, R10				--
+	MOV		0x04, R11			--
+
+    SRU_fpu_1_001:
+	MOV		0x04, R6			--
+	SUB		R11, R6				--
+	JARL		f_sub_SRU_fpu_rmset, LP		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x03, R6			--
+	CVTF.WS		R6, R6				--
+	MOV		0x01, R8			--
+	CVTF.WS		R8, R8				--
+
+	--------------------------------------------------
+	--	value_1 = (1 / 3 * 3) - (1 / 3)
+	--------------------------------------------------
+	DIVF.S		R6, R8, R12			--
+	MULF.S		R12, R6, R26			--
+	SUBF.S		R12, R26, R26			--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	NEGF.S		R8, R8				--
+
+	--------------------------------------------------
+	--	value_2 = (-1 / 3 * 3)
+	--------------------------------------------------
+	DIVF.S		R6, R8, R12			--
+	MULF.S		R12, R6, R12			--
+
+	--------------------------------------------------
+	--	value = value_1 + value_2
+	--------------------------------------------------
+	ADDF.S		R12, R26, R26			--cst_point: out=1
+	ADD		R26, R10			--
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x03, R11			--
+	BNZ		SRU_fpu_1_002			--
+
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+    SRU_fpu_1_002:
+
+	--------------------------------------------------
+	--	Check Loop end
+	--------------------------------------------------
+	LOOP		R11, SRU_fpu_1_001		--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R26-LP}, [LP]		--
+
+
+#if CST_FPU_SUPPORT_DOUBLE
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_SRU_fpu_2
+--  Function ID     : CST_FN_077
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, (R26, R27, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_SRU_fpu_2:
+	-- Covers: CST_DD_AP_509
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R26-LP}, 0x07, SP		--
+
+	--------------------------------------------------
+	--	Push System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_set, LP		--
+
+	--------------------------------------------------
+	--	Set Initial RM mode
+	--------------------------------------------------
+	MOV		R0, R10				--
+	MOV		0x04, R11			--
+
+    SRU_fpu_2_001:
+	MOV		0x04, R6			--
+	SUB		R11, R6				--
+	JARL		f_sub_SRU_fpu_rmset, LP		--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x03, R6			--
+	CVTF.WD		R6, R6				--
+	MOV		0x01, R8			--
+	CVTF.WD		R8, R8				--
+
+	--------------------------------------------------
+	--	value_1 = (1 / 3 * 3) - (1 / 3)
+	--------------------------------------------------
+	DIVF.D		R6, R8, R12			--
+	MULF.D		R12, R6, R26			--
+
+	SUBF.D		R12, R26, R26			--
+
+	--------------------------------------------------
+	--	Set of Test Pattern Data
+	--------------------------------------------------
+	NEGF.D		R8, R8				--
+
+	--------------------------------------------------
+	--	value_2 = (-1 / 3 * 3)
+	--------------------------------------------------
+	DIVF.D		R6, R8, R12			--
+
+	MULF.D		R12, R6, R12			--
+
+	--------------------------------------------------
+	--	value = value_1 + value_2
+	--------------------------------------------------
+	ADDF.D		R12, R26, R26			--cst_point: out=1
+
+	ADD		R26, R10			-- check R26 only
+
+	--------------------------------------------------
+	--	Pop and Push System Register
+	--	(DI pediod is Max 480 cycle)
+	--------------------------------------------------
+	CMP		0x03, R11			--
+	BNZ		SRU_fpu_2_002			--
+
+	JARL		f_sub_SRU_fpu_restore, LP	--
+	JARL		f_sub_SRU_fpu_set, LP		--cst_point: popreg
+    SRU_fpu_2_002:
+
+	--------------------------------------------------
+	--	Check Loop end
+	--------------------------------------------------
+	LOOP		R11, SRU_fpu_2_001		--
+
+	--------------------------------------------------
+	--	Pop System Registers for FPU
+	--------------------------------------------------
+	JARL		f_sub_SRU_fpu_restore, LP	--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x07, {R26-LP}, [LP]		--
+
+-- CST_FPU_SUPPORT_DOUBLE
+#endif
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   SRU_fpu_ope.850            =====
+-- ============================================================================

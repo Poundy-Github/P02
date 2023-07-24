@@ -1,0 +1,28 @@
+#!gbuild
+
+macro CFG_NAME=FirmwareB
+
+[Project]
+	-DDEF_FIRMWARE_B
+    
+    :optionsFile=_ghs\v3.5_project.opt
+	
+{streq(PROJECT_TYPE, B02)} B02ProjectCheck.c
+{streq(PROJECT_TYPE, B03)} B03ProjectCheck.c
+{streq(PROJECT_TYPE, P05)} P05ProjectCheck.c
+{streq(PROJECT_TYPE, P03)} P03ProjectCheck.c
+{streq(PROJECT_TYPE, A07)} A07ProjectCheck.c
+{streq(PROJECT_TYPE, A08)} A08ProjectCheck.c
+{streq(PROJECT_TYPE, ES13)} ES13ProjectCheck.c
+{streq(PROJECT_TYPE, EC24)} EC24ProjectCheck.c
+{streq(PROJECT_TYPE, D01)} D01ProjectCheck.c
+{streq(PROJECT_TYPE, D02)} D02ProjectCheck.c
+{streq(PROJECT_TYPE, D03)} D03ProjectCheck.c
+{streq(PROJECT_TYPE, P01N)} P01NProjectCheck.c
+{streq(PROJECT_TYPE, ES24)} ES24ProjectCheck.c
+{streq(PROJECT_TYPE, P02)} P02ProjectCheck.c
+{streq(PROJECT_TYPE, B04)} B04ProjectCheck.c
+{streq(PROJECT_TYPE, B16)} B16ProjectCheck.c
+
+SWC_CLUSTER.gpj
+v3.5_link.gpj

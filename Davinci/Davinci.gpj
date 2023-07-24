@@ -1,0 +1,7 @@
+#!gbuild
+[Subproject]
+
+
+
+BSW\BSW.gpj            [Subproject]
+Gen\Gen.gpj            [Subproject]

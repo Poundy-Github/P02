@@ -1,0 +1,934 @@
+---------------------------------------------------------------------------------
+-- Project      = G3M/G3KH SW CST                                              --
+-- Module       = CPU_load_ope.850                                             --
+-- Version      = 1.2.4                                                        --
+-- Date         = 10-11-2017                                                   --
+---------------------------------------------------------------------------------
+--                                  COPYRIGHT                                  --
+---------------------------------------------------------------------------------
+-- Copyright (c) 2014-2017 by Renesas Electronics Corporation                  --
+---------------------------------------------------------------------------------
+-- Purpose:                                                                    --
+--   RH850G3M/RH850G3KH CORE SELF TEST                                         --
+--   Load instructions / Register file                                         --
+---------------------------------------------------------------------------------
+--                                                                             --
+-- Unless otherwise agreed upon in writing between your company and            --
+-- Renesas Electronics Corporation the following shall apply!                  --
+--                                                                             --
+-- Warranty Disclaimer                                                         --
+--                                                                             --
+-- There is no warranty of any kind whatsoever granted by Renesas. Any         --
+-- warranty is expressly disclaimed and excluded by Renesas, either expressed  --
+-- or implied, including but not limited to those for non-infringement of      --
+-- intellectual property, merchantability and/or fitness for the particular    --
+-- purpose.                                                                    --
+--                                                                             --
+-- Renesas shall not have any obligation to maintain, service or provide bug   --
+-- fixes for the supplied Product(s) and/or the Application.                   --
+--                                                                             --
+-- Each User is solely responsible for determining the appropriateness of      --
+-- using the Product(s) and assumes all risks associated with its exercise     --
+-- of rights under this Agreement, including, but not limited to the risks     --
+-- and costs of program errors, compliance with applicable laws, damage to     --
+-- or loss of data, programs or equipment, and unavailability or               --
+-- interruption of operations.                                                 --
+--                                                                             --
+-- Limitation of Liability                                                     --
+--                                                                             --
+-- In no event shall Renesas be liable to the User for any incidental,         --
+-- consequential, indirect, or punitive damage (including but not limited      --
+-- to lost profits) regardless of whether such liability is based on breach    --
+-- of contract, tort, strict liability, breach of warranties, failure of       --
+-- essential purpose or otherwise and even if advised of the possibility of    --
+-- such damages. Renesas shall not be liable for any services or products      --
+-- provided by third party vendors, developers or consultants identified or    --
+-- referred to the User by Renesas in connection with the Product(s) and/or    --
+-- the Application.                                                            --
+--                                                                             --
+---------------------------------------------------------------------------------
+-- Environment:                                                                --
+--              Devices:  G3M/G3KH                                             --
+--              Language: Green Hills Software, Compiler v2015.1.7             --
+---------------------------------------------------------------------------------
+
+#include        "CST_common.inc"
+#include        "CST_if.h"
+
+-------------------------------------------------------------------------------
+--	Defined Symbol
+------------------------------------------------------------------------------
+	.GLOBL		_CST_CPU_load_1
+	.GLOBL		_CST_CPU_load_2
+	.GLOBL		_CST_CPU_loadstore_1
+
+------------------------------------------------------------------------------
+--	External Reference
+------------------------------------------------------------------------------
+	.EXTERN		CPU_load_tbl_1
+	.EXTERN		f_sub_CST_push_psw
+	.EXTERN		f_sub_CST_pop_psw
+
+
+	.SET		LOAD_CST_DISP23		0x100000
+	.SET		LOAD_LOOP_CNT		0x04		-- None misalign is set '1'
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_load_1
+--  Function ID     : CST_FN_024
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R11, R12, R13, R14, (R28, R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_load_1:
+	-- Covers: CST_DD_043
+	-- Covers: CST_DD_188
+	-- Covers: CST_DD_307
+	-- Covers: CST_DD_319
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+#if CST_MA_HW_OPERATION
+	PREPARE		{R28-LP}, 0x00, (CPU_load_tbl_1 + 0x04)	--
+-- CST_MA_HW_OPERATION
+#else
+	PREPARE		{EP-LP}, 0x00, (CPU_load_tbl_1 + 0x04)	--
+-- CST_MA_HW_OPERATION
+#endif
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		LOAD_CST_DISP23, R14		--
+	MOV		LOAD_CST_DISP23, R13		--
+	SUBR		EP, R14				--
+	ADD		EP, R13				--
+	MOV		EP, R11				--
+
+	MOV		LOAD_LOOP_CNT, LP		--
+
+    CPU_load_1_001:
+
+#if CST_MA_HW_OPERATION
+	--------------------------------------------------
+	--	Push System Registers
+	--------------------------------------------------
+ 	-- Covers: CST_UM_006
+#if CST_INT_EN
+	STSR		PSW, R29, 0			--
+	MOV		0xFFFFFFDF, R28			--
+	OR		R29, R28			-- all 1 except PSW.ID bit
+	DI						--
+	STSR		PSW, R29, 0			--
+	AND		R28, R29			--
+-- CST_INT_EN
+#else
+	DI						--
+	STSR		PSW, R29, 0			--
+-- CST_INT_EN
+#endif
+	STSR		MCTL, R28, 1			--
+	MOV		MCTL_MA_BIT, R12		--
+	OR		R28, R12			--
+	-- Covers: CST_UM_025
+ 	LDSR		R12, MCTL, 1			--
+	NOP						--
+-- CST_MA_HW_OPERATION
+#endif
+
+	-- Covers: CST_UM_255
+	-- Covers: CST_UM_255_02
+	--------------------------------------------------
+	--	LD.B disp23[reg1], reg3
+	--------------------------------------------------
+	LD.B		-(LOAD_CST_DISP23 + 0x04)[R13], R6	--cst_point: out=1
+	ADD		R6, R10				--
+
+	-- Covers: CST_UM_255
+	-- Covers: CST_UM_255_01
+	--------------------------------------------------
+	--	LD.B disp16[reg1], reg2
+	--------------------------------------------------
+	LD.B		-0x0004[EP], R7			--cst_point: out=1
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_298
+	-- Covers: CST_UM_298_01
+	--------------------------------------------------
+	--	SLD.B disp7[EP], reg2
+	--------------------------------------------------
+	SLD.B		0x04[EP], R8			--cst_point: out=1
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_258
+	-- Covers: CST_UM_258_02
+	--------------------------------------------------
+	--	LD.H disp23[reg1], reg3
+	--------------------------------------------------
+	LD.H		(LOAD_CST_DISP23 - 0x04)[R14], R9	--cst_point: out=1
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_258
+	-- Covers: CST_UM_258_01
+	--------------------------------------------------
+	--	LD.H disp16[reg1], reg2
+	--------------------------------------------------
+	LD.H		-0x0004[EP], R6			--cst_point: out=1
+	ADD		R6, R10				--
+
+	-- Covers: CST_UM_300
+	-- Covers: CST_UM_300_01
+	--------------------------------------------------
+	--	SLD.H disp8[EP], reg2
+	--------------------------------------------------
+	SLD.H		0x04[EP], R7			--cst_point: out=1
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_260
+	-- Covers: CST_UM_260_02
+	--------------------------------------------------
+	--	LD.W disp23[reg1], reg3
+	--------------------------------------------------
+	LD.W		-(LOAD_CST_DISP23 + 0x04)[R13], R8	--cst_point: out=1
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_260
+	-- Covers: CST_UM_260_01
+	--------------------------------------------------
+	--	LD.W disp16[reg1], reg2
+	--------------------------------------------------
+	LD.W		-0x0004[EP], R9			--cst_point: out=1
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_302
+	-- Covers: CST_UM_302_01
+	--------------------------------------------------
+	--	SLD.W disp8[EP], reg2
+	--------------------------------------------------
+	SLD.W		0x04[EP], R6			--cst_point: out=1
+	ADD		R6, R10				--
+
+	-- Covers: CST_UM_256
+	-- Covers: CST_UM_256_02
+	--------------------------------------------------
+	--	LD.BU disp23[reg1], reg3
+	--------------------------------------------------
+	LD.BU		(LOAD_CST_DISP23 - 0x04)[R14], R7	--cst_point: out=1
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_256
+	-- Covers: CST_UM_256_01
+	--------------------------------------------------
+	--	LD.BU disp16[reg1], reg2
+	--------------------------------------------------
+	LD.BU		-0x0004[EP], R8			--cst_point: out=1
+	ADD		R8, R10				--
+
+	-- Covers: CST_UM_299
+	-- Covers: CST_UM_299_01
+	--------------------------------------------------
+	--	SLD.BU disp4[EP], reg2
+	--------------------------------------------------
+	SLD.BU		0x4[EP], R9			--cst_point: out=1
+	ADD		R9, R10				--
+
+	-- Covers: CST_UM_259
+	-- Covers: CST_UM_259_02
+	--------------------------------------------------
+	--	LD.HU disp23[reg1], reg3
+	--------------------------------------------------
+	LD.HU		-(LOAD_CST_DISP23 + 0x04)[R13], R6	--cst_point: out=1
+	ADD		R6, R10				--
+
+	-- Covers: CST_UM_259
+	-- Covers: CST_UM_259_01
+	--------------------------------------------------
+	--	LD.HU disp16[reg1], reg2
+	--------------------------------------------------
+	LD.HU		-0x0004[EP], R7			--cst_point: out=1
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_301
+	-- Covers: CST_UM_301_01
+	--------------------------------------------------
+	--	SLD.HU disp5[EP], reg2
+	--------------------------------------------------
+	SLD.HU		0x04[EP], R8			--cst_point: out=1
+	ADD		R8, R10				--
+
+#if CST_MA_HW_OPERATION
+	--------------------------------------------------
+	--	Pop System Registers
+	--------------------------------------------------
+	LDSR		R28, MCTL, 1			--
+	LDSR		R29, PSW, 0			--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x01, EP			--
+	ADD		0x01, R13			--
+	ADD		0x01, R14			--
+	LOOP		LP, CPU_load_1_001		--
+-- CST_MA_HW_OPERATION
+#else
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x04, EP			--
+	ADD		0x04, R13			--
+	ADD		0x04, R14			--
+	LOOP		LP, CPU_load_1_001		--
+-- CST_MA_HW_OPERATION
+#endif
+
+	MOV		LOAD_LOOP_CNT, LP		--
+
+    CPU_load_1_002:
+	-- Covers: CST_UM_257
+	-- Covers: CST_UM_257_01
+	--------------------------------------------------
+	--	LD.DW disp23[reg1], reg3
+	--------------------------------------------------
+	LD.DW		-0x000004[R11], R6		--cst_point: out=1
+	XOR		R6, R7				--
+	ADD		R7, R10				--
+
+	-- Covers: CST_UM_257_01
+	--------------------------------------------------
+	--	LD.DW disp23[reg1], reg3
+	--------------------------------------------------
+	LD.DW		0x000004[R11], R8		--cst_point: out=1
+	XOR		R8, R9				--
+	ADD		R9, R10				--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x04, R11			--
+	LOOP		LP, CPU_load_1_002		--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+#if CST_MA_HW_OPERATION
+	DISPOSE		0x00, {R28-LP}, [LP]		--
+-- CST_MA_HW_OPERATION
+#else
+	DISPOSE		0x00, {EP-LP}, [LP]		--
+-- CST_MA_HW_OPERATION
+#endif
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_load_2
+--  Function ID     : CST_FN_025
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R1, (R2, R4-R5), R6-R14, (R15-R24, R25-R29, EP, LP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_load_2:
+	-- Covers: CST_DD_044
+	-- Covers: CST_DD_189
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{R25-LP}, 0x03, SP		--
+	ADDI		0x0008, EP, R29			--
+	JARL		f_sub_CST_push_psw, LP		--
+
+	PUSHSP		R15-R24				--
+	PUSHSP		R2-R5				--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	MOV		0x55555555, R1			--
+	SST.W		R1, 0x00[EP]			--
+	NOT		R1, R1				--
+	SST.W		R1, 0x04[EP]			--
+
+    CPU_load_2_001:
+	-- Covers: CST_UM_302
+	-- Covers: CST_UM_302_01
+	--------------------------------------------------
+	--	SLD.W disp8[EP], reg2
+	--------------------------------------------------
+	SLD.W		0x00[EP], R1			--cst_point: out=1
+	SLD.W		0x00[EP], R2			--cst_point: out=1
+	SLD.W		0x00[EP], R4			--cst_point: out=1
+	SLD.W		0x00[EP], R5			--cst_point: out=1
+	SLD.W		0x00[EP], R6			--cst_point: out=1
+	SLD.W		0x00[EP], R7			--cst_point: out=1
+	SLD.W		0x00[EP], R8			--cst_point: out=1
+	SLD.W		0x00[EP], R9			--cst_point: out=1
+	SLD.W		0x00[EP], R11			--cst_point: out=1
+	SLD.W		0x00[EP], R12			--cst_point: out=1
+	SLD.W		0x00[EP], R13			--cst_point: out=1
+	SLD.W		0x00[EP], R14			--cst_point: out=1
+	SLD.W		0x00[EP], R15			--cst_point: out=1
+	SLD.W		0x00[EP], R16			--cst_point: out=1
+	SLD.W		0x00[EP], R17			--cst_point: out=1
+	SLD.W		0x00[EP], R18			--cst_point: out=1
+	SLD.W		0x00[EP], R19			--cst_point: out=1
+	SLD.W		0x00[EP], R20			--cst_point: out=1
+	SLD.W		0x00[EP], R21			--cst_point: out=1
+	SLD.W		0x00[EP], R22			--cst_point: out=1
+	SLD.W		0x00[EP], R23			--cst_point: out=1
+	SLD.W		0x00[EP], R24			--cst_point: out=1
+	SLD.W		0x00[EP], R25			--cst_point: out=1
+	SLD.W		0x00[EP], R26			--cst_point: out=1
+	SLD.W		0x00[EP], R27			--cst_point: out=1
+	SLD.W		0x00[EP], R28			--cst_point: out=1
+	SLD.W		0x00[EP], R29			--cst_point: out=1
+	SLD.W		0x00[EP], LP			--cst_point: out=1,0x55555556
+
+	NOT		R1, R1				--
+	NOT		R2, R2				--
+	ADD		R1, R10				--
+	ADD		R2, R10				--
+	NOT		R4, R4				--
+	NOT		R5, R5				--
+	ADD		R4, R10				--
+	ADD		R5, R10				--
+	NOT		R6, R6				--
+	NOT		R7, R7				--
+	ADD		R6, R10				--
+	ADD		R7, R10				--
+	NOT		R8, R8				--
+	NOT		R9, R9				--
+	ADD		R8, R10				--
+	ADD		R9, R10				--
+	NOT		R11, R11			--
+	NOT		R12, R12			--
+	ADD		R11, R10			--
+	ADD		R12, R10			--
+	NOT		R13, R13			--
+	NOT		R14, R14			--
+	ADD		R13, R10			--
+	ADD		R14, R10			--
+	NOT		R15, R15			--
+	NOT		R16, R16			--
+	ADD		R15, R10			--
+	ADD		R16, R10			--
+	NOT		R17, R17			--
+	NOT		R18, R18			--
+	ADD		R17, R10			--
+	ADD		R18, R10			--
+	NOT		R19, R19			--
+	NOT		R20, R20			--
+	ADD		R19, R10			--
+	ADD		R20, R10			--
+	NOT		R21, R21			--
+	NOT		R22, R22			--
+	ADD		R21, R10			--
+	ADD		R22, R10			--
+	NOT		R23, R23			--
+	NOT		R24, R24			--
+	ADD		R23, R10			--
+	ADD		R24, R10			--
+	NOT		R25, R25			--
+	NOT		R26, R26			--
+	ADD		R25, R10			--
+	ADD		R26, R10			--
+	NOT		R27, R27			--
+	NOT		R28, R28			--
+	ADD		R27, R10			--
+	ADD		R28, R10			--
+	NOT		R29, R29			--
+	NOT		LP, LP				--
+	ADD		R29, R10			--
+	ADD		LP, R10				--
+
+	--------------------------------------------------
+	--	Judge of Test End
+	--------------------------------------------------
+	ADD		0x04, EP			--
+	CMP		LP, R0				--
+	BP		CPU_load_2_001			--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	POPSP		R2-R5				--
+	POPSP		R15-R24				--
+
+	MOV		EP, R29				--
+	JARL		f_sub_CST_pop_psw, LP		--
+	DISPOSE		0x03, {R25-LP}, [LP]		--
+
+
+------------------------------------------------------------------------------
+--  Function Name   : _CST_CPU_loadstore_1
+--  Function ID     : CST_FN_027
+--  Input           : none
+--  Output          : R10 : Result SUM
+--  Broken Register : R6, R7, R8, R9, R10, R13, R14, (EP)
+------------------------------------------------------------------------------
+	.SECTION	".text", .text
+	.ALIGN		4
+
+_CST_CPU_loadstore_1:
+	-- Covers: CST_DD_046
+	-- Covers: CST_DD_191
+	--------------------------------------------------
+	--	Push General Registers
+	--------------------------------------------------
+	PREPARE		{EP}, 0x05, SP			--
+
+	--------------------------------------------------
+	--	Start of Test
+	--------------------------------------------------
+	MOV		R0, R10				--
+
+	--------------------------------------------------
+	--	Initialized of Test Pattern Data
+	--------------------------------------------------
+	-- adjust EP for double word alignment
+	MOVEA		0x0004, EP, EP			--
+	MOV		0xFFFFFFF8, R6			--
+	AND		R6, EP				--
+
+	MOV		0x55555555, R6			--
+	MOV		0xAAAAAAAA, R7			--
+
+	MOV		LOAD_CST_DISP23, R14		--
+	SUBR		EP, R14				--
+
+	-- Covers: CST_UM_255
+	-- Covers: CST_UM_255_01
+	--------------------------------------------------
+	--	ST.B reg2, disp16[reg1]
+	--	LD.B disp16[reg1], reg2
+	--------------------------------------------------
+	-- PTN
+	ST.B		R6, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.B		R7, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x319C1467, R8			--
+	ST.B		R8, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_255
+	-- Covers: CST_UM_255_02
+	--------------------------------------------------
+	--	ST.B reg3, disp23[reg1]
+	--	LD.B disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.B		R6, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.B		R7, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0xB0169213, R8			--
+	ST.B		R8, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.B		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_256
+	-- Covers: CST_UM_256_01
+	--------------------------------------------------
+	--	LD.BU disp16[reg1], reg2
+	--------------------------------------------------
+	-- PTN
+	ST.B		R6, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.B		R7, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x419827CD, R8			--
+	ST.B		R8, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_256
+	-- Covers: CST_UM_256_02
+	--------------------------------------------------
+	--	LD.BU disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.B		R6, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.B		R7, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x3CE58E16, R8			--
+	ST.B		R8, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.BU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_258
+	-- Covers: CST_UM_258_01
+	--------------------------------------------------
+	--	ST.H reg2, disp16[reg1]
+	--	LD.H disp16[reg1], reg2
+	--------------------------------------------------
+	-- PTN
+	ST.H		R6, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.H		R7, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0xE192745C, R8			--
+	ST.H		R8, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_258
+	-- Covers: CST_UM_258_02
+	--------------------------------------------------
+	--	ST.H reg3, disp23[reg1]
+	--	LD.H disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.H		R6, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.H		R7, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x1ECDB986, R8			--
+	ST.H		R8, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.H		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_259
+	-- Covers: CST_UM_259_01
+	--------------------------------------------------
+	--	LD.HU disp16[reg1], reg2
+	--------------------------------------------------
+	-- PTN
+	ST.H		R6, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.H		R7, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0xE192745C, R8			--
+	ST.H		R8, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_259
+	-- Covers: CST_UM_259_02
+	--------------------------------------------------
+	--	LD.HU disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.H		R6, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.H		R7, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x12C39BD7, R8			--
+	ST.H		R8, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.HU		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_260
+	-- Covers: CST_UM_260_01
+	--------------------------------------------------
+	--	ST.W reg2, disp16[reg1]
+	--	LD.W disp16[reg1], reg2
+	--------------------------------------------------
+	-- PTN
+	ST.W		R6, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.W		R7, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0xC789240D, R8			--
+	ST.W		R8, 0x0000[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		0x0000[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_260
+	-- Covers: CST_UM_260_02
+	--------------------------------------------------
+	--	ST.W reg3, disp23[reg1]
+	--	LD.W disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.W		R6, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	ST.W		R7, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	MOV		0x987623CD, R8			--
+	ST.W		R8, (LOAD_CST_DISP23 + 0x04)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	LD.W		(LOAD_CST_DISP23 + 0x04)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_257
+	-- Covers: CST_UM_257_01
+	--------------------------------------------------
+	--	ST.DW reg3, disp23[reg1]
+	--	LD.DW disp23[reg1], reg3
+	--------------------------------------------------
+	-- PTN
+	ST.DW		R6, 0x000000[EP]		--cst_point: in=1
+
+	MOV		R0, R8				--
+	MOV		R0, R9				--
+	LD.DW		0x000000[EP], R8		--cst_point: out=1
+	XOR		R8, R10				--
+	XOR		R9, R10				--
+
+
+	-- PTN
+	ST.DW		R6, (LOAD_CST_DISP23 + 0x08)[R14]	--cst_point: in=1
+
+	MOV		R0, R8				--
+	MOV		R0, R9				--
+	LD.DW		(LOAD_CST_DISP23 + 0x08)[R14], R8	--cst_point: out=1
+	XOR		R8, R10				--
+	XOR		R9, R10				--
+
+	-- Covers: CST_UM_298
+	-- Covers: CST_UM_298_01
+	--------------------------------------------------
+	--	SST.B reg2, disp7[EP]
+	--	SLD.B disp7[EP], reg2
+	--------------------------------------------------
+	-- PTN
+	SST.B		R6, 0x00[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.B		0x00[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	SST.B		R7, 0x00[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.B		0x00[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_299
+	-- Covers: CST_UM_299_01
+	--------------------------------------------------
+	--	SLD.BU disp4[EP], reg2
+	--------------------------------------------------
+	-- PTN
+	SST.B		R6, 0x0F[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.BU		0xF[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	SST.B		R7, 0x0F[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.BU		0xF[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- Covers: CST_UM_300
+	-- Covers: CST_UM_300_01
+	-- Covers: CST_UM_301
+	-- Covers: CST_UM_301_01
+	--------------------------------------------------
+	--	SST.H reg2, disp8[EP]
+	--	SLD.H disp8[EP], reg2
+	--------------------------------------------------
+	MOV		EP, R13				--
+	ADDI		-0x0080, EP, EP			--
+
+	-- PTN
+	SST.H		R6, 0x80[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.H		0x80[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	SST.H		R7, 0x80[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.H		0x80[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	MOV		R13, EP				--
+
+	--------------------------------------------------
+	--	SLD.HU disp5[EP], reg2
+	--------------------------------------------------
+	MOV		EP, R13				--
+	ADDI		-0x0010, EP, EP			--
+
+	-- PTN
+	SST.H		R6, 0x10[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.HU		0x10[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	SST.H		R7, 0x10[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.HU		0x10[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	MOV		R13, EP				--
+
+	--------------------------------------------------
+	--	SST.W reg2, disp8[EP]
+	--	SLD.W disp8[EP], reg2
+	--------------------------------------------------
+	MOV		EP, R13				--
+	ADDI		-0x00F0, EP, EP			--
+
+	-- PTN
+	SST.W		R6, 0xF0[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.W		0xF0[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	-- PTN
+	SST.W		R7, 0xF0[EP]			--cst_point: in=1
+
+	MOV		R0, R8				--
+	SLD.W		0xF0[EP], R8			--cst_point: out=1
+	XOR		R8, R10				--
+
+	MOV		R13, EP				--
+
+	--------------------------------------------------
+	--	Pop General Registers
+	--------------------------------------------------
+	DISPOSE		0x05, {EP}, [LP]		--
+
+
+-- ============================================================================
+-- =====        E n d   o f   F i l e   :   CPU_load_ope.850              =====
+-- ============================================================================

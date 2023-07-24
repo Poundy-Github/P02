@@ -1,0 +1,217 @@
+C10087     ECM1, ECM2, ECM3,  ECM11,ECM19, ECM20//0x00
+C12287     ESP1, ESP2,ABS3,ESP_FD2//0x01
+C10187     DCT3,DCT7,DCT9,DCT_FD4//0x02
+D00087     ABM1//0x03
+C24187     HC1,HCM_L1//0x04
+C24287     HCM_R1//0x05
+D10B87     PPMI1//0x06
+D02687     HCU_PT4, HCU_PT5, HCU_PT7, HCU_PT8,HCU_FD1//0x07
+D00287     PEPS2, PEPS4, BCM1,BCM3,BCM8//0x08
+C16487     AC1, AC2,AC4, AC6, AC7//0x09
+C14687     GW_FD1//0x0A
+C13187     EPS1,EPS_FD1//0x0B
+C12887     EPB1//0x0C
+C20887     DSM1//0x0D
+C19987     DDCM1//0x0E
+C20087     PDCM1//0x0F
+C24687     SCM1//0x10
+C24787     RHVSM1//0x11
+C24387     RPAS1, RPAS2,FPAS1,HAP_FD1, HAP_FD2, HAP_FD3,APS3,APS1,HAP2//0x12
+C2B387     DMS_FD1//0x13
+C19887     T_Box_FD3//0x14
+C12787     TPMS1, TPMS2//0x15
+C29387     HCU_HC3, HCU_HC6, HCU_HC7,HCU_HC16//0x16
+C11187     BMS4, BMS8,BMS35, BMS22,BMS30,BMS65//0x17
+C1BB87     OBC2//0x18
+D10887     F_PBox1//0x19
+D10987     R_PBox1//0x1a
+D00487     HAP_FD1,HAP_FD2,HAP_FD3//0x1B
+C10487     AEB_FD1, AEB_FD2,ACC_FD2,ACC_FD3, ACC_FD4//0x1c
+C14387     IFC_FD2, IFC_FD3,IFC_FD5,IFC_FD6 //0x1D
+D00987     CP1//0x1E
+C23087     PLG_1//0x1f
+C15C87     AEB_FD1,AEB_FD2,IFC_FD2, IFC_FD3,IFC_FD5, IFC_FD6,ACC_FD2,ACC_FD3, ACC_FD4//0x20
+C11587     ELD1//0x21
+D01587     STBS1//0x22
+C14187     Trailer1//0x23
+D02987     WPC1//0x24
+C11487     Haldex1//0x25
+C15887     HUD1,AR_HUD1//0x26
+C23387     RSDS_FD1//0x27
+C2B587     CR_FD1//0x28
+D10687     CSA3//0x29
+C25E87     Ibooster_FD2//0x2A
+
+______C10087     ECM1, ECM2, ECM3,  ECM11,ECM19, ECM20 @ @ @//0x00
+______C12287     ESP1, ESP2,ABS3 @ ESP_FD2 @ @//0x01
+______C10187     DCT3,DCT7@ @ @//0x02
+______D00087     ABM1@ @ @//0x03
+______C24187     HC1@HCM_L1@ @//0x04
+______C24287     HCM_R1@ @ @//0x05
+______D10B87     @ @ @//0x06
+______D02687     HCU_PT4, HCU_PT5, HCU_PT7, HCU_PT8,HCU_FD1@ @ @//0x07
+______D00287     PEPS2, PEPS4, BCM1,BCM3,BCM8@ @ @//0x08
+______C16487     AC1, AC2@ @ @//0x09
+______C14687     GW_FD1@ @ @//0x0A
+______C13187     EPS1@EPS_FD1@ @//0x0B
+______C12887     EPB1@ @ @//0x0C
+______C20887     DSM1@ @ @//0x0D
+______C19987     DDCM1@ @ @//0x0E
+______C20087     PDCM1@ @ @//0x0F
+______C24687     SCM1@@@//0x10
+______C24787     @@@//0x11
+______C24387     RPAS1,FPAS1,HAP_FD1, HAP_FD2, HAP_FD3@RPAS1,FPAS1,HAP_FD3@RPAS1,HAP_FD3@//0x12
+______C2B387     DMS_FD1@@@//0x13
+______C19887     T_Box_FD3@@@//0x14
+______C12787     TPMS1, TPMS2@@@//0x15
+______C29387     HCU_HC3, HCU_HC6, HCU_HC7@@@//0x16
+______C11187     BMS4, BMS8,BMS35 @BMS22,BMS30@@//0x17
+______C1BB87     OBC2@@@//0x18
+______D10887     F_PBox1@@@//0x19
+______D10987     R_PBox1@@@//0x1a
+______D00487     HAP_FD1,HAP_FD2,HAP_FD3@@@//0x1B
+______C10487     AEB_FD1, AEB_FD2,ACC_FD2,ACC_FD3, ACC_FD4@@@//0x1c
+______C14387     IFC_FD2, IFC_FD3,IFC_FD5,IFC_FD6 @@@//0x1D
+______D00987     CP1@@@//0x1E
+______C23087     PLG_1@@@//0x1f
+______C15C87     AEB_FD1,AEB_FD2,IFC_FD2, IFC_FD3,IFC_FD5, IFC_FD6,ACC_FD2,ACC_FD3, ACC_FD4@@@//0x20
+______C11587     ELD1@@@//0x21
+______D01587     STBS1@@@//0x22
+______C14187     Trailer1@@@//0x23
+______D02987     WPC1@@@//0x24
+______C11487     Haldex1@@@//0x25
+______C15887     HUD1@@@//0x26
+______C23387     RSDS_FD1@@@//0x27
+______C2B587     CR_FD1@@@//0x28
+______D10687     CSA3@@@//0x29
+______C25E87     Ibooster_FD2@@@//0x2A
+
+#define CanIfConf_CanIfRxPduCfg_NMRange_oB30_for_SC_CAN_V3_2_bdc4688d_Rx                            0u
+#define CanIfConf_CanIfRxPduCfg_HUT_Phy_Req_Tp_oB30_for_SC_CAN_V3_2_030a1f56_Rx                     1u
+#define CanIfConf_CanIfRxPduCfg_HUT_Phy_Req_Tp_oB30_for_SC_CAN_V3_2_20_5d31e3ec_Rx                  2u
+#define CanIfConf_CanIfRxPduCfg_DiagFuncReq_Tp_oB30_for_SC_CAN_V3_2_9e7c1619_Rx                     3u
+#define CanIfConf_CanIfRxPduCfg_DiagFuncReq_Tp_oB30_for_SC_CAN_V3_2_20_05fdfda7_Rx                  4u
+#define CanIfConf_CanIfRxPduCfg_GW_Sync_Req_Sc_oB30_for_SC_CAN_V3_2_9379f94a_Rx                     5u
+#define CanIfConf_CanIfRxPduCfg_BMS30_oB30_for_SC_CAN_V3_2_457e1fbf_Rx                              6u
+#define CanIfConf_CanIfRxPduCfg_T_Box_FD3_Sc_oB30_for_SC_CAN_V3_2_be0a3640_Rx                       7u
+#define CanIfConf_CanIfRxPduCfg_AMP3_oB30_for_SC_CAN_V3_2_e81cfa6e_Rx                               8u
+#define CanIfConf_CanIfRxPduCfg_AMP2_Sc_oB30_for_SC_CAN_V3_2_85f1b9ac_Rx                            9u
+#define CanIfConf_CanIfRxPduCfg_AMP1_oB30_for_SC_CAN_V3_2_c309c629_Rx                               10u
+#define CanIfConf_CanIfRxPduCfg_TMCU_FD3_oB30_for_SC_CAN_V3_2_481b1f14_Rx                           11u
+#define CanIfConf_CanIfRxPduCfg_HCU_HC7_oB30_for_SC_CAN_V3_2_144709d5_Rx                            12u
+#define CanIfConf_CanIfRxPduCfg_BMS22_oB30_for_SC_CAN_V3_2_21274140_Rx                              13u
+#define CanIfConf_CanIfRxPduCfg_ECM20_oB30_for_SC_CAN_V3_2_9cdc48c9_Rx                              14u
+#define CanIfConf_CanIfRxPduCfg_ECM19_oB30_for_SC_CAN_V3_2_488984df_Rx                              15u
+#define CanIfConf_CanIfRxPduCfg_AMP5_IESS1_oB30_for_SC_CAN_V3_2_6a7e89d2_Rx                         16u
+#define CanIfConf_CanIfRxPduCfg_TPMS2_Sc_oB30_for_SC_CAN_V3_2_1c8c62f0_Rx                           17u
+#define CanIfConf_CanIfRxPduCfg_AC2_oB30_for_SC_CAN_V3_2_cda990a5_Rx                                18u
+#define CanIfConf_CanIfRxPduCfg_ECM3_oB30_for_SC_CAN_V3_2_d6feaf92_Rx                               19u
+#define CanIfConf_CanIfRxPduCfg_CP1_oB30_for_SC_CAN_V3_2_c9facce9_Rx                                20u
+#define CanIfConf_CanIfRxPduCfg_BMS19_oB30_for_SC_CAN_V3_2_c1d94ff7_Rx                              21u
+#define CanIfConf_CanIfRxPduCfg_ABM1_Sc_oB30_for_SC_CAN_V3_2_acb4c490_Rx                            22u
+#define CanIfConf_CanIfRxPduCfg_BCM3_Sc_oB30_for_SC_CAN_V3_2_ae909a55_Rx                            23u
+#define CanIfConf_CanIfRxPduCfg_TPMS1_Sc_oB30_for_SC_CAN_V3_2_2ac39b2c_Rx                           24u
+#define CanIfConf_CanIfRxPduCfg_HUD1_oB30_for_SC_CAN_V3_2_d4329b1b_Rx                               25u
+#define CanIfConf_CanIfRxPduCfg_BCM1_Sc_oB30_for_SC_CAN_V3_2_816c3588_Rx                            26u
+#define CanIfConf_CanIfRxPduCfg_OBC2_oB30_for_SC_CAN_V3_2_8fe92184_Rx                               27u
+#define CanIfConf_CanIfRxPduCfg_OBC1_oB30_for_SC_CAN_V3_2_5cce00c0_Rx                               28u
+#define CanIfConf_CanIfRxPduCfg_HCU_HC6_oB30_for_SC_CAN_V3_2_ee01dd1b_Rx                            29u
+#define CanIfConf_CanIfRxPduCfg_HCM_R1_oB30_for_SC_CAN_V3_2_c6a7a6c6_Rx                             30u
+#define CanIfConf_CanIfRxPduCfg_RSDS_FD2_oB30_for_SC_CAN_V3_2_636e054f_Rx                           31u
+#define CanIfConf_CanIfRxPduCfg_HCM_L1_oB30_for_SC_CAN_V3_2_838a93c0_Rx                             32u
+#define CanIfConf_CanIfRxPduCfg_ESCL2_oB30_for_SC_CAN_V3_2_c0f28acf_Rx                              33u
+#define CanIfConf_CanIfRxPduCfg_PEPS4_oB30_for_SC_CAN_V3_2_4d06dcb3_Rx                              34u
+#define CanIfConf_CanIfRxPduCfg_PLG_1_oB30_for_SC_CAN_V3_2_9256d283_Rx                              35u
+#define CanIfConf_CanIfRxPduCfg_VMDR1_oB30_for_SC_CAN_V3_2_3fa04c0b_Rx                              36u
+#define CanIfConf_CanIfRxPduCfg_HCU_PT4_oB30_for_SC_CAN_V3_2_f04552bd_Rx                            37u
+#define CanIfConf_CanIfRxPduCfg_RPAS2_oB30_for_SC_CAN_V3_2_9ad6b778_Rx                              38u
+#define CanIfConf_CanIfRxPduCfg_VSG1_oB30_for_SC_CAN_V3_2_ef738777_Rx                               39u
+#define CanIfConf_CanIfRxPduCfg_ECM11_oB30_for_SC_CAN_V3_2_9a268e5b_Rx                              40u
+#define CanIfConf_CanIfRxPduCfg_AMP4_ANC1_oB30_for_SC_CAN_V3_2_778038f3_Rx                          41u
+#define CanIfConf_CanIfRxPduCfg_SCM1_oB30_for_SC_CAN_V3_2_a8dca609_Rx                               42u
+#define CanIfConf_CanIfRxPduCfg_IFC_FD3_oB30_for_SC_CAN_V3_2_892173f6_Rx                            43u
+#define CanIfConf_CanIfRxPduCfg_PDCM1_oB30_for_SC_CAN_V3_2_39eaea1a_Rx                              44u
+#define CanIfConf_CanIfRxPduCfg_DDCM1_oB30_for_SC_CAN_V3_2_7340df60_Rx                              45u
+#define CanIfConf_CanIfRxPduCfg_BMS35_oB30_for_SC_CAN_V3_2_dbc4f88d_Rx                              46u
+#define CanIfConf_CanIfRxPduCfg_DSM1_oB30_for_SC_CAN_V3_2_918c77ee_Rx                               47u
+#define CanIfConf_CanIfRxPduCfg_GW_FD1_oB30_for_SC_CAN_V3_2_002aed10_Rx                             48u
+#define CanIfConf_CanIfRxPduCfg_WPC1_oB30_for_SC_CAN_V3_2_08a4c96d_Rx                               49u
+#define CanIfConf_CanIfRxPduCfg_ACC_FD4_oB30_for_SC_CAN_V3_2_c85366f8_Rx                            50u
+#define CanIfConf_CanIfRxPduCfg_ACC_FD3_oB30_for_SC_CAN_V3_2_42104251_Rx                            51u
+#define CanIfConf_CanIfRxPduCfg_ACC_FD2_Sc_oB30_for_SC_CAN_V3_2_bd00e6e5_Rx                         52u
+#define CanIfConf_CanIfRxPduCfg_EEM1_oB30_for_SC_CAN_V3_2_96620764_Rx                               53u
+#define CanIfConf_CanIfRxPduCfg_BCM8_oB30_for_SC_CAN_V3_2_207df679_Rx                               54u
+#define CanIfConf_CanIfRxPduCfg_AC1_oB30_for_SC_CAN_V3_2_a5757e7b_Rx                                55u
+#define CanIfConf_CanIfRxPduCfg_HAP_FD7_oB30_for_SC_CAN_V3_2_3a38a501_Rx                            56u
+#define CanIfConf_CanIfRxPduCfg_HAP_FD3_oB30_for_SC_CAN_V3_2_65c1fabb_Rx                            57u
+#define CanIfConf_CanIfRxPduCfg_PEPS2_oB30_for_SC_CAN_V3_2_10fa9b50_Rx                              58u
+#define CanIfConf_CanIfRxPduCfg_ECM_PT6_oB30_for_SC_CAN_V3_2_0acba12c_Rx                            59u
+#define CanIfConf_CanIfRxPduCfg_BCM6_oB30_for_SC_CAN_V3_2_f11643ac_Rx                               60u
+#define CanIfConf_CanIfRxPduCfg_HAP_FD6_oB30_for_SC_CAN_V3_2_c07e71cf_Rx                            61u
+#define CanIfConf_CanIfRxPduCfg_HC1_oB30_for_SC_CAN_V3_2_f63a95a4_Rx                                62u
+#define CanIfConf_CanIfRxPduCfg_BMS8_oB30_for_SC_CAN_V3_2_b80b0dd9_Rx                               63u
+#define CanIfConf_CanIfRxPduCfg_HAP_FD2_oB30_for_SC_CAN_V3_2_9f872e75_Rx                            64u
+#define CanIfConf_CanIfRxPduCfg_Trailer1_oB30_for_SC_CAN_V3_2_8e004320_Rx                           65u
+#define CanIfConf_CanIfRxPduCfg_ECM2_oB30_for_SC_CAN_V3_2_2eccb291_Rx                               66u
+#define CanIfConf_CanIfRxPduCfg_RPAS1_oB30_for_SC_CAN_V3_2_599017a9_Rx                              67u
+#define CanIfConf_CanIfRxPduCfg_FPAS1_oB30_for_SC_CAN_V3_2_133a22d3_Rx                              68u
+#define CanIfConf_CanIfRxPduCfg_HCU_HC3_oB30_for_SC_CAN_V3_2_4bbe566f_Rx                            69u
+#define CanIfConf_CanIfRxPduCfg_ABS3_oB30_for_SC_CAN_V3_2_961138dc_Rx                               70u
+#define CanIfConf_CanIfRxPduCfg_Haldex1_oB30_for_SC_CAN_V3_2_bbae6b8e_Rx                            71u
+#define CanIfConf_CanIfRxPduCfg_DMS_FD1_oB30_for_SC_CAN_V3_2_1702aefa_Rx                            72u
+#define CanIfConf_CanIfRxPduCfg_HCU_PT7_oB30_for_SC_CAN_V3_2_25ff29ae_Rx                            73u
+#define CanIfConf_CanIfRxPduCfg_ABS2_oB30_for_SC_CAN_V3_2_6e2325df_Rx                               74u
+#define CanIfConf_CanIfRxPduCfg_ABM2_oB30_for_SC_CAN_V3_2_b111794d_Rx                               75u
+#define CanIfConf_CanIfRxPduCfg_CSA3_oB30_for_SC_CAN_V3_2_2d924efb_Rx                               76u
+#define CanIfConf_CanIfRxPduCfg_IFC_FD2_Sc_oB30_for_SC_CAN_V3_2_ccd6702c_Rx                         77u
+#define CanIfConf_CanIfRxPduCfg_BCM12_oB30_for_SC_CAN_V3_2_adc98d2d_Rx                              78u
+#define CanIfConf_CanIfRxPduCfg_DCT7_Sc_oB30_for_SC_CAN_V3_2_5c786cc5_Rx                            79u
+#define CanIfConf_CanIfRxPduCfg_ABS1_oB30_for_SC_CAN_V3_2_bd04049b_Rx                               80u
+#define CanIfConf_CanIfRxPduCfg_AEB_FD2_Sc_oB30_for_SC_CAN_V3_2_d523569e_Rx                         81u
+#define CanIfConf_CanIfRxPduCfg_IFC_FD6_oB30_for_SC_CAN_V3_2_2c9ef882_Rx                            82u
+#define CanIfConf_CanIfRxPduCfg_DCT5_oB30_for_SC_CAN_V3_2_3a3a1203_Rx                               83u
+#define CanIfConf_CanIfRxPduCfg_STBS1_oB30_for_SC_CAN_V3_2_3fe5270b_Rx                              84u
+#define CanIfConf_CanIfRxPduCfg_HCU_HP5_oB30_for_SC_CAN_V3_2_107ed299_Rx                            85u
+#define CanIfConf_CanIfRxPduCfg_BMS_FD14_oB30_for_SC_CAN_V3_2_d6fdd23c_Rx                           86u
+#define CanIfConf_CanIfRxPduCfg_HCU_HC8_oB30_for_SC_CAN_V3_2_21f69208_Rx                            87u
+#define CanIfConf_CanIfRxPduCfg_T_Box_FD4_oB30_for_SC_CAN_V3_2_f496a4b1_Rx                          88u
+#define CanIfConf_CanIfRxPduCfg_HCU_PT8_oB30_for_SC_CAN_V3_2_104eb273_Rx                            89u
+#define CanIfConf_CanIfRxPduCfg_IFC_FD5_oB30_for_SC_CAN_V3_2_f9248391_Rx                            90u
+#define CanIfConf_CanIfRxPduCfg_R_PBox1_Sc_oB30_for_SC_CAN_V3_2_79c76dd7_Rx                         91u
+#define CanIfConf_CanIfRxPduCfg_F_PBox1_oB30_for_SC_CAN_V3_2_cb257250_Rx                            92u
+#define CanIfConf_CanIfRxPduCfg_AEB_FD1_oB30_for_SC_CAN_V3_2_0e351c33_Rx                            93u
+#define CanIfConf_CanIfRxPduCfg_ESP8_oB30_for_SC_CAN_V3_2_5e47e6f6_Rx                               94u
+#define CanIfConf_CanIfRxPduCfg_RSDS_FD1_oB30_for_SC_CAN_V3_2_5521fc93_Rx                           95u
+#define CanIfConf_CanIfRxPduCfg_EPB1_oB30_for_SC_CAN_V3_2_139493e2_Rx                               96u
+#define CanIfConf_CanIfRxPduCfg_EPS1_oB30_for_SC_CAN_V3_2_a33fe139_Rx                               97u
+#define CanIfConf_CanIfRxPduCfg_CSA1_oB30_for_SC_CAN_V3_2_068772bc_Rx                               98u
+#define CanIfConf_CanIfRxPduCfg_EPS2_oB30_for_SC_CAN_V3_2_7018c07d_Rx                               99u
+#define CanIfConf_CanIfRxPduCfg_CR_FD1_oB30_for_SC_CAN_V3_2_6ad188d2_Rx                             100u
+#define CanIfConf_CanIfRxPduCfg_HAP_FD1_oB30_for_SC_CAN_V3_2_4a3d5566_Rx                            101u
+#define CanIfConf_CanIfRxPduCfg_ELD1_oB30_for_SC_CAN_V3_2_7fd898d6_Rx                               102u
+#define CanIfConf_CanIfRxPduCfg_HCU_PT5_oB30_for_SC_CAN_V3_2_0a038673_Rx                            103u
+#define CanIfConf_CanIfRxPduCfg_ESP1_Sc_oB30_for_SC_CAN_V3_2_c7573a5b_Rx                            104u
+#define CanIfConf_CanIfRxPduCfg_EPS_FD1_oB30_for_SC_CAN_V3_2_12526eab_Rx                            105u
+#define CanIfConf_CanIfRxPduCfg_ESP2_Sc_oB30_for_SC_CAN_V3_2_12ed4148_Rx                            106u
+#define CanIfConf_CanIfRxPduCfg_ECM10_oB30_for_SC_CAN_V3_2_6dcbec2b_Rx                              107u
+#define CanIfConf_CanIfRxPduCfg_ESP_FD2_oB30_for_SC_CAN_V3_2_9a8b8a42_Rx                            108u
+#define CanIfConf_CanIfRxPduCfg_Ibooster_FD2_oB30_for_SC_CAN_V3_2_5cce1132_Rx                       109u
+#define CanIfConf_CanIfRxPduCfg_HCU_HP6_oB30_for_SC_CAN_V3_2_c5c4a98a_Rx                            110u
+#define CanIfConf_CanIfRxPduCfg_ECM_PT7_oB30_for_SC_CAN_V3_2_f08d75e2_Rx                            111u
+#define CanIfConf_CanIfRxPduCfg_ECM1_oB30_for_SC_CAN_V3_2_fdeb93d5_Rx                               112u
+#define CanIfConf_CanIfRxPduCfg_IFC1_oB30_for_SC_CAN_V3_2_1b1d10af_Rx                               113u
+#define CanIfConf_CanIfRxPduCfg_ECM9_oB30_for_SC_CAN_V3_2_51bf62c9_Rx                               114u
+#define CanIfConf_CanIfRxPduCfg_BMS4_oB30_for_SC_CAN_V3_2_4275844b_Rx                               115u
+#define CanIfConf_CanIfRxPduCfg_ESP10_oB30_for_SC_CAN_V3_2_119f3682_Rx                              116u
+#define CanIfConf_CanIfRxPduCfg_ESP11_oB30_for_SC_CAN_V3_2_e67254f2_Rx                              117u
+#define CanIfConf_CanIfRxPduCfg_DHT_FD1_oB30_for_SC_CAN_V3_2_e564e605_Rx                            118u
+#define CanIfConf_CanIfRxPduCfg_DCT3_oB30_for_SC_CAN_V3_2_470556ca_Rx                               119u
+#define CanIfConf_CanIfRxPduCfg_CSA2_oB30_for_SC_CAN_V3_2_d5a053f8_Rx                               120u
+#define CanIfConf_CanIfRxPduCfg_TMCU6_oB30_for_SC_CAN_V3_2_e6ceb015_Rx                              121u
+#define CanIfConf_CanIfRxPduCfg_ECM8_oB30_for_SC_CAN_V3_2_a98d7fca_Rx                               122u
+#define CanIfConf_CanIfRxPduCfg_ECM7_oB30_for_SC_CAN_V3_2_80d4d71c_Rx                               123u
+#define CanIfConf_CanIfRxPduCfg_ECM4_oB30_for_SC_CAN_V3_2_53f3f658_Rx                               124u
+#define CanIfConf_CanIfRxPduCfg_HCU_FD1_oB30_for_SC_CAN_V3_2_4c4e73be_Rx                            125u
+#define CanIfConf_CanIfRxPduCfg_GLO_NASS1_oB30_for_SC_CAN_V3_2_cd0fc4aa_Rx                          126u
+#define CanIfConf_CanIfRxPduCfg_T_Box_FD1_Sc_oB30_for_SC_CAN_V3_2_d763f605_Rx                       127u
+

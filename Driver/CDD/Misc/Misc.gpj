@@ -1,0 +1,10 @@
+#!gbuild
+[Subproject]
+RRam.c
+CPULoadMeasure.c
+StackMeasure.c
+Misc.c
+Misc_Board.c
+Misc_IPC_Service.c
+Misc_IPC_IVIInfo.c
+Misc_Diag.c

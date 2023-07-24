@@ -1,0 +1,229 @@
+#!gbuild
+macro BUILD_DIR=${WORLSPECE_DIR}\Build
+macro DAVINCI_DIR=${WORLSPECE_DIR}\Davinci
+macro DRIVER_DIR=${WORLSPECE_DIR}\Driver
+macro OUTPUT_DIR=${%expand_path(.)}\output\${CFG_NAME}
+macro SWC_DIR=${WORLSPECE_DIR}\SWC
+macro APP_DIR=${WORLSPECE_DIR}\SWC_app
+macro SWC_APP_DIR=${WORLSPECE_DIR}\SWC_CLUSTER
+macro IPC_COMMON_DIR=${WORLSPECE_DIR}\IPC_Common
+macro WORLSPECE_DIR=${%expand_path(./..)}
+[Program]
+# Project folder path
+# BUILD_DIR folder
+	-I${BUILD_DIR}\Device
+	-I${BUILD_DIR}\Cfg
+# DAVINCI_DIR folder path
+	-I${DAVINCI_DIR}\BSW\BswM
+	-I${DAVINCI_DIR}\BSW\Can
+	-I${DAVINCI_DIR}\BSW\CanIf
+	-I${DAVINCI_DIR}\BSW\CanNm
+	-I${DAVINCI_DIR}\BSW\CanSM
+	-I${DAVINCI_DIR}\BSW\CanTp
+	-I${DAVINCI_DIR}\BSW\CanTrcv_30_Tja1040
+	-I${DAVINCI_DIR}\BSW\CanTrcv_30_Tja1043
+	-I${DAVINCI_DIR}\BSW\CanTrcv_30_Tja1145
+	-I${DAVINCI_DIR}\BSW\Com
+	-I${DAVINCI_DIR}\BSW\ComM
+	-I${DAVINCI_DIR}\BSW\Crc
+	-I${DAVINCI_DIR}\BSW\CryIf
+	-I${DAVINCI_DIR}\BSW\Crypto_30_vHsm
+	-I${DAVINCI_DIR}\BSW\Csm
+	-I${DAVINCI_DIR}\BSW\Dcm
+	-I${DAVINCI_DIR}\BSW\Dem
+	-I${DAVINCI_DIR}\BSW\Det
+	-I${DAVINCI_DIR}\BSW\E2E
+	-I${DAVINCI_DIR}\BSW\EcuM
+	-I${DAVINCI_DIR}\BSW\Fee_30_SmallSector
+	-I${DAVINCI_DIR}\BSW\FiM
+	-I${DAVINCI_DIR}\BSW\FvM
+#    -I${DAVINCI_DIR}\BSW\IoHwAb
+	-I${DAVINCI_DIR}\BSW\Lin
+	-I${DAVINCI_DIR}\BSW\LinIf
+	-I${DAVINCI_DIR}\BSW\LinNm
+	-I${DAVINCI_DIR}\BSW\LinSM
+	-I${DAVINCI_DIR}\BSW\LinTrcv_30_Tle7259
+	-I${DAVINCI_DIR}\BSW\log.txt
+	-I${DAVINCI_DIR}\BSW\Mcal_Rh850F1x
+	-I${DAVINCI_DIR}\BSW\MemIf
+	-I${DAVINCI_DIR}\BSW\Nm
+	-I${DAVINCI_DIR}\BSW\NvM
+	-I${DAVINCI_DIR}\BSW\Os
+	-I${DAVINCI_DIR}\BSW\PduR
+	-I${DAVINCI_DIR}\BSW\SecOC
+	-I${DAVINCI_DIR}\BSW\vDem42
+	-I${DAVINCI_DIR}\BSW\vLinkGen
+	-I${DAVINCI_DIR}\BSW\VStdLib
+	-I${DAVINCI_DIR}\BSW\WdgIf
+	-I${DAVINCI_DIR}\BSW\WdgM
+	-I${DAVINCI_DIR}\BSW\_Common
+    # MCAL folder path
+	-I${DAVINCI_DIR}\BSW\Mcal_Common
+	-I${DAVINCI_DIR}\BSW\adc
+	-I${DAVINCI_DIR}\BSW\dio
+	-I${DAVINCI_DIR}\BSW\fls
+	-I${DAVINCI_DIR}\BSW\gpt
+	-I${DAVINCI_DIR}\BSW\icu
+	-I${DAVINCI_DIR}\BSW\mcu
+	-I${DAVINCI_DIR}\BSW\port
+	-I${DAVINCI_DIR}\BSW\pwm
+	-I${DAVINCI_DIR}\BSW\spi
+	-I${DAVINCI_DIR}\BSW\wdg
+	-I${DAVINCI_DIR}\BSW\spi\CSIX
+	-I${DAVINCI_DIR}\BSW\spi\DMAC
+	-I${DAVINCI_DIR}\BSW\flstst
+	-I${DAVINCI_DIR}\BSW\ramtst
+	-I${DAVINCI_DIR}\BSW\cortst
+    # Appl folder path
+	-I${DAVINCI_DIR}\Gen\Appl
+	-I${DAVINCI_DIR}\Gen\Appl\GenData
+	-I${DAVINCI_DIR}\Gen\Appl\Include
+	-I${DAVINCI_DIR}\Gen\Appl\GenData\Components
+	-I${DAVINCI_DIR}\Gen\Appl\GenData\include
+    
+# DRIVER_DIR folder path
+	-I${DRIVER_DIR}\CDD\
+	-I${DRIVER_DIR}\CDD\ADAU1978
+	-I${DRIVER_DIR}\CDD\AMP
+	-I${DRIVER_DIR}\CDD\Bootloader
+	-I${DRIVER_DIR}\CDD\CDD_Test
+	-I${DRIVER_DIR}\CDD\Dma
+	-I${DRIVER_DIR}\CDD\EOL_Diag
+	-I${DRIVER_DIR}\CDD\Ext
+	-I${DRIVER_DIR}\CDD\Gyro
+	-I${DRIVER_DIR}\CDD\IIC
+	-I${DRIVER_DIR}\CDD\IOHWAB
+	-I${DRIVER_DIR}\CDD\IPC
+	-I${DRIVER_DIR}\CDD\Interrupt
+	-I${DRIVER_DIR}\CDD\LIB_FCL
+	-I${DRIVER_DIR}\CDD\LinDriver_Test
+	-I${DRIVER_DIR}\CDD\Logger
+	-I${DRIVER_DIR}\CDD\Misc
+	-I${DRIVER_DIR}\CDD\MagicNum
+	-I${DRIVER_DIR}\CDD\Port2
+	-I${DRIVER_DIR}\CDD\RTC
+	-I${DRIVER_DIR}\CDD\RingBuffer
+	-I${DRIVER_DIR}\CDD\SRV_OSAL
+	-I${DRIVER_DIR}\CDD\SRV_Wdg
+	-I${DRIVER_DIR}\CDD\SpiSlave
+	-I${DRIVER_DIR}\CDD\StateMachine
+	-I${DRIVER_DIR}\CDD\Uart
+	-I${DRIVER_DIR}\CDD\UpgradeV1.0
+	-I${DRIVER_DIR}\CDD\Version
+	-I${DRIVER_DIR}\CDD\CddHsm
+	-I${DRIVER_DIR}\CDD\SysSafety
+	-I${DRIVER_DIR}\CDD\SysSafety\CorTst
+	-I${DRIVER_DIR}\CDD\SysSafety\ECCTst
+	-I${DRIVER_DIR}\CDD\SysSafety\RamTst	
+	
+# APP folder path
+	-I${APP_DIR}\
+	-I${SWC_APP_DIR}\SWC_Coolant\src
+	-I${SWC_APP_DIR}\SWC_Fuel\src
+	-I${SWC_APP_DIR}\SWC_Fuel\src\Multiple
+	-I${SWC_APP_DIR}\SWC_Fuel\src\Single
+	-I${SWC_APP_DIR}\SWC_Speedometer\src
+	-I${SWC_APP_DIR}\SWC_TT\src
+	-I${SWC_APP_DIR}\SWC_Config\
+	-I${SWC_APP_DIR}\SWC_Tachometer\src
+	-I${SWC_APP_DIR}\SWC_TripComputer\src
+	-I${SWC_APP_DIR}\SWC_Warning\src
+	-I${SWC_APP_DIR}\SWC_IPCL\src
+	-I${SWC_APP_DIR}\SWC_IPCL\src\SWC_IPC_CanRepeater
+	-I${SWC_APP_DIR}\SWC_IPCL\src\SWC_IPC_Application
+	-I${SWC_APP_DIR}\SWC_IPCL\src\SWC_IPC_Manager
+	-I${SWC_APP_DIR}\SWC_ODO\src
+	-I${SWC_APP_DIR}\SWC_Chime\src
+	-I${SWC_APP_DIR}\SWC_DriveMode\src
+	-I${SWC_APP_DIR}\SWC_Common
+	-I${SWC_APP_DIR}\SWC_TT_Safety
+	-I${SWC_APP_DIR}\SWC_Gear\src
+	-I${SWC_APP_DIR}\SWC_TPMS\src
+	-I${SWC_APP_DIR}\SWC_MenuSetting\src
+#IPC COMMON folder path
+	-I${IPC_COMMON_DIR}\MCU
+# SWC folder path
+	-I${SWC_DIR}\Power
+	-I${SWC_DIR}\SOCManager\
+	-I${SWC_DIR}\SOC_Manage\
+
+	-I${SWC_DIR}\SWC_Manager\
+	-I${SWC_DIR}\SWC_Manager\CanServer
+	-I${SWC_DIR}\SWC_Manager\DcmServer
+	-I${SWC_DIR}\SWC_Manager\EOL
+	-I${SWC_DIR}\SWC_Manager\VConfig
+	-I${SWC_DIR}\SWC_Manager\CConfig
+	-I${SWC_DIR}\SWC_Manager\SecOcServer
+	-DBRS_COMP_GHS
+	-DBRS_PLATFORM_RH850
+	-DTIME_MEASURE_MODE=STD_OFF
+	-object_dir=$OUTPUT_DIR\obj
+	-map
+	-gsize
+	-preprocess_assembly_files
+	-e _RESET_CORE0
+	-list
+	-list_dir=$OUTPUT_DIR\list
+	:sourceDir=$BUILD_DIR\Device
+	:sourceDir=$BUILD_DIR\scripts
+	:sourceDir=$DAVINCI_DIR
+	:sourceDir=$DRIVER_DIR
+	:sourceDir=$SWC_DIR
+	:sourceDir=$SWC_APP_DIR
+	:sourceDir=$APP_DIR
+	:sourceDir=$IPC_COMMON_DIR
+	
+	-Mx
+	-bsp generic
+	-callgraph
+ # Output file path
+	{optgroup=GhsCommonOptions} -o $OUTPUT_DIR/f1km_sk_v3_ghs.out
+	:postexec='gmemfile $OUTPUT_DIR/f1km_sk_v3_ghs.out -o $OUTPUT_DIR/f1km_sk_v3_ghs.bin'
+	:postexec='gsrec  -e 0 -hex386 $OUTPUT_DIR/f1km_sk_v3_ghs.out -o $OUTPUT_DIR/f1km_sk_v3_ghs.hex'
+	:postexec='gsrec  -e 0 -noS5 $OUTPUT_DIR/f1km_sk_v3_ghs.out -o $OUTPUT_DIR/f1km_sk_v3_ghs.s'
+	--no_additional_output
+	-dwarf2
+	-D__GHS__
+	{optgroup=GhsCompilerOptions} -cpu=rh850g3kh
+	-fhard
+	-nothreshold
+	-Ogeneral
+	-g
+	-passsource
+	-sda=never
+	--preprocess_linker_directive_full
+
+	-delete
+#	-dual_debug
+	
+	--diag_error 193
+	--diag_suppress 1514,177
+
+	-no_callt
+#    -ignore_callt_state_in_interrupts
+	-inline_prologue
+#    -large_sda
+	--no_commons
+#    -nofloatio
+#    -prepare_dispose
+	--prototype_errors
+#    -reserve_r2
+	--short_enum
+#    -shorten_loads
+#    -shorten_moves
+#    -Wshadow
+#    -Wundef
+#	-fsoft
+	-fsingle
+	-DWDG_59_DRIVERA_E_DISABLE_REJECTED_REPORTING=STD_OFF
+	-DWDG_59_DRIVERA_E_MODE_FAILED_REPORTING=STD_OFF
+
+	--misra_adv=warn
+Device.gpj
+Davinci.gpj
+Drivers.gpj
+SWC.gpj
+SWC_CLUSTER.gpj
+IPC.gpj
+$OUTPUT_DIR\f1km_sk_v3_ghs.map
+Device\HUT_V3_5.ld

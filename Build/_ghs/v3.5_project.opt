@@ -1,0 +1,13 @@
+
+    :optionsFile=..\Davinci\Davinci_Inc.opt
+    :optionsFile=..\Driver\Drivers_Inc.opt
+    :optionsFile=..\IPC_Common\IPC_INC.opt
+    :optionsFile=..\SWC\SWC_Inc.opt
+    :optionsFile=..\SWC_app\SWC_CLUSTER_INC.opt
+    :optionsFile=..\SWC_CLUSTER\SWC_CLUSTER_INC.opt
+
+    :optionsFile=_ghs\v3.5_macro.opt
+    :optionsFile=_ghs\v3.5_global.opt
+
+    -I${BUILD_DIR}\Cfg
+    -I${BUILD_DIR}\Device

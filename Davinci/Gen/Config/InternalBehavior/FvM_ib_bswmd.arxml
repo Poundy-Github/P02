@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ff55d029-386d-43a2-b3c2-dfef4c7a5e36">
+      <SHORT-NAME>MICROSAR</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="c4fedc1c-5b79-4ab3-b602-6648b0bca0ca">
+          <SHORT-NAME>FvM_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="b79bcad8-91b8-4f75-bfef-28cc0e7a54c9">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="ef7f383c-837f-4f2b-900a-39d686197714">
+                  <SHORT-NAME>FvM</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/FvM_ib_bswmd/BswModuleDescriptions/FvM_MainFunction</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="4a0e19de-2584-444d-b98a-0966ca9246f4">
+                      <SHORT-NAME>FvMBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="4c03bc18-35ae-4466-b013-62b2829fdbff">
+                          <SHORT-NAME>FVM_EXCLUSIVE_AREA_RX_FRESHNESS</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="af31bd0c-8584-4337-b56c-dc2145964a62">
+                          <SHORT-NAME>FVM_EXCLUSIVE_AREA_TX_FRESHNESS</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="9e048b8f-b3b8-405f-a2ca-ec0fc7b83c8d">
+                          <SHORT-NAME>FVM_EXCLUSIVE_AREA_SYNC_STATE</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="84adc01f-78c5-4b9f-bbd8-d563f7d314c5">
+                          <SHORT-NAME>FVM_EXCLUSIVE_AREA_BOTH_FRESHNESS</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="2d0c76e6-fd12-4609-9019-5e9b26367ebd">
+                          <SHORT-NAME>FvM_MainFunction</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/MICROSAR/FvM_ib_bswmd/BswModuleDescriptions/FvM_MainFunction</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="c46b1870-1e78-4e31-b982-d13a64ac4214">
+                          <SHORT-NAME>FvM_MainFunctionTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/MICROSAR/FvM_ib_bswmd/BswModuleDescriptions/FvM/FvMBehavior/FvM_MainFunction</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.1</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="8e073831-a3af-4f04-84b9-558d4ae4a34b">
+                  <SHORT-NAME>FvM_MainFunction</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

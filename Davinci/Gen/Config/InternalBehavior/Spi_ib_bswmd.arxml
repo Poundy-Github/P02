@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="9d33884e-a6c5-4067-8d03-ec426da67fb3">
+      <SHORT-NAME>Renesas</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="8ab4272a-cdb9-4961-8d8f-3cb327c6a8ff">
+          <SHORT-NAME>Spi_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="47b5582c-8da4-4c00-ae97-50eeb1495d8d">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="402a3b69-165f-40ec-a0f2-cfd00aa244c9">
+                  <SHORT-NAME>Spi</SHORT-NAME>
+                  <PROVIDED-ENTRYS>
+                    <BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                      <BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/Spi_ib_bswmd/BswModuleDescriptions/Spi_MainFunction_Handling</BSW-MODULE-ENTRY-REF>
+                    </BSW-MODULE-ENTRY-REF-CONDITIONAL>
+                  </PROVIDED-ENTRYS>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="32f7faf9-3366-4c5e-93fa-34a727a816e4">
+                      <SHORT-NAME>SpiBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="689433b2-a70e-42f4-9cce-9f7bd3b04e0f">
+                          <SHORT-NAME>SPI_RAM_DATA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="177f53b8-aa2d-445c-865e-0e5a40de1bb6">
+                          <SHORT-NAME>SPI_CHIP_SELECT_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="f430e713-0642-4066-b805-12812af9713b">
+                          <SHORT-NAME>SPI_REG_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="58b5f5e4-bccf-483a-8f7b-4c290c11d3ee">
+                          <SHORT-NAME>SPI_DMA_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="ed03d6d8-defb-4d48-8d9e-74dfa49f19d5">
+                          <SHORT-NAME>SPI_INTERRUPT_CONTROL_PROTECTION</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                      <ENTITYS>
+                        <BSW-SCHEDULABLE-ENTITY UUID="fb7b39e8-ba23-4642-a380-467ee37f6432">
+                          <SHORT-NAME>Spi_MainFunction_Handling</SHORT-NAME>
+                          <IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/Renesas/Spi_ib_bswmd/BswModuleDescriptions/Spi_MainFunction_Handling</IMPLEMENTED-ENTRY-REF>
+                        </BSW-SCHEDULABLE-ENTITY>
+                      </ENTITYS>
+                      <EVENTS>
+                        <BSW-TIMING-EVENT UUID="9c7538d4-3f0f-4e64-a1eb-33042b99371d">
+                          <SHORT-NAME>Spi_MainFunction_HandlingTimingEvent0</SHORT-NAME>
+                          <STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/Renesas/Spi_ib_bswmd/BswModuleDescriptions/Spi/SpiBehavior/Spi_MainFunction_Handling</STARTS-ON-EVENT-REF>
+                          <PERIOD>0.005</PERIOD>
+                        </BSW-TIMING-EVENT>
+                      </EVENTS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+                <BSW-MODULE-ENTRY UUID="9fc1003d-55e2-42ca-8207-fab6d1eb0f0b">
+                  <SHORT-NAME>Spi_MainFunction_Handling</SHORT-NAME>
+                  <CALL-TYPE>SCHEDULED</CALL-TYPE>
+                  <EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
+                </BSW-MODULE-ENTRY>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
